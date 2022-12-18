@@ -113,6 +113,7 @@ class Data extends Component
             $this->mandarin = $data->mandarin;
             $this->jenis_kelamin = $data->jenis_kelamin;
             $this->umur = $data->umur;
+            $this->umur_sekarang = $data->umur_sekarang;
             $this->alamat = $data->alamat;
             $this->kota = $data->kota;
             $this->telp = $data->telp;

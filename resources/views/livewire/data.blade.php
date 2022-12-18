@@ -8,8 +8,7 @@
             <div class="col-md-12">
                 <div class="card rounded">
                     <div class="card-header  bg-blue ">
-                        <h4 class="text-center">Data Umat Vihara Pelita Hati
-                            {{ tgl() }}</h4>
+                        <h4 class="text-center">Data Umat Vihara Pelita Hati</h4>
                     </div>
                     <div class="d-flex">
                         <div class="col-md-2 mt-3">
@@ -91,13 +90,13 @@
                                     <th>PANDITA</th>
                                     <th>
                                         {{-- Add Data --}}
-                                        <button type="button" class="btn btn-sm bg-blue" data-toggle="modal"
+                                        <button type="button" class="btn  btn-primary" data-toggle="modal"
                                             data-target="#AddModal" wire:click="clearSession">
                                             <i class="fa-solid fa-user-plus"></i>
                                         </button>
 
                                         {{-- Reset --}}
-                                        <button type="button" class="btn btn-sm bg-blue" wire:click="resetFilter">
+                                        <button type="button" class="btn  btn-success" wire:click="resetFilter">
                                             <i class="fa fa-arrow-rotate-right"></i>
                                         </button>
 
@@ -123,7 +122,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <button class="btn-success btn btn-sm" data-toggle="modal"
-                                                    data-target="#ViewModal">
+                                                    data-target="#ViewModal" wire:click="edit({{ $data->id }})">
                                                     <i class="fa fa-eye "></i>
                                                 </button>
                                                 <button class="btn-warning btn btn-sm" data-toggle="modal"

@@ -4,181 +4,78 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Data Umat</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Detail Data Umat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body ">
 
+                <table class="table">
+                    <tr>
+                        <td>Branch</td>
+                        <td>{{ $branch_id }}</td>
+                    </tr>
 
-                {{-- Branch --}}
-                <div class="form-group ">
-                    <label for="branch">Branch</label>
-                    <select id="branch" class="form-control" wire:model="branch_id">
-                        @foreach ($branch as $b)
-                            <option value={{ $b->id }}>{{ $b->kode_branch }}</option>
-                        @endforeach
-                    </select>
-                    @error('branch_id')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
+                    <tr>
+                        <td>Nama</td>
+                        <td>{{ $nama }}</td>
+                    </tr>
+                    <tr>
+                        <td>中文名</td>
+                        <td>{{ $mandarin }}</td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>{{ check_JK($jenis_kelamin, $umur_sekarang) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Umur</td>
+                        <td>{{ $umur_sekarang }}</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>{{ $alamat }}</td>
+                    </tr>
+                    <tr>
+                        <td>Kota</td>
+                        <td>{{ $kota }}</td>
+                    </tr>
+                    <tr>
+                        <td>Telepon</td>
+                        <td>{{ $telp }}</td>
+                    </tr>
+                    <tr>
+                        <td>Handphone</td>
+                        <td>{{ $hp }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ $email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Pengajak</td>
+                        <td>{{ $pengajak }}</td>
+                    </tr>
+                    <tr>
+                        <td>Penjamin</td>
+                        <td>{{ $penjamin }}</td>
+                    </tr>
+                    <tr>
+                        <td>Pandita</td>
+                        <td>{{ $pandita }}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Mohon Tao</td>
+                        <td>{{ $tgl_mohonTao }}</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>{{ $status }}</td>
+                    </tr>
+                </table>
 
-                {{-- Nama --}}
-                <div class="form-group">
-                    <label for="name">Nama Lengkap</label>
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama"
-                        placeholder="Nama Lengkap" wire:model="nama">
-                    @error('nama')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
 
-                {{-- Mandarin --}}
-                <div class="form-group">
-                    <label for="mandarin">中文名</label>
-                    <input type="text" class="form-control @error('mandarin') is-invalid @enderror" id="mandarin"
-                        placeholder="name@example.com" wire:model="mandarin">
-                    @error('mandarin')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Umur --}}
-                <div class="form-group">
-                    <label for="umur">Umur Sekarang</label>
-                    <input type="text" class="form-control @error('umur') is-invalid @enderror" id="umur"
-                        placeholder="name@example.com" wire:model="umur">
-                    @error('umur')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Alamat --}}
-                <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat"
-                        placeholder="name@example.com" wire:model="alamat">
-                    @error('alamat')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Kota --}}
-                <div class="form-group">
-                    <label for="kota">Kota</label>
-                    <input type="text" class="form-control @error('kota') is-invalid @enderror" id="kota"
-                        placeholder="name@example.com" wire:model="kota">
-                    @error('kota')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- telp --}}
-                <div class="form-group">
-                    <label for="telp">Telepon</label>
-                    <input type="text" class="form-control @error('telp') is-invalid @enderror" id="telp"
-                        placeholder="name@example.com" wire:model="telp">
-                    @error('telp')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- HP --}}
-                <div class="form-group">
-                    <label for="hp">Handphone</label>
-                    <input type="text" class="form-control @error('hp') is-invalid @enderror" id="hp"
-                        placeholder="name@example.com" wire:model="hp">
-                    @error('hp')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Email --}}
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control @error('email') is-invalid @enderror" id="email"
-                        placeholder="name@example.com" wire:model="email">
-                    @error('email')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Jenis Kelamin --}}
-                <div class="form-group">
-                    <label for="jenis_kelamin">Jenis Kelamin</label>
-                    <div class="form-check d-flex">
-
-                        <div class="col-md-2">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="jenis_kelamin"
-                                wire:model="jenis_kelamin" value="1" checked>
-                            <label class="form-check-label mr-7" for="jenis_kelamin">
-                                Laki-laki
-                            </label>
-                        </div>
-
-                        <div class="col-md-2">
-                            <input class="form-check-input" type="radio" name="exampleRadios"
-                                wire:model="jenis_kelamin" id="jenis_kelamin" value="2" checked>
-                            <label class="form-check-label" for="jenis_kelamin">
-                                Perempuan
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- tgl_mohonTao --}}
-                <div class="form-group">
-                    <label for="tgl_mohonTao">Tanggal mohon Tao</label>
-                    <input type="date" class="form-control @error('tgl_mohonTao') is-invalid @enderror"
-                        id="tgl_mohonTao" placeholder="name@example.com" wire:model="tgl_mohonTao">
-                    @error('tgl_mohonTao')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Pengajak --}}
-                <div class="form-group">
-                    <label for="pengajak">Pengajak</label>
-                    <input type="text" class="form-control @error('pengajak') is-invalid @enderror" id="pengajak"
-                        placeholder="name@example.com" wire:model="pengajak">
-                    @error('pengajak')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Penjamin --}}
-                <div class="form-group">
-                    <label for="penjamin">Penjamin</label>
-                    <input type="text" class="form-control @error('penjamin') is-invalid @enderror"
-                        id="penjamin" placeholder="name@example.com" wire:model="penjamin">
-                    @error('penjamin')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Pandita --}}
-                <div class="form-group">
-                    <label for="pandita">Pandita</label>
-                    <input type="text" class="form-control @error('pandita') is-invalid @enderror" id="pandita"
-                        placeholder="name@example.com" wire:model="pandita">
-                    @error('pandita')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                {{-- Status
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select id="status" class="form-control" wire:model="status">
-                            <option value="Active">Active</option>
-                            <option value="Inactive">Inactive</option>
-                        </select>
-                        @error('status')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div> --}}
 
 
                 {{-- button submit --}}
