@@ -196,10 +196,11 @@ class Data extends Component
 
     public function render()
     {
+        $alldatapelita =DataPelita::orderBy('nama', 'asc')->get();
         $branch = Branch::all();
         $datapelita = DataPelita::orderBy($this->columnName, $this->direction)
         ->where('nama','like','%'.$this->search.'%')
         ->paginate($this->perpage); 
-        return view('livewire.data', compact(['datapelita', 'branch']));
+        return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita']));
     }
 }

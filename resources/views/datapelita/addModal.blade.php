@@ -143,20 +143,27 @@
                     </div>
 
                     {{-- Pengajak --}}
-                    <div class="form-group">
-                        <label for="pengajak">Pengajak</label>
-                        <input type="text" class="form-control @error('pengajak') is-invalid @enderror"
-                            id="pengajak" wire:model="pengajak">
+
+                    <div class="form-group ">
+                        <label for="branch">Pengajak</label>
+                        <select id="branch" class="form-control" wire:model="branch_id">
+                            @foreach ($alldatapelita as $pengajak)
+                                <option value={{ $pengajak->id }}>{{ $pengajak->nama }}</option>
+                            @endforeach
+                        </select>
                         @error('pengajak')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
 
                     {{-- Penjamin --}}
-                    <div class="form-group">
-                        <label for="penjamin">Penjamin</label>
-                        <input type="text" class="form-control @error('penjamin') is-invalid @enderror"
-                            id="penjamin" wire:model="penjamin">
+                    <div class="form-group ">
+                        <label for="branch">Penjamin</label>
+                        <select id="branch" class="form-control" wire:model="branch_id">
+                            @foreach ($alldatapelita as $penjamin)
+                                <option value={{ $penjamin->id }}>{{ $penjamin->nama }}</option>
+                            @endforeach
+                        </select>
                         @error('penjamin')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
