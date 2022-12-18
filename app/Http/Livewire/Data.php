@@ -11,8 +11,7 @@ use Livewire\WithPagination;
 class Data extends Component
 {
     public $perpage = 5;
-    public $columnName = 'id';
-    public $direction = 'desc';
+    public $columnName = 'id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -24,6 +23,18 @@ class Data extends Component
     public $current_id, $delete_id;
 
     public function updatingSearch () {
+        $this->resetPage();
+    }
+    public function resetFilter () {
+        $this->perpage = 5;
+        $this->search = '';
+        $this->columnName = 'id';
+        $this->direction = 'desc';
+        $this->startUmur = NULL; 
+        $this->endUmur = NULL; 
+        $this->startDate = NULL; 
+        $this->endDate = NULL;
+        $this->jen_kel = NULL;
         $this->resetPage();
     }
 
@@ -46,6 +57,7 @@ class Data extends Component
             'tgl_mohonTao' => ['required','date','before:tomorrow'],
             'status' => ['nullable'],
             'branch_id' => ['required']
+
         ];
 
     }
@@ -200,6 +212,18 @@ class Data extends Component
         $branch = Branch::all();
         $datapelita = DataPelita::orderBy($this->columnName, $this->direction)
         ->where('nama','like','%'.$this->search.'%')
+        ->when($this->startUmur, function($query){
+            $query->where('umur_sekarang', '>=', $this->startUmur );
+        })
+        ->when($this->endUmur, function($query){
+            $query->where('umur_sekarang', '<=', $this->endUmur );
+        })
+        ->when($this->startDate, function($query){
+            $query->where('tgl_mohonTao', '>=', $this->startDate );
+        })
+        ->when($this->jen_kel, function($query){
+            $query->where('jenis_kelamin',  $this->jen_kel );
+        })
         ->paginate($this->perpage); 
         return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita']));
     }

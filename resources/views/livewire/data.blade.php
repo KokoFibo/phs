@@ -8,21 +8,70 @@
             <div class="col-md-12">
                 <div class="card rounded">
                     <div class="card-header  bg-blue ">
-                        <h4 class="text-center">Data Umat Vihara Pelita Hati</h4>
+                        <h4 class="text-center">Data Umat Vihara Pelita Hati
+                            {{ tgl() }}</h4>
                     </div>
                     <div class="d-flex">
-                        <div class="col-md-4 mt-3">
+                        <div class="col-md-2 mt-3">
+                            <Label>Search</Label>
                             <input type="text" class="form-control" wire:model="search" placeholder="Search...">
                         </div>
-                        <div class="col-md-4 mt-3">
-                            <label for="name">Perpage: </label>
-                            <select wire:model="perpage" class="form-select form-select-sm ms-2"
-                                aria-label=".form-select-sm example">
+                        <div class="col-md-1 mt-3">
+                            <label for="name">Per Page: </label>
+                            <select wire:model="perpage" class="form-control">
                                 <option value="5">5</option>
                                 <option value="10">10</option>
                                 <option value="15">15</option>
                             </select>
                         </div>
+
+                        <div class="col-md-1 mt-3">
+                            <label for="name">Kategori </label>
+                            <select wire:model="columnName" class="form-control">
+                                <option value="nama">Nama</option>
+                                <option value="mandarin">中文名</option>
+                                <option value="tgl_mohonTao">Tgl Chiu Tao</option>
+                                <option value="umur_sekarang">Umur</option>
+                                <option value="pengajak">Pengajak</option>
+                                <option value="penjamin">Penjamin</option>
+                                <option value="pandita">Pandita</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label for="name">Tgl Chiu Tao: </label>
+                            <input type="date" class="form-control" wire:model="startDate">
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label for="name">-</label>
+                            <input type="date" class="form-control" wire:model="endDate">
+                        </div>
+                        <div class="col-md-1 mt-3">
+                            <label for="name">Umur</label>
+                            <input type="text" class="form-control" wire:model="startUmur">
+                        </div>
+
+                        <div class="col-md-1 mt-3">
+                            <label for="name">-</label>
+                            <input type="text" class="form-control" wire:model="endUmur">
+                        </div>
+
+                        <div class="col-md-1 mt-3">
+                            <label for="name">Jenis Kelamin </label>
+                            <select wire:model="jen_kel" class="form-control">
+                                <option value="0">Semua</option>
+                                <option value="1">Laki-laki</option>
+                                <option value="2">Perempuan</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-1 mt-3">
+                            <label for="name">Sort Direction</label>
+                            <select wire:model="direction" class="form-control">
+                                <option value="asc">Ascending</option>
+                                <option value="desc">Descending</option>
+                            </select>
+                        </div>
+
                     </div>
                     <div class="card-body">
                         @if (session()->has('message'))
@@ -40,10 +89,20 @@
                                     <th>PENGAJAK</th>
                                     <th>PENJAMIN</th>
                                     <th>PANDITA</th>
-                                    <th><button type="button" class="btn btn-sm bg-blue" data-toggle="modal"
+                                    <th>
+                                        {{-- Add Data --}}
+                                        <button type="button" class="btn btn-sm bg-blue" data-toggle="modal"
                                             data-target="#AddModal" wire:click="clearSession">
-                                            Add Data
-                                        </button></th>
+                                            <i class="fa-solid fa-user-plus"></i>
+                                        </button>
+
+                                        {{-- Reset --}}
+                                        <button type="button" class="btn btn-sm bg-blue" wire:click="resetFilter">
+                                            <i class="fa fa-arrow-rotate-right"></i>
+                                        </button>
+
+
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,7 +114,9 @@
                                         <td>{{ $data->mandarin }}</td>
                                         <td>{{ $data->umur_sekarang }}</td>
                                         <td>{{ $data->tgl_mohonTao }}</td>
-                                        <td>{{ $data->jenis_kelamin }}</td>
+                                        {{-- <td>{{ $data->jenis_kelamin }}</td> --}}
+                                        <td>{{ check_JK($data->jenis_kelamin, $data->umur_sekarang) }}
+                                        </td>
                                         <td>{{ $data->pengajak }}</td>
                                         <td>{{ $data->penjamin }}</td>
                                         <td>{{ $data->pandita }}</td>
@@ -102,6 +163,5 @@
             });
         </script>
     @endpush
-
 
 </div>
