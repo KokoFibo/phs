@@ -10,7 +10,7 @@ use Livewire\WithPagination;
 
 class Data extends Component
 {
-    public $perpage = 5;
+    public $perpage = 10;
     public $columnName = 'id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;
@@ -26,7 +26,7 @@ class Data extends Component
         $this->resetPage();
     }
     public function resetFilter () {
-        $this->perpage = 5;
+        $this->perpage = 10;
         $this->search = '';
         $this->columnName = 'id';
         $this->direction = 'desc';
@@ -213,6 +213,10 @@ class Data extends Component
         $branch = Branch::all();
         $datapelita = DataPelita::orderBy($this->columnName, $this->direction)
         ->where('nama','like','%'.$this->search.'%')
+        ->orWhere('mandarin','like','%'.$this->search.'%')
+        ->orWhere('pengajak','like','%'.$this->search.'%')
+        ->orWhere('penjamin','like','%'.$this->search.'%')
+        ->orWhere('pandita','like','%'.$this->search.'%')
         ->when($this->startUmur, function($query){
             $query->where('umur_sekarang', '>=', $this->startUmur );
         })

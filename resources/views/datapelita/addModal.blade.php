@@ -146,9 +146,11 @@
 
                     <div class="form-group ">
                         <label for="branch">Pengajak</label>
-                        <select id="branch" class="form-control" wire:model="branch_id">
+                        <select id="branch" class="form-control" wire:model="pengajak">
+
                             @foreach ($alldatapelita as $pengajak)
-                                <option value={{ $pengajak->id }}>{{ $pengajak->nama }}</option>
+                                <option value="{{ $pengajak->nama }}">{{ $pengajak->nama }} ==>
+                                    {{ $pengajak->mandarin }}</option>
                             @endforeach
                         </select>
                         @error('pengajak')
@@ -159,15 +161,17 @@
                     {{-- Penjamin --}}
                     <div class="form-group ">
                         <label for="branch">Penjamin</label>
-                        <select id="branch" class="form-control" wire:model="branch_id">
+                        <select id="branch" class="form-control" wire:model="penjamin">
                             @foreach ($alldatapelita as $penjamin)
-                                <option value={{ $penjamin->id }}>{{ $penjamin->nama }}</option>
+                                <option value="{{ $penjamin->nama }}">{{ $penjamin->nama }} ==>
+                                    {{ $pengajak->mandarin }}</option>
                             @endforeach
                         </select>
                         @error('penjamin')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
+
 
                     {{-- Pandita --}}
                     <div class="form-group">
