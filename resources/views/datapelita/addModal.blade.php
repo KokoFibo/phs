@@ -148,6 +148,7 @@
                         <label for="branch">Pengajak</label>
                         <select id="branch" class="form-control" wire:model="pengajak">
 
+                            <option value="" selected>Masukkan Nama pengajak</option>
                             @foreach ($alldatapelita as $pengajak)
                                 <option value="{{ $pengajak->nama }}">{{ $pengajak->nama }} ==>
                                     {{ $pengajak->mandarin }}</option>
@@ -162,6 +163,8 @@
                     <div class="form-group ">
                         <label for="branch">Penjamin</label>
                         <select id="branch" class="form-control" wire:model="penjamin">
+                            <option value="" selected>Masukkan Nama Penjamin</option>
+
                             @foreach ($alldatapelita as $penjamin)
                                 <option value="{{ $penjamin->nama }}">{{ $penjamin->nama }} ==>
                                     {{ $pengajak->mandarin }}</option>

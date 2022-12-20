@@ -3,6 +3,8 @@
     @include('datapelita.viewModal')
     @include('datapelita.editModal')
     @include('datapelita.deleteModal')
+    @include('layouts.navbar')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -76,7 +78,7 @@
                         @if (session()->has('message'))
                             <div class="alert alert-success">{{ session('message') }}</div>
                         @endif
-                        <table class="table table-bordered">
+                        <table class="table table-bordered ">
                             <thead class="bg-purple">
                                 <tr>
                                     <th>#</th>
@@ -88,7 +90,7 @@
                                     <th>PENGAJAK</th>
                                     <th>PENJAMIN</th>
                                     <th>PANDITA</th>
-                                    <th>
+                                    <th class="text-center">
                                         {{-- Add Data --}}
                                         <button type="button" class="btn  btn-primary" data-toggle="modal"
                                             data-target="#AddModal" wire:click="clearSession">
@@ -111,7 +113,7 @@
                                         {{-- <td>{{ $data->id }}</td> --}}
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ $data->mandarin }}</td>
-                                        <td>{{ $data->umur_sekarang }}</td>
+                                        <td class="text-center">{{ $data->umur_sekarang }}</td>
                                         <td>{{ $data->tgl_mohonTao }}</td>
                                         {{-- <td>{{ $data->jenis_kelamin }}</td> --}}
                                         <td>{{ check_JK($data->jenis_kelamin, $data->umur_sekarang) }}
@@ -119,7 +121,7 @@
                                         <td>{{ $data->pengajak }}</td>
                                         <td>{{ $data->penjamin }}</td>
                                         <td>{{ $data->pandita }}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <div class="btn-group">
                                                 <button class="btn-success btn btn-sm" data-toggle="modal"
                                                     data-target="#ViewModal" wire:click="edit({{ $data->id }})">
