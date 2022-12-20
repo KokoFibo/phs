@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Kota;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,7 @@ Route::get('/welcome', function () {
 Route::get('/', function () {
     return view('main');
 });
+Route::get('/kota', function () {
+    return view('Menu-Kota');
+});
+
