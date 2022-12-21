@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    @livewire('kota')
+    @livewire('kotawire')
 @endsection

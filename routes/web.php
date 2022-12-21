@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Namakota;
+use App\Models\Propinsi;
 use App\Http\Livewire\Kota;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +26,7 @@ Route::get('/kota', function () {
     return view('Menu-Kota');
 });
 
+Route::get('propinsi', function() {
+    $propinsi = Namakota::all();
+    return view ('propinsi', compact('propinsi'));
+});
