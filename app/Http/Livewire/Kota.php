@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Regency;
 use Livewire\Component;
 use App\Models\Province;
-
+ 
 class Kota extends Component
 {
      public $province, $regency;
