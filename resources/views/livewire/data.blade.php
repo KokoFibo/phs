@@ -31,7 +31,6 @@
                             <option value="umur_sekarang">Umur</option>
                             <option value="pengajak">Pengajak</option>
                             <option value="penjamin">Penjamin</option>
-                            <option value="pandita">Pandita</option>
                         </select>
                     </div>
                     <div class="col-md-2 mt-3">
