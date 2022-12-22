@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Carbon\Carbon;
 use App\Models\Branch;
+use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
 use Livewire\WithPagination;
@@ -19,8 +20,9 @@ class Data extends Component
     public $branch_id = '2';
     public $nama, $mandarin, $jenis_kelamin, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
-    public $pengajak, $penjamin, $pandita, $tgl_mohonTao, $status;
+    public $pengajak, $penjamin, $pandita_id, $tgl_mohonTao, $status;
     public $current_id, $delete_id;
+    public $namaPandita;
 
     public function updatingSearch () {
         $this->resetPage();
@@ -53,7 +55,7 @@ class Data extends Component
             'email' => ['nullable', 'email'],
             'pengajak' => ['required'],
             'penjamin' => ['required'],
-            'pandita' => ['required'],
+            'pandita_id' => ['required'],
             'tgl_mohonTao' => ['required','date','before:tomorrow'],
             'status' => ['nullable'],
             'branch_id' => ['required']
@@ -89,7 +91,7 @@ class Data extends Component
         $data_umat->email = $this->email;
         $data_umat->pengajak = $this->pengajak;
         $data_umat->penjamin = $this->penjamin;
-        $data_umat->pandita = $this->pandita;
+        $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = 'Active';
 
@@ -121,7 +123,9 @@ class Data extends Component
             $this->email = $data->email;
             $this->pengajak = $data->pengajak;
             $this->penjamin = $data->penjamin;
-            $this->pandita = $data->pandita;
+            $this->pandita_id = $data->pandita_id;
+            $this->namaPandita = $data->pandita->nama;
+
             $this->tgl_mohonTao = $data->tgl_mohonTao;
             $this->status = $data->status;
         }
@@ -148,7 +152,7 @@ class Data extends Component
         $data_umat->email = $this->email;
         $data_umat->pengajak = $this->pengajak;
         $data_umat->penjamin = $this->penjamin;
-        $data_umat->pandita = $this->pandita;
+        $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = $this->status;
 
@@ -161,7 +165,7 @@ class Data extends Component
         // hiding the Modal after run Add Data 
         $this->dispatchBrowserEvent('close-modal');
         
-    }
+    } 
 
         public function deleteConfirmation ($id) {
             $data = DataPelita::find($id);
@@ -195,7 +199,7 @@ class Data extends Component
         $this->email='';
         $this->pengajak='';
         $this->penjamin='';
-        $this->pandita='';
+        $this->pandita_id='';
         $this->tgl_mohonTao=NULL;
     }
 
@@ -210,13 +214,13 @@ class Data extends Component
     public function render()
     {
         $alldatapelita =DataPelita::orderBy('nama', 'asc')->get();
+        $dataPandita = Pandita::all();
         $branch = Branch::all();
         $datapelita = DataPelita::orderBy($this->columnName, $this->direction)
         ->where('nama','like','%'.$this->search.'%')
         ->orWhere('mandarin','like','%'.$this->search.'%')
         ->orWhere('pengajak','like','%'.$this->search.'%')
         ->orWhere('penjamin','like','%'.$this->search.'%')
-        ->orWhere('pandita','like','%'.$this->search.'%')
         ->when($this->startUmur, function($query){
             $query->where('umur_sekarang', '>=', $this->startUmur );
         })
@@ -228,8 +232,8 @@ class Data extends Component
         })
         ->when($this->jen_kel, function($query){
             $query->where('jenis_kelamin',  $this->jen_kel );
-        })
+        }) 
         ->paginate($this->perpage); 
-        return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita']));
+        return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita']));
     }
 }

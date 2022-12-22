@@ -119,7 +119,7 @@
                                         </td>
                                         <td>{{ $data->pengajak }}</td>
                                         <td>{{ $data->penjamin }}</td>
-                                        <td>{{ $data->pandita }}</td>
+                                        <td>{{ $data->pandita->nama }}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <button class="btn-success btn btn-sm" data-toggle="modal"

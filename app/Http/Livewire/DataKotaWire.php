@@ -2,16 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\City;
 use App\Models\Kota;
 use Livewire\Component;
-use App\Models\Namakota;
-use App\Models\Propinsi;
+use App\Models\Province;
 use Livewire\WithPagination;
 
-// use Livewire\Component;
 
-class KotaWire extends Component
-{ 
+class DataKotaWire extends Component
+{
     public $propinsi, $namakota;
     public $selectedPropinsi = NULL;
     public $selectedNamaKota = NULL;
@@ -20,7 +19,7 @@ class KotaWire extends Component
     protected $paginationTheme = 'bootstrap';
 
     public function mount  () {
-        $this->propinsi = Propinsi::all();
+        $this->propinsi = Province::all();
         $this->namakota = collect();
         
     }
@@ -37,15 +36,15 @@ class KotaWire extends Component
     // }
 
     public function updatedSelectedPropinsi ($propinsi) {
-        $this->namakota = Namakota::where('propinsi_id', $propinsi)->get();
+        $this->namakota = City::where('province_id', $propinsi)->get();
         $this->selectedNamaKota = NULL;
     }
 
-    protected $rules = [
+    protected $rules = [ 
              'nama' => 'unique:kotas,nama',
-
+            //  'nama' => Rule::unique(Kota::class),
     ];
-
+ 
     public function store () {
         // $validatedData = $this->validate();
          $this->validate();
@@ -60,13 +59,10 @@ class KotaWire extends Component
         $data->delete();
 
     }
-
-
+    
     public function render()
-    {
-        // $this->selectedPropinsi = NULL;
-        // $this->selectedNamaKota = NULL;
+    { 
         $kota = Kota::orderBy('nama', 'asc')->paginate(10);
-        return view('livewire.kotawire', compact('kota'));
+        return view('livewire.data-kota-wire', compact('kota'));
     }
 }

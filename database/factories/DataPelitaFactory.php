@@ -30,7 +30,7 @@ class DataPelitaFactory extends Factory
             'tgl_mohonTao' => fake()->dateTimeThisDecade(),
             'pengajak' => fake()->name,
             'penjamin' => fake()->name,
-            'pandita' => fake()->name,
+            'pandita_id' => fake()->numberBetween(1,3),
             'status' => 'Active',
             'branch_id' => '1'
         ];

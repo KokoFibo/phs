@@ -63,7 +63,7 @@
                     </tr>
                     <tr>
                         <td>Pandita</td>
-                        <td>{{ $pandita }}</td>
+                        <td>{{ $namaPandita }}</td>
                     </tr>
                     <tr>
                         <td>Tanggal Mohon Tao</td>

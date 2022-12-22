@@ -29,7 +29,8 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('pengajak');
             $table->string('penjamin');
-            $table->string('pandita');
+            $table->foreignId('pandita_id');
+
             $table->date('tgl_mohonTao')->default(now());
             $table->string('status');
             $table->timestamps();

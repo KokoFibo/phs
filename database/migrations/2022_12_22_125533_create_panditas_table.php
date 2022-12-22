@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('panditas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('kode_branch');
+            $table->string('nama')->unique();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branches');
+        Schema::dropIfExists('panditas');
     }
 };

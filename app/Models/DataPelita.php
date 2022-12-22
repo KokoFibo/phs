@@ -21,7 +21,7 @@ class DataPelita extends Model
         'email',
         'pengajak',
         'penjamin',
-        'pandita',
+        'pandita_id',
         'tgl_mohonTao',
         'status',
         'branch_id'
@@ -31,4 +31,9 @@ class DataPelita extends Model
     {
         return $this->belongsTo(Branch::class);
     }
+    public function pandita() 
+    {
+        return $this->belongsTo(Pandita::class);
+    }
 }
+       

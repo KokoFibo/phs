@@ -169,11 +169,16 @@
                     </div>
 
                     {{-- Pandita --}}
-                    <div class="form-group">
-                        <label for="pandita">Pandita</label>
-                        <input type="text" class="form-control @error('pandita') is-invalid @enderror"
-                            id="pandita" wire:model="pandita">
-                        @error('pandita')
+                    <div class="form-group ">
+                        <label for="branch">Pandita</label>
+                        <select id="branch" class="form-control" wire:model="pandita_id">
+                            <option value="" selected>Masukkan Nama Pandita</option>
+
+                            @foreach ($dataPandita as $pandita)
+                                <option value="{{ $pandita->id }}">{{ $pandita->nama }}</option>
+                            @endforeach
+                        </select>
+                        @error('pandita_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

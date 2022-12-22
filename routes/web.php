@@ -25,6 +25,9 @@ Route::get('/', function () {
 Route::get('/kota', function () {
     return view('Menu-Kota');
 });
+Route::get('/pandita', function () {
+    return view('Menu-Pandita');
+});
 
 Route::get('propinsi', function() {
     $propinsi = Namakota::all();
