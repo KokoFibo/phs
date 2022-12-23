@@ -10,11 +10,18 @@
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/kota">Kota</a>
+                <a class="nav-link" href="/register">Register</a>
             </li>
+            {{-- logout --}}
             <li class="nav-item">
-                <a class="nav-link" href="/pandita">Pandita</a>
+                <a class="nav-link" href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                    @csrf
+                </form>
             </li>
+
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                     aria-expanded="false">
@@ -26,6 +33,8 @@
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
+
         </ul>
     </div>
+    <h5>Selamat Datang {{ Auth::user()->name }}</h5>
 </nav>

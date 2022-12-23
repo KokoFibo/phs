@@ -19,17 +19,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+// Route::get('/kota', function () {
+//     return view('Menu-Kota');
+// });
+
+// Route::get('/pandita', function () {
+//     return view('Menu-Pandita');
+// });
+
 Route::get('/', function () {
-    return view('main');
-});
-Route::get('/kota', function () {
-    return view('Menu-Kota');
-});
-Route::get('/pandita', function () {
-    return view('Menu-Pandita');
+    return view('auth.login');
 });
 
-Route::get('propinsi', function() {
-    $propinsi = Namakota::all();
-    return view ('propinsi', compact('propinsi'));
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/main', function() {
+        return view('main');
+    });
 });
