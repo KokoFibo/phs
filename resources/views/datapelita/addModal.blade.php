@@ -67,14 +67,29 @@
                     </div>
 
                     {{-- Kota --}}
-                    <div class="form-group">
+
+                    <div class="form-group ">
+                        <label for="branch">Kota</label>
+                        <select id="branch" class="form-control" wire:model="kota">
+
+                            <option value="" selected>Pilih Kota</option>
+                            @foreach ($allKota as $k)
+                                <option value="{{ $k->id }}">{{ $k->nama }} </option>
+                            @endforeach
+                        </select>
+                        @error('kota')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    {{-- <div class="form-group">
                         <label for="kota">Kota</label>
                         <input type="text" class="form-control @error('kota') is-invalid @enderror" id="kota"
                             placeholder="Kota sesuai dengan alamat rumah" wire:model="kota">
                         @error('kota')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- telp --}}
                     <div class="form-group">

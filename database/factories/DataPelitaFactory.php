@@ -23,7 +23,7 @@ class DataPelitaFactory extends Factory
             'umur' => fake()->numberBetween(1,99),
             'umur_sekarang' => fake()->numberBetween(1,99),
             'alamat' => fake()->address,
-            'kota' => fake()->city,
+            'kota_id' => fake()->numberBetween(1,5),
             'telp' => fake()->e164PhoneNumber(),
             'hp' => fake()->e164PhoneNumber(),
             'email' => fake()->email,

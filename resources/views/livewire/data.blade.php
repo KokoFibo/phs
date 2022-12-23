@@ -22,7 +22,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-1 mt-3">
+                    {{-- <div class="col-md-1 mt-3">
                         <label for="name">Kategori </label>
                         <select wire:model="columnName" class="form-control">
                             <option value="nama">Nama</option>
@@ -32,7 +32,7 @@
                             <option value="pengajak">Pengajak</option>
                             <option value="penjamin">Penjamin</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="col-md-2 mt-3">
                         <label for="name">Tgl Chiu Tao: </label>
                         <input type="date" class="form-control" wire:model="startDate">
@@ -60,12 +60,19 @@
                         </select>
                     </div>
 
-                    <div class="col-md-1 mt-3">
+                    {{-- <div class="col-md-1 mt-3">
                         <label for="name">Sort Direction</label>
                         <select wire:model="direction" class="form-control">
                             <option value="asc">Ascending</option>
                             <option value="desc">Descending</option>
                         </select>
+                    </div> --}}
+                    <div class="col-md-1 mt-3">
+                        @livewire('panditawire')
+                    </div>
+                    <div class="col-md-1 mt-3">
+                        @livewire('data-kota-wire')
+
                     </div>
 
                 </div>
@@ -80,14 +87,65 @@
                             <thead class="bg-purple">
                                 <tr>
                                     <th>#</th>
-                                    <th>NAMA</th>
-                                    <th>中文名</th>
-                                    <th>UMUR</th>
-                                    <th>TGL CHIU TAO</th>
-                                    <th>JENIS KELAMIN</th>
-                                    <th>PENGAJAK</th>
-                                    <th>PENJAMIN</th>
+                                    <th>NAMA
+                                        <span wire:click="sortColumnName('nama')" class="float-right text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+
+                                    </th>
+                                    <th>中文名
+                                        <span wire:click="sortColumnName('mandarin')" class=" text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+                                    </th>
+                                    <th>UMUR
+                                        <span wire:click="sortColumnName('umur_sekarang')" class=" text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+                                    </th>
+                                    <th>TGL CHIU TAO
+                                        <span wire:click="sortColumnName('tgl_mohonTao')" class=" text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+                                    </th>
+                                    <th>JENIS KELAMIN
+                                        <span wire:click="sortColumnName('jenis_kelamin')" class=" text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+                                    </th>
+                                    <th>PENGAJAK
+                                        <span wire:click="sortColumnName('pengajak')" class=" text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+                                    </th>
+                                    <th>PENJAMIN
+                                        <span wire:click="sortColumnName('penjamin')" class=" text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+                                    </th>
                                     <th>PANDITA</th>
+                                    <th>KOTA</th>
                                     <th class="text-center">
                                         {{-- Add Data --}}
                                         <button type="button" class="btn  btn-primary" data-toggle="modal"
@@ -99,8 +157,6 @@
                                         <button type="button" class="btn  btn-success" wire:click="resetFilter">
                                             <i class="fa fa-arrow-rotate-right"></i>
                                         </button>
-
-
                                     </th>
                                 </tr>
                             </thead>
@@ -118,7 +174,10 @@
                                         </td>
                                         <td>{{ $data->pengajak }}</td>
                                         <td>{{ $data->penjamin }}</td>
+                                        {{-- <td>{{ $data->pandita }}</td> --}}
                                         <td>{{ $data->pandita->nama }}</td>
+                                        {{-- <td>{{ $data->kota }}</td> --}}
+                                        <td>{{ $data->kota->nama }}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <button class="btn-success btn btn-sm" data-toggle="modal"

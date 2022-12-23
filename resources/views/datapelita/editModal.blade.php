@@ -67,10 +67,15 @@
                     </div>
 
                     {{-- Kota --}}
-                    <div class="form-group">
-                        <label for="kota">Kota</label>
-                        <input type="text" class="form-control @error('kota') is-invalid @enderror" id="kota"
-                            wire:model="kota">
+                    <div class="form-group ">
+                        <label for="branch">Kota</label>
+                        <select id="branch" class="form-control" wire:model="kota">
+
+                            <option value="" selected>Pilih Kota</option>
+                            @foreach ($allKota as $k)
+                                <option value="{{ $k->id }}">{{ $k->nama }} </option>
+                            @endforeach
+                        </select>
                         @error('kota')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

@@ -13,4 +13,9 @@ class Kota extends Model
     public function branch() {
         return $this->hasMany(Branch::class);
     }
+
+    public function datapelita() 
+    {
+        return $this->hasMany(datapelita::class);
+    }
 }

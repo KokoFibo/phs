@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Carbon\Carbon;
+use App\Models\Kota;
 use App\Models\Branch;
 use App\Models\Pandita;
 use Livewire\Component;
@@ -59,7 +60,6 @@ class Data extends Component
             'tgl_mohonTao' => ['required','date','before:tomorrow'],
             'status' => ['nullable'],
             'branch_id' => ['required']
-
         ];
 
     }
@@ -165,7 +165,7 @@ class Data extends Component
         // hiding the Modal after run Add Data 
         $this->dispatchBrowserEvent('close-modal');
         
-    } 
+    }
 
         public function deleteConfirmation ($id) {
             $data = DataPelita::find($id);
@@ -211,16 +211,26 @@ class Data extends Component
         return $umur + $selisih;
     }
 
+    public function sortColumnName ($namaKolom) {
+        $this->columnName = $namaKolom;
+        $this->direction = $this->swapDirection();
+    }
+
+    public function swapDirection () {
+        return $this->direction === 'asc' ? 'desc' : 'asc';
+    }
+
     public function render()
     {
         $alldatapelita =DataPelita::orderBy('nama', 'asc')->get();
+        $allKota = Kota::orderBy('nama', 'asc')->get();
         $dataPandita = Pandita::all();
         $branch = Branch::all();
         $datapelita = DataPelita::orderBy($this->columnName, $this->direction)
         ->where('nama','like','%'.$this->search.'%')
-        ->orWhere('mandarin','like','%'.$this->search.'%')
-        ->orWhere('pengajak','like','%'.$this->search.'%')
-        ->orWhere('penjamin','like','%'.$this->search.'%')
+        // ->orWhere('mandarin','like','%'.$this->search.'%')
+        // ->orWhere('pengajak','like','%'.$this->search.'%')
+        // Kalau pakai orWhere maka query dibawah gak jalan
         ->when($this->startUmur, function($query){
             $query->where('umur_sekarang', '>=', $this->startUmur );
         })
@@ -232,8 +242,8 @@ class Data extends Component
         })
         ->when($this->jen_kel, function($query){
             $query->where('jenis_kelamin',  $this->jen_kel );
-        }) 
+        })
         ->paginate($this->perpage); 
-        return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita']));
+        return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita', 'allKota']));
     }
 }

@@ -35,5 +35,9 @@ class DataPelita extends Model
     {
         return $this->belongsTo(Pandita::class);
     }
+    public function kota() 
+    {
+        return $this->belongsTo(Kota::class);
+    }
 }
        

@@ -23,7 +23,9 @@ return new class extends Migration
             $table->integer('umur');
             $table->integer('umur_sekarang')->nullable();
             $table->string('alamat');
-            $table->string('kota');
+            // $table->string('kota');
+            $table->foreignId('kota_id');
+
             $table->string('telp')->nullable();
             $table->string('hp')->nullable();
             $table->string('email')->nullable();
