@@ -203,11 +203,13 @@
                                                     data-target="#EditModal" wire:click="edit({{ $data->id }})">
                                                     <i class="fa fa-pen-to-square "></i>
                                                 </button>
+                                                {{-- @if (!(Auth::user()->name == 'Phan')) --}}
                                                 <button class="btn-danger btn btn-sm" data-toggle="modal"
                                                     data-target="#DeleteModal"
                                                     wire:click="deleteConfirmation({{ $data->id }})">
                                                     <i class="fa fa-trash "></i>
                                                 </button>
+                                                {{-- @endif --}}
                                             </div>
                                         </td>
                                     </tr>
