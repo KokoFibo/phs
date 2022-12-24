@@ -1,4 +1,5 @@
 <div>
+    {{-- {{ dd($datapelita->all()) }} --}}
     @include('datapelita.addModal')
     @include('datapelita.viewModal')
     @include('datapelita.editModal')
@@ -25,7 +26,7 @@
                     {{-- <div class="col-md-1 mt-3">
                         <label for="name">Kategori </label>
                         <select wire:model="columnName" class="form-control">
-                            <option value="nama">Nama</option>
+                            <option value="nama_umat">Nama</option>
                             <option value="mandarin">中文名</option>
                             <option value="tgl_mohonTao">Tgl Chiu Tao</option>
                             <option value="umur_sekarang">Umur</option>
@@ -88,7 +89,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>NAMA
-                                        <span wire:click="sortColumnName('nama')" class="float-right text-sm"
+                                        <span wire:click="sortColumnName('nama_umat')" class="float-right text-sm"
                                             style="cursor: pointer"><i
                                                 class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                                             <i
@@ -144,8 +145,22 @@
                                                 class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                                         </span>
                                     </th>
-                                    <th>PANDITA</th>
-                                    <th>KOTA</th>
+                                    <th>PANDITA
+                                        <span wire:click="sortColumnName('nama_pandita')" class=" text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+                                    </th>
+                                    <th>KOTA
+                                        <span wire:click="sortColumnName('nama_kota')" class=" text-sm"
+                                            style="cursor: pointer"><i
+                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
+                                            <i
+                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
+                                        </span>
+                                    </th>
                                     <th class="text-center">
                                         {{-- Add Data --}}
                                         <button type="button" class="btn  btn-primary" data-toggle="modal"
@@ -165,7 +180,7 @@
                                     <tr>
                                         <td>{{ $datapelita->firstItem() + $index }}</td>
                                         {{-- <td>{{ $data->id }}</td> --}}
-                                        <td>{{ $data->nama }}</td>
+                                        <td>{{ $data->nama_umat }}</td>
                                         <td>{{ $data->mandarin }}</td>
                                         <td class="text-center">{{ $data->umur_sekarang }}</td>
                                         <td>{{ $data->tgl_mohonTao }}</td>
@@ -175,9 +190,9 @@
                                         <td>{{ $data->pengajak }}</td>
                                         <td>{{ $data->penjamin }}</td>
                                         {{-- <td>{{ $data->pandita }}</td> --}}
-                                        <td>{{ $data->pandita->nama }}</td>
+                                        <td>{{ $data->nama_pandita }}</td>
                                         {{-- <td>{{ $data->kota }}</td> --}}
-                                        <td>{{ $data->kota->nama }}</td>
+                                        <td>{{ $data->nama_kota }}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <button class="btn-success btn btn-sm" data-toggle="modal"

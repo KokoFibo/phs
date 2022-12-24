@@ -14,7 +14,7 @@ class DataKotaWire extends Component
     public $propinsi, $namakota;
     public $selectedPropinsi = NULL;
     public $selectedNamaKota = NULL;
-    public $nama;
+    public $nama_kota;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
@@ -41,7 +41,7 @@ class DataKotaWire extends Component
     }
 
     protected $rules = [ 
-             'nama' => 'unique:kotas,nama',
+             'nama_kota' => 'unique:kotas,nama_kota',
             //  'nama' => Rule::unique(Kota::class),
     ];
  
@@ -49,7 +49,7 @@ class DataKotaWire extends Component
         // $validatedData = $this->validate();
          $this->validate();
         $data_kota = new Kota();
-        $data_kota->nama = $this->nama;
+        $data_kota->nama_kota = $this->nama_kota;
         $data_kota->save();
     }
     
@@ -62,7 +62,7 @@ class DataKotaWire extends Component
     
     public function render()
     { 
-        $kota = Kota::orderBy('nama', 'asc')->paginate(10);
+        $kota = Kota::orderBy('nama_kota', 'asc')->paginate(10);
         return view('livewire.data-kota-wire', compact('kota'));
     }
 }

@@ -25,13 +25,13 @@
                 @if (!is_null($selectedPropinsi))
                     <div class="col-12 mt-3">
                         <label>Kota</label>
-                        <select class="form-control" wire:model="nama">
+                        <select class="form-control" wire:model="nama_kota">
                             <option value="" selected>-- Pilih Kota --</option>
                             @foreach ($namakota as $p)
                                 <option value="{{ $p->nama }}">{{ $p->nama }}</option>
                             @endforeach
                         </select>
-                        @error('nama')
+                        @error('nama_kota')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -51,7 +51,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nama Kota</th>
+                                    <th>Kota</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
@@ -59,7 +59,7 @@
                                 @foreach ($kota as $index => $k)
                                     <tr>
                                         <td>{{ $kota->firstItem() + $index }}</td>
-                                        <td>{{ $k->nama }}</td>
+                                        <td>{{ $k->nama_kota }}</td>
                                         <td class="text-center">
                                             <button wire:click="delete({{ $k->id }})"
                                                 class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>

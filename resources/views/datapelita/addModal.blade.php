@@ -29,9 +29,9 @@
                     {{-- Nama --}}
                     <div class="form-group">
                         <label for="name">Nama Lengkap</label>
-                        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama"
-                            placeholder="Nama Lengkap" wire:model="nama">
-                        @error('nama')
+                        <input type="text" class="form-control @error('nama_umat') is-invalid @enderror"
+                            id="nama" placeholder="Nama Lengkap" wire:model="nama_umat">
+                        @error('nama_umat')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -70,14 +70,14 @@
 
                     <div class="form-group ">
                         <label for="branch">Kota</label>
-                        <select id="branch" class="form-control" wire:model="kota">
+                        <select id="branch" class="form-control" wire:model="kota_id">
 
                             <option value="" selected>Pilih Kota</option>
                             @foreach ($allKota as $k)
-                                <option value="{{ $k->id }}">{{ $k->nama }} </option>
+                                <option value="{{ $k->id }}">{{ $k->nama_kota }} </option>
                             @endforeach
                         </select>
-                        @error('kota')
+                        @error('kota_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -165,7 +165,7 @@
 
                             <option value="" selected>Masukkan Nama pengajak</option>
                             @foreach ($alldatapelita as $pengajak)
-                                <option value="{{ $pengajak->nama }}">{{ $pengajak->nama }} ==>
+                                <option value="{{ $pengajak->nama_umat }}">{{ $pengajak->nama_umat }} ==>
                                     {{ $pengajak->mandarin }}</option>
                             @endforeach
                         </select>
@@ -181,7 +181,7 @@
                             <option value="" selected>Masukkan Nama Penjamin</option>
 
                             @foreach ($alldatapelita as $penjamin)
-                                <option value="{{ $penjamin->nama }}">{{ $penjamin->nama }} ==>
+                                <option value="{{ $penjamin->nama_umat }}">{{ $penjamin->nama_umat }} ==>
                                     {{ $pengajak->mandarin }}</option>
                             @endforeach
                         </select>
@@ -197,7 +197,7 @@
                             <option value="" selected>Masukkan Nama Pandita</option>
 
                             @foreach ($dataPandita as $pandita)
-                                <option value="{{ $pandita->id }}">{{ $pandita->nama }}</option>
+                                <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
                             @endforeach
                         </select>
                         @error('pandita_id')

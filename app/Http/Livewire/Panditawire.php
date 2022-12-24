@@ -7,16 +7,16 @@ use Livewire\Component;
 
 class Panditawire extends Component
 {
-    public $nama;
+    public $nama_pandita;
 
     protected $rules = [
-        'nama' => 'unique:panditas,nama',
+        'nama_pandita' => 'unique:panditas,nama_pandita',
     ];
-
+ 
     public function store () {
         $this->validate();
         $data = new Pandita();
-        $data->nama = $this->nama;
+        $data->nama_pandita = $this->nama_pandita;
         $data->save();
     }
 
@@ -26,7 +26,7 @@ class Panditawire extends Component
     }
     public function render()
     { 
-        $pandita = Pandita::orderBy('nama', 'asc')->paginate(10);
+        $pandita = Pandita::orderBy('nama_pandita', 'asc')->paginate(10);
         return view('livewire.panditawire', compact('pandita'));
     }
 }

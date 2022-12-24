@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('branch_id');
 
-            $table->string('nama');
+            $table->string('nama_umat');
             $table->string('mandarin')->nullable();
             $table->string('jenis_kelamin');
             $table->integer('umur');

@@ -9,21 +9,22 @@ use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class Data extends Component
 {
     public $perpage = 10;
-    public $columnName = 'id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
+    public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $defaultBranch_id = '2';
     public $branch_id = '2';
-    public $nama, $mandarin, $jenis_kelamin, $umur, $umur_sekarang;
+    public $nama_umat, $mandarin, $jenis_kelamin, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
-    public $pengajak, $penjamin, $pandita_id, $tgl_mohonTao, $status;
+    public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
     public $current_id, $delete_id;
-    public $namaPandita;
+    public $namaPandita, $namaKota;
 
     public function updatingSearch () {
         $this->resetPage();
@@ -31,7 +32,7 @@ class Data extends Component
     public function resetFilter () {
         $this->perpage = 10;
         $this->search = '';
-        $this->columnName = 'id';
+        $this->columnName = 'data_pelitas.id';
         $this->direction = 'desc';
         $this->startUmur = NULL; 
         $this->endUmur = NULL; 
@@ -44,13 +45,13 @@ class Data extends Component
     public function rules () {
 
         return [
-            'nama' => ['required'],
+            'nama_umat' => ['required'],
             'mandarin' => ['nullable'],
             'jenis_kelamin' => ['required'],
             'umur' => ['required', 'numeric', 'min:1', 'max:150'],
             'umur_sekarang' => ['nullable'],
             'alamat' => ['required'],
-            'kota' => ['required'],
+            'kota_id' => ['required'],
             'telp' => ['nullable', 'numeric', 'min_digits:9', 'max_digits:13'],
             'hp' => ['nullable', 'numeric'],
             'email' => ['nullable', 'email'],
@@ -79,13 +80,13 @@ class Data extends Component
         $data_umat = new DataPelita();
 
         $data_umat->branch_id = $this->branch_id;
-        $data_umat->nama = $this->nama;
+        $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
         $data_umat->jenis_kelamin = $this->jenis_kelamin;
         $data_umat->umur = $this->umur;
         $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
         $data_umat->alamat = $this->alamat;
-        $data_umat->kota = $this->kota;
+        $data_umat->kota_id = $this->kota_id;
         $data_umat->telp = $this->telp;
         $data_umat->hp = $this->hp;
         $data_umat->email = $this->email;
@@ -109,22 +110,26 @@ class Data extends Component
     public function edit ($id) {
         $this->current_id = $id;
         $data = DataPelita::find($id);
+        
         if ($data) {
             $this->branch_id = $data->branch_id;
-            $this->nama = $data->nama;
+            $this->nama_umat = $data->nama_umat;
             $this->mandarin = $data->mandarin;
             $this->jenis_kelamin = $data->jenis_kelamin;
             $this->umur = $data->umur;
             $this->umur_sekarang = $data->umur_sekarang;
             $this->alamat = $data->alamat;
-            $this->kota = $data->kota;
+            $this->kota_id = $data->kota_id;
             $this->telp = $data->telp;
             $this->hp = $data->hp;
             $this->email = $data->email;
             $this->pengajak = $data->pengajak;
             $this->penjamin = $data->penjamin;
             $this->pandita_id = $data->pandita_id;
-            $this->namaPandita = $data->pandita->nama;
+            $np = Pandita::find($this->pandita_id);
+            $this->namaPandita = $np->nama_pandita;
+            $nk = Kota::find($this->kota_id);
+            $this->namaKota = $nk->nama_kota;
 
             $this->tgl_mohonTao = $data->tgl_mohonTao;
             $this->status = $data->status;
@@ -140,13 +145,13 @@ class Data extends Component
 
         $data_umat = DataPelita::find($this->current_id);
         $data_umat->branch_id = $this->branch_id;
-        $data_umat->nama = $this->nama;
+        $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
         $data_umat->jenis_kelamin = $this->jenis_kelamin;
         $data_umat->umur = $this->umur;
         $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
         $data_umat->alamat = $this->alamat;
-        $data_umat->kota = $this->kota;
+        $data_umat->kota_id = $this->kota_id;
         $data_umat->telp = $this->telp;
         $data_umat->hp = $this->hp;
         $data_umat->email = $this->email;
@@ -187,13 +192,13 @@ class Data extends Component
     public function  clear_fields() {
     
         $this->branch_id= $this->defaultBranch_id;
-        $this->nama='';
+        $this->nama_umat='';
         $this->mandarin='';
         $this->jenis_kelamin='';
         $this->umur='';
         $this->umur_sekarang='';
         $this->alamat='';
-        $this->kota='';
+        $this->kota_id='';
         $this->telp='';
         $this->hp='';
         $this->email='';
@@ -222,28 +227,40 @@ class Data extends Component
 
     public function render()
     {
-        $alldatapelita =DataPelita::orderBy('nama', 'asc')->get();
-        $allKota = Kota::orderBy('nama', 'asc')->get();
+        $alldatapelita =DataPelita::orderBy('nama_umat', 'asc')->get();
+        $allKota = Kota::orderBy('nama_kota', 'asc')->get();
         $dataPandita = Pandita::all();
         $branch = Branch::all();
-        $datapelita = DataPelita::orderBy($this->columnName, $this->direction)
-        ->where('nama','like','%'.$this->search.'%')
+        $datapelita = DB::table('data_pelitas')
+        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+
+        // $datapelita = DB::table('kotas')
+        // ->join('data_pelitas', 'kotas.id', '=', 'data_pelitas.kota_id')   
+        
+        
+        ->orderBy($this->columnName, $this->direction)
+        ->where('data_pelitas.nama_umat','like','%'.$this->search.'%')
         // ->orWhere('mandarin','like','%'.$this->search.'%')
         // ->orWhere('pengajak','like','%'.$this->search.'%')
         // Kalau pakai orWhere maka query dibawah gak jalan
         ->when($this->startUmur, function($query){
-            $query->where('umur_sekarang', '>=', $this->startUmur );
+            $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
         })
         ->when($this->endUmur, function($query){
-            $query->where('umur_sekarang', '<=', $this->endUmur );
+            $query->where('data_pelitas.umur_sekarang', '<=', $this->endUmur );
         })
         ->when($this->startDate, function($query){
-            $query->where('tgl_mohonTao', '>=', $this->startDate );
+            $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate );
+        })
+        ->when($this->endDate, function($query){
+            $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate );
         })
         ->when($this->jen_kel, function($query){
-            $query->where('jenis_kelamin',  $this->jen_kel );
+            $query->where('data_pelitas.jenis_kelamin',  $this->jen_kel );
         })
-        ->paginate($this->perpage); 
+         ->paginate($this->perpage); 
         return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita', 'allKota']));
     }
 }

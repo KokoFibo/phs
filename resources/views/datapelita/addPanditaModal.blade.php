@@ -17,9 +17,9 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="nama">Nama</label>
-                                <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                                    id="nama" wire:model="nama" autocomplete="off">
-                                @error('nama')
+                                <input type="text" class="form-control @error('nama_pandita') is-invalid @enderror"
+                                    id="nama" wire:model="nama_pandita" autocomplete="off">
+                                @error('nama_pandita')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -39,7 +39,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>{{ $pandita->firstItem() + $index }}</td>
-                                                <td>{{ $p->nama }}</td>
+                                                <td>{{ $p->nama_pandita }}</td>
                                                 <td class="text-center">
                                                     <button wire:click="delete({{ $p->id }})"
                                                         class="btn btn-danger btn-sm">Delete</button>

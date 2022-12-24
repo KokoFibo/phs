@@ -19,7 +19,7 @@
 
                     <tr>
                         <td>Nama</td>
-                        <td>{{ $nama }}</td>
+                        <td>{{ $nama_umat }}</td>
                     </tr>
                     <tr>
                         <td>中文名</td>
@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                         <td>Kota</td>
-                        <td>{{ $kota }}</td>
+                        <td>{{ $namaKota }}</td>
                     </tr>
                     <tr>
                         <td>Telepon</td>

@@ -9,7 +9,7 @@ class DataPelita extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nama',
+        'nama_umat',
         'mandarin',
         'jenis_kelamin',
         'umur',

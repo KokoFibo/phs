@@ -17,7 +17,7 @@ class DataPelitaFactory extends Factory
     public function definition()
     {
         return [
-            'nama' => fake()->name,
+            'nama_umat' => fake()->name,
             'mandarin' => fake('zh_TW')->name, 
             'jenis_kelamin' => fake()->numberBetween(1,2), 
             'umur' => fake()->numberBetween(1,99),

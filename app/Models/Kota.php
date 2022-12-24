@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kota extends Model
 {
     use HasFactory; 
-    protected $fillable = ['nama'];
+    protected $fillable = ['nama_kota'];
 
     public function branch() {
         return $this->hasMany(Branch::class);
@@ -16,6 +16,6 @@ class Kota extends Model
 
     public function datapelita() 
     {
-        return $this->hasMany(datapelita::class);
+        return $this->hasMany(Datapelita::class);
     }
 }
