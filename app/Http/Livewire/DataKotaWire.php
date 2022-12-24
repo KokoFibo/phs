@@ -19,7 +19,7 @@ class DataKotaWire extends Component
     protected $paginationTheme = 'bootstrap';
 
     public function mount  () {
-        $this->propinsi = Province::all();
+        $this->propinsi = Province::orderBy('nama', 'asc')->get();
         $this->namakota = collect();
         
     }
@@ -36,7 +36,7 @@ class DataKotaWire extends Component
     // }
 
     public function updatedSelectedPropinsi ($propinsi) {
-        $this->namakota = City::where('province_id', $propinsi)->get();
+        $this->namakota = City::orderBy('nama', 'asc')->where('province_id', $propinsi)->get();
         $this->selectedNamaKota = NULL;
     }
 

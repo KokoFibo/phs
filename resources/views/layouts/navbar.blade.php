@@ -36,5 +36,5 @@
 
         </ul>
     </div>
-    <h5>Selamat Datang {{ Auth::user()->name }}</h5>
+    <span>Selamat Datang, {{ Auth::user()->name }}</span>
 </nav>

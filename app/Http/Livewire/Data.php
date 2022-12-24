@@ -71,6 +71,7 @@ class Data extends Component
 
     public function clearSession () {
         $this->resetPage();
+        $this->clear_fields();  
     }
 
     public function store () {
@@ -198,7 +199,7 @@ class Data extends Component
         $this->umur='';
         $this->umur_sekarang='';
         $this->alamat='';
-        $this->kota_id='';
+        $this->kota_id=''; 
         $this->telp='';
         $this->hp='';
         $this->email='';
