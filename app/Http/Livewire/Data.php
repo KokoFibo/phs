@@ -228,10 +228,10 @@ class Data extends Component
 
     public function render()
     {
-        $alldatapelita =DataPelita::orderBy('nama_umat', 'asc')->get();
-        $allKota = Kota::orderBy('nama_kota', 'asc')->get();
-        $dataPandita = Pandita::all();
-        $branch = Branch::all();
+        // $alldatapelita =DataPelita::orderBy('nama_umat', 'asc')->get();
+        // $allKota = Kota::orderBy('nama_kota', 'asc')->get();
+        // $dataPandita = Pandita::all();
+        // $branch = Branch::all();
         $datapelita = DB::table('data_pelitas')
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
          ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
@@ -262,6 +262,7 @@ class Data extends Component
             $query->where('data_pelitas.jenis_kelamin',  $this->jen_kel );
         })
          ->paginate($this->perpage); 
-        return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita', 'allKota']));
+        // return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita', 'allKota']));
+        return view('livewire.data', compact('datapelita'));
     }
 }

@@ -36,5 +36,5 @@
 
         </ul>
     </div>
-    <span>Selamat Datang, {{ Auth::user()->name }}</span>
+    {{-- <span>Selamat Datang, {{ Auth::user()->name }}</span> --}}
 </nav>

@@ -1,9 +1,9 @@
 <div>
     {{-- {{ dd($datapelita->all()) }} --}}
-    @include('datapelita.addModal')
-    @include('datapelita.viewModal')
-    @include('datapelita.editModal')
-    @include('datapelita.deleteModal')
+    {{-- @include('datapelita.addModal') --}}
+    {{-- @include('datapelita.viewModal') --}}
+    {{-- @include('datapelita.editModal') --}}
+    {{-- @include('datapelita.deleteModal') --}}
     @include('layouts.navbar')
 
     <div class="container-fluid">
@@ -216,7 +216,11 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $datapelita->onEachSide(1)->links() }}
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>{{ $datapelita->onEachSide(5)->links() }}</span>
+                            <span>Total hasil pencarian :
+                                {{ number_format($datapelita->total()) }} data</span>
+                        </div>
 
 
                     </div>

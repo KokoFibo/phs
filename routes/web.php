@@ -36,8 +36,8 @@ Route::get('/', function () {
 
 
 
+Route::get('/main', function() {
+    return view('main');
+});
 Route::middleware(['auth'])->group(function () {
-    Route::get('/main', function() {
-        return view('main');
-    });
 });
