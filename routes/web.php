@@ -2,6 +2,7 @@
 
 use App\Models\Namakota;
 use App\Models\Propinsi;
+use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use Illuminate\Support\Facades\Route;
 
@@ -36,8 +37,14 @@ Route::get('/', function () {
 
 
 
+// Route::get('/main', Data::class);
+
 Route::get('/main', function() {
     return view('main');
 });
+
+Route::get('/adddata', function() {
+    return view('menuAddData');
+})->name('adddata');
 Route::middleware(['auth'])->group(function () {
 });

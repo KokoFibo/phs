@@ -25,7 +25,7 @@ class Data extends Component
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
     public $current_id, $delete_id;
     public $namaPandita, $namaKota;
-
+ 
     public function updatingSearch () {
         $this->resetPage();
     }

@@ -163,10 +163,14 @@
                                     </th>
                                     <th class="text-center">
                                         {{-- Add Data --}}
-                                        <button type="button" class="btn  btn-primary" data-toggle="modal"
+                                        {{-- <button type="button" class="btn  btn-primary" data-toggle="modal"
                                             data-target="#AddModal" wire:click="clearSession">
                                             <i class="fa-solid fa-user-plus"></i>
-                                        </button>
+                                        </button> --}}
+                                        <a href="/adddata"><button type="button" class="btn  btn-primary">
+                                                <i class="fa-solid fa-user-plus"></i>
+                                            </button></a>
+
 
                                         {{-- Reset --}}
                                         <button type="button" class="btn  btn-success" wire:click="resetFilter">
