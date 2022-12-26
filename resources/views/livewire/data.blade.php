@@ -68,13 +68,7 @@
                             <option value="desc">Descending</option>
                         </select>
                     </div> --}}
-                    <div class="col-md-1 mt-3">
-                        @livewire('panditawire')
-                    </div>
-                    <div class="col-md-1 mt-3">
-                        @livewire('data-kota-wire')
 
-                    </div>
 
                 </div>
                 <div class="card rounded mt-3">

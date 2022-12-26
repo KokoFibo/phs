@@ -83,6 +83,19 @@ class Adddata extends Component
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = 'Active';
 
+        // update data kota_is_Used
+        $data_kota = Kota::find($this->kota_id);
+        $data_kota->kota_is_used = true;
+        $data_kota->save();
+        
+        
+        // update data Pandita_is_Used
+        $data_pandita = Pandita::find($this->pandita_id);
+        // dd($this->kota_id);
+        $data_pandita->pandita_is_used = true;
+        $data_pandita->save();
+
+
         $data_umat->save();
 
         session()->flash('message', 'Data Umat Sudah di tambah');
@@ -123,3 +136,4 @@ class Adddata extends Component
         return view('livewire.datapelita.adddata', compact(['datapelita', 'branch', 'dataPandita', 'allKota']));
     }
 }
+ 

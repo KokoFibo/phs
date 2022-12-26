@@ -97,6 +97,11 @@ class Data extends Component
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = 'Active';
 
+        // $data_kota = Kota::find($this->kota_id);
+        // // dd($this->kota_id);
+        // $data_kota->kota_is_used = true;
+        // $data_kota->save();
+
         $data_umat->save();
 
         session()->flash('message', 'Data Umat Sudah di tambah');

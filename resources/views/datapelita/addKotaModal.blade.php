@@ -61,8 +61,13 @@
                                         <td>{{ $kota->firstItem() + $index }}</td>
                                         <td>{{ $k->nama_kota }}</td>
                                         <td class="text-center">
-                                            <button wire:click="delete({{ $k->id }})"
-                                                class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                            @if ($k->kota_is_used == false)
+                                                <button wire:click="delete({{ $k->id }})"
+                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                            @else
+                                                <button class="btn btn-warning btn-sm"><i
+                                                        class="fa fa-pen"></i></button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

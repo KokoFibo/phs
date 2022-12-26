@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('kotas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kota')->unique();
+            $table->boolean('kota_is_used')->default(false);
             $table->timestamps();
         });
     }

@@ -1,17 +1,16 @@
 {{-- modal Add --}}
-<div wire:ignore.self class="modal fade " id="AddPanditaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div wire:ignore.self class="modal fade " id="editPanditaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pandita</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
             </div>
             <div class="modal-body ">
 
-                <div class="card card-sm mt-3">
+                Rename {{ $nama_lama }} menjadi
+                {{-- <div class="card card-sm mt-3">
                     <div class="card-header">Data Pandita</div>
                     <div class="card-body">
                         <div class="col-12">
@@ -45,11 +44,10 @@
                                                         <button wire:click="delete({{ $p->id }})"
                                                             class="btn btn-danger btn-sm">Delete</button>
                                                     @else
-                                                        <a href="#editPanditaModal" data-dismiss="modal"
-                                                            data-toggle="#editPanditaModal">Edit</a>
+                                                        <button class="btn btn-warning btn-sm"
+                                                            wire:click="rename({{ $p->id }})"><i
+                                                                class="fa fa-pen"></i></button>
                                                     @endif
-
-
 
                                                 </td>
                                             </tr>
@@ -60,7 +58,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> --}}
 
 
             </div>

@@ -8,6 +8,8 @@ use Livewire\Component;
 class Panditawire extends Component
 {
     public $nama_pandita;
+    public $id_pandita;
+    public $nama_lama;
 
     protected $rules = [
         'nama_pandita' => 'unique:panditas,nama_pandita',
@@ -18,11 +20,27 @@ class Panditawire extends Component
         $data = new Pandita();
         $data->nama_pandita = $this->nama_pandita;
         $data->save();
+        $this->redirect(route('adddata'));
     }
 
     public function delete ($id) {
         $data = Pandita::find($id);
         $data->delete();
+    }
+
+    public function edit ($id) {
+        // dd($id);
+        $this->id_pandita;
+        $nama = Pandita::find($id);
+        $this->nama_lama = $nama->nama_pandita;
+    }
+
+    public function update() {
+        // dd($id);
+
+        $nama = Pandita::find($this->id_pandita);
+        $nama->nama_pandita = $this->nama_pandita;
+        $nama->save();
     }
     public function render()
     { 

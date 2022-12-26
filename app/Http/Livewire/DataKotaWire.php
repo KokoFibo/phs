@@ -50,7 +50,9 @@ class DataKotaWire extends Component
          $this->validate();
         $data_kota = new Kota();
         $data_kota->nama_kota = $this->nama_kota;
-        $data_kota->save();
+        $data_kota->save(); 
+        $this->redirect(route('adddata'));
+
     }
     
     public function delete ($id) {

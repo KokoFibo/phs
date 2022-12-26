@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('panditas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pandita')->unique();
+            $table->boolean('pandita_is_used')->default(false);
             $table->timestamps();
         });
     }
