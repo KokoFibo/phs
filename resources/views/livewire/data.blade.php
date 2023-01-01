@@ -4,9 +4,11 @@
     @include('datapelita.viewModal')
     {{-- @include('datapelita.editModal') --}}
     @include('datapelita.deleteModal')
-    @include('layouts.navbar')
+    {{-- @include('layouts.navbar') --}}
 
     <div class="container-fluid">
+        Hello {{ Auth::user()->name }}
+
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex">
@@ -15,18 +17,18 @@
                         <input type="text" class="form-control" wire:model="search" placeholder="Search...">
                     </div>
                     <div class="col-md-1 mt-3">
-                        <label for="name">Search Category </label>
+                        <label for="name">{{ __('Search Category') }} </label>
 
                         <select wire:model="category" class="form-control">
-                            <option value="data_pelitas.nama_umat" selected>Nama</option>
-                            <option value="data_pelitas.pengajak">Pengajak</option>
-                            <option value="data_pelitas.penjamin">Penjamin</option>
-                            <option value="panditas.nama_pandita">Pandita</option>
-                            <option value="kotas.nama_kota">Kota</option>
+                            <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
+                            <option value="data_pelitas.pengajak">{{ __('Pengajak') }}</option>
+                            <option value="data_pelitas.penjamin">{{ __('Penjamin') }}</option>
+                            <option value="panditas.nama_pandita">{{ __('Pandita') }}</option>
+                            <option value="kotas.nama_kota">{{ __('Kota') }}</option>
                         </select>
                     </div>
                     <div class="col-md-1 mt-3">
-                        <label for="name">Per Page: </label>
+                        <label for="name">{{ __('Per Page') }}: </label>
                         <select wire:model="perpage" class="form-control">
                             <option value="5">5</option>
                             <option value="10">10</option>
@@ -46,7 +48,7 @@
                         </select>
                     </div> --}}
                     <div class="col-md-2 mt-3">
-                        <label for="name">Tgl Chiu Tao: </label>
+                        <label for="name">{{ __('Tgl Chiu Tao') }}: </label>
                         <input type="date" class="form-control" wire:model="startDate">
                     </div>
                     <div class="col-md-2 mt-3">
@@ -54,7 +56,7 @@
                         <input type="date" class="form-control" wire:model="endDate">
                     </div>
                     <div class="col-md-1 mt-3">
-                        <label for="name">Umur</label>
+                        <label for="name">{{ __('Umur') }}</label>
                         <input type="text" class="form-control" wire:model="startUmur">
                     </div>
 
@@ -64,19 +66,19 @@
                     </div>
 
                     <div class="col-md-1 mt-3">
-                        <label for="name">Jenis Kelamin </label>
+                        <label for="name">{{ __('Jenis Kelamin') }}</label>
                         <select wire:model="jen_kel" class="form-control">
-                            <option value="0">Semua</option>
-                            <option value="1">Laki-laki</option>
-                            <option value="2">Perempuan</option>
+                            <option value="0">{{ __('All') }}</option>
+                            <option value="1">{{ __('Laki-laki') }}</option>
+                            <option value="2">{{ __('Perempuan') }}</option>
                         </select>
                     </div>
                     <div class="col-md-1 mt-3">
-                        <label for="name">Active </label>
+                        <label for="name">{{ __('Status') }} </label>
                         <select wire:model="active" class="form-control">
-                            <option value="">All</option>
-                            <option value="Active">Active Only</option>
-                            <option value="Inactive">Inactive Only</option>
+                            <option value="">{{ __('All') }}</option>
+                            <option value="Active">{{ __('Active Only') }}</option>
+                            <option value="Inactive">{{ __('Inactive Only') }}</option>
                         </select>
                     </div>
 
@@ -101,8 +103,8 @@
                         @include('livewire.datapelita.main_table')
                         <div class="d-flex align-items-center justify-content-between">
                             <span>{{ $datapelita->onEachSide(5)->links() }}</span>
-                            <span>Total hasil pencarian :
-                                {{ number_format($datapelita->total()) }} data</span>
+                            <span>{{ __('Total hasil pencarian') }} :
+                                {{ number_format($datapelita->total()) }} {{ __('Data') }}</span>
                         </div>
 
 

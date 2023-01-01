@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // Route::get('/kota', function () {
 //     return view('Menu-Kota');
@@ -28,26 +28,27 @@ Route::get('/welcome', function () {
 // Route::get('/pandita', function () {
 //     return view('Menu-Pandita');
 // });
-
-Route::get('/', function () {
-    return view('auth.login');
-});
-
-
-
-
-
-// Route::get('/main', Data::class);
-
-Route::get('/main', function() {
-    return view('main');
-})->name('main');
-
-Route::get('/adddata', function() {
-    return view('menuAddData');
-})->name('adddata');
-Route::get('/editdata/{id}', function($id) {
-    return view('menuEditData', ['id' => $id]);
-})->name('editdata');
 Route::middleware(['auth'])->group(function () {
+    
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+    
+    Route::get('/main', function() {
+        return view('main');
+    })->name('main');
+    
+    Route::get('locale/{locale}', function($locale){
+        \Session::put('locale', $locale);
+        return redirect()->back();
+    });
+    
+    Route::get('/adddata', function() {
+        return view('menuAddData');
+    })->name('adddata');
+    Route::get('/editdata/{id}', function($id) {
+        return view('menuEditData', ['id' => $id]);
+    })->name('editdata');
+
+
 });

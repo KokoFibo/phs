@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Pandita</h5>
+                <h5 class="modal-title">{{ __('Add Data Pandita') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="false">&times;</span>
                 </button>
@@ -11,11 +11,11 @@
             <div class="modal-body ">
 
                 <div class="card card-sm mt-3">
-                    <div class="card-header">Data Pandita</div>
+                    <div class="card-header">{{ __('Data Pandita') }}</div>
                     <div class="card-body">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="nama">Nama</label>
+                                <label for="nama">{{ __('Nama') }}</label>
                                 <input type="text" class="form-control @error('nama_pandita') is-invalid @enderror"
                                     id="nama" wire:model="nama_pandita" autocomplete="off">
                                 @error('nama_pandita')
@@ -23,14 +23,14 @@
                                 @enderror
                             </div>
                             <div>
-                                <button wire:click="store" class="btn btn-primary mb-3">Save</button>
+                                <button wire:click="store" class="btn btn-primary mb-3">{{ __('Save') }}</button>
                             </div>
                             @if (!empty($pandita))
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th class="width-5">Nama</th>
+                                            <th class="width-5">{{ __('Nama') }}</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -42,11 +42,11 @@
                                                 <td class="text-center">
                                                     @if ($p->pandita_is_used == false)
                                                         <button wire:click="delete({{ $p->id }})"
-                                                            class="btn btn-danger btn-sm">Delete</button>
+                                                            class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
                                                     @else
                                                         <button class="btn btn-primary" data-toggle="modal"
                                                             data-target="#editPanditaModal" button
-                                                            wire:click="edit({{ $p->id }})">Rename</button>
+                                                            wire:click="edit({{ $p->id }})">{{ __('Rename') }}</button>
                                                     @endif
 
 

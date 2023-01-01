@@ -4,7 +4,7 @@
             <div class="card-header d-flex justify-content-between
             ">
                 <div>
-                    <h3>Add Data</h3>
+                    <h3>{{ __('Add Data') }}</h3>
                 </div>
                 <div class="d-flex">
                     <div class="mr-3">
@@ -22,7 +22,7 @@
                         <div class="col-6">
                             {{-- Branch --}}
                             <div class="form-group ">
-                                <label for="branch">Branch</label>
+                                <label for="branch">{{ __('Branch') }}</label>
                                 <select id="branch" class="form-control" wire:model="branch_id">
                                     @foreach ($branch as $b)
                                         <option value={{ $b->id }}>{{ $b->kode_branch }}</option>
@@ -35,9 +35,9 @@
 
                             {{-- Nama --}}
                             <div class="form-group">
-                                <label for="name">Nama Lengkap</label>
+                                <label for="name">{{ __('Nama Lengkap') }}</label>
                                 <input type="text" class="form-control @error('nama_umat') is-invalid @enderror"
-                                    id="nama" placeholder="Nama Lengkap" wire:model="nama_umat">
+                                    id="nama" placeholder="{{ __('Nama Lengkap') }}" wire:model="nama_umat">
                                 @error('nama_umat')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -45,7 +45,7 @@
 
                             {{-- Mandarin --}}
                             <div class="form-group">
-                                <label for="mandarin">中文名</label>
+                                <label for="mandarin">{{ __('中文名') }}</label>
                                 <input type="text" class="form-control @error('mandarin') is-invalid @enderror"
                                     id="mandarin" placeholder="中文名" wire:model="mandarin">
                                 @error('mandarin')
@@ -55,9 +55,9 @@
 
                             {{-- Umur --}}
                             <div class="form-group">
-                                <label for="umur">Umur</label>
+                                <label for="umur">{{ __('Umur') }}</label>
                                 <input type="text" class="form-control @error('umur') is-invalid @enderror"
-                                    id="umur" placeholder="Umur antara 1 - 150" wire:model="umur">
+                                    id="umur" placeholder="{{ __('Umur antara 1 - 150') }}" wire:model="umur">
                                 @error('umur')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -65,9 +65,9 @@
 
                             {{-- Alamat --}}
                             <div class="form-group">
-                                <label for="alamat">Alamat</label>
+                                <label for="alamat">{{ __('Alamat') }}</label>
                                 <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                    id="alamat" placeholder="Alamat rumah" wire:model="alamat">
+                                    id="alamat" placeholder="{{ __('Alamat Rumah') }}" wire:model="alamat">
                                 @error('alamat')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -76,10 +76,10 @@
                             {{-- Kota --}}
 
                             <div class="form-group ">
-                                <label for="branch">Kota</label>
+                                <label for="branch">{{ __('Kota') }}</label>
                                 <select id="branch" class="form-control" wire:model="kota_id">
 
-                                    <option value="" selected>Pilih Kota</option>
+                                    <option value="" selected>{{ __('Pilih Kota') }}</option>
                                     @foreach ($allKota as $k)
                                         <option value="{{ $k->id }}">{{ $k->nama_kota }} </option>
                                     @endforeach
@@ -100,7 +100,7 @@
 
                             {{-- telp --}}
                             <div class="form-group">
-                                <label for="telp">Telepon</label>
+                                <label for="telp">{{ __('Telepon') }}</label>
                                 <input type="text" class="form-control @error('telp') is-invalid @enderror"
                                     id="telp" placeholder="021 12345678" wire:model="telp">
                                 @error('telp')
@@ -114,7 +114,7 @@
                         <div class="col-6">
                             {{-- HP --}}
                             <div class="form-group">
-                                <label for="hp">Handphone</label>
+                                <label for="hp">{{ __('Handphone') }}</label>
                                 <input type="text" class="form-control @error('hp') is-invalid @enderror"
                                     id="hp" placeholder="0821 1234 5678" wire:model="hp">
                                 @error('hp')
@@ -124,7 +124,7 @@
 
                             {{-- Email --}}
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">{{ __('Email') }}</label>
                                 <input type="text" class="form-control @error('email') is-invalid @enderror"
                                     id="email" placeholder="name@example.com" wire:model="email">
                                 @error('email')
@@ -134,14 +134,14 @@
 
                             {{-- Jenis Kelamin --}}
                             <div class="form-group">
-                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                                <label for="jenis_kelamin">{{ __('Jenis Kelamin') }}</label>
                                 <div class="form-check d-flex">
 
                                     <div class="col-md-2">
                                         <input class="form-check-input" type="radio" name="exampleRadios"
                                             id="jenis_kelamin" wire:model="jenis_kelamin" value="1" checked>
                                         <label class="form-check-label mr-7" for="jenis_kelamin">
-                                            Laki-laki
+                                            {{ __('Laki-laki') }}
                                         </label>
                                     </div>
 
@@ -149,7 +149,7 @@
                                         <input class="form-check-input" type="radio" name="exampleRadios"
                                             wire:model="jenis_kelamin" id="jenis_kelamin" value="2" checked>
                                         <label class="form-check-label" for="jenis_kelamin">
-                                            Perempuan
+                                            {{ __('Perempuan') }}
                                         </label>
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
 
                             {{-- tgl_mohonTao --}}
                             <div class="form-group">
-                                <label for="tgl_mohonTao">Tanggal mohon Tao</label>
+                                <label for="tgl_mohonTao">{{ __('Tanggal Mohon Tao') }}</label>
                                 <input type="date" class="form-control @error('tgl_mohonTao') is-invalid @enderror"
                                     id="tgl_mohonTao" wire:model="tgl_mohonTao">
                                 @error('tgl_mohonTao')
@@ -171,9 +171,10 @@
                             {{-- Pengajak --}}
 
                             <div class="form-group ">
-                                <label for="branch">Pengajak</label>
+                                <label for="branch">{{ __('Pengajak') }}</label>
                                 <select class="form-control" wire:model="pengajak">
-                                    <option value="" selected>==> Masukkan data Pengajak <== </option>
+                                    <option value="" selected>==> {{ __('Masukkan Data Pengajak') }} <==
+                                            </option>
                                             @foreach ($datapelita as $data)
                                     <option value="{{ $data->nama_umat }}">{{ $data->nama_umat }}</option>
                                     @endforeach
@@ -185,9 +186,10 @@
 
                             {{-- Penjamin --}}
                             <div class="form-group ">
-                                <label for="branch">Penjamin</label>
+                                <label for="branch">{{ __('Penjamin') }}</label>
                                 <select class="form-control" wire:model="penjamin">
-                                    <option value="" selected>==> Masukkan data Penjamin <== </option>
+                                    <option value="" selected>==> {{ __('Masukkan Data Penjamin') }} <==
+                                            </option>
 
                                             @foreach ($datapelita as $data)
                                     <option value="{{ $data->nama_umat }}">{{ $data->nama_umat }} ==>
@@ -201,9 +203,10 @@
 
                             {{-- Pandita --}}
                             <div class="form-group ">
-                                <label for="branch">Pandita</label>
+                                <label for="branch">{{ __('Pandita') }}</label>
                                 <select id="branch" class="form-control" wire:model="pandita_id">
-                                    <option value="" selected>==> Masukkan data Pandita <== </option>
+                                    <option value="" selected>==> {{ __('Masukkan Data Pandita') }} <==
+                                            </option>
 
                                             @foreach ($dataPandita as $pandita)
                                     <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
@@ -224,11 +227,19 @@
 
 
                     {{-- button submit --}}
-                    <button class="btn btn-primary" type="submit">Save</button>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
 
                 </form>
+                <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i> {{ __('Back') }}</a>
+                {{-- <a href="{{ route('main') }}"><button class="btn btn-warning"><i
+                            class="fa fa-circle-arrow-left"></i> {{ __('Back') }}</button></a> --}}
+
             </div>
+
+
         </div>
     </div>
+</div>
 
 </div>

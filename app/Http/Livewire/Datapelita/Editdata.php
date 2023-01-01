@@ -112,7 +112,7 @@ class Editdata extends Component
         // hiding the Modal after run Add Data 
         // $this->dispatchBrowserEvent('close-modal');
 
-        $this->redirect('/main');
+        $this->redirect(route("main"));
 
     }
     public function  clear_fields() {

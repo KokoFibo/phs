@@ -2,56 +2,56 @@
     <thead class="bg-purple">
         <tr>
             <th>#</th>
-            <th>NAMA
+            <th>{{ __('NAMA') }}
                 <span wire:click="sortColumnName('nama_umat')" class="float-right text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
 
             </th>
-            <th>中文名
+            <th>{{ __('中文名') }}
                 <span wire:click="sortColumnName('mandarin')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
-            <th>UMUR
+            <th>{{ __('UMUR') }}
                 <span wire:click="sortColumnName('umur_sekarang')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
-            <th>TGL CHIU TAO
+            <th>{{ __('TGL CHIU TAO') }}
                 <span wire:click="sortColumnName('tgl_mohonTao')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
-            <th>JENIS KELAMIN
+            <th>{{ __('JENIS KELAMIN') }}
                 <span wire:click="sortColumnName('jenis_kelamin')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
-            <th>PENGAJAK
+            <th>{{ __('PENGAJAK') }}
                 <span wire:click="sortColumnName('pengajak')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
-            <th>PENJAMIN
+            <th>{{ __('PENJAMIN') }}
                 <span wire:click="sortColumnName('penjamin')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
-            <th>PANDITA
+            <th>{{ __('PANDITA') }}
                 <span wire:click="sortColumnName('nama_pandita')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
-            <th>KOTA
+            <th>{{ __('KOTA') }}
                 <span wire:click="sortColumnName('nama_kota')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>

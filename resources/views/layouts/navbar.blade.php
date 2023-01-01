@@ -4,18 +4,21 @@
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">{{ __('Dashboard') }}<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">{{ __('Home') }}<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
+                <a class="nav-link" href="/register">{{ __('Register') }}</a>
             </li>
             {{-- logout --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                     @csrf
                 </form>
@@ -25,16 +28,32 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                     aria-expanded="false">
-                    Dropdown link
+                    {{ __('Bahasa') }}
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    @if (app()->getLocale() == 'id')
+                        {{-- <a class="dropdown-item" href="{{ url('locale/en') }}">{{ __('english') }}</a> --}}
+                        <a class="dropdown-item" href="{{ url('locale/cn') }}">{{ __('中文') }}</a>
+                    @endif
+
+                    @if (app()->getLocale() == 'cn')
+                        <a class="dropdown-item" href="{{ url('locale/id') }}">{{ __('Indonesia') }}</a>
+                    @endif
+
                 </div>
             </li>
 
         </ul>
+        <div>
+
+            Welcome, {{ Auth::user()->name }}
+            {{-- <a class="nav-link" href="{{ route('logout') }}" --}}
+            <a class="text-white" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                    class="ml-2 fa-solid fa-right-from-bracket fa-xl"></i></a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                @csrf
+            </form>
+        </div>
     </div>
-    {{-- <span>Selamat Datang, {{ Auth::user()->name }}</span> --}}
 </nav>

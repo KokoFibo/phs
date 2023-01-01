@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Kota</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{ __('Tambah Kota') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,9 +13,9 @@
 
 
                 <div class="col-12 mt-3">
-                    <label>Provinsi</label>
+                    <label>{{ __('Provinsi') }}</label>
                     <select class="form-control" wire:model="selectedPropinsi">
-                        <option value="" selected>-- Pilih Provinsi --</option>
+                        <option value="" selected>-- {{ __('Pilih Provinsi') }} --</option>
                         @foreach ($propinsi as $p)
                             <option value="{{ $p->id }}">{{ $p->nama }}</option>
                         @endforeach
@@ -24,9 +24,9 @@
                 </div>
                 @if (!is_null($selectedPropinsi))
                     <div class="col-12 mt-3">
-                        <label>Kota</label>
+                        <label>{{ __('Kota') }}</label>
                         <select class="form-control" wire:model="nama_kota">
-                            <option value="" selected>-- Pilih Kota --</option>
+                            <option value="" selected>-- {{ __('Pilih Kota') }} --</option>
                             @foreach ($namakota as $p)
                                 <option value="{{ $p->nama }}">{{ $p->nama }}</option>
                             @endforeach
@@ -36,7 +36,7 @@
                         @enderror
                     </div>
                     <div class="col-12 mt-3">
-                        <button wire:click="store" class="btn btn-primary">Save</button>
+                        <button wire:click="store" class="btn btn-primary">{{ __('Save') }}</button>
                     </div>
                 @endif
 
@@ -51,8 +51,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Kota</th>
-                                    <th>Delete</th>
+                                    <th>{{ __('Kota') }}</th>
+                                    <th>{{ __('Delete') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

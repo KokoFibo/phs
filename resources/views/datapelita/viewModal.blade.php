@@ -13,64 +13,64 @@
 
                 <table class="table">
                     <tr>
-                        <td>Branch</td>
+                        <td>{{ __('Branch') }}</td>
                         <td>{{ $branch_id }}</td>
                     </tr>
 
                     <tr>
-                        <td>Nama</td>
+                        <td>{{ __('Nama') }}</td>
                         <td>{{ $nama_umat }}</td>
                     </tr>
                     <tr>
-                        <td>中文名</td>
+                        <td>{{ __('中文名') }}</td>
                         <td>{{ $mandarin }}</td>
                     </tr>
                     <tr>
-                        <td>Jenis Kelamin</td>
+                        <td>{{ __('Jenis Kelamin') }}</td>
                         <td>{{ check_JK($jenis_kelamin, $umur_sekarang) }}</td>
                     </tr>
                     <tr>
-                        <td>Umur</td>
+                        <td>{{ __('Umur') }}</td>
                         <td>{{ $umur_sekarang }}</td>
                     </tr>
                     <tr>
-                        <td>Alamat</td>
+                        <td>{{ __('Alamat') }}</td>
                         <td>{{ $alamat }}</td>
                     </tr>
                     <tr>
-                        <td>Kota</td>
+                        <td>{{ __('Kota') }}</td>
                         <td>{{ $namaKota }}</td>
                     </tr>
                     <tr>
-                        <td>Telepon</td>
+                        <td>{{ __('Telepon') }}</td>
                         <td>{{ $telp }}</td>
                     </tr>
                     <tr>
-                        <td>Handphone</td>
+                        <td>{{ __('Handphone') }}</td>
                         <td>{{ $hp }}</td>
                     </tr>
                     <tr>
-                        <td>Email</td>
+                        <td>{{ __('Email') }}</td>
                         <td>{{ $email }}</td>
                     </tr>
                     <tr>
-                        <td>Pengajak</td>
+                        <td>{{ __('Pengajak') }}</td>
                         <td>{{ $pengajak }}</td>
                     </tr>
                     <tr>
-                        <td>Penjamin</td>
+                        <td>{{ __('Penjamin') }}</td>
                         <td>{{ $penjamin }}</td>
                     </tr>
                     <tr>
-                        <td>Pandita</td>
+                        <td>{{ __('Pandita') }}</td>
                         <td>{{ $namaPandita }}</td>
                     </tr>
                     <tr>
-                        <td>Tanggal Mohon Tao</td>
+                        <td>{{ __('Tanggal Mohon Tao') }}</td>
                         <td>{{ $tgl_mohonTao }}</td>
                     </tr>
                     <tr>
-                        <td>Status</td>
+                        <td>{{ __('Status') }}</td>
                         <td>{{ $status }}</td>
                     </tr>
                 </table>

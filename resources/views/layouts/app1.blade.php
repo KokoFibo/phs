@@ -23,7 +23,6 @@
 </head>
 
 <body>
-    @include('layouts.navbar')
     @yield('content')
     <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
