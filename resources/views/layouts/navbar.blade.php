@@ -10,10 +10,14 @@
                 <a class="nav-link" href="#">{{ __('Dashboard') }}<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">{{ __('Home') }}<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('main') }}">{{ __('Main') }}<span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register">{{ __('Register') }}</a>
+                <a class="nav-link" href="{{ route('registration') }}">{{ __('Register') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('branch') }}">{{ __('Branch') }}</a>
             </li>
             {{-- logout --}}
             <li class="nav-item">

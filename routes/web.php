@@ -37,6 +37,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/main', function() {
         return view('main');
     })->name('main');
+
+    Route::get('/registration', function() {
+        return view('menuRegistration');
+    })->name('registration');
+
+    Route::get('/branch', function() {
+        return view('menuBranch');
+    })->name('branch');
     
     Route::get('locale/{locale}', function($locale){
         \Session::put('locale', $locale);

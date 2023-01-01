@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama_branch');
             $table->string('kode_branch');
+            $table->foreignId('kota_id');
+
             $table->timestamps();
         });
     }
