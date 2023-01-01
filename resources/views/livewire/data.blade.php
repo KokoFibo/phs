@@ -7,7 +7,6 @@
     {{-- @include('layouts.navbar') --}}
 
     <div class="container-fluid">
-        Hello {{ Auth::user()->name }}
 
         <div class="row">
             <div class="col-md-12">
