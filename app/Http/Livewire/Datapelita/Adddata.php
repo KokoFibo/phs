@@ -91,9 +91,13 @@ class Adddata extends Component
         
         // update data Pandita_is_Used
         $data_pandita = Pandita::find($this->pandita_id);
-        // dd($this->kota_id);
         $data_pandita->pandita_is_used = true;
         $data_pandita->save();
+
+        // update data branch_is_Used
+        $data_branch = Branch::find($this->branch_id);
+        $data_branch->branch_is_used = true;
+        $data_branch->save();
 
 
         $data_umat->save();

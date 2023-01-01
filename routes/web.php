@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/branch', function() {
         return view('menuBranch');
     })->name('branch');
+
     
     Route::get('locale/{locale}', function($locale){
         \Session::put('locale', $locale);

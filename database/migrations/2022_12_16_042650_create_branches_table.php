@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_branch');
             $table->string('kode_branch');
+            $table->boolean('branch_is_used')->default(false);
             $table->foreignId('kota_id');
 
             $table->timestamps();

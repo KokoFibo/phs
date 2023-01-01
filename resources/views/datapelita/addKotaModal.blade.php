@@ -10,72 +10,91 @@
                 </button>
             </div>
             <div class="modal-body ">
+                <div class="d-flex justify-content-evenly">
+                    <div class="col-6">
 
-
-                <div class="col-12 mt-3">
-                    <label>{{ __('Provinsi') }}</label>
-                    <select class="form-control" wire:model="selectedPropinsi">
-                        <option value="" selected>-- {{ __('Pilih Provinsi') }} --</option>
-                        @foreach ($propinsi as $p)
-                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
-                        @endforeach
-
-                    </select>
-                </div>
-                @if (!is_null($selectedPropinsi))
-                    <div class="col-12 mt-3">
-                        <label>{{ __('Kota') }}</label>
-                        <select class="form-control" wire:model="nama_kota">
-                            <option value="" selected>-- {{ __('Pilih Kota') }} --</option>
-                            @foreach ($namakota as $p)
-                                <option value="{{ $p->nama }}">{{ $p->nama }}</option>
-                            @endforeach
-                        </select>
-                        @error('nama_kota')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-12 mt-3">
-                        <button wire:click="store" class="btn btn-primary">{{ __('Save') }}</button>
-                    </div>
-                @endif
-
-
-
-                {{-- Table Kota --}}
-                @if (!empty($kota))
-
-                    <div class="col-12 mt-3">
-
-                        <table class="table table-bordered mt-5">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>{{ __('Kota') }}</th>
-                                    <th>{{ __('Delete') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($kota as $index => $k)
-                                    <tr>
-                                        <td>{{ $kota->firstItem() + $index }}</td>
-                                        <td>{{ $k->nama_kota }}</td>
-                                        <td class="text-center">
-                                            @if ($k->kota_is_used == false)
-                                                <button wire:click="delete({{ $k->id }})"
-                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                            @else
-                                                <button class="btn btn-warning btn-sm"><i
-                                                        class="fa fa-pen"></i></button>
-                                            @endif
-                                        </td>
-                                    </tr>
+                        <div class="mt-3">
+                            <label>{{ __('Provinsi') }}</label>
+                            <select class="form-control" wire:model="selectedPropinsi">
+                                <option value="" selected>-- {{ __('Pilih Provinsi') }} --</option>
+                                @foreach ($propinsi as $p)
+                                    <option value="{{ $p->id }}">{{ $p->nama }}</option>
                                 @endforeach
-                            </tbody>
-                        </table>
-                        {{ $kota->onEachSide(1)->links() }}
+
+                            </select>
+                        </div>
+
+                        @if (!is_null($selectedPropinsi))
+                            <div class=" mt-3">
+                                <label>{{ __('Kota') }}</label>
+                                <select class="form-control" wire:model="nama_kota">
+                                    @if (!is_null($nama_kota))
+                                        <option value="" selected>-- {{ $nama_kota }} --</option>
+                                    @endif
+                                    <option value="" selected>-- {{ __('Pilih Kota') }} --</option>
+                                    @foreach ($namakota as $p)
+                                        <option value="{{ $p->nama }}">{{ $p->nama }}</option>
+                                    @endforeach
+                                </select>
+                                @error('nama_kota')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            {{-- <div class="col-12 mt-3">
+                                <button wire:click="store" class="btn btn-primary">{{ __('Save') }}</button>
+                            </div> --}}
+                            @if ($is_edit == false && $is_add == true)
+                                <button wire:click="store" class="btn btn-primary">Save</button>
+                            @elseif ($is_edit == true && $is_add == false)
+                                <button wire:click="update" class="btn btn-primary">Update</button>
+                            @else
+                                <button wire:click="new" class="btn btn-primary">New</button>
+                            @endif
+                        @endif
                     </div>
-                @endif
+
+
+                    <div class="col-6">
+
+                        {{-- Table Kota --}}
+                        @if (!empty($kota))
+
+                            <div class="col-12 mt-3">
+
+                                <table class="table table-bordered mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>{{ __('Kota') }}</th>
+                                            <th>{{ __('Delete') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($kota as $index => $k)
+                                            <tr>
+                                                <td>{{ $kota->firstItem() + $index }}</td>
+                                                <td>{{ $k->nama_kota }}</td>
+                                                <td class="text-center">
+                                                    @if ($k->kota_is_used == false)
+                                                        <button wire:click="delete({{ $k->id }})"
+                                                            class="btn btn-danger btn-sm"><i
+                                                                class="fa fa-trash"></i></button>
+                                                    @else
+                                                        <button wire:click="edit({{ $k->id }})"
+                                                            class="btn btn-warning btn-sm"><i
+                                                                class="fa fa-pen"></i></button>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                {{ $kota->onEachSide(1)->links() }}
+                            </div>
+                        @endif
+                    </div>
+
+                </div>
 
 
 
