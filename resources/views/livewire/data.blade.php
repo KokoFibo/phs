@@ -1,9 +1,9 @@
 <div>
     {{-- {{ dd($datapelita->all()) }} --}}
     {{-- @include('datapelita.addModal') --}}
-    {{-- @include('datapelita.viewModal') --}}
+    @include('datapelita.viewModal')
     {{-- @include('datapelita.editModal') --}}
-    {{-- @include('datapelita.deleteModal') --}}
+    @include('datapelita.deleteModal')
     @include('layouts.navbar')
 
     <div class="container-fluid">
@@ -13,6 +13,17 @@
                     <div class="col-md-2 mt-3">
                         <Label>Search</Label>
                         <input type="text" class="form-control" wire:model="search" placeholder="Search...">
+                    </div>
+                    <div class="col-md-1 mt-3">
+                        <label for="name">Search Category </label>
+
+                        <select wire:model="category" class="form-control">
+                            <option value="data_pelitas.nama_umat" selected>Nama</option>
+                            <option value="data_pelitas.pengajak">Pengajak</option>
+                            <option value="data_pelitas.penjamin">Penjamin</option>
+                            <option value="panditas.nama_pandita">Pandita</option>
+                            <option value="kotas.nama_kota">Kota</option>
+                        </select>
                     </div>
                     <div class="col-md-1 mt-3">
                         <label for="name">Per Page: </label>
@@ -60,6 +71,14 @@
                             <option value="2">Perempuan</option>
                         </select>
                     </div>
+                    <div class="col-md-1 mt-3">
+                        <label for="name">Active </label>
+                        <select wire:model="active" class="form-control">
+                            <option value="">All</option>
+                            <option value="Active">Active Only</option>
+                            <option value="Inactive">Inactive Only</option>
+                        </select>
+                    </div>
 
                     {{-- <div class="col-md-1 mt-3">
                         <label for="name">Sort Direction</label>
@@ -78,142 +97,8 @@
                         @if (session()->has('message'))
                             <div class="alert alert-success">{{ session('message') }}</div>
                         @endif
-                        <table class="table table-bordered ">
-                            <thead class="bg-purple">
-                                <tr>
-                                    <th>#</th>
-                                    <th>NAMA
-                                        <span wire:click="sortColumnName('nama_umat')" class="float-right text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
 
-                                    </th>
-                                    <th>中文名
-                                        <span wire:click="sortColumnName('mandarin')" class=" text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
-                                    </th>
-                                    <th>UMUR
-                                        <span wire:click="sortColumnName('umur_sekarang')" class=" text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
-                                    </th>
-                                    <th>TGL CHIU TAO
-                                        <span wire:click="sortColumnName('tgl_mohonTao')" class=" text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
-                                    </th>
-                                    <th>JENIS KELAMIN
-                                        <span wire:click="sortColumnName('jenis_kelamin')" class=" text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
-                                    </th>
-                                    <th>PENGAJAK
-                                        <span wire:click="sortColumnName('pengajak')" class=" text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
-                                    </th>
-                                    <th>PENJAMIN
-                                        <span wire:click="sortColumnName('penjamin')" class=" text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
-                                    </th>
-                                    <th>PANDITA
-                                        <span wire:click="sortColumnName('nama_pandita')" class=" text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
-                                    </th>
-                                    <th>KOTA
-                                        <span wire:click="sortColumnName('nama_kota')" class=" text-sm"
-                                            style="cursor: pointer"><i
-                                                class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
-                                            <i
-                                                class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
-                                        </span>
-                                    </th>
-                                    <th class="text-center">
-                                        {{-- Add Data --}}
-                                        {{-- <button type="button" class="btn  btn-primary" data-toggle="modal"
-                                            data-target="#AddModal" wire:click="clearSession">
-                                            <i class="fa-solid fa-user-plus"></i>
-                                        </button> --}}
-                                        <a href="/adddata"><button type="button" class="btn  btn-primary">
-                                                <i class="fa-solid fa-user-plus"></i>
-                                            </button></a>
-
-
-                                        {{-- Reset --}}
-                                        <button type="button" class="btn  btn-success" wire:click="resetFilter">
-                                            <i class="fa fa-arrow-rotate-right"></i>
-                                        </button>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($datapelita as $index => $data)
-                                    <tr>
-                                        <td>{{ $datapelita->firstItem() + $index }}</td>
-                                        {{-- <td>{{ $data->id }}</td> --}}
-                                        <td>{{ $data->nama_umat }}</td>
-                                        <td>{{ $data->mandarin }}</td>
-                                        <td class="text-center">{{ $data->umur_sekarang }}</td>
-                                        <td>{{ $data->tgl_mohonTao }}</td>
-                                        {{-- <td>{{ $data->jenis_kelamin }}</td> --}}
-                                        <td>{{ check_JK($data->jenis_kelamin, $data->umur_sekarang) }}
-                                        </td>
-                                        <td>{{ $data->pengajak }}</td>
-                                        <td>{{ $data->penjamin }}</td>
-                                        {{-- <td>{{ $data->pandita }}</td> --}}
-                                        <td>{{ $data->nama_pandita }}</td>
-                                        {{-- <td>{{ $data->kota }}</td> --}}
-                                        <td>{{ $data->nama_kota }}</td>
-                                        <td class="text-center">
-                                            <div class="btn-group">
-                                                <button class="btn-success btn btn-sm" data-toggle="modal"
-                                                    data-target="#ViewModal" wire:click="edit({{ $data->id }})">
-                                                    <i class="fa fa-eye "></i>
-                                                </button>
-                                                <button class="btn-warning btn btn-sm" data-toggle="modal"
-                                                    data-target="#EditModal" wire:click="edit({{ $data->id }})">
-                                                    <i class="fa fa-pen-to-square "></i>
-                                                </button>
-                                                {{-- @if (!(Auth::user()->name == 'Phan')) --}}
-                                                <button class="btn-danger btn btn-sm" data-toggle="modal"
-                                                    data-target="#DeleteModal"
-                                                    wire:click="deleteConfirmation({{ $data->id }})">
-                                                    <i class="fa fa-trash "></i>
-                                                </button>
-                                                {{-- @endif --}}
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        @include('livewire.datapelita.main_table')
                         <div class="d-flex align-items-center justify-content-between">
                             <span>{{ $datapelita->onEachSide(5)->links() }}</span>
                             <span>Total hasil pencarian :

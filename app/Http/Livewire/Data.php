@@ -25,6 +25,8 @@ class Data extends Component
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
     public $current_id, $delete_id;
     public $namaPandita, $namaKota;
+    public $category="data_pelitas.nama_umat";
+    public $active="";
  
     public function updatingSearch () {
         $this->resetPage();
@@ -39,6 +41,9 @@ class Data extends Component
         $this->startDate = NULL; 
         $this->endDate = NULL;
         $this->jen_kel = NULL;
+        $this->category="data_pelitas.nama_umat";
+        $this->active="";
+
         $this->resetPage();
     }
 
@@ -164,7 +169,7 @@ class Data extends Component
         $data_umat->pengajak = $this->pengajak;
         $data_umat->penjamin = $this->penjamin;
         $data_umat->pandita_id = $this->pandita_id;
-        $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
+        $data_umat->tgl_mohonTao = $this->tgl_mohonTao; 
         $data_umat->status = $this->status;
 
         $data_umat->save();
@@ -247,7 +252,8 @@ class Data extends Component
         
         
         ->orderBy($this->columnName, $this->direction)
-        ->where('data_pelitas.nama_umat','like','%'.$this->search.'%')
+        // ->where('data_pelitas.nama_umat','like','%'.$this->search.'%')
+        ->where($this->category,'like','%'.$this->search.'%')
         // ->orWhere('mandarin','like','%'.$this->search.'%')
         // ->orWhere('pengajak','like','%'.$this->search.'%')
         // Kalau pakai orWhere maka query dibawah gak jalan
@@ -265,6 +271,9 @@ class Data extends Component
         })
         ->when($this->jen_kel, function($query){
             $query->where('data_pelitas.jenis_kelamin',  $this->jen_kel );
+        })
+        ->when($this->active, function($query){
+            $query->where('data_pelitas.status',  $this->active );
         })
          ->paginate($this->perpage); 
         // return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita', 'allKota']));

@@ -12,7 +12,7 @@ class Panditawire extends Component
     public $nama_lama;
 
     protected $rules = [
-        'nama_pandita' => 'unique:panditas,nama_pandita',
+        'nama_pandita' => 'required',
     ];
  
     public function store () {
@@ -29,14 +29,12 @@ class Panditawire extends Component
     }
 
     public function edit ($id) {
-        // dd($id);
-        $this->id_pandita;
+        $this->id_pandita = $id;
         $nama = Pandita::find($id);
-        $this->nama_lama = $nama->nama_pandita;
+        $this->nama_pandita = $nama->nama_pandita;
     }
 
     public function update() {
-        // dd($id);
 
         $nama = Pandita::find($this->id_pandita);
         $nama->nama_pandita = $this->nama_pandita;

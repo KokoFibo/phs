@@ -4,5 +4,17 @@
 }
 .bg-blue {
     background-color: #3abff8;
+    color: black;
+}
+
+.bg-pink {
+    background-color: #fb70a9;
     color: white;
+}
+
+.text-pink {
+    color: #fb70a9;
+}
+.text-blue {
+    color: #3abff8;
 }

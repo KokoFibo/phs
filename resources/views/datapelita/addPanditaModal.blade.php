@@ -1,12 +1,11 @@
 {{-- modal Add --}}
-<div wire:ignore.self class="modal fade " id="AddPanditaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div wire:ignore.self class="modal" id="AddPanditaModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pandita</h5>
+                <h5 class="modal-title">Tambah Data Pandita</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="false">&times;</span>
                 </button>
             </div>
             <div class="modal-body ">
@@ -45,8 +44,9 @@
                                                         <button wire:click="delete({{ $p->id }})"
                                                             class="btn btn-danger btn-sm">Delete</button>
                                                     @else
-                                                        <a href="#editPanditaModal" data-dismiss="modal"
-                                                            data-toggle="#editPanditaModal">Edit</a>
+                                                        <button class="btn btn-primary" data-toggle="modal"
+                                                            data-target="#editPanditaModal" button
+                                                            wire:click="edit({{ $p->id }})">Rename</button>
                                                     @endif
 
 

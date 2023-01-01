@@ -1,15 +1,14 @@
 {{-- modal Add --}}
-<div wire:ignore.self class="modal fade " id="editPanditaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div wire:ignore.self class="modal" id="editPanditaModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pandita</h5>
+                <h5 class="modal-title">Rename Data Pandita</h5>
 
             </div>
             <div class="modal-body ">
 
-                Rename {{ $nama_lama }} menjadi
+                <input type="text" class="form-control" wire:model="nama_pandita">
                 {{-- <div class="card card-sm mt-3">
                     <div class="card-header">Data Pandita</div>
                     <div class="card-body">
@@ -60,7 +59,9 @@
                     </div>
                 </div> --}}
 
-
+                <button class="btn btn-primary" data-toggle="modal" data-target="#AddPanditaModal"
+                    wire:click="update">Rename</button>
+                <button class="btn btn-warning" data-toggle="modal" data-target="#AddPanditaModal">Cancel</button>
             </div>
         </div>
     </div>

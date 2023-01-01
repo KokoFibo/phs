@@ -41,10 +41,13 @@ Route::get('/', function () {
 
 Route::get('/main', function() {
     return view('main');
-});
+})->name('main');
 
 Route::get('/adddata', function() {
     return view('menuAddData');
 })->name('adddata');
+Route::get('/editdata/{id}', function($id) {
+    return view('menuEditData', ['id' => $id]);
+})->name('editdata');
 Route::middleware(['auth'])->group(function () {
 });
