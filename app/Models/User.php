@@ -30,6 +30,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Branch::class);
     }
+    public function kota()
+    {
+        return $this->belongsTo(Kota::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

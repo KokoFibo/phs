@@ -32,7 +32,7 @@ class DataPelitaFactory extends Factory
             'penjamin' => fake()->name,
             'pandita_id' => fake()->numberBetween(1,3),
             'status' => 'Active',
-            'branch_id' => '1'
+            'branch_id' => fake()->numberBetween(1,3),
         ];
     }
 }

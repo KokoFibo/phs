@@ -10,6 +10,7 @@ use Livewire\Component;
 use App\Models\DataPelita;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 
 class Adddata extends Component
@@ -17,8 +18,7 @@ class Adddata extends Component
 
     public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
-    public $defaultBranch_id = '2';
-    public $branch_id = '2';
+    public $branch_id = '';
     public $nama_umat, $mandarin, $jenis_kelamin, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
@@ -43,7 +43,7 @@ class Adddata extends Component
             'pandita_id' => ['required'],
             'tgl_mohonTao' => ['required','date','before:tomorrow'],
             'status' => ['nullable'],
-            'branch_id' => ['required']
+            // 'branch_id' => ['required']
         ];
 
     }
@@ -65,7 +65,7 @@ class Adddata extends Component
         session()->flash('message', '');
        
         $data_umat = new DataPelita();
-
+        $this->branch_id = Auth::user()->branch_id;
         $data_umat->branch_id = $this->branch_id;
         $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
@@ -114,7 +114,7 @@ class Adddata extends Component
     }
     public function  clear_fields() {
     
-        $this->branch_id= $this->defaultBranch_id;
+        $this->branch_id= '';
         $this->nama_umat='';
         $this->mandarin='';
         $this->jenis_kelamin='';
@@ -136,7 +136,8 @@ class Adddata extends Component
         $allKota = Kota::orderBy('nama_kota', 'asc')->get();
         $dataPandita = Pandita::all();
         $branch = Branch::all();
-        $datapelita = DataPelita::where('pandita_id','3')->get();
+       
+        $datapelita = DataPelita::where('branch_id', Auth::user()->branch_id)->get();
         return view('livewire.datapelita.adddata', compact(['datapelita', 'branch', 'dataPandita', 'allKota']));
     }
 }

@@ -5,18 +5,18 @@ use Carbon\Carbon;
 use App\Models\Kota;
 use App\Models\Branch;
 use App\Models\Pandita;
+use Livewire\Component;
 use App\Models\DataPelita;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\DB;
 
-use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class Editdata extends Component
 {
     public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
-    public $defaultBranch_id = '2';
-    public $branch_id = '2';
+    public $branch_id;
     public $nama_umat, $mandarin, $jenis_kelamin, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
@@ -41,13 +41,13 @@ class Editdata extends Component
             'pandita_id' => ['required'],
             'tgl_mohonTao' => ['required','date','before:tomorrow'],
             'status' => ['nullable'],
-            'branch_id' => ['required']
+            // 'branch_id' => ['required']
         ];
 
     }
     public function mount () {
         $data = DataPelita::find($this->current_id);
-        $this->branch_id = $data->branch_id;
+        // $this->branch_id = $data->branch_id;
           $this->nama_umat = $data->nama_umat;
           $this->mandarin = $data->mandarin;
           $this->jenis_kelamin = $data->jenis_kelamin;
@@ -86,7 +86,7 @@ class Editdata extends Component
 
         $data_umat = DataPelita::find($this->current_id);
 
-        $data_umat->branch_id = $this->branch_id;
+        // $data_umat->branch_id = $this->branch_id;
         $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
         $data_umat->jenis_kelamin = $this->jenis_kelamin;
@@ -117,7 +117,7 @@ class Editdata extends Component
     }
     public function  clear_fields() {
     
-        $this->branch_id= $this->defaultBranch_id;
+        // $this->branch_id= $this->defaultBranch_id;
         $this->nama_umat='';
         $this->mandarin='';
         $this->jenis_kelamin='';
@@ -157,7 +157,8 @@ class Editdata extends Component
         //   $this->tgl_mohonTao = $data->tgl_mohonTao;
         // $this->status = $data->status;
 
-         $datapelita = DataPelita::where('pandita_id','3')->get();
+        $datapelita = DataPelita::where('branch_id', Auth::user()->branch_id)->get();
+
         return view('livewire.datapelita.editdata', compact([ 'datapelita', 'branch', 'dataPandita', 'allKota']));
     }
 }

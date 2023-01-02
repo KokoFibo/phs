@@ -20,7 +20,7 @@
         rel="stylesheet">
 
 
-
+    <link rel="icon" href="{{ url('css/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 

@@ -57,6 +57,9 @@
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
+            <th>
+                branch_id
+            </th>
             <th class="text-center">
                 {{-- Add Data --}}
                 {{-- <button type="button" class="btn  btn-primary" data-toggle="modal"
@@ -94,6 +97,7 @@
                 <td>{{ $data->nama_pandita }}</td>
                 {{-- <td>{{ $data->kota }}</td> --}}
                 <td>{{ $data->nama_kota }}</td>
+                <td>{{ $data->branch_id }}</td>
                 <td class="text-center">
                     <div class="btn-group">
                         <button class="btn-success btn btn-sm" data-toggle="modal" data-target="#ViewModal"

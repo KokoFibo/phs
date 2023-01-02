@@ -10,6 +10,7 @@ use Livewire\Component;
 use App\Models\DataPelita;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class Data extends Component
 {
@@ -18,8 +19,10 @@ class Data extends Component
     public $search = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $defaultBranch_id = '2';
-    public $branch_id = '2';
+    // public $defaultBranch_id = '1';
+    // public $branch_id = '1';
+    // public $branch_id =  Auth::branch_id ;
+    public $branch_id = '';
     public $nama_umat, $mandarin, $jenis_kelamin, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
@@ -238,11 +241,12 @@ class Data extends Component
 
     public function render()
     {
+        $this->branch_id = Auth::user()->branch_id;
         // $alldatapelita =DataPelita::orderBy('nama_umat', 'asc')->get();
         // $allKota = Kota::orderBy('nama_kota', 'asc')->get();
         // $dataPandita = Pandita::all();
         // $branch = Branch::all();
-        $datapelita = DB::table('data_pelitas')
+        $datapelita = DB::table('data_pelitas') 
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
          ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
@@ -253,10 +257,14 @@ class Data extends Component
         
         ->orderBy($this->columnName, $this->direction)
         // ->where('data_pelitas.nama_umat','like','%'.$this->search.'%')
+        // ->where('data_pelitas.branch_id','=', 1)
         ->where($this->category,'like','%'.$this->search.'%')
         // ->orWhere('mandarin','like','%'.$this->search.'%')
         // ->orWhere('pengajak','like','%'.$this->search.'%')
         // Kalau pakai orWhere maka query dibawah gak jalan
+        ->when($this->branch_id, function($query){
+            $query->where('data_pelitas.branch_id', $this->branch_id );
+        })
         ->when($this->startUmur, function($query){
             $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
         })
@@ -277,6 +285,7 @@ class Data extends Component
         })
          ->paginate($this->perpage); 
         // return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita', 'allKota']));
-        return view('livewire.data', compact('datapelita'));
+        $data_branch = Branch::find(Auth::user()->branch_id);
+        return view('livewire.data', compact(['datapelita', 'data_branch']));
     }
 }

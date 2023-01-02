@@ -22,7 +22,7 @@
                         {{-- kolom kiri --}}
                         <div class="col-6">
                             {{-- Branch --}}
-                            <div class="form-group ">
+                            {{-- <div class="form-group ">
                                 <label for="branch">{{ __('Branch') }}</label>
                                 <select id="branch" class="form-control" wire:model="branch_id">
                                     @foreach ($branch as $b)
@@ -32,7 +32,7 @@
                                 @error('branch_id')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                            </div>
+                            </div> --}}
 
                             {{-- Nama --}}
                             <div class="form-group">

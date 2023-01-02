@@ -1,4 +1,5 @@
 <div>
+
     <div class="col-8 mt-3 mx-auto">
         <div class="card">
             <div class="card-header d-flex justify-content-between
@@ -21,17 +22,18 @@
                         {{-- kolom kiri --}}
                         <div class="col-6">
                             {{-- Branch --}}
-                            <div class="form-group ">
-                                <label for="branch">{{ __('Branch') }}</label>
+                            {{-- <div class="form-group "> --}}
+                            {{-- <input type="text" value="{{ Auth::user()->branch_id }}" wire:model="branch_id"> --}}
+                            {{-- <label for="branch">{{ __('Branch') }}</label>
                                 <select id="branch" class="form-control" wire:model="branch_id">
                                     @foreach ($branch as $b)
                                         <option value={{ $b->id }}>{{ $b->kode_branch }}</option>
                                     @endforeach
-                                </select>
+                                </select> 
                                 @error('branch_id')
                                     <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
+                                @enderror --}}
+                            {{-- </div> --}}
 
                             {{-- Nama --}}
                             <div class="form-group">
@@ -79,10 +81,11 @@
                                 <label for="branch">{{ __('Kota') }}</label>
                                 <select id="branch" class="form-control" wire:model="kota_id">
 
-                                    <option value="" selected>{{ __('Pilih Kota') }}</option>
+                                    <option default value="" selected>Silakan Pilih Kota</option>
                                     @foreach ($allKota as $k)
                                         <option value="{{ $k->id }}">{{ $k->nama_kota }} </option>
                                     @endforeach
+
                                 </select>
                                 @error('kota_id')
                                     <span class="text-danger">{{ $message }}</span>
@@ -175,8 +178,15 @@
                                 <select class="form-control" wire:model="pengajak">
                                     <option value="" selected>==> {{ __('Masukkan Data Pengajak') }} <==
                                             </option>
+                                            @php
+                                                $x = 0;
+                                            @endphp
                                             @foreach ($datapelita as $data)
-                                    <option value="{{ $data->nama_umat }}">{{ $data->nama_umat }}</option>
+                                                @php
+                                                    $x++;
+                                                @endphp
+                                    <option value="{{ $data->nama_umat }}">{{ $x }}.
+                                        {{ $data->nama_umat }}</option>
                                     @endforeach
                                 </select>
                                 @error('pengajak')

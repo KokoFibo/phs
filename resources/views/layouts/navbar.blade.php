@@ -13,12 +13,36 @@
                 <a class="nav-link" href="{{ route('main') }}">{{ __('Main') }}<span
                         class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('registration') }}">{{ __('Register') }}</a>
+            {{-- ============================================= --}}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ __('Utilities') }}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ route('branch') }}">{{ __('Branch') }}</a>
+                    <a class="dropdown-item" href="{{ route('resetumur') }}">{{ __('Reset Umur') }}</a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('branch') }}">{{ __('Branch') }}</a>
+            {{-- ============================================= --}}
+
+            {{-- ============================================= --}}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ __('Administration') }}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">{{ __('Change Profile') }}</a>
+                    <a class="dropdown-item" href="{{ route('registration') }}">{{ __('Register New Admin') }}</a>
+                    <a class="dropdown-item" href="#">{{ __('Change Admin Profile') }}</a>
+                    <a class="dropdown-item" href="#">{{ __('Reset Password') }}</a>
+
+
+
+                </div>
             </li>
+            {{-- ============================================= --}}
             {{-- logout --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"
@@ -49,15 +73,38 @@
 
         </ul>
         <div>
+            @livewire('branchname')
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="">
+                {{-- ============================================= --}}
+                <ul class="navbar-nav ">
+                    <li class="nav-item dropdown btn-group dropleft">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                            data-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }} ({{ Auth::user()->role }})
+                        </a>
+                        <div class="dropdown-menu text-left dropleft ">
+                            <a class="dropdown-item" href="#">{{ __('Change Profile') }}</a>
+                            <a class="dropdown-item"
+                                href="{{ route('registration') }}">{{ __('Register New Admin') }}</a>
+                            <a class="dropdown-item" href="#">{{ __('Change Admin Profile') }}</a>
+                            <a class="dropdown-item"
+                                href="{{ route('resetpassword') }}">{{ __('Reset Password') }}</a>
+                        </div>
+                    </li>
 
-            Welcome, {{ Auth::user()->name }}
-            {{-- <a class="nav-link" href="{{ route('logout') }}" --}}
-            <a class="text-white" href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                    class="ml-2 fa-solid fa-right-from-bracket fa-xl"></i></a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
-                @csrf
-            </form>
+                </ul>
+                {{-- ============================================= --}}
+            </div>
+            <div>
+                <a class="text-white" href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                        class="ml-2 fa-solid fa-right-from-bracket fa-xl"></i></a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                    @csrf
+                </form>
+            </div>
         </div>
     </div>
 </nav>

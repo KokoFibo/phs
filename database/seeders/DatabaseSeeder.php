@@ -71,7 +71,27 @@ class DatabaseSeeder extends Seeder
             'nama_branch' => 'BNI',
             'kode_branch' => 'BNI-01',
             'kota_id' => 1,
-            'branch_is_used' => false,
+            'branch_is_used' => true,
+            ],
+        );
+        DB::table('branches')->insert(
+
+
+            [
+            'nama_branch' => 'Dadap',
+            'kode_branch' => 'Dadap-01',
+            'kota_id' => 2,
+            'branch_is_used' => true,
+            ],
+        );
+
+        DB::table('branches')->insert(
+
+            [
+            'nama_branch' => 'Kapuk',
+            'kode_branch' => 'Kapuk-01',
+            'kota_id' => 3,
+            'branch_is_used' => true,
             ],
         );
         
