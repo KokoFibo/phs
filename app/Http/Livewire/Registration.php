@@ -17,6 +17,7 @@ class Registration extends Component
 
     public $name, $email, $password, $role, $branch_id, $kota_id, $password_confirmation , $currentId;
     public $is_edit = false;
+    public $is_reset = false;
 
     public function  clear_fields() {
     
@@ -86,8 +87,34 @@ class Registration extends Component
         $this->kota_id = $data->kota_id;
         $this->branch_id = $data->branch_id;
         $this->is_edit=true;
-        
+    }
 
+    public function resetpassword ($id) {
+        $this->currentId = $id;
+        $data = User::find($id);
+        $this->name = $data->name;
+        $this->email = $data->email;
+        $this->role = $data->role;
+        $this->kota_id = $data->kota_id;
+        $this->branch_id = $data->branch_id;
+        $this->is_reset=true;
+    }
+
+    public function storepassword () {
+        $this->validate([
+           
+            'password' => ['required','string', 'min:8', 'confirmed'],
+        //  'password_confirmation'=> ['required'],
+           
+        ]);
+        session()->flash('message', '');
+        $data = User::find($this->currentId);
+        $data->password = Hash::make($this->password);
+
+        $data->save();
+        session()->flash('message', 'Password Reset Done');
+        $this->clear_fields();    
+        $this->is_reset=false;
 
     }
 
@@ -113,7 +140,7 @@ class Registration extends Component
         $data_user->kota_id = $this->kota_id;
         $data_user->branch_id = $this->branch_id;
         $data_user->save();
-        session()->flash('message', 'Data Updated Successfully');
+        session()->flash('message', 'Data Updated Done');
         $this->clear_fields();    
         $this->is_edit=false;
 
@@ -122,6 +149,8 @@ class Registration extends Component
     public function delete ($id) {
         $data = User::find($id);
         $data->delete();
+        session()->flash('message', 'Data Deleted');
+
     }
 
 

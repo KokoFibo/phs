@@ -13,6 +13,10 @@
                 <a class="nav-link" href="{{ route('main') }}">{{ __('Main') }}<span
                         class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('resetpassword') }}">{{ __('Reset Password') }}<span
+                        class="sr-only">(current)</span></a>
+            </li>
             {{-- ============================================= --}}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"

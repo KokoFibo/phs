@@ -37,6 +37,8 @@
                                         class="btn btn-warning">Edit</button>
                                     <button wire:click="delete({{ $d->id }})" type="button"
                                         class="btn btn-danger">Delete</button>
+                                    <button wire:click="resetpassword({{ $d->id }})" type="button"
+                                        class="btn btn-success">Reset Password</button>
 
                                 </div>
                             </td>

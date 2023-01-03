@@ -1,15 +1,18 @@
+@if (session()->has('message'))
+    <div class="alert alert-success">{{ session('message') }}</div>
+@endif
 {{-- <div class="container"> --}}
 <div class="mt-1 mx-auto  p-3 shadow-lg rounded-5" style="border-radius: 15px">
     {{-- <h5 class="mb-3">Registration : {{ $is_edit }}</h5>
     <hr> --}}
 
-    @csrf
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input wire:model="name" type="text" class="form-control @error('name')
+        <input wire:model="name" {{ $is_reset == true ? 'disabled' : '' }} type="text"
+            class="form-control @error('name')
       is-invalid
-  @enderror"
-            id="name" placeholder="Full Name" name="name" value="{{ old('name') }}">
+  @enderror" id="name" placeholder="Full Name"
+            name="name" value="{{ old('name') }}">
         @error('name')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -20,10 +23,11 @@
 
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input wire:model="email" type="text" class="form-control @error('email')
+        <input wire:model="email" {{ $is_reset == true ? 'disabled' : '' }} type="text"
+            class="form-control @error('email')
   is-invalid
-@enderror"
-            id="email" placeholder="user@gmail.com" name="email" value="{{ old('email') }}">
+@enderror" id="email" placeholder="user@gmail.com"
+            name="email" value="{{ old('email') }}">
         @error('email')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -34,7 +38,7 @@
     {{-- Role --}}
     <div class="mb-3">
         <label for="email" class="form-label">{{ __('Role') }}</label>
-        <select class="form-control" wire:model="role">
+        <select class="form-control" wire:model="role" {{ $is_reset == true ? 'disabled' : '' }}>
             <option value="">Silakan Pilih Role</option>
             <option value="Admin">Admin</option>
             <option value="Supervisor">Supervisor</option>
@@ -50,7 +54,7 @@
     {{-- Kota --}}
     <div class="mb-3">
         <label for="email" class="form-label">{{ __('Kota') }}</label>
-        <select class="form-control" wire:model="kota_id">
+        <select class="form-control" wire:model="kota_id" {{ $is_reset == true ? 'disabled' : '' }}>
             <option value="" selected>Silakan Pilih Kota</option>
             @foreach ($kota as $k)
                 <option value="{{ $k->id }}">{{ $k->nama_kota }}</option>
@@ -66,7 +70,7 @@
     {{-- Branch --}}
     <div class="mb-3">
         <label for="email" class="form-label">{{ __('Branch') }}</label>
-        <select class="form-control" wire:model="branch_id">
+        <select class="form-control" wire:model="branch_id" {{ $is_reset == true ? 'disabled' : '' }}>
             <option value="" selected>Silakan Pilih branch</option>
 
             @foreach ($branch as $b)
@@ -109,13 +113,17 @@
     @endif
     <div class="d-flex justify-content-between">
         <div>
-            @if ($is_edit == false)
+            @if ($is_reset == true)
                 <div class="mb-3 ">
-                    <button class="btn btn-primary" wire:click="store">Register</button>
+                    <button class="btn btn-primary" wire:click="storepassword">Reset</button>
+                </div>
+            @elseif ($is_edit == true)
+                <div class="mb-3 ">
+                    <button class="btn btn-primary" wire:click="update">Update</button>
                 </div>
             @else
                 <div class="mb-3 ">
-                    <button class="btn btn-primary" wire:click="update">Update</button>
+                    <button class="btn btn-primary" wire:click="store">Register</button>
                 </div>
             @endif
         </div>
