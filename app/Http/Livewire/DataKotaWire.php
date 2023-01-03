@@ -17,12 +17,13 @@ class DataKotaWire extends Component
     public $nama_kota;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $is_edit = 'false';
-    public $is_add = 'false';
+    public $is_edit = false;
+    public $is_add = true;
 
     public function mount  () {
         $this->propinsi = Province::orderBy('nama', 'asc')->get();
-        $this->namakota = collect();
+        // $this->namakota = collect();
+        $this->namakota = "";
         
     }
     // public function rules () {
@@ -59,49 +60,37 @@ class DataKotaWire extends Component
         $data_kota->nama_kota = $this->nama_kota;
         $data_kota->save(); 
         // $this->redirect(route('adddata'));
-        $this->is_edit=true;
-        $this->is_add=false;
+        $this->clear_fields();   
+        // $this->is_edit=false;
+        // $this->is_add=true;
 
     }
 
-    public function update () {
-        $validatedData = $this->validate();
-        session()->flash('message', '');
-       
-        $data = new Branch();
-        $data = Branch::find($this->current_id);
-
-        $data->kota_id = $this->kota_id;
-        $data->nama_branch = $this->nama_branch;
-        $data->kode_branch = $this->kode_branch;
-        $data->save();
-
-        session()->flash('message', 'Data Branch Sudah di Update');
-
-        $this->clear_fields();    
-        $this->is_edit=false;
-        $this->is_add=false; 
-        
-        // hiding the Modal after run Add Data 
-        // $this->dispatchBrowserEvent('close-modal');
-
-    }
 
     public function edit ($id) {
         $data = Kota::find($id);
         $this->current_id = $id;
         $this->nama_kota = $data->nama_kota;
-        $this->selectedNamaKota = $data->nama_kota;
-        $this->selectedPropinsi = $data->nama_kota;
+        // $this->selectedNamaKota = $data->nama_kota;
+        // $this->selectedPropinsi = $data->nama_kota;
        
         $this->is_edit=true;
-        $this->is_add=false;
+         $this->is_add=false;
     }
-    public function new () {
+
+    public function update () {
+        $this->validate();
+
+        $data = Kota::find($this->current_id);
+        $data->nama_kota = $this->nama_kota;
+        $data->save();
         $this->clear_fields();   
-        $this->is_edit=false;
-        $this->is_add=true; 
+
+        // $this->is_add = true;
+        // $this->is_edit = false;
+
     }
+    
     
     public function delete ($id) {
 

@@ -30,6 +30,7 @@ class Data extends Component
     public $namaPandita, $namaKota;
     public $category="data_pelitas.nama_umat";
     public $active="";
+    public $kode_branch="";
  
     public function updatingSearch () {
         $this->resetPage();
@@ -241,20 +242,19 @@ class Data extends Component
 
     public function render()
     {
-        $this->branch_id = Auth::user()->branch_id;
-        // $alldatapelita =DataPelita::orderBy('nama_umat', 'asc')->get();
-        // $allKota = Kota::orderBy('nama_kota', 'asc')->get();
-        // $dataPandita = Pandita::all();
-        // $branch = Branch::all();
+        if (Auth::user()->role == '3'){
+            $this->branch_id = $this->kode_branch;
+        }
+        else {
+            $this->branch_id = Auth::user()->branch_id;
+        }
+        
+      
         $datapelita = DB::table('data_pelitas') 
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
          ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
 
-        // $datapelita = DB::table('kotas')
-        // ->join('data_pelitas', 'kotas.id', '=', 'data_pelitas.kota_id')   
-        
-        
         ->orderBy($this->columnName, $this->direction)
         // ->where('data_pelitas.nama_umat','like','%'.$this->search.'%')
         // ->where('data_pelitas.branch_id','=', 1)
@@ -265,6 +265,9 @@ class Data extends Component
         ->when($this->branch_id, function($query){
             $query->where('data_pelitas.branch_id', $this->branch_id );
         })
+        // ->when($this->kode_branch, function($query){
+        //     $query->where('data_pelitas.branch_id', $this->kode_branch );
+        // })
         ->when($this->startUmur, function($query){
             $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
         })
@@ -284,8 +287,8 @@ class Data extends Component
             $query->where('data_pelitas.status',  $this->active );
         })
          ->paginate($this->perpage); 
-        // return view('livewire.data', compact(['datapelita', 'branch', 'alldatapelita', 'dataPandita', 'allKota']));
         $data_branch = Branch::find(Auth::user()->branch_id);
-        return view('livewire.data', compact(['datapelita', 'data_branch']));
+        $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
+        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch']));
     }
 }

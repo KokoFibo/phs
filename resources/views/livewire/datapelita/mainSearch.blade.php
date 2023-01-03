@@ -25,15 +25,28 @@
                 </select>
             </div>
 
+            {{-- Jika Role adalah Manager --}}
+            @if (Auth::user()->role == '3')
+                <div class="form-group col-md-1 mt-3">
+                    <label for="name">{{ __('Tgl Chiu Tao') }}: </label>
+                    <input type="date" class="form-control" wire:model="startDate">
+                </div>
 
-            <div class="form-group col-md-2 mt-3">
-                <label for="name">{{ __('Tgl Chiu Tao') }}: </label>
-                <input type="date" class="form-control" wire:model="startDate">
-            </div>
-            <div class="form-group col-md-2 mt-3">
-                <label for="name">-</label>
-                <input type="date" class="form-control" wire:model="endDate">
-            </div>
+                <div class="form-group col-md-1 mt-3">
+                    <label for="name">-</label>
+                    <input type="date" class="form-control" wire:model="endDate">
+                </div>
+            @else
+                <div class="form-group col-md-2 mt-3">
+                    <label for="name">{{ __('Tgl Chiu Tao') }}: </label>
+                    <input type="date" class="form-control" wire:model="startDate">
+                </div>
+
+                <div class="form-group col-md-2 mt-3">
+                    <label for="name">-</label>
+                    <input type="date" class="form-control" wire:model="endDate">
+                </div>
+            @endif
             <div class="form-group col-md-1 mt-3">
                 <label for="name">{{ __('Umur') }}</label>
                 <input type="text" class="form-control" wire:model="startUmur">
@@ -60,6 +73,17 @@
                     <option value="Inactive">{{ __('Inactive Only') }}</option>
                 </select>
             </div>
+            @if (Auth::user()->role == '3')
+                <div class="form-group col-md-1 mt-3">
+                    <label for="name">{{ __('Branch') }} </label>
+                    <select wire:model="kode_branch" class="form-control">
+                        <option value="">{{ __('All') }}</option>
+                        @foreach ($all_branch as $a)
+                            <option value="{{ $a->id }}">{{ $a->nama_branch }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
 
 
 

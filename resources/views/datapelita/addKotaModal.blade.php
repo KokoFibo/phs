@@ -11,47 +11,55 @@
             </div>
             <div class="modal-body ">
                 <div class="d-flex justify-content-evenly">
-                    <div class="col-6">
-
-                        <div class="mt-3">
-                            <label>{{ __('Provinsi') }}</label>
-                            <select class="form-control" wire:model="selectedPropinsi">
-                                <option value="" selected>-- {{ __('Pilih Provinsi') }} --</option>
-                                @foreach ($propinsi as $p)
-                                    <option value="{{ $p->id }}">{{ $p->nama }}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-
-                        @if (!is_null($selectedPropinsi))
-                            <div class=" mt-3">
-                                <label>{{ __('Kota') }}</label>
-                                <select class="form-control" wire:model="nama_kota">
-                                    @if (!is_null($nama_kota))
-                                        <option value="" selected>-- {{ $nama_kota }} --</option>
-                                    @endif
-                                    <option value="" selected>-- {{ __('Pilih Kota') }} --</option>
-                                    @foreach ($namakota as $p)
-                                        <option value="{{ $p->nama }}">{{ $p->nama }}</option>
+                    @if ($is_add)
+                        <div class="col-6">
+                            <div class="mt-3">
+                                <label>{{ __('Provinsi') }}</label>
+                                <select class="form-control" wire:model="selectedPropinsi">
+                                    <option value="" selected>-- {{ __('Pilih Provinsi') }} --</option>
+                                    @foreach ($propinsi as $p)
+                                        <option value="{{ $p->id }}">{{ $p->nama }}</option>
                                     @endforeach
+
                                 </select>
-                                @error('nama_kota')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
                             </div>
-                            {{-- <div class="col-12 mt-3">
+                            @if (!is_null($selectedPropinsi))
+                                <div class=" mt-3">
+                                    <label>{{ __('Kota') }}</label>
+                                    <select class="form-control" wire:model="nama_kota">
+                                        @if (!is_null($nama_kota))
+                                            <option value="" selected>-- {{ $nama_kota }} --</option>
+                                        @endif
+                                        <option value="" selected>-- {{ __('Pilih Kota') }} --</option>
+                                        @foreach ($namakota as $p)
+                                            <option value="{{ $p->nama }}">{{ $p->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('nama_kota')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                {{-- <div class="col-12 mt-3">
                                 <button wire:click="store" class="btn btn-primary">{{ __('Save') }}</button>
                             </div> --}}
-                            @if ($is_edit == false && $is_add == true)
-                                <button wire:click="store" class="btn btn-primary">Save</button>
-                            @elseif ($is_edit == true && $is_add == false)
-                                <button wire:click="update" class="btn btn-primary">Update</button>
-                            @else
-                                <button wire:click="new" class="btn btn-primary">New</button>
+                                {{-- @if ($is_edit == false && $is_add == true) --}}
+                                <button wire:click="store" class="mt-2 btn btn-primary">Save</button>
+                                {{-- @elseif ($is_edit == true && $is_add == false) --}}
+                                {{-- @else --}}
+                                {{-- <button wire:click="update" class="btn btn-primary">Update</button> --}}
+                                {{-- @else
+                                <button wire:click="new" class="btn btn-primary">New</button> --}}
+                                {{-- @endif --}}
                             @endif
-                        @endif
-                    </div>
+                        </div>
+                    @endif
+                    @if ($is_edit)
+                        <div class="mb-3">
+                            <label class="form-label">Rename Kota</label>
+                            <input wire:model="nama_kota" type="text" class="form-control">
+                            <button class="mt-2 btn-primary" wire:click="update">Update</button>
+                        </div>
+                    @endif
 
 
                     <div class="col-6">

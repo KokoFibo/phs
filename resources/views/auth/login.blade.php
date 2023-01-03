@@ -1,45 +1,83 @@
 @extends('layouts.app1')
 @section('content')
-    <div class="container">
-        <div class="col-4 mt-5 mx-auto  p-3 shadow-lg rounded-5" style="border-radius: 15px">
+    <style>
+        .bground {
+            background: rgb(140, 151, 255);
+            background: linear-gradient(157deg, rgba(140, 151, 255, 1) 0%, rgba(255, 185, 250, 1) 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-            <h5 class="mb-3 col-3 ">Login</h5>
-            <hr>
-            <form action="{{ route('login') }}" method="post">
-                @csrf
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control @error('email')
+        .glass {
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btnrev {
+            background-color: transparent;
+            border-color: blue;
+            color: blue;
+        }
+    </style>
+    <div class="container-fluid bground">
+
+
+        {{-- <div class="card col-4 mt-3 mx-auto"> --}}
+        <div class=" col-4">
+            {{-- <div class="card-header border rounded text-center">
+                Login
+            </div> --}}
+            {{-- <div class="card-body"> --}}
+            <div class=" glass m-5 mx-auto  p-3   ">
+
+                <h5 class="mb-3 text-center text-white">Login</h5>
+                <hr>
+                <form action="{{ route('login') }}" method="post">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="email" class="form-label text-white">Email</label>
+                        <input type="text" class="form-control @error('email')
             is-invalid
         @enderror"
-                        id="email" placeholder="user@gmail.com" name="email" value="{{ old('email') }}">
-                    @error('email')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+                            id="email" placeholder="user@gmail.com" name="email" autocomplete="off">
+                        {{-- placeholder="user@gmail.com" name="email" value="{{ old('email') }}"> --}}
+                        @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control @error('password')
+                    <div class="mb-3">
+                        <label for="password" class="form-label text-white">Password</label>
+                        <input type="password"
+                            class="form-control @error('password')
             is-invalid
-        @enderror"
-                        id="password" placeholder="Password" name="password">
+        @enderror" id="password"
+                            placeholder="Password" name="password" autocomplete="off">
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <button class="btnrev btn btn-primary" type="submit">Login</button>
+                    </div>
+                </form>
+                <hr>
+                <div class="d-flex justify-content-between">
+
+                    <a href="{{ route('password.request') }}">Forget Password</a>
+                    <a href="register">Create New Account</a>
                 </div>
-
-
-
-                <div class="mb-3">
-                    <button class="btn btn-primary" type="submit">Login</button>
-                </div>
-            </form>
-            <hr>
-            <div class="d-flex justify-content-between">
-
-                <a href="{{ route('password.request') }}">Forget Password</a>
-                <a href="register">Create New Account</a>
             </div>
+            {{-- </div> --}}
         </div>
     </div>
 @endsection
