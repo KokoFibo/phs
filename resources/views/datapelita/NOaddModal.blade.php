@@ -123,7 +123,7 @@
 
                     {{-- Jenis Kelamin --}}
                     <div class="form-group">
-                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                        <label for="jenis_kelamin">Gender</label>
                         <div class="form-check d-flex">
 
                             <div class="col-md-2">

@@ -23,35 +23,21 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-// Route::get('/kota', function () {
-//     return view('Menu-Kota');
-// });
 
-// Route::get('/pandita', function () {
-//     return view('Menu-Pandita');
-// });
 
-Route::get('/resetumur', function () {
-    $data = DataPelita::all();
-        foreach($data as $d ){
-            $now = Carbon::now();
-            $tahun = $now->year;
-            $year = date('Y', strtotime($d->tgl_mohonTao));
-            $selisih = $tahun - $year;
-            $d->umur_sekarang = $d->umur + $selisih;
-            $d->save();
-        session()->flash('message', 'Seluruh Data Umur Umat Sudah di Reset');
-        return redirect(route('main'));
-            // return back();
-        }
-    })->name('resetumur');
+
 
     Route::get('/resetpswd', function() {
         return view('menuResetPassword');
     })->name('resetpassword');
 
+ 
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/registration', function() {
+        return view('menuRegistration');
+    })->middleware(['supervisor'])->name('registration');
     
     Route::get('/', function () {
         return view('auth.login');
@@ -61,9 +47,7 @@ Route::middleware(['auth'])->group(function () {
         return view('main');
     })->name('main');
 
-    Route::get('/registration', function() {
-        return view('menuRegistration');
-    })->name('registration');
+    
 
     Route::get('/branch', function() {
         return view('menuBranch');
@@ -81,6 +65,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/editdata/{id}', function($id) {
         return view('menuEditData', ['id' => $id]);
     })->name('editdata');
+
+    Route::get('/resetumur', function () {
+        $data = DataPelita::all();
+            foreach($data as $d ){
+                $now = Carbon::now();
+                $tahun = $now->year;
+                $year = date('Y', strtotime($d->tgl_mohonTao));
+                $selisih = $tahun - $year;
+                $d->umur_sekarang = $d->umur + $selisih;
+                $d->save();
+            session()->flash('message', 'Seluruh Data Umur Umat Sudah di Reset');
+            return redirect(route('main'));
+            }
+        })->name('resetumur');
 
 
 });

@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->string('nama_umat');
             $table->string('mandarin')->nullable();
-            $table->string('jenis_kelamin');
+            $table->string('gender');
             $table->integer('umur');
             $table->integer('umur_sekarang')->nullable();
             $table->string('alamat');

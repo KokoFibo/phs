@@ -28,33 +28,15 @@
                     <a class="dropdown-item" href="{{ route('resetumur') }}">{{ __('Reset Umur') }}</a>
                 </div>
             </li>
-            {{-- ============================================= --}}
 
-            {{-- ============================================= --}}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                    aria-expanded="false">
-                    {{ __('Administration') }}
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">{{ __('Change Profile') }}</a>
-                    <a class="dropdown-item" href="{{ route('registration') }}">{{ __('Register New Admin') }}</a>
-                    <a class="dropdown-item" href="#">{{ __('Change Admin Profile') }}</a>
-                    <a class="dropdown-item" href="#">{{ __('Reset Password') }}</a>
-
-
-
-                </div>
-            </li>
-            {{-- ============================================= --}}
             {{-- logout --}}
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                     @csrf
                 </form>
-            </li>
+            </li> --}}
 
 
             <li class="nav-item dropdown">
@@ -86,15 +68,24 @@
                     <li class="nav-item dropdown btn-group dropleft">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false">
-                            {{ Auth::user()->name }} ({{ Auth::user()->role }})
+                            {{ Auth::user()->name }} (
+                            @if (Auth::user()->role == '1')
+                                {{ __('Admin') }}
+                            @elseif (Auth::user()->role == '2')
+                                {{ __('Supervisor') }}
+                            @elseif (Auth::user()->role == '3')
+                                {{ __('Manager') }}
+                            @else
+                                {{ __('Illegal') }}
+                            @endif
+                            )
                         </a>
-                        <div class="dropdown-menu text-left dropleft ">
+                        <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">{{ __('Change Profile') }}</a>
-                            <a class="dropdown-item"
-                                href="{{ route('registration') }}">{{ __('Register New Admin') }}</a>
-                            <a class="dropdown-item" href="#">{{ __('Change Admin Profile') }}</a>
-                            <a class="dropdown-item"
-                                href="{{ route('resetpassword') }}">{{ __('Reset Password') }}</a>
+                            @if (Auth::user()->role != '1')
+                                <a class="dropdown-item"
+                                    href="{{ route('registration') }}">{{ __('Register New Admin') }}</a>
+                            @endif
                         </div>
                     </li>
 

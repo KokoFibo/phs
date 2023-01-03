@@ -11,7 +11,7 @@ class DataPelita extends Model
     protected $fillable = [
         'nama_umat',
         'mandarin',
-        'jenis_kelamin',
+        'gender',
         'umur',
         'umur_sekarang',
         'alamat',

@@ -8,11 +8,12 @@
 
     <div class="container-fluid">
 
-        <div class="row">
+        @include('livewire.datapelita.mainSearch')
+        {{-- <div class="row">
             <div class="col-md-12">
                 <div class="d-flex">
                     <div class="col-md-2 mt-3">
-                        <Label>Search</Label>
+                        <Label class="text">Search</Label>
                         <input type="text" class="form-control" wire:model="search" placeholder="Search...">
                     </div>
                     <div class="col-md-1 mt-3">
@@ -35,17 +36,7 @@
                         </select>
                     </div>
 
-                    {{-- <div class="col-md-1 mt-3">
-                        <label for="name">Kategori </label>
-                        <select wire:model="columnName" class="form-control">
-                            <option value="nama_umat">Nama</option>
-                            <option value="mandarin">中文名</option>
-                            <option value="tgl_mohonTao">Tgl Chiu Tao</option>
-                            <option value="umur_sekarang">Umur</option>
-                            <option value="pengajak">Pengajak</option>
-                            <option value="penjamin">Penjamin</option>
-                        </select>
-                    </div> --}}
+                    
                     <div class="col-md-2 mt-3">
                         <label for="name">{{ __('Tgl Chiu Tao') }}: </label>
                         <input type="date" class="form-control" wire:model="startDate">
@@ -81,14 +72,7 @@
                         </select>
                     </div>
 
-                    {{-- <div class="col-md-1 mt-3">
-                        <label for="name">Sort Direction</label>
-                        <select wire:model="direction" class="form-control">
-                            <option value="asc">Ascending</option>
-                            <option value="desc">Descending</option>
-                        </select>
-                    </div> --}}
-
+                    
 
                 </div>
                 <div class="card rounded mt-3">
@@ -110,7 +94,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     @push('script')

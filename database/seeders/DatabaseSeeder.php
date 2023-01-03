@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -68,7 +69,7 @@ class DatabaseSeeder extends Seeder
         );
         DB::table('branches')->insert(
             [
-            'nama_branch' => 'BNI',
+            'nama_branch' => '立達壇',
             'kode_branch' => 'BNI-01',
             'kota_id' => 1,
             'branch_is_used' => true,
@@ -78,24 +79,33 @@ class DatabaseSeeder extends Seeder
 
 
             [
-            'nama_branch' => 'Dadap',
-            'kode_branch' => 'Dadap-01',
-            'kota_id' => 2,
+            'nama_branch' => '立德壇',
+            'kode_branch' => 'Kapuk-01',
+            'kota_id' => 1,
             'branch_is_used' => true,
             ],
         );
 
         DB::table('branches')->insert(
-
             [
-            'nama_branch' => 'Kapuk',
-            'kode_branch' => 'Kapuk-01',
-            'kota_id' => 3,
+            'nama_branch' => 'Dadap',
+            'kode_branch' => 'Dadap-01',
+            'kota_id' =>2,
             'branch_is_used' => true,
             ],
         );
-        
 
+        // DB::table('users')->insert(
+        //     [
+        //     'name' => 'Anton Admin',
+        //     'email' => 'anton1@anton.com',
+        //     'password' => Hash::make('Anton888'),
+        //     'role' => '1',
+        //     'kota_id' => 1,
+        //     'branch_id' => 1,
+        //     ],
+        // );
+       
         
     }
 }

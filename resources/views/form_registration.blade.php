@@ -40,9 +40,9 @@
         <label for="email" class="form-label">{{ __('Role') }}</label>
         <select class="form-control" wire:model="role" {{ $is_reset == true ? 'disabled' : '' }}>
             <option value="">Silakan Pilih Role</option>
-            <option value="Admin">Admin</option>
-            <option value="Supervisor">Supervisor</option>
-            <option value="Manager">Manager</option>
+            <option value="1">Admin</option>
+            <option value="2">Supervisor</option>
+            <option value="3">Manager</option>
         </select>
 
         @error('role')

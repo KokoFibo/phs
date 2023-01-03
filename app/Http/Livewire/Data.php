@@ -23,7 +23,7 @@ class Data extends Component
     // public $branch_id = '1';
     // public $branch_id =  Auth::branch_id ;
     public $branch_id = '';
-    public $nama_umat, $mandarin, $jenis_kelamin, $umur, $umur_sekarang;
+    public $nama_umat, $mandarin, $gender, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
     public $current_id, $delete_id;
@@ -55,7 +55,7 @@ class Data extends Component
         return [
             'nama_umat' => ['required'],
             'mandarin' => ['nullable'],
-            'jenis_kelamin' => ['required'],
+            'gender' => ['required'],
             'umur' => ['required', 'numeric', 'min:1', 'max:150'],
             'umur_sekarang' => ['nullable'],
             'alamat' => ['required'],
@@ -91,7 +91,7 @@ class Data extends Component
         $data_umat->branch_id = $this->branch_id;
         $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
-        $data_umat->jenis_kelamin = $this->jenis_kelamin;
+        $data_umat->gender = $this->gender;
         $data_umat->umur = $this->umur;
         $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
         $data_umat->alamat = $this->alamat;
@@ -129,7 +129,7 @@ class Data extends Component
             $this->branch_id = $data->branch_id;
             $this->nama_umat = $data->nama_umat;
             $this->mandarin = $data->mandarin;
-            $this->jenis_kelamin = $data->jenis_kelamin;
+            $this->gender = $data->gender;
             $this->umur = $data->umur;
             $this->umur_sekarang = $data->umur_sekarang;
             $this->alamat = $data->alamat;
@@ -161,7 +161,7 @@ class Data extends Component
         $data_umat->branch_id = $this->branch_id;
         $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
-        $data_umat->jenis_kelamin = $this->jenis_kelamin;
+        $data_umat->gender = $this->gender;
         $data_umat->umur = $this->umur;
         $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
         $data_umat->alamat = $this->alamat;
@@ -208,7 +208,7 @@ class Data extends Component
         $this->branch_id= $this->defaultBranch_id;
         $this->nama_umat='';
         $this->mandarin='';
-        $this->jenis_kelamin='';
+        $this->gender='';
         $this->umur='';
         $this->umur_sekarang='';
         $this->alamat='';
@@ -278,7 +278,7 @@ class Data extends Component
             $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate );
         })
         ->when($this->jen_kel, function($query){
-            $query->where('data_pelitas.jenis_kelamin',  $this->jen_kel );
+            $query->where('data_pelitas.gender',  $this->jen_kel );
         })
         ->when($this->active, function($query){
             $query->where('data_pelitas.status',  $this->active );

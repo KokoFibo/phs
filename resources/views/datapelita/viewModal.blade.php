@@ -26,8 +26,8 @@
                         <td>{{ $mandarin }}</td>
                     </tr>
                     <tr>
-                        <td>{{ __('Jenis Kelamin') }}</td>
-                        <td>{{ check_JK($jenis_kelamin, $umur_sekarang) }}</td>
+                        <td>{{ __('Gender') }}</td>
+                        <td>{{ check_JK($gender, $umur_sekarang) }}</td>
                     </tr>
                     <tr>
                         <td>{{ __('Umur') }}</td>

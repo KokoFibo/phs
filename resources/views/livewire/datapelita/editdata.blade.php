@@ -133,28 +133,28 @@
                                 @enderror
                             </div>
 
-                            {{-- Jenis Kelamin --}}
+                            {{-- Gender --}}
                             <div class="form-group">
-                                <label for="jenis_kelamin">{{ __('Jenis Kelamin') }}</label>
+                                <label>{{ __('Gender') }}</label>
                                 <div class="form-check d-flex">
 
                                     <div class="col-md-2">
-                                        <input class="form-check-input" type="radio" name="exampleRadios"
-                                            id="jenis_kelamin" wire:model="jenis_kelamin" value="1" checked>
-                                        <label class="form-check-label mr-7" for="jenis_kelamin">
+                                        <input class="form-check-input" type="radio" wire:model="gender"
+                                            value="1" checked>
+                                        <label class="form-check-label mr-7">
                                             Laki-laki
                                         </label>
                                     </div>
 
                                     <div class="col-md-2">
-                                        <input class="form-check-input" type="radio" name="exampleRadios"
-                                            wire:model="jenis_kelamin" id="jenis_kelamin" value="2" checked>
-                                        <label class="form-check-label" for="jenis_kelamin">
+                                        <input class="form-check-input" type="radio" wire:model="gender"
+                                            value="2" checked>
+                                        <label class="form-check-label">
                                             Perempuan
                                         </label>
                                     </div>
                                 </div>
-                                @error('jenis_kelamin')
+                                @error('gender')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>

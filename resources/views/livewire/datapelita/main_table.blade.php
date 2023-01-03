@@ -1,4 +1,4 @@
-<table class="table table-bordered ">
+<table class="table table-bordered table-sm ">
     <thead class="bg-purple">
         <tr>
             <th>#</th>
@@ -27,8 +27,8 @@
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
             </th>
-            <th>{{ __('JENIS KELAMIN') }}
-                <span wire:click="sortColumnName('jenis_kelamin')" class=" text-sm" style="cursor: pointer"><i
+            <th>{{ __('GENDER') }}
+                <span wire:click="sortColumnName('gender')" class=" text-sm" style="cursor: pointer"><i
                         class="fa fa-arrow-up {{ $direction === 'asc' ? '' : 'text-muted' }} "></i>
                     <i class="fa fa-arrow-down {{ $direction === 'desc' ? '' : 'text-muted' }}"></i>
                 </span>
@@ -88,8 +88,8 @@
                 <td class="text-center">{{ $data->umur_sekarang }}</td>
                 <td class="text-center">{{ $data->tgl_mohonTao }}</td>
                 {{-- <td>{{ $data->jenis_kelamin }}</td> --}}
-                <td class="text-center {{ $data->jenis_kelamin == '1' ? 'text-primary' : 'text-pink' }}"">
-                    {{ check_JK($data->jenis_kelamin, $data->umur_sekarang) }}
+                <td class="text-center {{ $data->gender == '1' ? 'text-primary' : 'text-pink' }}"">
+                    {{ check_JK($data->gender, $data->umur_sekarang) }}
                 </td>
                 <td>{{ $data->pengajak }}</td>
                 <td>{{ $data->penjamin }}</td>
@@ -113,12 +113,12 @@
                                 <i class="fa fa-pen-to-square "></i>
                             </button></a>
 
-                        {{-- @if (!(Auth::user()->name == 'Phan')) --}}
-                        <button class="btn-danger btn btn-sm" data-toggle="modal" data-target="#DeleteModal"
-                            wire:click="deleteConfirmation({{ $data->id }})">
-                            <i class="fa fa-trash "></i>
-                        </button>
-                        {{-- @endif --}}
+                        @if (Auth::user()->role != '1')
+                            <button class="btn-danger btn btn-sm" data-toggle="modal" data-target="#DeleteModal"
+                                wire:click="deleteConfirmation({{ $data->id }})">
+                                <i class="fa fa-trash "></i>
+                            </button>
+                        @endif
                     </div>
                 </td>
             </tr>

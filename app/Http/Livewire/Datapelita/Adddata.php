@@ -19,7 +19,7 @@ class Adddata extends Component
     public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     public $branch_id = '';
-    public $nama_umat, $mandarin, $jenis_kelamin, $umur, $umur_sekarang;
+    public $nama_umat, $mandarin, $gender, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
     public $current_id, $delete_id;
@@ -30,7 +30,7 @@ class Adddata extends Component
         return [
             'nama_umat' => ['required'],
             'mandarin' => ['nullable'],
-            'jenis_kelamin' => ['required'],
+            'gender' => ['required'],
             'umur' => ['required', 'numeric', 'min:1', 'max:150'],
             'umur_sekarang' => ['nullable'],
             'alamat' => ['required'],
@@ -69,7 +69,7 @@ class Adddata extends Component
         $data_umat->branch_id = $this->branch_id;
         $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
-        $data_umat->jenis_kelamin = $this->jenis_kelamin;
+        $data_umat->gender = $this->gender;
         $data_umat->umur = $this->umur;
         $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
         $data_umat->alamat = $this->alamat;
@@ -117,7 +117,7 @@ class Adddata extends Component
         $this->branch_id= '';
         $this->nama_umat='';
         $this->mandarin='';
-        $this->jenis_kelamin='';
+        $this->gender='';
         $this->umur='';
         $this->umur_sekarang='';
         $this->alamat='';
