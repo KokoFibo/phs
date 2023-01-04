@@ -21,6 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,800;1,300;1,400;1,800&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="icon" href="{{ url('css/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -35,8 +36,8 @@
     <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> --}}
-    @stack('script')
     @livewireScripts
+    @stack('script')
 
 </body>
 

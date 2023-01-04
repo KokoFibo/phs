@@ -66,9 +66,13 @@
                       data-target="#AddModal" wire:click="clearSession">
                       <i class="fa-solid fa-user-plus"></i>
                   </button> --}}
-                <a href="/adddata"><button type="button" class="btn  btn-primary">
-                        <i class="fa-solid fa-user-plus"></i>
-                    </button></a>
+
+                {{-- <a href="/langsung/{{ $kode_branch }}"><button type="button" class="btn  btn-primary"> --}}
+                @if ($kode_branch != '')
+                    <a href="/adddata/{{ $kode_branch }}"><button type="button" class="btn  btn-primary">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </button></a>
+                @endif
 
 
                 {{-- Reset --}}

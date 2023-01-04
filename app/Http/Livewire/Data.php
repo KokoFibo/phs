@@ -30,7 +30,9 @@ class Data extends Component
     public $namaPandita, $namaKota;
     public $category="data_pelitas.nama_umat";
     public $active="";
-    public $kode_branch="";
+    public $kode_branch;
+
+    
  
     public function updatingSearch () {
         $this->resetPage();
@@ -247,6 +249,7 @@ class Data extends Component
         }
         else {
             $this->branch_id = Auth::user()->branch_id;
+            $this->kode_branch = $this->branch_id ;
         }
         
       
@@ -289,6 +292,8 @@ class Data extends Component
          ->paginate($this->perpage); 
         $data_branch = Branch::find(Auth::user()->branch_id);
         $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
-        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch']));
+        $kode_branch = $this->branch_id;
+       
+        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch', 'kode_branch']));
     }
 }

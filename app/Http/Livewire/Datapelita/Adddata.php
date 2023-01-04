@@ -2,15 +2,16 @@
 
 namespace App\Http\Livewire\Datapelita;
 
+use Auth;
 use Carbon\Carbon;
 use App\Models\Kota;
+use Livewire\Request;
 use App\Models\Branch;
 use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
-use Auth;
 
 
 class Adddata extends Component
@@ -25,7 +26,11 @@ class Adddata extends Component
     public $current_id, $delete_id;
     public $namaPandita, $namaKota;
     public $kode_branch;
+    
 
+    public function mount ($kode_branch) {
+        $this->kode_branch = $kode_branch;
+    }
     public function rules () {
 
         return [
@@ -67,7 +72,8 @@ class Adddata extends Component
        
         $data_umat = new DataPelita();
         $this->branch_id = Auth::user()->branch_id;
-        $data_umat->branch_id = $this->branch_id;
+        // $data_umat->branch_id = $this->branch_id;
+        $data_umat->branch_id = $this->kode_branch;
         $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
@@ -104,13 +110,16 @@ class Adddata extends Component
         $data_umat->save();
 
         session()->flash('message', 'Data Umat Sudah di tambah');
+        $this->dispatchBrowserEvent('stored', [
+            'title' => 'Data Added Succesfully'
+        ]);
 
         $this->clear_fields();    
         
         // hiding the Modal after run Add Data 
         $this->dispatchBrowserEvent('close-modal');
 
-        $this->redirect('/main');
+        // $this->redirect('/main');
 
     }
     public function  clear_fields() {
@@ -133,12 +142,14 @@ class Adddata extends Component
     }
     public function render()
     {
+        
         // $alldatapelita =DataPelita::orderBy('nama_umat', 'asc')->get();
         $allKota = Kota::orderBy('nama_kota', 'asc')->get();
         $dataPandita = Pandita::all();
         $branch = Branch::all();
        
-        $datapelita = DataPelita::where('branch_id', Auth::user()->branch_id)->get();
+        // $datapelita = DataPelita::where('branch_id', Auth::user()->branch_id)->get();
+        $datapelita = DataPelita::where('branch_id', $this->kode_branch)->get();
         return view('livewire.datapelita.adddata', compact(['datapelita', 'branch', 'dataPandita', 'allKota']))
         ->extends('layouts.app')
         ->section('content');

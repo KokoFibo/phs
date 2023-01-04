@@ -61,11 +61,13 @@ Route::middleware(['auth'])->group(function () {
         return redirect()->back();
     });
     
-    Route::get('/adddata', function() {
-        return view('menuAddData');
-    })->name('adddata');
+    // Route::get('/adddata', function() {
+    //     return view('menuAddData');
+    // })->name('adddata');
 
-    // Route::get('/adddata', Adddata::class)->name('adddata');
+    Route::get('/adddata/{kode_branch}', Adddata::class)->name('adddata');
+
+    // Route::get('/adddata', Datapelita.Adddata::class)->name('adddata');
 
     Route::get('/editdata/{id}', function($id) {
         return view('menuEditData', ['id' => $id]);

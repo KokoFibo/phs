@@ -5,7 +5,7 @@
             <div class="card-header d-flex justify-content-between
             ">
                 <div>
-                    <h3>{{ __('Add Data') }}</h3>
+                    <h3>{{ __('Add Data') }}{{ $kode_branch }}</h3>
                 </div>
                 <div class="d-flex">
                     <div class="mr-3">
@@ -18,6 +18,7 @@
             </div>
             <div class="card-body">
                 <form wire:submit.prevent="store">
+                    @csrf
                     <div class="d-flex">
                         {{-- kolom kiri --}}
                         <div class="col-6">
@@ -92,14 +93,7 @@
                                 @enderror
                             </div>
 
-                            {{-- <div class="form-group">
-                        <label for="kota">Kota</label>
-                        <input type="text" class="form-control @error('kota') is-invalid @enderror" id="kota"
-                            placeholder="Kota sesuai dengan alamat rumah" wire:model="kota">
-                        @error('kota')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div> --}}
+
 
                             {{-- telp --}}
                             <div class="form-group">
@@ -142,16 +136,16 @@
 
                                     <div class="col-md-2">
                                         <input class="form-check-input" type="radio" wire:model="gender"
-                                            value="1" checked>
-                                        <label class="form-check-label mr-7">
+                                            value="1" checked id="laki">
+                                        <label class="form-check-label mr-7" for="laki">
                                             {{ __('Laki-laki') }}
                                         </label>
                                     </div>
 
                                     <div class="col-md-2">
                                         <input class="form-check-input" type="radio" wire:model="gender"
-                                            value="2" checked>
-                                        <label class="form-check-label">
+                                            value="2" checked id="perempuan">
+                                        <label class="form-check-label" for="perempuan">
                                             {{ __('Perempuan') }}
                                         </label>
                                     </div>
@@ -251,5 +245,17 @@
         </div>
     </div>
 </div>
-
+@push('script')
+    <script>
+        window.addEventListener('stored', function(e) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: e.detail.title,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
+@endpush
 </div>
