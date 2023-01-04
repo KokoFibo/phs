@@ -1,5 +1,5 @@
 <div>
-
+    @section('title', 'Add Data')
     <div class="col-8 mt-3 mx-auto">
         <div class="card">
             <div class="card-header d-flex justify-content-between

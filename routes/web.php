@@ -7,6 +7,7 @@ use App\Models\DataPelita;
 use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Datapelita\Adddata;
 use App\Http\Controllers\menuAddDataController;
 
 /*
@@ -63,6 +64,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/adddata', function() {
         return view('menuAddData');
     })->name('adddata');
+
+    // Route::get('/adddata', Adddata::class)->name('adddata');
 
     Route::get('/editdata/{id}', function($id) {
         return view('menuEditData', ['id' => $id]);

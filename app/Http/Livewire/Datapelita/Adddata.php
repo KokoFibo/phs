@@ -139,7 +139,9 @@ class Adddata extends Component
         $branch = Branch::all();
        
         $datapelita = DataPelita::where('branch_id', Auth::user()->branch_id)->get();
-        return view('livewire.datapelita.adddata', compact(['datapelita', 'branch', 'dataPandita', 'allKota']));
+        return view('livewire.datapelita.adddata', compact(['datapelita', 'branch', 'dataPandita', 'allKota']))
+        ->extends('layouts.app')
+        ->section('content');
     }
 }
  

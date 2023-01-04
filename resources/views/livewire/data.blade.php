@@ -5,6 +5,7 @@
     {{-- @include('datapelita.editModal') --}}
     @include('datapelita.deleteModal')
     {{-- @include('layouts.navbar') --}}
+    @section('title', 'Main')
 
     <div class="container-fluid">
 

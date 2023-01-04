@@ -1,4 +1,6 @@
 <div>
+    @section('title', 'Branch')
+
     <div class="container mt-5">
         <div class="d-flex justify-content-around">
             <div class="card col-4">

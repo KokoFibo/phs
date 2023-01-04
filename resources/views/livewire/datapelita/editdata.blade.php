@@ -1,4 +1,5 @@
 <div>
+    @section('title', 'Edit Data')
 
     <div class="col-8 mt-3 mx-auto">
         <div class="card">
