@@ -46,9 +46,7 @@ Route::middleware(['auth'])->group(function () {
         return view('auth.login');
     });
     
-    Route::get('/main', function() {
-        return view('main');
-    })->name('main');
+   
 
     
 
@@ -68,6 +66,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
 
+    Route::get('/main', Data::class)->name('main');
+    // Route::get('/main', function() {
+    //     return view('main');
+    // })->name('main');
+
+    // @livewire('data')
    
 
     Route::get('/resetumur', function () {

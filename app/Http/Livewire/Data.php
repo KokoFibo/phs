@@ -31,6 +31,7 @@ class Data extends Component
     public $category="data_pelitas.nama_umat";
     public $active="";
     public $kode_branch, $kode_branch_view;
+    protected $listeners = ['delete'];
 
     
  
@@ -141,7 +142,7 @@ class Data extends Component
             $this->telp = $data->telp;
             $this->hp = $data->hp;
             $this->email = $data->email;
-            $this->pengajak = $data->pengajak;
+            $this->pengajak = $data->pengajak; 
             $this->penjamin = $data->penjamin;
             $this->pandita_id = $data->pandita_id;
             $np = Pandita::find($this->pandita_id);
@@ -190,18 +191,31 @@ class Data extends Component
         
     }
 
+        // public function deleteConfirmation ($id) {
+        //     $data = DataPelita::find($id);
+        //     $this->delete_id = $data->id;
+
+        // }
+
         public function deleteConfirmation ($id) {
             $data = DataPelita::find($id);
-            $this->delete_id = $data->id;
-
+            $nama = $data->nama_umat;
+            $this->dispatchBrowserEvent('delete_confirmation', [
+                'title' => 'Yakin Untuk Hapus Data',
+                //  'text' => "You won't be able to revert this!",
+                  'text' => "Data : " . $nama,
+                 'icon' => 'warning',
+                 'id' => $id,
+            ]);
         }
 
-        public function delete () {
-            $data = DataPelita::find($this->delete_id);
+        public function delete ($id) {
+            $data = DataPelita::find($id);
             $data->delete();
-        session()->flash('message', 'Data Sudah di Delete');
 
-        $this->dispatchBrowserEvent('close-modal');
+            $this->dispatchBrowserEvent('deleted');
+        // session()->flash('message', 'Data Sudah di Delete');
+
 
         }
 
@@ -239,6 +253,8 @@ class Data extends Component
         $this->columnName = $namaKolom;
         $this->direction = $this->swapDirection();
     }
+
+    
 
     public function swapDirection () {
         return $this->direction === 'asc' ? 'desc' : 'asc';
@@ -303,6 +319,9 @@ class Data extends Component
         
 
        
-        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch', 'kode_branch']));
+        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch', 'kode_branch']))
+        ->extends('layouts.app')
+        ->section('content');
+        
     }
 }

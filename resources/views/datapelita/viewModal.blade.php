@@ -21,7 +21,7 @@
                             <tr>
                                 <td>{{ __('Branch') }}</td>
 
-                                <td>{{ $branch_id }}</td>
+                                <td>{{ $kode_branch_view }}</td>
                             </tr>
 
                             <tr>

@@ -253,7 +253,7 @@
                 icon: 'success',
                 title: e.detail.title,
                 showConfirmButton: false,
-                timer: 1500
+                timer: 3000
             });
         });
     </script>

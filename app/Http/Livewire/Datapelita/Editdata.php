@@ -53,7 +53,7 @@ class Editdata extends Component
         $this->current_id = $current_id;
         $data = DataPelita::find($this->current_id);
          $this->branch_id = $data->branch_id;
-          $this->nama_umat = $data->nama_umat;
+          $this->nama_umat = $data->nama_umat; 
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
           $this->umur = $data->umur;
@@ -111,10 +111,13 @@ class Editdata extends Component
         
 
         $data_umat->save();
-
         session()->flash('message', 'Data Umat Sudah di update');
-
-        $this->clear_fields();    
+        // $this->dispatchBrowserEvent('updated', [
+        //     'title' => 'Data Updated'
+        // ]);
+        
+        $this->clear_fields();   
+        
         
        
         $this->redirect(route("main"));

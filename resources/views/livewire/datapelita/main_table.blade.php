@@ -118,8 +118,11 @@
                             </button></a>
 
                         @if (Auth::user()->role != '1')
-                            <button class="btn-danger btn btn-sm" data-toggle="modal" data-target="#DeleteModal"
+                            {{-- <button class="btn-danger btn btn-sm" data-toggle="modal" data-target="#DeleteModal"
                                 wire:click="deleteConfirmation({{ $data->id }})">
+                                <i class="fa fa-trash "></i>
+                            </button> --}}
+                            <button class="btn-danger btn btn-sm" wire:click="deleteConfirmation({{ $data->id }})">
                                 <i class="fa fa-trash "></i>
                             </button>
                         @endif

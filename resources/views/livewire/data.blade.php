@@ -3,7 +3,7 @@
     {{-- @include('datapelita.addModal') --}}
     @include('datapelita.viewModal')
     {{-- @include('datapelita.editModal') --}}
-    @include('datapelita.deleteModal')
+    {{-- @include('datapelita.deleteModal') --}}
     {{-- @include('layouts.navbar') --}}
     @section('title', 'Main')
 
@@ -100,14 +100,43 @@
 
     @push('script')
         <script>
-            window.addEventListener('close-modal', event => {
-                $('#AddModal').modal('hide');
+            // window.addEventListener('close-modal', event => {
+            //     $('#AddModal').modal('hide');
+            // });
+            // window.addEventListener('close-modal', event => {
+            //     $('#EditModal').modal('hide');
+            // });
+            // window.addEventListener('close-modal', event => {
+            //     $('#DeleteModal').modal('hide');
+            // });
+        </script>
+        <script>
+            window.addEventListener('delete_confirmation', function(e) {
+                Swal.fire({
+                    title: e.detail.title,
+                    text: e.detail.text,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, silakan hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('delete', e.detail.id)
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your file has been deleted.',
+                        //     'success'
+                        // )
+                    }
+                })
             });
-            window.addEventListener('close-modal', event => {
-                $('#EditModal').modal('hide');
-            });
-            window.addEventListener('close-modal', event => {
-                $('#DeleteModal').modal('hide');
+            window.addEventListener('deleted', function(e) {
+                Swal.fire(
+                    'Deleted!',
+                    'Data sudah di delete.',
+                    'success'
+                );
             });
         </script>
     @endpush

@@ -111,13 +111,13 @@ class Adddata extends Component
 
         session()->flash('message', 'Data Umat Sudah di tambah');
         $this->dispatchBrowserEvent('stored', [
-            'title' => 'Data Added Succesfully'
+            'title' => 'Data Added'
         ]);
 
         $this->clear_fields();    
         
         // hiding the Modal after run Add Data 
-        $this->dispatchBrowserEvent('close-modal');
+        // $this->dispatchBrowserEvent('close-modal');
 
         // $this->redirect('/main');
 
@@ -155,5 +155,5 @@ class Adddata extends Component
         ->extends('layouts.app')
         ->section('content');
     }
-}
+} 
  

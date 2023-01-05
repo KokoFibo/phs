@@ -255,5 +255,17 @@
     </div>
 </div>
 </div>
-
+{{-- @push('script')
+    <script>
+        window.addEventListener('updated', function(e) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: e.detail.title,
+                showConfirmButton: false,
+                timer: 3000
+            });
+        });
+    </script>
+@endpush --}}
 </div>
