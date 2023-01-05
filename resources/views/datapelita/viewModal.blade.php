@@ -14,6 +14,7 @@
                 <table class="table">
                     <tr>
                         <td>{{ __('Branch') }}</td>
+
                         <td>{{ $branch_id }}</td>
                     </tr>
 

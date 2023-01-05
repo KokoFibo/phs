@@ -174,10 +174,17 @@
 
                             <div class="form-group ">
                                 <label for="branch">{{ __('Pengajak') }}</label>
+                                @php
+                                    $x = 0;
+                                @endphp
                                 <select class="form-control" wire:model="pengajak">
                                     <option value="" selected>==> Masukkan data Pengajak <== </option>
                                             @foreach ($datapelita as $data)
-                                    <option value="{{ $data->nama_umat }}">{{ $data->nama_umat }}</option>
+                                                @php
+                                                    $x++;
+                                                @endphp
+                                    <option value="{{ $data->nama_umat }}">{{ $x }}.
+                                        {{ $data->nama_umat }}</option>
                                     @endforeach
                                 </select>
                                 @error('pengajak')

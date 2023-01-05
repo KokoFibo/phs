@@ -21,7 +21,11 @@ class Editdata extends Component
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
     public $current_id, $delete_id;
-    public $namaPandita, $namaKota;
+    public $namaPandita, $namaKota, $kode_branch;
+
+    // public function mount ($current_id) {
+    //     $this->current_id = $current_id;
+    // }
 
     public function rules () {
 
@@ -45,9 +49,10 @@ class Editdata extends Component
         ];
 
     }
-    public function mount () {
+    public function mount ($current_id) {
+        $this->current_id = $current_id;
         $data = DataPelita::find($this->current_id);
-        // $this->branch_id = $data->branch_id;
+         $this->branch_id = $data->branch_id;
           $this->nama_umat = $data->nama_umat;
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
@@ -103,15 +108,15 @@ class Editdata extends Component
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = $this->status;
 
+        
+
         $data_umat->save();
 
         session()->flash('message', 'Data Umat Sudah di update');
 
         $this->clear_fields();    
         
-        // hiding the Modal after run Add Data 
-        // $this->dispatchBrowserEvent('close-modal');
-
+       
         $this->redirect(route("main"));
 
     }
@@ -156,9 +161,12 @@ class Editdata extends Component
         //   $this->pandita_id = $data->pandita_id;
         //   $this->tgl_mohonTao = $data->tgl_mohonTao;
         // $this->status = $data->status;
+        $datapelita = DataPelita::orderBy('nama_umat', 'asc')
+        ->where('branch_id', $this->branch_id)->get();
 
-        $datapelita = DataPelita::where('branch_id', Auth::user()->branch_id)->get();
-
-        return view('livewire.datapelita.editdata', compact([ 'datapelita', 'branch', 'dataPandita', 'allKota']));
+        return view('livewire.datapelita.editdata', compact([ 'datapelita', 'branch', 'dataPandita', 'allKota']))
+        ->extends('layouts.app')
+        ->section('content');
+        
     }
 }

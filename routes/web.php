@@ -8,6 +8,7 @@ use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Datapelita\Adddata;
+use App\Http\Livewire\Datapelita\Editdata;
 use App\Http\Controllers\menuAddDataController;
 
 /*
@@ -61,17 +62,13 @@ Route::middleware(['auth'])->group(function () {
         return redirect()->back();
     });
     
-    // Route::get('/adddata', function() {
-    //     return view('menuAddData');
-    // })->name('adddata');
+    
 
     Route::get('/adddata/{kode_branch}', Adddata::class)->name('adddata');
 
-    // Route::get('/adddata', Datapelita.Adddata::class)->name('adddata');
+    Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
 
-    Route::get('/editdata/{id}', function($id) {
-        return view('menuEditData', ['id' => $id]);
-    })->name('editdata');
+   
 
     Route::get('/resetumur', function () {
         $data = DataPelita::all();

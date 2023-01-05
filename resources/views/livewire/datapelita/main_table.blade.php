@@ -69,14 +69,14 @@
 
                 {{-- <a href="/langsung/{{ $kode_branch }}"><button type="button" class="btn  btn-primary"> --}}
                 @if ($kode_branch != '')
-                    <a href="/adddata/{{ $kode_branch }}"><button type="button" class="btn  btn-primary">
+                    <a href="/adddata/{{ $kode_branch }}"><button type="button" class="btn  btn-primary btn-sm">
                             <i class="fa-solid fa-user-plus"></i>
                         </button></a>
                 @endif
 
 
                 {{-- Reset --}}
-                <button type="button" class="btn  btn-success" wire:click="resetFilter">
+                <button type="button" class="btn  btn-success btn-sm" wire:click="resetFilter">
                     <i class="fa fa-arrow-rotate-right"></i>
                 </button>
             </th>

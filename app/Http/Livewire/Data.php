@@ -208,7 +208,8 @@ class Data extends Component
 
     public function  clear_fields() {
     
-        $this->branch_id= $this->defaultBranch_id;
+        // $this->branch_id= $this->defaultBranch_id;
+        $this->branch_id= '';
         $this->nama_umat='';
         $this->mandarin='';
         $this->gender='';
@@ -245,7 +246,10 @@ class Data extends Component
     public function render()
     {
         if (Auth::user()->role == '3'){
-            $this->branch_id = $this->kode_branch;
+
+
+                $this->branch_id = $this->kode_branch;
+            
         }
         else {
             $this->branch_id = Auth::user()->branch_id;
