@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Branch;
+
 if(!function_exists('tgl')) {
 
       function tgl() {
@@ -17,3 +19,4 @@ if(!function_exists('check_JK')) {
             else return "坤 - Perempuan";
         }
 }
+

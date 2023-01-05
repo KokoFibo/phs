@@ -30,7 +30,7 @@ class Data extends Component
     public $namaPandita, $namaKota;
     public $category="data_pelitas.nama_umat";
     public $active="";
-    public $kode_branch;
+    public $kode_branch, $kode_branch_view;
 
     
  
@@ -130,6 +130,7 @@ class Data extends Component
         
         if ($data) {
             $this->branch_id = $data->branch_id;
+            $this->kode_branch_view = $this->branch_id;
             $this->nama_umat = $data->nama_umat;
             $this->mandarin = $data->mandarin;
             $this->gender = $data->gender;
@@ -249,6 +250,8 @@ class Data extends Component
 
 
                 $this->branch_id = $this->kode_branch;
+                
+
             
         }
         else {
@@ -297,6 +300,8 @@ class Data extends Component
         $data_branch = Branch::find(Auth::user()->branch_id);
         $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
         $kode_branch = $this->branch_id;
+        
+
        
         return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch', 'kode_branch']));
     }
