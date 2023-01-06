@@ -10,6 +10,9 @@
                 </button>
             </div>
             <div class="modal-body ">
+                @if (session()->has('message'))
+                    <div class="alert alert-success">{{ session('message') }}</div>
+                @endif
                 <div class="d-flex justify-content-evenly">
                     @if ($is_add)
                         <div class="col-6">
@@ -52,8 +55,7 @@
                                 {{-- @endif --}}
                             @endif
                         </div>
-                    @endif
-                    @if ($is_edit)
+                    @else
                         <div class="mb-3">
                             <label class="form-label">Rename Kota</label>
                             <input wire:model="nama_kota" type="text" class="form-control">
@@ -84,7 +86,7 @@
                                                 <td>{{ $k->nama_kota }}</td>
                                                 <td class="text-center">
                                                     @if ($k->kota_is_used == false)
-                                                        <button wire:click="delete({{ $k->id }})"
+                                                        <button wire:click="deleteConfirmation({{ $k->id }})"
                                                             class="btn btn-danger btn-sm"><i
                                                                 class="fa fa-trash"></i></button>
                                                     @else
@@ -109,5 +111,36 @@
             </div>
         </div>
     </div>
+    @push('script')
+        <script>
+            window.addEventListener('delete_confirmation', function(e) {
+                Swal.fire({
+                    title: e.detail.title,
+                    text: e.detail.text,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, silakan hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('delete', e.detail.id)
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your file has been deleted.',
+                        //     'success'
+                        // )
+                    }
+                })
+            });
+            window.addEventListener('deleted', function(e) {
+                Swal.fire(
+                    'Deleted!',
+                    'Data sudah di delete.',
+                    'success'
+                );
+            });
+        </script>
+    @endpush
 </div>
 {{-- Modal Add End --}}

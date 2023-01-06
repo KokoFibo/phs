@@ -11,54 +11,83 @@ class Panditawire extends Component
     public $nama_pandita;
     public $id_pandita;
     public $nama_lama;
-    public $is_edit = 'false';
-    public $is_add = 'false';
+    // public $is_edit = 'false';
+    public $is_add = 'true';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['delete'];
 
-    protected $rules = [
-        'nama_pandita' => 'required',
-    ];
+
+    
  
     public function store () {
-        $this->validate();
+        $this->validate([
+            'nama_pandita' => 'required|unique:panditas',
+        ]);
+        // ================
         $data = new Pandita();
         $data->nama_pandita = $this->nama_pandita;
         $data->save();
+        $this->clear_fields();
         // $this->redirect(route('adddata'));
+        session()->flash('message', 'Data Pandita Sudah di Simpan');
+
+    }
+
+    public function deleteConfirmation ($id) {
+        $data = Pandita::find($id);
+        $nama = $data->nama_pandita;
+        $this->dispatchBrowserEvent('delete_confirmation', [
+            'title' => 'Yakin Untuk Hapus Data',
+            //  'text' => "You won't be able to revert this!",
+              'text' => "Data Pandita : " . $nama,
+             'icon' => 'warning',
+             'id' => $id,
+        ]);
     }
 
     public function delete ($id) {
         $data = Pandita::find($id);
         $data->delete();
+
+        $this->dispatchBrowserEvent('deleted');
+    // session()->flash('message', 'Data Sudah di Delete');
+
+
     }
 
+    
+
     public function edit ($id) {
+        
+
         $this->id_pandita = $id;
         $nama = Pandita::find($id);
         $this->nama_pandita = $nama->nama_pandita;
-        $this->is_edit=true;
         $this->is_add=false;
     }
     public function clear_fields() {
         $this->nama_pandita='';
     }
-    public function new () {
-        $this->clear_fields();   
-        $this->is_edit=false;
-        $this->is_add=true; 
-    }
+    
     public function update() {
-
+        $this->validate([
+            'nama_pandita' => 'required|unique:panditas,nama_pandita,'.$this->id_pandita
+        ]);
         $nama = Pandita::find($this->id_pandita);
         $nama->nama_pandita = $this->nama_pandita;
         $nama->save();
-        $this->is_edit=false;
-        $this->is_add=false; 
+        // $this->is_edit=false;
+        $this->clear_fields();
+        $this->is_add=true; 
+        session()->flash('message', 'Data Pandita Sudah di Update');
+
     }
     public function render()
     { 
         $pandita = Pandita::orderBy('nama_pandita', 'asc')->paginate(5);
-        return view('livewire.panditawire', compact('pandita'));
+        return view('livewire.panditawire', compact('pandita'))
+        ->extends('layouts.app')
+        ->section('content');
     }
 }
