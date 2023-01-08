@@ -44,14 +44,17 @@ class Panditawire extends Component
              'icon' => 'warning',
              'id' => $id,
         ]);
-    }
+    }  
 
     public function delete ($id) {
         $data = Pandita::find($id);
-        $data->delete();
+        if( $data->pandita_is_used != '1'){
+            $data->delete();
+            $this->dispatchBrowserEvent('deleted');
+        } else {
+            session()->flash('message', 'Data TIDAK di Delete');
 
-        $this->dispatchBrowserEvent('deleted');
-    // session()->flash('message', 'Data Sudah di Delete');
+        }
 
 
     }

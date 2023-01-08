@@ -49,7 +49,6 @@ class Adddata extends Component
             'pandita_id' => ['required'],
             'tgl_mohonTao' => ['required','date','before:tomorrow'],
             'status' => ['nullable'],
-            // 'branch_id' => ['required']
         ];
 
     }
@@ -72,7 +71,6 @@ class Adddata extends Component
        
         $data_umat = new DataPelita();
         $this->branch_id = Auth::user()->branch_id;
-        // $data_umat->branch_id = $this->branch_id;
         $data_umat->branch_id = $this->kode_branch;
         $data_umat->nama_umat = $this->nama_umat;
         $data_umat->mandarin = $this->mandarin;
@@ -116,11 +114,6 @@ class Adddata extends Component
 
         $this->clear_fields();    
         
-        // hiding the Modal after run Add Data 
-        // $this->dispatchBrowserEvent('close-modal');
-
-        // $this->redirect('/main');
-
     }
     public function  clear_fields() {
     
@@ -143,12 +136,10 @@ class Adddata extends Component
     public function render()
     {
         
-        // $alldatapelita =DataPelita::orderBy('nama_umat', 'asc')->get();
         $allKota = Kota::orderBy('nama_kota', 'asc')->get();
         $dataPandita = Pandita::all();
         $branch = Branch::all();
        
-        // $datapelita = DataPelita::where('branch_id', Auth::user()->branch_id)->get();
         $datapelita = DataPelita::orderBy('nama_umat', 'asc')
         ->where('branch_id', $this->kode_branch)->get();
         return view('livewire.datapelita.adddata', compact(['datapelita', 'branch', 'dataPandita', 'allKota']))

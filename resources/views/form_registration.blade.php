@@ -7,12 +7,12 @@
     <hr> --}}
 
     <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
+        <label for="name" class="form-label">{{ __('Nama') }}</label>
         <input wire:model="name" {{ $is_reset == true ? 'disabled' : '' }} type="text"
             class="form-control @error('name')
       is-invalid
-  @enderror" id="name" placeholder="Full Name"
-            name="name" value="{{ old('name') }}">
+  @enderror" id="name"
+            placeholder="{{ __('Full Name') }}" name="name" value="{{ old('name') }}">
         @error('name')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -22,7 +22,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
+        <label for="email" class="form-label">{{ __('Email') }}</label>
         <input wire:model="email" {{ $is_reset == true ? 'disabled' : '' }} type="text"
             class="form-control @error('email')
   is-invalid
@@ -39,10 +39,10 @@
     <div class="mb-3">
         <label for="email" class="form-label">{{ __('Role') }}</label>
         <select class="form-control" wire:model="role" {{ $is_reset == true ? 'disabled' : '' }}>
-            <option value="">Silakan Pilih Role</option>
-            <option value="1">Admin</option>
-            <option value="2">Supervisor</option>
-            <option value="3">Manager</option>
+            <option value="">{{ __('Silakan Pilih Role') }}</option>
+            <option value="1">{{ __('Admin') }}</option>
+            <option value="2">{{ __('Supervisor') }}</option>
+            <option value="3">{{ __('Manager') }}</option>
         </select>
 
         @error('role')
@@ -55,7 +55,7 @@
     <div class="mb-3">
         <label for="email" class="form-label">{{ __('Kota') }}</label>
         <select class="form-control" wire:model="kota_id" {{ $is_reset == true ? 'disabled' : '' }}>
-            <option value="" selected>Silakan Pilih Kota</option>
+            <option value="" selected>{{ __('Silakan Pilih Kota') }}</option>
             @foreach ($kota as $k)
                 <option value="{{ $k->id }}">{{ $k->nama_kota }}</option>
             @endforeach
@@ -71,7 +71,7 @@
     <div class="mb-3">
         <label for="email" class="form-label">{{ __('Branch') }}</label>
         <select class="form-control" wire:model="branch_id" {{ $is_reset == true ? 'disabled' : '' }}>
-            <option value="" selected>Silakan Pilih branch</option>
+            <option value="" selected>{{ __('Silakan Pilih Branch') }}</option>
 
             @foreach ($branch as $b)
                 <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
@@ -88,23 +88,23 @@
     {{-- ------------------------------------------------------------------------ --}}
     @if ($is_edit == false)
         <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+            <label for="password" class="form-label">{{ __('Password') }}</label>
             <input wire:model="password" type="text" class="form-control @error('password')
   is-invalid
 @enderror"
-                id="password" placeholder="Password" name="password">
+                id="password" placeholder="{{ __('Password') }}" name="password">
             @error('password')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Confirmed Password</label>
+            <label class="form-label">{{ __('Confirm Password') }}</label>
             <input wire:model="password_confirmation" type="text"
                 class="form-control @error('password_confirmation')
             is-invalid
           @enderror "
-                placeholder="Confirm Password">
+                placeholder="{{ __('Confirm Password') }}">
             @error('password_confirmation')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -115,20 +115,20 @@
         <div>
             @if ($is_reset == true)
                 <div class="mb-3 ">
-                    <button class="btn btn-primary" wire:click="storepassword">Reset</button>
+                    <button class="btn btn-primary" wire:click="storepassword">{{ __('Reset') }}</button>
                 </div>
             @elseif ($is_edit == true)
                 <div class="mb-3 ">
-                    <button class="btn btn-primary" wire:click="update">Update</button>
+                    <button class="btn btn-primary" wire:click="update">{{ __('Update') }}</button>
                 </div>
             @else
                 <div class="mb-3 ">
-                    <button class="btn btn-primary" wire:click="store">Register</button>
+                    <button class="btn btn-primary" wire:click="store">{{ __('Register') }}</button>
                 </div>
             @endif
         </div>
         <div class="mb-3 ">
-            <button wire:click="cancel" class="btn btn-warning">Cancel</button>
+            <button wire:click="cancel" class="btn btn-warning">{{ __('Cancel') }}</button>
         </div>
     </div>
 

@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-evenly mt-3">
         <div class="col-4">
             <div class="card">
-                <div class="card-header">Registration</div>
+                <div class="card-header">{{ __('Registration') }}</div>
                 <div class="card-body">
                     @include('form_registration')
                 </div>
@@ -13,12 +13,13 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Kota</th>
-                        <th>Branch</th>
-                        <th>Action</th>
+                        <th>{{ __('ID') }}</th>
+                        <th>{{ __('Nama') }}</th>
+                        <th>{{ __('Email') }}</th>
+                        <th>{{ __('Role') }}</th>
+                        <th>{{ __('Kota') }}</th>
+                        <th>{{ __('Branch') }}</th>
+                        <th>{{ __('Action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,11 +35,11 @@
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button wire:click="edit({{ $d->id }})" type="button"
-                                        class="btn btn-warning">Edit</button>
+                                        class="btn btn-warning">{{ __('Edit') }}</button>
                                     <button wire:click="delete({{ $d->id }})" type="button"
-                                        class="btn btn-danger">Delete</button>
+                                        class="btn btn-danger">{{ __('Delete') }}</button>
                                     <button wire:click="resetpassword({{ $d->id }})" type="button"
-                                        class="btn btn-success">Reset Password</button>
+                                        class="btn btn-success">{{ __('Reset Password') }}</button>
 
                                 </div>
                             </td>

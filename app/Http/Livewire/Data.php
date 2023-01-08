@@ -109,19 +109,13 @@ class Data extends Component
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = 'Active';
 
-        // $data_kota = Kota::find($this->kota_id);
-        // // dd($this->kota_id);
-        // $data_kota->kota_is_used = true;
-        // $data_kota->save();
-
         $data_umat->save();
-
+        $this->emit('render');
         session()->flash('message', 'Data Umat Sudah di tambah');
 
         $this->clear_fields();    
         
-        // hiding the Modal after run Add Data 
-        $this->dispatchBrowserEvent('close-modal');
+        // $this->dispatchBrowserEvent('close-modal');
 
     }
 
@@ -158,6 +152,7 @@ class Data extends Component
     public function update () {
         // validation
         // $validatedData = $this->validate();
+        $validatedData = $this->validate();
 
         session()->flash('message', '');
         
@@ -187,7 +182,7 @@ class Data extends Component
         $this->clear_fields();    
         
         // hiding the Modal after run Add Data 
-        $this->dispatchBrowserEvent('close-modal');
+        // $this->dispatchBrowserEvent('close-modal');
         
     }
 
@@ -223,7 +218,6 @@ class Data extends Component
 
     public function  clear_fields() {
     
-        // $this->branch_id= $this->defaultBranch_id;
         $this->branch_id= '';
         $this->nama_umat='';
         $this->mandarin='';
@@ -282,18 +276,10 @@ class Data extends Component
         ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
 
         ->orderBy($this->columnName, $this->direction)
-        // ->where('data_pelitas.nama_umat','like','%'.$this->search.'%')
-        // ->where('data_pelitas.branch_id','=', 1)
         ->where($this->category,'like','%'.$this->search.'%')
-        // ->orWhere('mandarin','like','%'.$this->search.'%')
-        // ->orWhere('pengajak','like','%'.$this->search.'%')
-        // Kalau pakai orWhere maka query dibawah gak jalan
         ->when($this->branch_id, function($query){
             $query->where('data_pelitas.branch_id', $this->branch_id );
         })
-        // ->when($this->kode_branch, function($query){
-        //     $query->where('data_pelitas.branch_id', $this->kode_branch );
-        // })
         ->when($this->startUmur, function($query){
             $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
         })
@@ -315,14 +301,11 @@ class Data extends Component
          ->paginate($this->perpage); 
         $data_branch = Branch::find(Auth::user()->branch_id);
         $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
-        $kode_branch = $this->branch_id;
+        // $kode_branch = $this->branch_id;
         
-
-       
-        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch', 'kode_branch']))
+        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch']))
         ->extends('layouts.app')
         ->section('content');
-        
     }
 }
  

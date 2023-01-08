@@ -143,7 +143,7 @@
                                         <input class="form-check-input" type="radio" wire:model="gender"
                                             value="1" checked>
                                         <label class="form-check-label mr-7">
-                                            Laki-laki
+                                            {{ __('Laki-laki') }}
                                         </label>
                                     </div>
 
@@ -151,7 +151,7 @@
                                         <input class="form-check-input" type="radio" wire:model="gender"
                                             value="2" checked>
                                         <label class="form-check-label">
-                                            Perempuan
+                                            {{ __('Perempuan') }}
                                         </label>
                                     </div>
                                 </div>
@@ -178,7 +178,8 @@
                                     $x = 0;
                                 @endphp
                                 <select class="form-control" wire:model="pengajak">
-                                    <option value="" selected>==> Masukkan data Pengajak <== </option>
+                                    <option value="" selected>==> {{ __('Masukkan Data Pengajak') }} <==
+                                            </option>
                                             @foreach ($datapelita as $data)
                                                 @php
                                                     $x++;
@@ -196,7 +197,8 @@
                             <div class="form-group ">
                                 <label for="branch">{{ __('Penjamin') }}</label>
                                 <select class="form-control" wire:model="penjamin">
-                                    <option value="" selected>==> Masukkan data Penjamin <== </option>
+                                    <option value="" selected>==> {{ __('Masukkan Data Penjamin') }} <==
+                                            </option>
 
                                             @foreach ($datapelita as $data)
                                     <option value="{{ $data->nama_umat }}">{{ $data->nama_umat }} ==>
@@ -212,7 +214,8 @@
                             <div class="form-group ">
                                 <label for="branch">{{ __('Pandita') }}</label>
                                 <select id="branch" class="form-control" wire:model="pandita_id">
-                                    <option value="" selected>==> Masukkan data Pandita <== </option>
+                                    <option value="" selected>==> {{ __('Masukkan Data Pandita') }} <==
+                                            </option>
 
                                             @foreach ($dataPandita as $pandita)
                                     <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
@@ -227,8 +230,8 @@
                             <div class="form-group">
                                 <label for="status">{{ __('Status') }}</label>
                                 <select id="status" class="form-control" wire:model="status">
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
+                                    <option value="Active">{{ __('Active') }}</option>
+                                    <option value="Inactive">{{ __('Inactive') }}</option>
                                 </select>
                                 @error('status')
                                     <span class="text-danger">{{ $message }}</span>

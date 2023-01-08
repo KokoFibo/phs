@@ -17,47 +17,39 @@ class DataKotaWire extends Component
     public $nama_kota;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    // public $is_edit = false;
     public $is_add = true;
-    protected $listeners = ['delete'];
-
+    protected $listeners = ['delete_kota', 'render'];
 
     public function mount  () {
         $this->propinsi = Province::orderBy('nama', 'asc')->get();
         $this->namakota = collect();
-        // $this->namakota = "";
-        
+        $this->resetPage();
     }
    
     public function  clear_fields() {
-    
         $this->propinsi= '';
         $this->nama_kota='';
-        
+         $this->selectedPropinsi = NULL;
+     $this->selectedNamaKota = NULL;
+     $this->propinsi = Province::orderBy('nama', 'asc')->get();
+     $this->namakota = collect();
     }
     public function updatedSelectedPropinsi ($propinsi) {
         $this->namakota = City::orderBy('nama', 'asc')->where('province_id', $propinsi)->get();
         $this->selectedNamaKota = NULL;
     }
 
-    
  
     public function store () {
-      
-
          $this->validate([
-            'nama_kota' => 'unique:kotas,nama_kota',
+            'nama_kota' => 'required|unique:kotas,nama_kota',
         ]);
         $data_kota = new Kota();
         $data_kota->nama_kota = $this->nama_kota;
         $data_kota->save(); 
-        // $this->redirect(route('adddata'));
         $this->clear_fields();   
-        // $this->is_edit=false;
-        // $this->is_add=true;
+        $this->is_add=true;
         session()->flash('message', 'Data Kota Sudah di Simpan');
-
-
     }
 
 
@@ -65,9 +57,6 @@ class DataKotaWire extends Component
         $data = Kota::find($id);
         $this->current_id = $id;
         $this->nama_kota = $data->nama_kota;
-        // $this->selectedNamaKota = $data->nama_kota;
-        // $this->selectedPropinsi = $data->nama_kota;
-       
          $this->is_add=false;
     }
 
@@ -75,24 +64,19 @@ class DataKotaWire extends Component
         $this->validate([
             'nama_kota' => 'unique:kotas,nama_kota,'.$this->current_id,
         ]);
-
         $data = Kota::find($this->current_id);
         $data->nama_kota = $this->nama_kota;
         $data->save();
         $this->clear_fields();   
         session()->flash('message', 'Data Kota Sudah di Update');
-
-
         $this->is_add = true;
-        // $this->is_edit = false;
-
     }
 
-    public function deleteConfirmation ($id) {
+    public function delete_confirmation_kota ($id) {
         $data = Kota::find($id);
         $nama = $data->nama_kota;
-        $this->dispatchBrowserEvent('delete_confirmation', [
-            'title' => 'Yakin Untuk Hapus Data',
+        $this->dispatchBrowserEvent('delete_confirmation_aja', [
+            'title' => 'Yakin Untuk Hapus Data kota',
             //  'text' => "You won't be able to revert this!",
               'text' => "Data Kota : " . $nama,
              'icon' => 'warning',
@@ -100,22 +84,23 @@ class DataKotaWire extends Component
         ]);
     }
 
-    public function delete ($id) {
+    public function delete_kota ($id) {
         $data = Kota::find($id);
-        $data->delete();
+        if($data->kota_is_used != '1'){
 
-        $this->dispatchBrowserEvent('deleted');
-    // session()->flash('message', 'Data Sudah di Delete');
+            $data->delete();
+            $this->dispatchBrowserEvent('deleted');
+        }else {
 
-
+            session()->flash('message', 'Data Tidak di Delete');
+        }
     }
-
-    
-   
     
     public function render()
     { 
-        $kota = Kota::orderBy('nama_kota', 'asc')->paginate(5);
-        return view('livewire.data-kota-wire', compact('kota'));
+        $kota = Kota::orderBy('id', 'desc')->paginate(5);
+        return view('livewire.data-kota-wire', compact('kota'))
+        ->extends('layouts.app')
+        ->section('content');
     }
 }

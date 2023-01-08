@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-purple">
+<nav class="navbar navbar-expand-lg navbar-dark bg-purple ">
     <a class="navbar-brand" href="#">Vihara Pelita Hati</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,7 +7,8 @@
     <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">{{ __('Dashboard') }}<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}<span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('main') }}">{{ __('Main') }}<span
@@ -56,7 +57,8 @@
 
         </ul>
         <div>
-            @livewire('branchname')
+
+            @yield('branch')
         </div>
         <div class="d-flex align-items-center">
             <div class="">

@@ -14,8 +14,8 @@
 
         <div class="form-row flex  ">
             <div class="form-group col-md-2 mt-3">
-                <Label class="text">Search</Label>
-                <input type="text" class="form-control" wire:model="search" placeholder="Search...">
+                <Label class="text">{{ __('Search') }}</Label>
+                <input type="text" class="form-control" wire:model="search" placeholder="{{ __('Search') }}...">
             </div>
             <div class=" form-group col-md-1 mt-3">
                 <label>{{ __('Category') }} </label>
@@ -42,9 +42,9 @@
 
             <div>
                 <p>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
+                    <button class="btn btn-primary mt-5 ml-2" type="button" data-toggle="collapse"
                         data-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                        Toggle width collapse
+                        {{ __('Filter Search') }}
                     </button>
                 </p>
                 <div style="min-height: 120px; position: absolute; z-index: 10; ">
@@ -53,10 +53,10 @@
 
                             @if (Auth::user()->role == '3')
                                 <div class="form-group
-                                    col-md-12 mt-3">
+                                        col-md-12 mt-3">
                                     <label class="bg-purple p-1 px-3 rounded">{{ __('Branch') }} </label>
                                     <select wire:model="kode_branch" class="form-control">
-                                        <option value="">{{ __('All') }}</option>
+                                        <option value="" selected>{{ __('All') }}</option>
                                         @foreach ($all_branch as $a)
                                             <option value="{{ $a->id }}">{{ $a->nama_branch }}</option>
                                         @endforeach
@@ -85,7 +85,7 @@
                             {{-- Jika Role adalah Manager --}}
                             {{-- @if (Auth::user()->role == '3') --}}
 
-                            <label class="text-center bg-purple">{{ __('Tgl Chiu Tao') }}: </label>
+                            <label class="text-center bg-purple">{{ __('Tanggal Mohon Tao') }}: </label>
                             <div class="flex" style="display: flex">
                                 <div class="form-group col-md-6 mt-3">
                                     <input type="date" class="form-control" wire:model="startDate">
@@ -98,14 +98,14 @@
                             </div>
                             {{-- @else --}}
                             {{-- <div class="form-group col-md-12 mt-3">
-                                            <label >{{ __('Tgl Chiu Tao') }}: </label>
-                                            <input type="date" class="form-control" wire:model="startDate">
-                                        </div>
-            
-                                        <div class="form-group col-md-12 mt-3">
-                                            <label >-</label>
-                                            <input type="date" class="form-control" wire:model="endDate">
-                                        </div> --}}
+                                                <label >{{ __('Tgl Chiu Tao') }}: </label>
+                                                <input type="date" class="form-control" wire:model="startDate">
+                                            </div>
+                
+                                            <div class="form-group col-md-12 mt-3">
+                                                <label >-</label>
+                                                <input type="date" class="form-control" wire:model="endDate">
+                                            </div> --}}
                             {{-- @endif --}}
 
                             <label class="text-center bg-purple">{{ __('Umur') }}</label>
@@ -121,7 +121,14 @@
                     </div>
                 </div>
             </div>
+
+            <div class="mx-auto mt-5">
+                <h1>
+                    <x-namabranch msg="hello bro" :kode=$kode_branch />
+                </h1>
+            </div>
         </div>
+
 
         <div class="card rounded mt-3">
 

@@ -7,15 +7,16 @@ use App\Models\Branch;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
-
+ 
 class Branchwire extends Component
 {
     public $kota_id, $nama_branch, $kode_branch, $current_id;
-    public $is_edit = 'false';
-    public $is_add = 'false';
+    public $is_add = true;
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['delete_branch'];
+
 
     public function rules () {
 
@@ -53,8 +54,7 @@ class Branchwire extends Component
         session()->flash('message', 'Data Branch Sudah di tambah');
 
         $this->clear_fields();    
-        $this->is_edit=false;
-        $this->is_add=false; 
+        $this->is_add=true; 
         
         // hiding the Modal after run Add Data 
         // $this->dispatchBrowserEvent('close-modal');
@@ -67,7 +67,6 @@ class Branchwire extends Component
         $this->kota_id = $data->kota_id;
         $this->nama_branch = $data->nama_branch;
         $this->kode_branch = $data->kode_branch;
-        $this->is_edit=true;
         $this->is_add=false;
     }
     public function update () {
@@ -81,33 +80,50 @@ class Branchwire extends Component
         $data->nama_branch = $this->nama_branch;
         $data->kode_branch = $this->kode_branch;
         $data->save();
+        $this->is_add=true;
 
         session()->flash('message', 'Data Branch Sudah di Update');
 
         $this->clear_fields();    
-        $this->is_edit=false;
-        $this->is_add=false; 
+        
         
         // hiding the Modal after run Add Data 
         // $this->dispatchBrowserEvent('close-modal');
 
     }
 
-    public function new () {
-        $this->clear_fields();   
-        $this->is_edit=false;
-        $this->is_add=true; 
+    public function delete_confirmation ($id) {
+        $data = Branch::find($id);
+        $nama_cetya = $data->nama_branch;
+        $kode_cetya = $data->kode_branch;
+        $this->dispatchBrowserEvent('delete_confirmation_branch', [
+            'title' => 'Yakin Untuk Hapus Data kota',
+            //  'text' => "You won't be able to revert this!",
+              'text' => "Data Cetya : " . $nama_cetya . " & Kode : " . $kode_cetya,
+             'icon' => 'warning',
+             'id' => $id,
+        ]);
     }
 
-    public function delete ($id) {
+    public function delete_branch ($id) {
         $data = Branch::find($id);
-        $data->delete();
+        if($data->branch_is_used != '1'){
+
+            $data->delete();
+            $this->dispatchBrowserEvent('deleted');
+        }else {
+            session()->flash('message', 'Data Tidak di Delete');
+        }
     }
+    
+
+    
     public function render()
     {
         $branch = DB::table('branches')
         ->join('kotas', 'branches.kota_id', '=', 'kotas.id')
         ->select('branches.*',  'kotas.nama_kota')
+        ->orderBy('kotas.id', 'desc')
         ->paginate(5);;
 
         $kota = Kota::orderBy('nama_kota', 'asc')->get();

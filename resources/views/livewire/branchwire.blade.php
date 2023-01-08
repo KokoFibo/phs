@@ -8,11 +8,14 @@
                     {{ __('Branch') }}
                 </div>
                 <div class="card-body ">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">{{ session('message') }}</div>
+                    @endif
                     {{-- <form wire:submit.prevent="store"> --}}
                     <div class="form-group">
                         <label for="nama">{{ __('Kota') }}</label>
                         <select wire:model="kota_id" class="form-control">
-                            <option value="" selected>--> {{ __('Silakan Pilih Kota ') }} <-- </option>
+                            <option value="" selected>--> {{ __('Silakan Pilih Kota') }} <-- </option>
                                     @foreach ($kota as $k)
                             <option value="{{ $k->id }}"">{{ $k->nama_kota }}</option>
                             @endforeach
@@ -37,12 +40,10 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        @if ($is_edit == false && $is_add == true)
-                            <button wire:click="store" class="btn btn-primary">Save</button>
-                        @elseif ($is_edit == true && $is_add == false)
-                            <button wire:click="update" class="btn btn-primary">Update</button>
+                        @if ($is_add == true)
+                            <button wire:click="store" class="btn btn-primary">{{ __('Save') }}</button>
                         @else
-                            <button wire:click="new" class="btn btn-primary">New</button>
+                            <button wire:click="update" class="btn btn-primary">{{ __('Update') }}</button>
                         @endif
 
                         {{-- </form> --}}
@@ -73,7 +74,7 @@
                                         <button wire:click="edit({{ $b->id }})"
                                             class="btn btn-warning btn-sm">{{ __('Edit') }}</button>
                                     @else
-                                        <button wire:click="delete({{ $b->id }})"
+                                        <button wire:click="delete_confirmation({{ $b->id }})"
                                             class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
                                     @endif
                             </tr>
@@ -85,5 +86,37 @@
                 {{ $branch->links() }}
             </div>
         </div>
+        @push('script')
+            <script>
+                window.addEventListener('delete_confirmation_branch', function(event) {
+                    Swal.fire({
+                        title: event.detail.title,
+                        text: event.detail.text,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, silakan hapus!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.livewire.emit('delete_branch', event.detail.id)
+                            // $this - > emit('delete_kota', event.detail.id)
+                            // Swal.fire(
+                            //     'Deleted!',
+                            //     'Your file has been deleted.',
+                            //     'success'
+                            // )
+                        }
+                    })
+                });
 
+                window.addEventListener('deleted', function(e) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Data sudah di delete.',
+                        'success'
+                    );
+                });
+            </script>
+        @endpush
     </div>

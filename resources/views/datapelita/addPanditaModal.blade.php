@@ -29,11 +29,9 @@
                                     @enderror
                                 </div>
                                 @if ($is_add == true)
-                                    <button wire:click="store" class="btn btn-primary">Save</button>
+                                    <button wire:click="store" class="btn btn-primary">{{ __('Save') }}</button>
                                 @else
-                                    <button wire:click="update" class="btn btn-primary">Update</button>
-
-                                    {{-- <button wire:click="new" class="btn btn-primary">New</button> --}}
+                                    <button wire:click="update" class="btn btn-primary">{{ __('Update') }}</button>
                                 @endif
 
 

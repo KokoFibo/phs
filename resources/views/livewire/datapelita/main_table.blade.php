@@ -108,10 +108,7 @@
                             wire:click="edit({{ $data->id }})">
                             <i class="fa fa-eye "></i>
                         </button>
-                        {{-- <button class="btn-warning btn btn-sm" data-toggle="modal" data-target="#EditModal"
-                            wire:click="edit({{ $data->id }})">
-                            <i class="fa fa-pen-to-square "></i>
-                        </button> --}}
+
 
                         <a href="/editdata/{{ $data->id }}"><button type="button" class="btn-warning btn btn-sm">
                                 <i class="fa fa-pen-to-square "></i>

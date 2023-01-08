@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Branch;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB; 
 use Illuminate\Support\Facades\Hash;
 
 class Registration extends Component
@@ -74,6 +74,11 @@ class Registration extends Component
         $data_user->kota_id = $this->kota_id;
         $data_user->branch_id = $this->branch_id;
         $data_user->save();
+
+        // update branch is_used
+        $branch = Branch::find($this->branch_id);
+        $branch->branch_is_used = '1';
+        $branch->save();
         session()->flash('message', 'Data Registered Successfully');
         $this->clear_fields();    
     }
@@ -140,6 +145,12 @@ class Registration extends Component
         $data_user->kota_id = $this->kota_id;
         $data_user->branch_id = $this->branch_id;
         $data_user->save();
+
+        // update branch is_used
+        $branch = Branch::find($this->branch_id);
+        $branch->branch_is_used = '1';
+        $branch->save();
+
         session()->flash('message', 'Data Updated Done');
         $this->clear_fields();    
         $this->is_edit=false;

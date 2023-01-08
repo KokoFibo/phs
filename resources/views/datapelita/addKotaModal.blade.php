@@ -42,17 +42,9 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                {{-- <div class="col-12 mt-3">
-                                <button wire:click="store" class="btn btn-primary">{{ __('Save') }}</button>
-                            </div> --}}
-                                {{-- @if ($is_edit == false && $is_add == true) --}}
-                                <button wire:click="store" class="mt-2 btn btn-primary">Save</button>
-                                {{-- @elseif ($is_edit == true && $is_add == false) --}}
-                                {{-- @else --}}
-                                {{-- <button wire:click="update" class="btn btn-primary">Update</button> --}}
-                                {{-- @else
-                                <button wire:click="new" class="btn btn-primary">New</button> --}}
-                                {{-- @endif --}}
+
+                                <button wire:click="store" class="mt-2 btn btn-primary">{{ __('Save') }}</button>
+
                             @endif
                         </div>
                     @else
@@ -86,7 +78,8 @@
                                                 <td>{{ $k->nama_kota }}</td>
                                                 <td class="text-center">
                                                     @if ($k->kota_is_used == false)
-                                                        <button wire:click="deleteConfirmation({{ $k->id }})"
+                                                        <button
+                                                            wire:click="delete_confirmation_kota({{ $k->id }})"
                                                             class="btn btn-danger btn-sm"><i
                                                                 class="fa fa-trash"></i></button>
                                                     @else
@@ -113,10 +106,10 @@
     </div>
     @push('script')
         <script>
-            window.addEventListener('delete_confirmation', function(e) {
+            window.addEventListener('delete_confirmation_aja', function(event) {
                 Swal.fire({
-                    title: e.detail.title,
-                    text: e.detail.text,
+                    title: event.detail.title,
+                    text: event.detail.text,
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -124,7 +117,8 @@
                     confirmButtonText: 'Yes, silakan hapus!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.livewire.emit('delete', e.detail.id)
+                        window.livewire.emit('delete_kota', event.detail.id)
+                        // $this - > emit('delete_kota', event.detail.id)
                         // Swal.fire(
                         //     'Deleted!',
                         //     'Your file has been deleted.',
@@ -133,6 +127,7 @@
                     }
                 })
             });
+
             window.addEventListener('deleted', function(e) {
                 Swal.fire(
                     'Deleted!',
