@@ -8,16 +8,16 @@ use Illuminate\View\Component;
 class namabranch extends Component
 {
    
-    public $kode;
+    public $KodeBranch;
     // public $kode;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($kode)
+    public function __construct($KodeBranch)
     {
-        $this->kode = $kode;
+        $this->KodeBranch = $KodeBranch;
     }
 
     /**
@@ -27,12 +27,15 @@ class namabranch extends Component
      */
     public function render()
     {
-        if($this->kode == null) {
+        if($this->KodeBranch == null) {
             $nama = "Welcome";
         } else {
-        $branch = Branch::find($this->kode);
-        $nama = $branch->nama_branch;
+        $branch = Branch::find($this->KodeBranch);
+        $NamaCetya = $branch->nama_branch;
         }
-        return view('components.namabranch', compact('nama'));
+        return view('components.namabranch')->with('NamaCetya', $NamaCetya)
+        ->extends('layouts.app')
+        ->section('content');
     }
 }
+ 

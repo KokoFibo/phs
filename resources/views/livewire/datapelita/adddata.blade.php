@@ -1,11 +1,14 @@
 <div>
     @section('title', 'Add Data')
     <div class="col-8 mt-3 mx-auto">
-        <div class="card">
+        <div class="card mb-3">
             <div class="card-header d-flex justify-content-between
             ">
                 <div>
-                    <h3>{{ __('Add Data') }}{{ $kode_branch }}</h3>
+                    <h3>{{ __('Add Data') }}
+                        <livewire:getbranchname :kode=$kode_branch>
+
+                    </h3>
                 </div>
                 <div class="d-flex">
                     <div class="mr-3">
@@ -105,10 +108,6 @@
                                 @enderror
                             </div>
 
-
-                        </div>
-                        {{-- kolom kanan --}}
-                        <div class="col-6">
                             {{-- HP --}}
                             <div class="form-group">
                                 <label for="hp">{{ __('Handphone') }}</label>
@@ -118,6 +117,12 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+
+
+                        </div>
+                        {{-- kolom kanan --}}
+                        <div class="col-6">
+
 
                             {{-- Email --}}
                             <div class="form-group">
@@ -134,15 +139,15 @@
                                 <label for="jenis_kelamin">{{ __('Gender') }}</label>
                                 <div class="form-check d-flex">
 
-                                    <div class="col-md-2">
+                                    <div class="col-md-3 mb-3">
                                         <input class="form-check-input" type="radio" wire:model="gender"
                                             value="1" checked id="laki">
-                                        <label class="form-check-label mr-7" for="laki">
+                                        <label class="form-check-label" for="laki">
                                             {{ __('Laki-laki') }}
                                         </label>
                                     </div>
 
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <input class="form-check-input" type="radio" wire:model="gender"
                                             value="2" checked id="perempuan">
                                         <label class="form-check-label" for="perempuan">
@@ -223,24 +228,16 @@
                         </div>
                     </div>
 
-
-
-
-
-
-
-
                     {{-- button submit --}}
                     <div class="d-flex justify-content-between">
                         <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
 
+
+                        <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>
+                            {{ __('Back') }}</a>
                 </form>
-                <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i> {{ __('Back') }}</a>
-                {{-- <a href="{{ route('main') }}"><button class="btn btn-warning"><i
-                            class="fa fa-circle-arrow-left"></i> {{ __('Back') }}</button></a> --}}
 
             </div>
-
 
         </div>
     </div>

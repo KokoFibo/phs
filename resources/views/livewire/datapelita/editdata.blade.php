@@ -2,11 +2,17 @@
     @section('title', 'Edit Data')
 
     <div class="col-8 mt-3 mx-auto">
-        <div class="card">
+        <div class="card mb-3">
             <div class="card-header d-flex justify-content-between
             ">
                 <div>
-                    <h3>{{ __('Update Data') }}</h3>
+                    <h3>{{ __('Update Data') }}
+                        {{-- <x-namabranch :kode=$branch_id /> --}}
+                        <livewire:getbranchname :kode=$branch_id>
+
+
+                    </h3>
+
                 </div>
                 {{-- <div class="d-flex">
                     <div class="mr-3">
@@ -110,10 +116,6 @@
                                 @enderror
                             </div>
 
-
-                        </div>
-                        {{-- kolom kanan --}}
-                        <div class="col-6">
                             {{-- HP --}}
                             <div class="form-group">
                                 <label for="hp">{{ __('Handphone') }}</label>
@@ -123,6 +125,12 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+
+
+                        </div>
+                        {{-- kolom kanan --}}
+                        <div class="col-6">
+
 
                             {{-- Email --}}
                             <div class="form-group">
@@ -139,7 +147,7 @@
                                 <label>{{ __('Gender') }}</label>
                                 <div class="form-check d-flex">
 
-                                    <div class="col-md-2">
+                                    <div class="col-md-3 mb-3">
                                         <input class="form-check-input" type="radio" wire:model="gender"
                                             value="1" checked>
                                         <label class="form-check-label mr-7">
@@ -147,7 +155,7 @@
                                         </label>
                                     </div>
 
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <input class="form-check-input" type="radio" wire:model="gender"
                                             value="2" checked>
                                         <label class="form-check-label">

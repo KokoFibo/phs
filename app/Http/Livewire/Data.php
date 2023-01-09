@@ -19,10 +19,7 @@ class Data extends Component
     public $search = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    // public $defaultBranch_id = '1';
-    // public $branch_id = '1';
-    // public $branch_id =  Auth::branch_id ;
-    public $branch_id = '';
+    public $branch_id;
     public $nama_umat, $mandarin, $gender, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
@@ -30,7 +27,7 @@ class Data extends Component
     public $namaPandita, $namaKota;
     public $category="data_pelitas.nama_umat";
     public $active="";
-    public $kode_branch, $kode_branch_view;
+    public $kode_branch, $kode_branch_view, $kode_branch_khusus;
     protected $listeners = ['delete'];
 
     
@@ -38,6 +35,7 @@ class Data extends Component
     public function updatingSearch () {
         $this->resetPage();
     }
+
     public function resetFilter () {
         $this->perpage = 10;
         $this->search = '';
@@ -50,12 +48,10 @@ class Data extends Component
         $this->jen_kel = NULL;
         $this->category="data_pelitas.nama_umat";
         $this->active="";
-
         $this->resetPage();
     }
 
     public function rules () {
-
         return [
             'nama_umat' => ['required'],
             'mandarin' => ['nullable'],
@@ -74,7 +70,6 @@ class Data extends Component
             'status' => ['nullable'],
             'branch_id' => ['required']
         ];
-
     }
 
     public function updated($fields) {
@@ -257,24 +252,20 @@ class Data extends Component
     public function render()
     {
         if (Auth::user()->role == '3'){
-
-
                 $this->branch_id = $this->kode_branch;
-                
-
-            
+                $this->kode_branch_khusus = $this->kode_branch;
         }
         else {
             $this->branch_id = Auth::user()->branch_id;
             $this->kode_branch = $this->branch_id ;
+            $this->kode_branch_khusus = $this->kode_branch;
+
         }
-        
       
         $datapelita = DB::table('data_pelitas') 
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
-         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
-
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->branch_id, function($query){
@@ -299,11 +290,19 @@ class Data extends Component
             $query->where('data_pelitas.status',  $this->active );
         })
          ->paginate($this->perpage); 
+
+
         $data_branch = Branch::find(Auth::user()->branch_id);
         $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
-        // $kode_branch = $this->branch_id;
+
+        if($this->kode_branch_khusus != null){
+            $dataft = Branch::find($this->kode_branch_khusus);
+            $namaft = $dataft->nama_branch;
+        }
+        $namaft = 'Welcome';
         
-        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch']))
+        
+        return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch', 'namaft']))
         ->extends('layouts.app')
         ->section('content');
     }

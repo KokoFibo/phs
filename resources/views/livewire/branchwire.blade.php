@@ -69,7 +69,7 @@
                                 <td>{{ $b->nama_kota }}</td>
                                 <td>{{ $b->nama_branch }}</td>
                                 <td>{{ $b->kode_branch }}</td>
-                                <td>
+                                <td class="text-center">
                                     @if ($b->branch_is_used == true)
                                         <button wire:click="edit({{ $b->id }})"
                                             class="btn btn-warning btn-sm">{{ __('Edit') }}</button>
