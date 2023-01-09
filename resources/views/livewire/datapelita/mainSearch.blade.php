@@ -10,7 +10,7 @@
     }
 </style>
 <div class="row">
-    <div class="col-md-12 mb-3">
+    <div class="col-md-12 ">
 
         <div class="form-row flex align-items-center ">
             <div class="form-group col-md-2 mt-3">
@@ -63,15 +63,15 @@
             </h1> --}}
         </div>
     </div>
-    <div class="mx-auto form-group col-md-2 mt-3 ">
-        <h1>
-            {{-- <x-nama_cetya :Kodebranch=$kode_branch /> --}}
-            {{-- <livewire:getbranchname :kode=$branch_id /> --}}
-            {{-- {{ $namaft }} --}}
+    {{-- <div class="mx-auto form-group col-md-2 mt-3 ">
+        <h1> --}}
+    {{-- <x-nama_cetya :Kodebranch=$kode_branch /> --}}
+    {{-- <livewire:getbranchname :kode=$branch_id /> --}}
+    {{-- {{ $namaft }} --}}
 
 
-        </h1>
-    </div>
+    {{-- </h1>
+    </div> --}}
 </div>
 <div style="min-height: 120px; margin: auto; position: absolute; z-index: 10; ">
     <div class="collapse width" id="collapseWidthExample">
