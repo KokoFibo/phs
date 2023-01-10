@@ -28,6 +28,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/navbar', function () {
+    return view('layouts.navbarbaru');
+});
+
 
 Route::get('/table', Tablewire::class);
 

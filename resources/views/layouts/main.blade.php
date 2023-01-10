@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    @include('layouts.navbarbaru')
     @yield('content')
     @livewireScripts
 

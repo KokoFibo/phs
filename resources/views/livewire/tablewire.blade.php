@@ -116,21 +116,22 @@
 
     <div class="p-4 ">
         <div class="overflow-auto rounded-lg shadow bg-gray-50">
-            <table class="w-full ">
+            <table class="w-full">
                 <thead class="bg-purple-400 text-white border-b-2 border-gray-200">
                     <tr>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('#') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('NAMA') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('中文名') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('UMUR') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('TGL CHIU TAO') }}/th>
+                        {{-- <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th> --}}
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('NAMA') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('中文名') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('UMUR') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('TGL CHIU TAO') }}</th>
 
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('GENDER') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('PENGAJAK') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('PENJAMIN') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('PANDITA') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide text-left">{{ __('KOTA') }}</th>
-                        <th class="p-3 text-sm font-semibold tracking-wide flex space-x-1 ">
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('GENDER') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('PENGAJAK') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('PENJAMIN') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('PANDITA') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('KOTA') }}</th>
+                        <th class="p-3 text-sm font-semibold flex space-x-1 ">
                             @if ($kode_branch != '')
                                 <a href="/adddata/{{ $kode_branch }}"><button type="button"
                                         class="p-1 rounded bg-blue-500 text-white ">
