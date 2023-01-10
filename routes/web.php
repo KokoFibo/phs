@@ -6,6 +6,7 @@ use App\Models\Propinsi;
 use App\Models\DataPelita;
 use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
+use App\Http\Livewire\Tablewire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Datapelita\Adddata;
@@ -28,7 +29,7 @@ Route::get('/welcome', function () {
 })->name('welcome');
 
 
-
+Route::get('/table', Tablewire::class);
 
 
     Route::get('/resetpswd', function() {
