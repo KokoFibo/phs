@@ -24,7 +24,7 @@ class Dashboardwire extends Component
 
 
         return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD','totalPandita', 'totalBranch']))
-        ->extends('layouts.app')
+        ->extends('layouts.main')
         ->section('content');
     }
 }

@@ -40,37 +40,42 @@
                 </select>
             </div>
 
+
+            {{-- <p> --}}
             <div class="form-group col-md-2 mt-3 ">
-                {{-- <p> --}}
                 <button class="btn btn-primary " type="button" data-toggle="collapse"
                     data-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                     <i class="fa fa-filter"></i> {{ __('Filter Search') }}
                 </button>
-                {{-- </p> --}}
             </div>
-            {{-- <div class="mx-auto form-group col-md-2 mt-3 ">
+            {{-- </p> --}}
+            <div class="form-group col-md-5 mt-3 ">
+                <h1 class="text-center">{{ $nama_cetya }}</h1>
+            </div>
+        </div>
+        {{-- <div class="mx-auto form-group col-md-2 mt-3 ">
                 <h1>
                     <H4>kode_branch : {{ $kode_branch }}</H4>
                     <H4>branch_id : {{ $branch_id }}</H4>
 
                     <h4>
                         {{-- {{ Helper::getMonthName($i) }} --}}
-            {{-- {{ helpers::getNamaBranch() }}
+        {{-- {{ helpers::getNamaBranch() }}
 
 
             </h4>
             <H4>Role : {{ Auth::user()->role }}</H4>
             </h1> --}}
-        </div>
     </div>
-    {{-- <div class="mx-auto form-group col-md-2 mt-3 ">
+</div>
+{{-- <div class="mx-auto form-group col-md-2 mt-3 ">
         <h1> --}}
-    {{-- <x-nama_cetya :Kodebranch=$kode_branch /> --}}
-    {{-- <livewire:getbranchname :kode=$branch_id /> --}}
-    {{-- {{ $namaft }} --}}
+{{-- <x-nama_cetya :Kodebranch=$kode_branch /> --}}
+{{-- <livewire:getbranchname :kode=$branch_id /> --}}
+{{-- {{ $namaft }} --}}
 
 
-    {{-- </h1>
+{{-- </h1>
     </div> --}}
 </div>
 <div style="min-height: 120px; margin: auto; position: absolute; z-index: 10; ">

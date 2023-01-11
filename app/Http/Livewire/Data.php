@@ -28,6 +28,7 @@ class Data extends Component
     public $category="data_pelitas.nama_umat";
     public $active="";
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
+    public $nama_cetya;
     protected $listeners = ['delete'];
 
     
@@ -228,7 +229,7 @@ class Data extends Component
         $this->penjamin='';
         $this->pandita_id='';
         $this->tgl_mohonTao=NULL;
-    }
+    } 
 
     public function hitungUmurSekarang($tgl, $umur) {
         $now = Carbon::now();
@@ -294,6 +295,12 @@ class Data extends Component
 
         $data_branch = Branch::find(Auth::user()->branch_id);
         $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
+        if($this->kode_branch != null) {
+            $datacetya = Branch::find($this->kode_branch);
+            $this->nama_cetya = $datacetya->nama_branch;
+        } else {
+            $this->nama_cetya = "Welcome";
+        }
 
         if($this->kode_branch_khusus != null){
             $dataft = Branch::find($this->kode_branch_khusus);

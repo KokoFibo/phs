@@ -1,53 +1,85 @@
-<div>
+<div class="bg-slate-100 ">
     @section('title', 'Dashboard')
-    <div class="flex">
-        <div class="kartu">
-            <h1>{{ $totalUmat }}</h1>
-            <hr>
-            <h5>Umat</h5>
+    {{-- first row --}}
+    <div class="flex flex-col items-center mb-2 pt-5 gap-2 md:flex md:flex-row md:justify-evenly  md:pt-10 ">
+
+        <div>
+            <x-card smalltext="Umat" bigtext="{{ $totalUmat }}" textcolor="text-purple-500"
+                bordercolor="border-purple-500" />
         </div>
-        <div class="kartu">
-            <h1>{{ $umatActive }}</h1>
-            <hr>
-            <h5>Umat Active</h5>
+        <div>
+            <x-card smalltext="UmatActive" bigtext="{{ $umatActive }}" textcolor="text-green-500"
+                bordercolor="border-green-500" />
         </div>
-        <div class="kartu">
-            <h1>{{ $umatInactive }}</h1>
-            <hr>
-            <h5>Umat Inactive</h5>
+
+        <div>
+            <x-card smalltext="Umat Inactive" bigtext="{{ $umatInactive }}" textcolor="text-blue-500"
+                bordercolor="border-blue-500" />
         </div>
-        <div class="kartu">
-            <h1>{{ $umatYTD }}</h1>
-            <hr>
-            <h5>Umat {{ getYear() }}</h5>
+
+        <div>
+            <x-card smalltext="Umat {{ getYear() }}" bigtext="{{ $umatYTD }}" textcolor="text-yellow-500"
+                bordercolor="border-yellow-500" />
+        </div>
+        <div>
+            <x-card smalltext="Cetya" bigtext="{{ $totalBranch }}" textcolor="text-red-500"
+                bordercolor="border-red-500" />
         </div>
 
     </div>
-    <div class="flex">
-        <div class="kartu">
-            <h1>{{ $totalBranch }}</h1>
-            <hr>
-            <h5>Cetya</h5>
+    {{-- second row --}}
+    <div class="flex flex-col items-center mb-2 gap-2 md:flex md:flex-row md:justify-evenly  md:pt-10 ">
+        <div>
+            <x-card smalltext="Pandita" bigtext="{{ $totalPandita }}" textcolor="text-indigo-500"
+                bordercolor="border-indigo-500" />
         </div>
-        <div class="kartu">
-            <h1>{{ $totalPandita }}</h1>
-            <hr>
-            <h5>Pandita</h5>
+
+        <div>
+            <x-card smalltext="Future Reserved" bigtext="{{ $totalUmat }}" textcolor="text-orange-500"
+                bordercolor="border-orange-500" />
         </div>
-        <div class="kartu">
-            <h1>000</h1>
-            <hr>
-            <h5>Kota</h5>
+        <div>
+            <x-card smalltext="Future Reserved" bigtext="{{ $umatActive }}" textcolor="text-teal-500"
+                bordercolor="border-teal-500" />
         </div>
-        <div class="kartu">
-            <h1>000</h1>
-            <hr>
-            <h5>Future Data</h5>
+
+        <div>
+            <x-card smalltext="Future Reserved" bigtext="{{ $umatInactive }}" textcolor="text-pink-500"
+                bordercolor="border-pink-500" />
         </div>
+
+        <div>
+            <x-card smalltext="Future Reserved" bigtext="{{ $umatYTD }}" textcolor="text-sky-500"
+                bordercolor="border-sky-500" />
+        </div>
+
 
     </div>
+    {{-- Third row --}}
+    <div class="flex flex-col items-center mb-2 gap-2 md:flex md:flex-row md:justify-evenly  md:pt-10 ">
+        <div>
+            <x-card smalltext="Future Reserved" bigtext="{{ $totalBranch }}" textcolor="text-lime-500"
+                bordercolor="border-lime-500" />
+        </div>
+        <div>
+            <x-card smalltext="Future Reserved" bigtext="{{ $totalPandita }}" textcolor="text-fuchsia-500"
+                bordercolor="border-fuchsia-500" />
+        </div>
+        <div>
+            <x-card smalltext="Future Reserved" bigtext="{{ $totalBranch }}" textcolor="text-red-500"
+                bordercolor="border-red-500" />
+        </div>
+        <div>
+            <x-card smalltext="Future Reserved" bigtext="{{ $totalPandita }}" textcolor="text-blue-500"
+                bordercolor="border-blue-500" />
+        </div>
+        <div>
+            <x-card smalltext="Umat {{ getYear() }}" bigtext="{{ $umatYTD }}" textcolor="text-yellow-500"
+                bordercolor="border-yellow-500" />
+        </div>
+    </div>
 
-    <style>
+    {{-- <style>
         .kartu {
             margin-top: 30px;
             padding: 20px;
@@ -69,5 +101,5 @@
         }
 
         h5 {}
-    </style>
+    </style> --}}
 </div>
