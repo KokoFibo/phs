@@ -185,23 +185,35 @@
                                 {{ $d->nama_pandita }}</td>
                             <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->nama_kota }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded justify-center">
-                                <button class="p-1 rounded bg-green-500 text-white" data-toggle="modal"
-                                    data-target="#ViewModal" wire:click="edit({{ $d->id }})">
-                                    <i class="fa fa-eye "></i>
-                                </button>
+                            <td
+                                class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded justify-center flex space-x-1">
+                                <div x-data="{ open: false }">
 
-                                <a href="/editdata/{{ $d->id }}"><button type="button"
-                                        class="p-1 rounded bg-yellow-500 text-black">
-                                        <i class="fa fa-pen-to-square "></i>
-                                    </button></a>
 
-                                @if (Auth::user()->role != '1')
-                                    <button class="p-1 rounded bg-red-500 text-white"
-                                        wire:click="deleteConfirmation({{ $d->id }})">
-                                        <i class="fa fa-trash "></i>
+                                    <button @click="open = !open" class="p-1 rounded bg-green-500 text-white"
+                                        wire:click="edit({{ $d->id }})">
+                                        <i class="fa fa-eye "></i>
                                     </button>
-                                @endif
+                                    <div x-show="open" @click.away="open=false" {{-- class="fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-black/50 backdrop-blur-sm"> --}}
+                                        class="fixed top-0 left-0 z-10  w-full h-screen bg-black/50 backdrop-blur-sm">
+                                        @include('umatViewModal')
+
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <a href="/editdata/{{ $d->id }}"><button type="button"
+                                            class="p-1 rounded bg-yellow-500 text-black">
+                                            <i class="fa fa-pen-to-square "></i>
+                                        </button></a>
+
+                                    @if (Auth::user()->role != '1')
+                                        <button class="p-1 rounded bg-red-500 text-white"
+                                            wire:click="deleteConfirmation({{ $d->id }})">
+                                            <i class="fa fa-trash "></i>
+                                        </button>
+                                    @endif
+                                </div>
                             </td>
                         </tr>
                     @endforeach

@@ -18,9 +18,9 @@
 <body>
     @include('layouts.navbarbaru')
     @yield('content')
-    @livewireScripts
     <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
-
+    @livewireScripts
+    @stack('script')
 </body>
 
 </html>

@@ -87,6 +87,39 @@ class Tablewire extends Component
     public function swapDirection () {
         return $this->direction === 'asc' ? 'desc' : 'asc';
     }
+
+    public function edit ($id) {
+
+        $this->current_id = $id;
+        $data = DataPelita::find($id);
+
+        if ($data) {
+            $this->branch_id = $data->branch_id;
+            $this->kode_branch_view = $this->branch_id;
+            $this->nama_umat = $data->nama_umat;
+            $this->mandarin = $data->mandarin;
+            $this->gender = $data->gender;
+            $this->umur = $data->umur;
+            $this->umur_sekarang = $data->umur_sekarang;
+            $this->alamat = $data->alamat;
+            $this->kota_id = $data->kota_id;
+            $this->telp = $data->telp;
+            $this->hp = $data->hp;
+            $this->email = $data->email;
+            $this->pengajak = $data->pengajak;
+            $this->penjamin = $data->penjamin;
+            $this->pandita_id = $data->pandita_id;
+            $np = Pandita::find($this->pandita_id);
+            $this->namaPandita = $np->nama_pandita;
+            $nk = Kota::find($this->kota_id);
+            $this->namaKota = $nk->nama_kota;
+
+            $this->tgl_mohonTao = $data->tgl_mohonTao;
+            $this->status = $data->status;
+        }
+    }
+
+
     public function render()
     {
         if (Auth::user()->role == '3'){
@@ -97,8 +130,10 @@ class Tablewire extends Component
         $this->branch_id = Auth::user()->branch_id;
         $this->kode_branch = $this->branch_id ;
         $this->kode_branch_khusus = $this->kode_branch;
-
     }
+
+
+
 
     $datapelita = DB::table('data_pelitas')
     ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
