@@ -1,6 +1,6 @@
 {{-- @extends('layouts.main')
 @section('content') --}}
-<div class="h-14 bg-pink-500 text-white flex justify-between items-center px-5">
+<div class="h-14 bg-pink-500 text-white flex justify-between items-center px-5 shadow-xl">
     <div class="block md:flex items-center space-x-10">
         <h1 class="text-2xl">{{ __('Vihara Pelita Hati') }}</h1>
         <ul class="flex space-x-5">

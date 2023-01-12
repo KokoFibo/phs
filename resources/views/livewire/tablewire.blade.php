@@ -6,12 +6,13 @@
             <div class="md:flex items-center">
                 <div class="w-full my-2 md:w-1/4 mr-3">
                     <input type="text" class="w-full  border border-purple-700 py-1 px-4 rounded text-purple-700 "
-                        placeholder="{{ __('Search') }}">
+                        wire:model="search" placeholder="{{ __('Search') }}">
 
                 </div>
                 <div class="w-full my-2  md:w-1/4 mr-3">
 
-                    <select class="w-full border border-purple-700 py-1 px-2 rounded text-purple-700">
+                    <select class="w-full border border-purple-700 py-1 px-2 rounded text-purple-700"
+                        wire:model="category">
                         <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
                         <option value="data_pelitas.pengajak">{{ __('Pengajak') }}</option>
                         <option value="data_pelitas.penjamin">{{ __('Penjamin') }}</option>
@@ -21,7 +22,8 @@
                 </div>
                 <div class="w-full my-2 md:w-1/4 mr-3">
 
-                    <select class="w-full border border-purple-700 py-1 px-2 rounded text-purple-700">
+                    <select class="w-full border border-purple-700 py-1 px-2 rounded text-purple-700"
+                        wire:model="perpage">
                         <option value="5">5 {{ __('Rows Per Page') }}</option>
                         <option value="10">10 {{ __('Rows Per Page') }}</option>
                         <option value="15">15 {{ __('Rows Per Page') }}</option>

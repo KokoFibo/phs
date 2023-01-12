@@ -15,7 +15,7 @@ use Auth;
 
 class Tablewire extends Component
 {
-    public $perpage = 10;
+    public $perpage = 5;
     public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;
@@ -162,8 +162,8 @@ class Tablewire extends Component
     ->when($this->active, function($query){
         $query->where('data_pelitas.status',  $this->active );
     })
-    //  ->paginate($this->perpage);
-     ->paginate(10);
+     ->paginate($this->perpage);
+
 
 
     $data_branch = Branch::find(Auth::user()->branch_id);
