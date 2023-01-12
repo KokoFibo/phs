@@ -33,50 +33,51 @@ Route::get('/navbar', function () {
 });
 
 
-Route::get('/table', Tablewire::class);
+// Route::get('/table', Tablewire::class);
 
 
     Route::get('/resetpswd', function() {
         return view('menuResetPassword');
     })->name('resetpassword');
 
- 
+
 
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/registration', function() {
         return view('menuRegistration');
     })->middleware(['supervisor'])->name('registration');
-    
+
     Route::get('/', function () {
         return view('auth.login');
     });
-    
-   
 
-    
+
+
+
 
     Route::get('/branch', function() {
         return view('menuBranch');
     })->name('branch');
 
-    
+
     Route::get('locale/{locale}', function($locale){
         \Session::put('locale', $locale);
         return redirect()->back();
     });
-    
-    
+
+
 
     Route::get('/adddata/{kode_branch}', Adddata::class)->name('adddata');
 
     Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
 
-    Route::get('/main', Data::class)->name('main');
+    Route::get('/main1', Data::class)->name('main');
+    Route::get('/main', Tablewire::class)->name('main');
 
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
-  
-   
+
+
 
     Route::get('/resetumur', function () {
         $data = DataPelita::all();

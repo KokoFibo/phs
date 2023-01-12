@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace App\Http\Livewire;
 
 use Carbon\Carbon;
@@ -19,7 +19,6 @@ class Tablewire extends Component
     public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;
-    // protected $paginationTheme = 'bootstrap';
     public $branch_id;
     public $nama_umat, $mandarin, $gender, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
@@ -30,6 +29,8 @@ class Tablewire extends Component
     public $active="";
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
     protected $listeners = ['delete'];
+    public $nama_cetya;
+
 
     public function updatingSearch () {
         $this->resetPage();
@@ -40,9 +41,9 @@ class Tablewire extends Component
         $this->search = '';
         $this->columnName = 'data_pelitas.id';
         $this->direction = 'desc';
-        $this->startUmur = NULL; 
-        $this->endUmur = NULL; 
-        $this->startDate = NULL; 
+        $this->startUmur = NULL;
+        $this->endUmur = NULL;
+        $this->startDate = NULL;
         $this->endDate = NULL;
         $this->jen_kel = NULL;
         $this->category="data_pelitas.nama_umat";
@@ -55,6 +56,28 @@ class Tablewire extends Component
         $year = date('Y', strtotime($tgl));
         $selisih = $tahun - $year;
         return $umur + $selisih;
+    }
+
+    public function deleteConfirmation ($id) {
+        $data = DataPelita::find($id);
+        $nama = $data->nama_umat;
+        $this->dispatchBrowserEvent('delete_confirmation', [
+            'title' => 'Yakin Untuk Hapus Data',
+            //  'text' => "You won't be able to revert this!",
+              'text' => "Data : " . $nama,
+             'icon' => 'warning',
+             'id' => $id,
+        ]);
+    }
+
+    public function delete ($id) {
+        $data = DataPelita::find($id);
+        $data->delete();
+
+        $this->dispatchBrowserEvent('deleted');
+    // session()->flash('message', 'Data Sudah di Delete');
+
+
     }
 
     public function sortColumnName ($namaKolom) {
@@ -76,8 +99,8 @@ class Tablewire extends Component
         $this->kode_branch_khusus = $this->kode_branch;
 
     }
-  
-    $datapelita = DB::table('data_pelitas') 
+
+    $datapelita = DB::table('data_pelitas')
     ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
     ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
     ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
@@ -104,8 +127,8 @@ class Tablewire extends Component
     ->when($this->active, function($query){
         $query->where('data_pelitas.status',  $this->active );
     })
-    //  ->paginate($this->perpage); 
-     ->paginate(10); 
+    //  ->paginate($this->perpage);
+     ->paginate(10);
 
 
     $data_branch = Branch::find(Auth::user()->branch_id);
@@ -118,7 +141,14 @@ class Tablewire extends Component
     $namaft = 'Welcome';
 
     $dp = DataPelita::paginate(10);
-        
+
+    if($this->kode_branch != null) {
+        $datacetya = Branch::find($this->kode_branch);
+        $this->nama_cetya = $datacetya->nama_branch;
+    } else {
+        $this->nama_cetya = "Welcome";
+    }
+
 
         return view('livewire.tablewire', compact(['datapelita', 'data_branch', 'all_branch', 'namaft', 'dp']))
         ->extends('layouts.main')
@@ -129,11 +159,11 @@ class Tablewire extends Component
 
 
 
-   
-
-    
-
-   
 
 
- 
+
+
+
+
+
+

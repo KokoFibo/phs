@@ -31,8 +31,8 @@ class Data extends Component
     public $nama_cetya;
     protected $listeners = ['delete'];
 
-    
- 
+
+
     public function updatingSearch () {
         $this->resetPage();
     }
@@ -42,9 +42,9 @@ class Data extends Component
         $this->search = '';
         $this->columnName = 'data_pelitas.id';
         $this->direction = 'desc';
-        $this->startUmur = NULL; 
-        $this->endUmur = NULL; 
-        $this->startDate = NULL; 
+        $this->startUmur = NULL;
+        $this->endUmur = NULL;
+        $this->startDate = NULL;
         $this->endDate = NULL;
         $this->jen_kel = NULL;
         $this->category="data_pelitas.nama_umat";
@@ -79,13 +79,13 @@ class Data extends Component
 
     public function clearSession () {
         $this->resetPage();
-        $this->clear_fields();  
+        $this->clear_fields();
     }
 
     public function store () {
         $validatedData = $this->validate();
         session()->flash('message', '');
-       
+
         $data_umat = new DataPelita();
 
         $data_umat->branch_id = $this->branch_id;
@@ -109,8 +109,8 @@ class Data extends Component
         $this->emit('render');
         session()->flash('message', 'Data Umat Sudah di tambah');
 
-        $this->clear_fields();    
-        
+        $this->clear_fields();
+
         // $this->dispatchBrowserEvent('close-modal');
 
     }
@@ -118,7 +118,7 @@ class Data extends Component
     public function edit ($id) {
         $this->current_id = $id;
         $data = DataPelita::find($id);
-        
+
         if ($data) {
             $this->branch_id = $data->branch_id;
             $this->kode_branch_view = $this->branch_id;
@@ -132,7 +132,7 @@ class Data extends Component
             $this->telp = $data->telp;
             $this->hp = $data->hp;
             $this->email = $data->email;
-            $this->pengajak = $data->pengajak; 
+            $this->pengajak = $data->pengajak;
             $this->penjamin = $data->penjamin;
             $this->pandita_id = $data->pandita_id;
             $np = Pandita::find($this->pandita_id);
@@ -151,7 +151,7 @@ class Data extends Component
         $validatedData = $this->validate();
 
         session()->flash('message', '');
-        
+
 
         $data_umat = DataPelita::find($this->current_id);
         $data_umat->branch_id = $this->branch_id;
@@ -168,18 +168,18 @@ class Data extends Component
         $data_umat->pengajak = $this->pengajak;
         $data_umat->penjamin = $this->penjamin;
         $data_umat->pandita_id = $this->pandita_id;
-        $data_umat->tgl_mohonTao = $this->tgl_mohonTao; 
+        $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = $this->status;
 
         $data_umat->save();
 
         session()->flash('message', 'Data Umat Sudah di Update');
 
-        $this->clear_fields();    
-        
-        // hiding the Modal after run Add Data 
+        $this->clear_fields();
+
+        // hiding the Modal after run Add Data
         // $this->dispatchBrowserEvent('close-modal');
-        
+
     }
 
         // public function deleteConfirmation ($id) {
@@ -213,7 +213,7 @@ class Data extends Component
 
 
     public function  clear_fields() {
-    
+
         $this->branch_id= '';
         $this->nama_umat='';
         $this->mandarin='';
@@ -221,7 +221,7 @@ class Data extends Component
         $this->umur='';
         $this->umur_sekarang='';
         $this->alamat='';
-        $this->kota_id=''; 
+        $this->kota_id='';
         $this->telp='';
         $this->hp='';
         $this->email='';
@@ -229,7 +229,7 @@ class Data extends Component
         $this->penjamin='';
         $this->pandita_id='';
         $this->tgl_mohonTao=NULL;
-    } 
+    }
 
     public function hitungUmurSekarang($tgl, $umur) {
         $now = Carbon::now();
@@ -244,7 +244,7 @@ class Data extends Component
         $this->direction = $this->swapDirection();
     }
 
-    
+
 
     public function swapDirection () {
         return $this->direction === 'asc' ? 'desc' : 'asc';
@@ -262,8 +262,8 @@ class Data extends Component
             $this->kode_branch_khusus = $this->kode_branch;
 
         }
-      
-        $datapelita = DB::table('data_pelitas') 
+
+        $datapelita = DB::table('data_pelitas')
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
@@ -290,11 +290,12 @@ class Data extends Component
         ->when($this->active, function($query){
             $query->where('data_pelitas.status',  $this->active );
         })
-         ->paginate($this->perpage); 
+         ->paginate($this->perpage);
 
 
         $data_branch = Branch::find(Auth::user()->branch_id);
         $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
+
         if($this->kode_branch != null) {
             $datacetya = Branch::find($this->kode_branch);
             $this->nama_cetya = $datacetya->nama_branch;
@@ -307,11 +308,10 @@ class Data extends Component
             $namaft = $dataft->nama_branch;
         }
         $namaft = 'Welcome';
-        
-        
+
+
         return view('livewire.data', compact(['datapelita', 'data_branch', 'all_branch', 'namaft']))
         ->extends('layouts.app')
         ->section('content');
     }
 }
- 

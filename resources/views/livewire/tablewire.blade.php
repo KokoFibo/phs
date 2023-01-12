@@ -1,16 +1,17 @@
 <div>
-
+    {{-- @include('datapelita.viewModal') --}}
+    @section('title', 'Main')
     <div class="w-full md:flex items-center">
         <div class="mx-5 my-3 w-1/2">
             <div class="md:flex items-center">
                 <div class="w-full my-2 md:w-1/4 mr-3">
-                    <input type="text" class="w-full  border border-gray-400 py-1 px-4 rounded"
+                    <input type="text" class="w-full  border border-purple-700 py-1 px-4 rounded text-purple-700 "
                         placeholder="{{ __('Search') }}">
 
                 </div>
                 <div class="w-full my-2  md:w-1/4 mr-3">
 
-                    <select class="w-full border border-gray-400 py-1 px-2 rounded">
+                    <select class="w-full border border-purple-700 py-1 px-2 rounded text-purple-700">
                         <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
                         <option value="data_pelitas.pengajak">{{ __('Pengajak') }}</option>
                         <option value="data_pelitas.penjamin">{{ __('Penjamin') }}</option>
@@ -20,7 +21,7 @@
                 </div>
                 <div class="w-full my-2 md:w-1/4 mr-3">
 
-                    <select class="w-full border border-gray-400 py-1 px-2 rounded">
+                    <select class="w-full border border-purple-700 py-1 px-2 rounded text-purple-700">
                         <option value="5">5 {{ __('Rows Per Page') }}</option>
                         <option value="10">10 {{ __('Rows Per Page') }}</option>
                         <option value="15">15 {{ __('Rows Per Page') }}</option>
@@ -31,20 +32,23 @@
                 <div x-data="{ open: false }" class="w-full my-2 md:w-1/4 mr-3">
 
                     <button @click="open = !open" :class="open ? 'bg-purple-500 text-white' : ''"
-                        class=" w-full border border-gray-400 py-1 px-2 rounded"><i class="fa fa-filter"></i>
+                        class=" w-full border border-purple-700 text-purple-700  py-1 px-2 rounded"><i
+                            class="fa fa-filter"></i>
                         {{ __('Filter Search') }}</button>
 
 
                     {{-- isi dari dropdown --}}
                     <div x-show="open" @click.away="open = false" x-transition
-                        class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 glass ">
+                        class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-[#ffffff/.62] rounded shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
+                        {{-- class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 glass "> --}}
 
 
                         {{-- <div class="card card-body glass" style="width: 400px; color: purple;"> --}}
                         @if (Auth::user()->role == '3')
                             <div class="mt-3">
                                 <label class="bg-purple p-1 px-3 rounded">{{ __('Branch') }} </label>
-                                <select wire:model="kode_branch" class="form-control">
+                                <select wire:model="kode_branch"
+                                    class="w-full border border-gray-400 py-1 px-2 rounded">
                                     <option value="" selected>{{ __('All') }}</option>
                                     @foreach ($all_branch as $a)
                                         <option value="{{ $a->id }}">{{ $a->nama_branch }}</option>
@@ -52,13 +56,14 @@
                                 </select>
                             </div>
                         @endif
-                        {{-- <div class="mt-3"> --}} <label class="bg-purple p-1 px-3 rounded">{{ __('Gender') }}</label>
-                        <select wire:model="jen_kel" class="w-full border border-gray-400 py-1 px-2 rounded">
-                            <option value="0">{{ __('All') }}</option>
-                            <option value="1">{{ __('Laki-laki') }}</option>
-                            <option value="2">{{ __('Perempuan') }}</option>
-                        </select>
-                        {{-- </div> --}}
+                        <div class="mt-3">
+                            <label class="bg-purple p-1 px-3 rounded">{{ __('Gender') }}</label>
+                            <select wire:model="jen_kel" class="w-full border border-gray-400 py-1 px-2 rounded">
+                                <option value="0">{{ __('All') }}</option>
+                                <option value="1">{{ __('Laki-laki') }}</option>
+                                <option value="2">{{ __('Perempuan') }}</option>
+                            </select>
+                        </div>
                         <div class="mt-3">
                             <label class="bg-purple p-1 px-3 rounded">{{ __('Status') }} </label>
                             <select wire:model="active" class="w-full border border-gray-400 py-1 px-2 rounded">
@@ -68,15 +73,18 @@
                             </select>
                         </div>
 
-                        <label class="text-center bg-purple">{{ __('Umur') }}</label>
-                        <div class="flex" style="display: flex">
-                            <div class="mt-3">
-                                <input type="text" class="w-full border border-gray-400 py-1 px-2 rounded"
-                                    wire:model="startUmur">
-                            </div>
-                            <div class="mt-3">
-                                <input type="text" class="w-full border border-gray-400 py-1 px-2 rounded"
-                                    wire:model="endUmur">
+                        <div class="mt-3">
+                            <label class="text-center bg-purple">{{ __('Umur') }}</label>
+                            <div class="flex" style="display: flex">
+                                <div>
+                                    <input type="text" class="w-full border border-gray-400 py-1 px-2 rounded"
+                                        wire:model="startUmur">
+                                </div>
+                                <p class="px-1">-</p>
+                                <div>
+                                    <input type="text" class="w-full border border-gray-400 py-1 px-2 rounded"
+                                        wire:model="endUmur">
+                                </div>
                             </div>
                         </div>
 
@@ -84,17 +92,20 @@
                         {{-- Jika Role adalah Manager --}}
                         {{-- @if (Auth::user()->role == '3') --}}
 
-                        <label class="text-center bg-purple">{{ __('Tanggal Mohon Tao') }}: </label>
-                        <div class="flex" style="display: flex">
-                            <div class="mt-3">
-                                <input type="date" class="w-full border border-gray-400 py-1 px-2 rounded"
-                                    wire:model="startDate">
-                            </div>
-
-                            <div class="mt-3">
-                                {{-- <label >-</label> --}}
-                                <input type="date" class="w-full border border-gray-400 py-1 px-2 rounded"
-                                    wire:model="endDate">
+                        <div class="my-3">
+                            <label class="text-center bg-purple">{{ __('Tanggal Mohon Tao') }}: </label>
+                            <div class="flex" style="display: flex">
+                                <div>
+                                    <input type="date" class="w-full border border-gray-400 py-1 px-2 rounded"
+                                        wire:model="startDate">
+                                </div>
+                                <div>
+                                    <p class="px-1">-</p>
+                                </div>
+                                <div>
+                                    <input type="date" class="w-full border border-gray-400 py-1 px-2 rounded"
+                                        wire:model="endDate">
+                                </div>
                             </div>
                         </div>
 
@@ -108,8 +119,9 @@
             </div>
         </div>
         <div class="mx-5 my-3 w-1/2">
-            <h1 class="text-3xl text-center text-purple-700 font-bold">NAMA CETYA</h1>
+            <h1 class="text-3xl text-center text-purple-700 font-bold">{{ $nama_cetya }}</h1>
         </div>
+
 
     </div>
 
@@ -117,7 +129,7 @@
     <div class="p-4 ">
         <div class="overflow-auto rounded-lg shadow bg-gray-50">
             <table class="w-full">
-                <thead class="bg-purple-400 text-white border-b-2 border-gray-200">
+                <thead class="bg-purple-500 text-white border-b-2 border-gray-200">
                     <tr>
                         {{-- <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th> --}}
                         <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th>
@@ -144,28 +156,36 @@
                                 wire:click="resetFilter">
                                 <i class="fa fa-arrow-rotate-right"></i>
                             </button>
+
                         </th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-200">
+                <tbody>
                     @foreach ($datapelita as $index => $d)
                         <tr class="h-3">
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap">
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">
                                 {{ $datapelita->firstItem() + $index }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap">{{ $d->nama_umat }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap">{{ $d->mandarin }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap text-center">
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->nama_umat }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->mandarin }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded text-center">
                                 {{ $d->umur_sekarang }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap">{{ $d->tgl_mohonTao }}</td>
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">
+                                {{ $d->tgl_mohonTao }}</td>
                             <td
-                                class="p-3 text-sm text-gray-800 whitespace-nowrap {{ $d->gender == '1' ? 'text-blue-500' : 'text-pink-500' }} text-center">
+                                class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded {{ $d->gender == '1' ? 'text-blue-500' : 'text-pink-500' }} text-center">
                                 {{ check_JK($d->gender, $d->umur_sekarang) }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap">{{ $d->pengajak }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap">{{ $d->penjamin }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap">{{ $d->nama_pandita }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap">{{ $d->nama_kota }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap justify-center">
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->pengajak }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->penjamin }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">
+                                {{ $d->nama_pandita }}</td>
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->nama_kota }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded justify-center">
                                 <button class="p-1 rounded bg-green-500 text-white" data-toggle="modal"
                                     data-target="#ViewModal" wire:click="edit({{ $d->id }})">
                                     <i class="fa fa-eye "></i>
@@ -195,15 +215,46 @@
 
         </div>
     </div>
-    <style>
-        .glass {
-            /* From https://css.glass */
-            background: rgba(255, 255, 255, 0.62);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-    </style>
+    @push('script')
+        <script>
+            // window.addEventListener('close-modal', event => {
+            //     $('#AddModal').modal('hide');
+            // });
+            // window.addEventListener('close-modal', event => {
+            //     $('#EditModal').modal('hide');
+            // });
+            // window.addEventListener('close-modal', event => {
+            //     $('#DeleteModal').modal('hide');
+            // });
+        </script>
+        <script>
+            window.addEventListener('delete_confirmation', function(e) {
+                Swal.fire({
+                    title: e.detail.title,
+                    text: e.detail.text,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, silakan hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('delete', e.detail.id)
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your file has been deleted.',
+                        //     'success'
+                        // )
+                    }
+                })
+            });
+            window.addEventListener('deleted', function(e) {
+                Swal.fire(
+                    'Deleted!',
+                    'Data sudah di delete.',
+                    'success'
+                );
+            });
+        </script>
+    @endpush
 </div>

@@ -1,6 +1,6 @@
 {{-- @extends('layouts.main')
 @section('content') --}}
-<div class="h-14 bg-purple-500 text-white flex justify-between items-center px-5">
+<div class="h-14 bg-pink-500 text-white flex justify-between items-center px-5">
     <div class="block md:flex items-center space-x-10">
         <h1 class="text-2xl">{{ __('Vihara Pelita Hati') }}</h1>
         <ul class="flex space-x-5">
@@ -18,10 +18,11 @@
                     </button>
                     <div x-show="open" @click.away="open = false" x-transition
                         class=" mx-auto absolute z-10 px-3 pb-3 border rounded  text-purple-700 bg-white ">
-                        <ul class="w-40 mx-5">
+                        <ul class="w-40 mx-5 divide-y">
                             <li class="hover:bg-gray-200 py-2 my-2">
                                 <a class="" href="{{ route('branch') }}">{{ __('Branch') }}</a>
                             </li>
+
                             <li class="hover:bg-gray-200 py-2 my-2">
                                 <a class="" href="{{ route('resetumur') }}">{{ __('Reset Umur') }}</a>
                             </li>
@@ -42,8 +43,7 @@
                 </button>
                 <div x-show="open" @click.away="open = false" x-transition
                     class="absolute right-0 top-11 z-10 py-1 pb-3 border rounded-xl  text-purple-700 bg-white ">
-                    <ul class="mx-5 w-40
-                        text-gray-700">
+                    <ul class="mx-5 w-40 divide-y text-gray-700">
                         <li class="hover:bg-gray-100 text-black text-center py-2 my-2">
                             <a href="#">{{ __('Change Profile') }}</a>
                         </li>

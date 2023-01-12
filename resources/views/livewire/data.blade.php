@@ -1,11 +1,11 @@
 <div>
     {{-- {{ dd($datapelita->all()) }} --}}
     {{-- @include('datapelita.addModal') --}}
-    @include('datapelita.viewModal')
     {{-- @include('datapelita.editModal') --}}
     {{-- @include('datapelita.deleteModal') --}}
     {{-- @include('layouts.navbar') --}}
 
+    @include('datapelita.viewModal')
     @section('title', 'Main')
 
 
@@ -40,7 +40,7 @@
                         </select>
                     </div>
 
-                    
+
                     <div class="col-md-2 mt-3">
                         <label for="name">{{ __('Tgl Chiu Tao') }}: </label>
                         <input type="date" class="form-control" wire:model="startDate">
@@ -76,7 +76,7 @@
                         </select>
                     </div>
 
-                    
+
 
                 </div>
                 <div class="card rounded mt-3">

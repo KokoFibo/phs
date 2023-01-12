@@ -9,6 +9,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @livewireStyles
 
 </head>
@@ -17,6 +19,7 @@
     @include('layouts.navbarbaru')
     @yield('content')
     @livewireScripts
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
 
 </body>
 
