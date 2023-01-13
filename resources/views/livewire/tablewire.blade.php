@@ -237,10 +237,9 @@
                 </tbody>
             </table>
 
-            <div class="p-3">
-                {{ $datapelita->links() }}
-
-            </div>
+            {{ $datapelita->links() }}
+            {{-- <div class="p-3">
+            </div> --}}
         </div>
     </div>
     {{-- End Table --}}
