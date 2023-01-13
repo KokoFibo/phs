@@ -53,7 +53,7 @@ class Editdata extends Component
         $this->current_id = $current_id;
         $data = DataPelita::find($this->current_id);
          $this->branch_id = $data->branch_id;
-          $this->nama_umat = $data->nama_umat; 
+          $this->nama_umat = $data->nama_umat;
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
           $this->umur = $data->umur;
@@ -68,7 +68,7 @@ class Editdata extends Component
           $this->pandita_id = $data->pandita_id;
           $this->tgl_mohonTao = $data->tgl_mohonTao;
         $this->status = $data->status;
-        
+
 
     }
 
@@ -87,7 +87,7 @@ class Editdata extends Component
     public function update () {
         $validatedData = $this->validate();
         session()->flash('message', '');
-       
+
 
         $data_umat = DataPelita::find($this->current_id);
 
@@ -108,23 +108,23 @@ class Editdata extends Component
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = $this->status;
 
-        
+
 
         $data_umat->save();
         session()->flash('message', 'Data Umat Sudah di update');
         // $this->dispatchBrowserEvent('updated', [
         //     'title' => 'Data Updated'
         // ]);
-        
-        $this->clear_fields();   
-        
-        
-       
+
+        $this->clear_fields();
+
+
+
         $this->redirect(route("main"));
 
     }
     public function  clear_fields() {
-    
+
         // $this->branch_id= $this->defaultBranch_id;
         $this->nama_umat='';
         $this->mandarin='';
@@ -132,7 +132,7 @@ class Editdata extends Component
         $this->umur='';
         $this->umur_sekarang='';
         $this->alamat='';
-        $this->kota_id=''; 
+        $this->kota_id='';
         $this->telp='';
         $this->hp='';
         $this->email='';
@@ -168,8 +168,8 @@ class Editdata extends Component
         ->where('branch_id', $this->branch_id)->get();
 
         return view('livewire.datapelita.editdata', compact([ 'datapelita', 'branch', 'dataPandita', 'allKota']))
-        ->extends('layouts.app')
+        ->extends('layouts.main')
         ->section('content');
-        
+
     }
 }

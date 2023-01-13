@@ -29,7 +29,7 @@ class Tablewire extends Component
     public $active="";
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
     protected $listeners = ['delete'];
-    public $nama_cetya;
+    public $nama_cetya, $nama_cetya_view;
 
 
     public function updatingSearch () {
@@ -48,6 +48,8 @@ class Tablewire extends Component
         $this->jen_kel = NULL;
         $this->category="data_pelitas.nama_umat";
         $this->active="";
+        $this->kode_branch="";
+        $this->branch_id="";
         $this->resetPage();
     }
     public function hitungUmurSekarang($tgl, $umur) {
@@ -116,6 +118,8 @@ class Tablewire extends Component
 
             $this->tgl_mohonTao = $data->tgl_mohonTao;
             $this->status = $data->status;
+
+
         }
     }
 
@@ -181,7 +185,14 @@ class Tablewire extends Component
         $datacetya = Branch::find($this->kode_branch);
         $this->nama_cetya = $datacetya->nama_branch;
     } else {
-        $this->nama_cetya = "Welcome";
+        $datacetya = Branch::find(auth::user()->branch_id);
+        $this->nama_cetya = $datacetya->nama_branch;
+
+        // $this->nama_cetya = "Welcome";
+    }
+    if($this->kode_branch_view != NULL){
+        $datacetya = Branch::find($this->kode_branch_view);
+        $this->nama_cetya_view = $datacetya->nama_branch;
     }
 
 

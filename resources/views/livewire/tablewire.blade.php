@@ -1,13 +1,17 @@
 <div>
-    {{-- @include('datapelita.viewModal') --}}
+    @include('datapelita.viewModal')
+
     @section('title', 'Main')
+
+
+
+    {{-- Search Bar --}}
     <div class="w-full md:flex items-center">
         <div class="mx-5 my-3 w-1/2">
             <div class="md:flex items-center">
                 <div class="w-full my-2 md:w-1/4 mr-3">
                     <input type="text" class="w-full  border border-purple-700 py-1 px-4 rounded text-purple-700 "
                         wire:model="search" placeholder="{{ __('Search') }}">
-
                 </div>
                 <div class="w-full my-2  md:w-1/4 mr-3">
 
@@ -40,7 +44,8 @@
 
 
                     {{-- isi dari dropdown --}}
-                    <div x-show="open" @click.away="open = false" x-transition
+
+                    <div x-show="open" x-cloak @click.away="open = false" x-transition
                         class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-[#ffffff/.62] rounded shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
                         {{-- class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 glass "> --}}
 
@@ -115,26 +120,26 @@
                         {{-- </div> --}}
 
                     </div>
-
                     {{-- end isi dropdown --}}
                 </div>
             </div>
         </div>
+        {{-- nama cetya --}}
         <div class="mx-5 my-3 w-1/2">
-            <h1 class="text-3xl text-center text-purple-700 font-bold">{{ $nama_cetya }}</h1>
+            <h1 class="text-3xl text-center text-purple-700 font-bold">{{ $nama_cetya }} </h1>
         </div>
 
 
     </div>
-
-
+    {{-- End Search Bar --}}
+    {{-- Table --}}
     <div class="p-4 ">
-        <div class="overflow-auto rounded-lg shadow bg-gray-50">
+        <div class="rounded-lg shadow bg-gray-50">
             <table class="w-full">
                 <thead class="bg-purple-500 text-white border-b-2 border-gray-200">
                     <tr>
                         {{-- <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th> --}}
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th>
+                        <th class="p-3 text-sm font-semibold text-center">{{ __('#') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('NAMA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('中文名') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('UMUR') }}</th>
@@ -145,102 +150,103 @@
                         <th class="p-3 text-sm font-semibold text-left">{{ __('PENJAMIN') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('PANDITA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('KOTA') }}</th>
-                        <th class="p-3 text-sm font-semibold flex space-x-1 ">
-                            @if ($kode_branch != '')
-                                <a href="/adddata/{{ $kode_branch }}"><button type="button"
-                                        class="p-1 rounded bg-blue-500 text-white ">
-                                        <i class="fa-solid fa-user-plus"></i>
-                                    </button></a>
-                            @endif
+                        <th class="p-3 text-sm font-semibold ">
+                            <div class="flex justify-center space-x-1">
 
-                            {{-- Reset --}}
-                            <button type="button" class="p-1 rounded bg-green-500 text-white "
-                                wire:click="resetFilter">
-                                <i class="fa fa-arrow-rotate-right"></i>
-                            </button>
+                                @if ($kode_branch != '')
+                                    <div>
+                                        <a href="/adddata/{{ $kode_branch }}"><button type="button"
+                                                class="p-1 rounded bg-blue-500 text-white ">
+                                                <i class="fa-solid fa-user-plus"></i>
+                                            </button></a>
 
+                                    </div>
+                                @endif
+
+                                {{-- Reset --}}
+                                <div>
+
+                                    <button type="button" class="p-1 rounded bg-green-500 text-white "
+                                        wire:click="resetFilter">
+                                        <i class="fa fa-arrow-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($datapelita as $index => $d)
                         <tr class="h-3">
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">
-                                {{ $datapelita->firstItem() + $index }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->nama_umat }}
+                            <td class="p-3 text-sm text-gray-800  border rounded">
+                                {{ $datapelita->firstItem() + $index }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->mandarin }}
+                            <td class="p-3 text-sm text-gray-800  border rounded">{{ $d->nama_umat }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded text-center">
+                            <td class="p-3 text-sm text-gray-800  border rounded">{{ $d->mandarin }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800  border rounded text-center">
                                 {{ $d->umur_sekarang }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">
+                            <td class="p-3 text-sm text-gray-800  border rounded">
                                 {{ $d->tgl_mohonTao }}</td>
                             <td
-                                class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded {{ $d->gender == '1' ? 'text-blue-500' : 'text-pink-500' }} text-center">
-                                {{ check_JK($d->gender, $d->umur_sekarang) }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->pengajak }}
+                                class="p-3 text-sm text-gray-800  border rounded {{ $d->gender == '1' ? 'text-blue-500' : 'text-pink-500' }} text-center">
+                                {{ check_JK($d->gender, $d->umur_sekarang) }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->penjamin }}
+                            <td class="p-3 text-sm text-gray-800  border rounded">{{ $d->pengajak }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">
-                                {{ $d->nama_pandita }}</td>
-                            <td class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded">{{ $d->nama_kota }}
+                            <td class="p-3 text-sm text-gray-800  border rounded">{{ $d->penjamin }}
                             </td>
-                            <td
-                                class="p-3 text-sm text-gray-800 whitespace-nowrap border rounded justify-center flex space-x-1">
-                                <div x-data="{ open: false }">
+                            <td class="p-3 text-sm text-gray-800  border rounded">
+                                {{ $d->nama_pandita }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800  border rounded">{{ $d->nama_kota }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800  border rounded ">
 
-
-                                    <button @click="open = !open" class="p-1 rounded bg-green-500 text-white"
-                                        wire:click="edit({{ $d->id }})">
-                                        <i class="fa fa-eye "></i>
-                                    </button>
-                                    <div x-show="open" @click.away="open=false" {{-- class="fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-black/50 backdrop-blur-sm"> --}}
-                                        class="fixed top-0 left-0 z-10  w-full h-screen bg-black/50 backdrop-blur-sm">
-                                        @include('umatViewModal')
+                                <div class="flex justify-center space-x-1">
+                                    <div>
+                                        <button class="p-1 rounded bg-green-500 text-black" data-toggle="modal"
+                                            data-target="#ViewModal" wire:click="edit({{ $d->id }})">
+                                            <i class="fa fa-eye "></i>
+                                        </button>
+                                    </div>
+                                    {{-- <div> --}}
+                                    <div>
+                                        <a href="/editdata/{{ $d->id }}"><button type="button"
+                                                class="p-1 rounded bg-yellow-500 text-black">
+                                                <i class="fa fa-pen-to-square "></i>
+                                            </button></a>
 
                                     </div>
-
-                                </div>
-                                <div>
-                                    <a href="/editdata/{{ $d->id }}"><button type="button"
-                                            class="p-1 rounded bg-yellow-500 text-black">
-                                            <i class="fa fa-pen-to-square "></i>
-                                        </button></a>
-
                                     @if (Auth::user()->role != '1')
-                                        <button class="p-1 rounded bg-red-500 text-white"
-                                            wire:click="deleteConfirmation({{ $d->id }})">
-                                            <i class="fa fa-trash "></i>
-                                        </button>
+                                        <div>
+
+                                            <button class="p-1 rounded bg-red-500 text-white"
+                                                wire:click="deleteConfirmation({{ $d->id }})">
+                                                <i class="fa fa-trash "></i>
+                                            </button>
+                                        </div>
                                     @endif
+                                    {{-- </div> --}}
                                 </div>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
             <div class="p-3">
                 {{ $datapelita->links() }}
 
             </div>
-
-
         </div>
     </div>
+    {{-- End Table --}}
+
+    {{-- JS utk Sweetalert Delete --}}
     @push('script')
-        <script>
-            // window.addEventListener('close-modal', event => {
-            //     $('#AddModal').modal('hide');
-            // });
-            // window.addEventListener('close-modal', event => {
-            //     $('#EditModal').modal('hide');
-            // });
-            // window.addEventListener('close-modal', event => {
-            //     $('#DeleteModal').modal('hide');
-            // });
-        </script>
         <script>
             window.addEventListener('delete_confirmation', function(e) {
                 Swal.fire({

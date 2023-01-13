@@ -13,17 +13,10 @@
 
                 <div class="card">
                     <div class="card-header">
-
-                        <h3>Data Umat</h3>
+                        <h3>{{ $nama_cetya_view }}</h3>
                     </div>
                     <div class="card-body">
                         <table class="table">
-                            <tr>
-                                <td>{{ __('Branch') }}</td>
-
-                                <td>{{ $kode_branch_view }}</td>
-                            </tr>
-
                             <tr>
                                 <td>{{ __('Nama') }}</td>
                                 <td>{{ $nama_umat }}</td>

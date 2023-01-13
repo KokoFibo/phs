@@ -9,8 +9,6 @@
                     <h3>{{ __('Update Data') }}
                         {{-- <x-namabranch :kode=$branch_id /> --}}
                         <livewire:getbranchname :kode=$branch_id>
-
-
                     </h3>
 
                 </div>
@@ -150,15 +148,15 @@
                                     <div class="col-md-3 mb-3">
                                         <input class="form-check-input" type="radio" wire:model="gender"
                                             value="1" checked>
-                                        <label class="form-check-label mr-7">
+                                        <label class="form-check-label">
                                             {{ __('Laki-laki') }}
                                         </label>
                                     </div>
 
                                     <div class="col-md-3">
                                         <input class="form-check-input" type="radio" wire:model="gender"
-                                            value="2" checked>
-                                        <label class="form-check-label">
+                                            value="2" style="margin-left: 10px" checked>
+                                        <label class="form-check-label" style="margin-left: 30px">
                                             {{ __('Perempuan') }}
                                         </label>
                                     </div>
@@ -249,11 +247,16 @@
                     </div>
                     <div class="card-footer">
 
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
 
-                            <button class="btn btn-primary" type="submit">{{ __('Update') }}</button>
-                            <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>
-                                {{ __('Back') }}</a>
+                                <button class="bg-green-500 text-white hover:bg-green-700 py-2 px-3 rounded shadow"
+                                    type="submit">{{ __('Update') }}</button>
+                            </div>
+                            <div class="text-purple-500 text-xl hover:text-purple-600">
+                                <a href="{{ route('main') }}"><i class=" fa fa-circle-arrow-left"></i>
+                                    {{ __('Back') }}</a>
+                            </div>
                             {{-- <a href="{{ route('main') }}"><button class="btn btn-warning float-end"><i
                                         class="fa fa-circle-arrow-left"></i> {{ __('Back') }}</button></a> --}}
                 </form>
