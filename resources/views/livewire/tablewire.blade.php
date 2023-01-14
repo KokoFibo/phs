@@ -46,7 +46,7 @@
                     {{-- isi dari dropdown --}}
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
-                        class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-[#ffffff/.62] rounded shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
+                        class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-[#ffffff/.62]  shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
                         {{-- class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 glass "> --}}
 
 
