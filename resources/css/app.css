@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .button {
+        @apply px-3 py-2 text-sm font-medium text-white rounded-md shadow;
+    }
+    .button-indigo {
+        @apply bg-indigo-500;
+    }
+    .button-indigo:hover {
+        @apply bg-indigo-700;
+    }
+
+    .button-teal {
+        @apply bg-teal-500;
+    }
+    .button-teal:hover {
+        @apply bg-teal-700;
+    }
+    .button-pink {
+        @apply bg-pink-500;
+    }
+    .button-pink:hover {
+        @apply bg-pink-700;
+    }
+    .button-red {
+        @apply bg-red-500;
+    }
+    .button-red:hover {
+        @apply bg-red-700;
+    }
+    .button-blue {
+        @apply bg-blue-500;
+    }
+    .button-blue:hover {
+        @apply bg-blue-700;
+    }
+    .button-purple {
+        @apply text-white bg-purple-500;
+    }
+    .button-purple:hover {
+        @apply text-white bg-purple-700;
+    }
+    .button-yellow {
+        @apply text-black bg-yellow-400;
+    }
+    .button-yellow:hover {
+        @apply text-black bg-yellow-600;
+    }
+    .button-orange {
+        @apply text-black bg-orange-400;
+    }
+    .button-orange:hover {
+        @apply text-black bg-orange-600;
+    }
+}

@@ -1,9 +1,8 @@
 <div>
     @section('title', 'Add Data')
-    <div class="col-8 mt-3 mx-auto">
-        <div class="card mb-3">
-            <div class="card-header d-flex justify-content-between
-            ">
+    <div class="mx-auto mt-3 col-8">
+        <div class="mb-3 card">
+            <div class="card-header d-flex justify-content-between ">
                 <div>
                     <h3>{{ __('Add Data') }}
                         <livewire:getbranchname :kode=$kode_branch>
@@ -33,7 +32,7 @@
                                     @foreach ($branch as $b)
                                         <option value={{ $b->id }}>{{ $b->kode_branch }}</option>
                                     @endforeach
-                                </select> 
+                                </select>
                                 @error('branch_id')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror --}}
@@ -139,7 +138,7 @@
                                 <label for="jenis_kelamin">{{ __('Gender') }}</label>
                                 <div class="form-check d-flex">
 
-                                    <div class="col-md-3 mb-3">
+                                    <div class="mb-3 col-md-3">
                                         <input class="form-check-input" type="radio" wire:model="gender"
                                             value="1" checked id="laki">
                                         <label class="form-check-label" for="laki">
@@ -230,7 +229,7 @@
 
                     {{-- button submit --}}
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+                        <button class="button button--action" type="submit">{{ __('Save') }}</button>
 
 
                         <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>

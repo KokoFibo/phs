@@ -9,6 +9,7 @@ use App\Http\Livewire\Kota;
 use App\Http\Livewire\Tablewire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Adddataumatiwire;
 use App\Http\Livewire\Datapelita\Adddata;
 use App\Http\Livewire\Datapelita\Editdata;
 use App\Http\Controllers\menuAddDataController;
@@ -74,6 +75,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/main1', Data::class)->name('main');
     Route::get('/main', Tablewire::class)->name('main');
+    Route::get('/adddata1', Adddataumatiwire::class)->name('adddata1');
 
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
 

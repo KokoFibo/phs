@@ -18,8 +18,8 @@ class DataPelitaFactory extends Factory
     {
         return [
             'nama_umat' => fake()->name,
-            'mandarin' => fake('zh_TW')->name, 
-            'gender' => fake()->numberBetween(1,2), 
+            'mandarin' => fake('zh_TW')->name,
+            'gender' => fake()->numberBetween(1,2),
             'umur' => fake()->numberBetween(1,99),
             'umur_sekarang' => fake()->numberBetween(1,99),
             'alamat' => fake()->address,
@@ -28,8 +28,8 @@ class DataPelitaFactory extends Factory
             'hp' => fake()->e164PhoneNumber(),
             'email' => fake()->email,
             'tgl_mohonTao' => fake()->dateTimeThisDecade(),
-            'pengajak' => fake()->name,
-            'penjamin' => fake()->name,
+            'pengajak_id' => fake()->numberBetween(1,500),
+            'penjamin_id' => fake()->numberBetween(1,500),
             'pandita_id' => fake()->numberBetween(1,3),
             'status' => 'Active',
             'branch_id' => fake()->numberBetween(1,3),

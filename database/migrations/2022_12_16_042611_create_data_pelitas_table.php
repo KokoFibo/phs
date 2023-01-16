@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('telp')->nullable();
             $table->string('hp')->nullable();
             $table->string('email')->nullable();
-            $table->string('pengajak');
-            $table->string('penjamin');
+            $table->integer('pengajak_id');
+            $table->integer('penjamin_id');
             $table->foreignId('pandita_id');
 
             $table->date('tgl_mohonTao')->default(now());

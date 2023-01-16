@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\Branch;
+use App\Models\DataPelita;
 
 
 if(!function_exists('tgl')) {
@@ -13,7 +14,7 @@ if(!function_exists('tgl')) {
 
 if(!function_exists('check_JK')) {
 
-      
+
       function check_JK($jk, $umur) {
             if ($jk == 1 && $umur <= 16) return "童";
             else if ($jk == 1 && $umur > 16) return "乾";
@@ -28,7 +29,7 @@ if(!function_exists('check_JK')) {
 
 if(!function_exists('getYear')) {
 
-      
+
       function getYear() {
 
             $now = Carbon::now();
@@ -44,9 +45,14 @@ if(!function_exists('getYear')) {
       //       // return $branch->nama_branch;
       // }
       function getNamaBranch() {
-            
+
             return 'hello';
             // return $branch->nama_branch;
+      }
+
+      function getName($id) {
+        $data = DataPelita::find($id);
+        return $data->nama_umat;
       }
 // }
 
