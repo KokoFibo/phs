@@ -26,7 +26,7 @@ class Adddata extends Component
     public $current_id, $delete_id;
     public $namaPandita, $namaKota;
     public $kode_branch;
-    
+
 
     public function mount ($kode_branch) {
         $this->kode_branch = $kode_branch;
@@ -44,8 +44,8 @@ class Adddata extends Component
             'telp' => ['nullable', 'numeric', 'min_digits:9', 'max_digits:13'],
             'hp' => ['nullable', 'numeric'],
             'email' => ['nullable', 'email'],
-            'pengajak' => ['required'],
-            'penjamin' => ['required'],
+            'pengajak_id' => ['required'],
+            'penjamin_id' => ['required'],
             'pandita_id' => ['required'],
             'tgl_mohonTao' => ['required','date','before:tomorrow'],
             'status' => ['nullable'],
@@ -68,7 +68,7 @@ class Adddata extends Component
     public function store () {
         $validatedData = $this->validate();
         session()->flash('message', '');
-       
+
         $data_umat = new DataPelita();
         $this->branch_id = Auth::user()->branch_id;
         $data_umat->branch_id = $this->kode_branch;
@@ -92,8 +92,8 @@ class Adddata extends Component
         $data_kota = Kota::find($this->kota_id);
         $data_kota->kota_is_used = true;
         $data_kota->save();
-        
-        
+
+
         // update data Pandita_is_Used
         $data_pandita = Pandita::find($this->pandita_id);
         $data_pandita->pandita_is_used = true;
@@ -112,11 +112,11 @@ class Adddata extends Component
             'title' => 'Data Added'
         ]);
 
-        $this->clear_fields();    
-        
+        $this->clear_fields();
+
     }
     public function  clear_fields() {
-    
+
         $this->branch_id= '';
         $this->nama_umat='';
         $this->mandarin='';
@@ -124,7 +124,7 @@ class Adddata extends Component
         $this->umur='';
         $this->umur_sekarang='';
         $this->alamat='';
-        $this->kota_id=''; 
+        $this->kota_id='';
         $this->telp='';
         $this->hp='';
         $this->email='';
@@ -135,16 +135,15 @@ class Adddata extends Component
     }
     public function render()
     {
-        
+
         $allKota = Kota::orderBy('nama_kota', 'asc')->get();
         $dataPandita = Pandita::all();
         $branch = Branch::all();
-       
+
         $datapelita = DataPelita::orderBy('nama_umat', 'asc')
         ->where('branch_id', $this->kode_branch)->get();
         return view('livewire.datapelita.adddata', compact(['datapelita', 'branch', 'dataPandita', 'allKota']))
         ->extends('layouts.app')
         ->section('content');
     }
-} 
- 
+}

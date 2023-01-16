@@ -15,7 +15,7 @@ use Auth;
 
 class Tablewire extends Component
 {
-    public $perpage = 5;
+    public $perpage = 25;
     public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;
@@ -29,7 +29,7 @@ class Tablewire extends Component
     public $active="";
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
     protected $listeners = ['delete'];
-    public $nama_cetya, $nama_cetya_view;
+    public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
 
 
     public function updatingSearch () {
@@ -109,7 +109,9 @@ class Tablewire extends Component
             $this->hp = $data->hp;
             $this->email = $data->email;
             $this->pengajak = $data->pengajak;
+            $this->pengajak_id = $data->pengajak_id;
             $this->penjamin = $data->penjamin;
+            $this->penjamin_id = $data->penjamin_id;
             $this->pandita_id = $data->pandita_id;
             $np = Pandita::find($this->pandita_id);
             $this->namaPandita = $np->nama_pandita;

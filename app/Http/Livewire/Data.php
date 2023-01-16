@@ -14,7 +14,7 @@ use Auth;
 
 class Data extends Component
 {
-    public $perpage = 10;
+    public $perpage = 25;
     public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;
@@ -38,7 +38,7 @@ class Data extends Component
     }
 
     public function resetFilter () {
-        $this->perpage = 10;
+        $this->perpage = 25;
         $this->search = '';
         $this->columnName = 'data_pelitas.id';
         $this->direction = 'desc';

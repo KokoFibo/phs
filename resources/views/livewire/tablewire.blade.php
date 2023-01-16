@@ -1,5 +1,5 @@
 <div>
-    @include('datapelita.viewModal')
+    {{-- @include('datapelita.viewModal') --}}
 
     @section('title', 'Main')
 
@@ -209,12 +209,30 @@
                             <td class="p-3 text-sm text-gray-800 border rounded ">
 
                                 <div class="flex justify-center space-x-1">
+
+
+
                                     <div>
-                                        <button class="p-1 text-black bg-green-500 rounded" data-toggle="modal"
-                                            data-target="#ViewModal" wire:click="edit({{ $d->id }})">
-                                            <i class="fa fa-eye "></i>
-                                        </button>
+                                        <div x-data="{ modal: false }">
+                                            <button @click="modal=true" wire:click="edit({{ $d->id }})"
+                                                type="button" class="p-1 text-black bg-green-500 rounded">
+                                                <i class="fa fa-eye "></i>
+                                            </button>
+                                            <div x-show="modal" class="overflow-hidden">
+                                                <div
+                                                    class="fixed top-0 left-0 flex items-center justify-center w-full h-screen overflow-hidden bg-black/50 backdrop-blur-sm">
+                                                    @include('umatViewModal')
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
                                     </div>
+
+
+
                                     {{-- <div> --}}
                                     <div>
                                         <a href="/editdata/{{ $d->id }}"><button type="button"

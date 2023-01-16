@@ -7,6 +7,7 @@ use App\Models\DataPelita;
 use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use App\Http\Livewire\Tablewire;
+use App\Http\Livewire\Addumatwire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Adddataumatiwire;
@@ -69,15 +70,17 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-    Route::get('/adddata/{kode_branch}', Adddata::class)->name('adddata');
+    Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
 
     Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
 
     Route::get('/main1', Data::class)->name('main');
     Route::get('/main', Tablewire::class)->name('main');
-    Route::get('/adddata1', Adddataumatiwire::class)->name('adddata1');
+    Route::get('/adddata/{kode_branch}', Adddataumatiwire::class)->name('adddata');
 
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
+
+    Route::get('/umatview', )->name('umatview');
 
 
 

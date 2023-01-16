@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"> --}}
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
@@ -26,8 +26,8 @@
 <body>
     @include('layouts.navbarbaru')
     @yield('content')
-    <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script> --}}
+    {{-- <script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script> --}}
     @livewireScripts
     @stack('script')
 </body>
