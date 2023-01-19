@@ -76,7 +76,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/main1', Data::class)->name('main');
     Route::get('/main', Tablewire::class)->name('main');
-    Route::get('/adddata/{kode_branch}', Adddataumatiwire::class)->name('adddata');
+    Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
 
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
 

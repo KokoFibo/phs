@@ -10,7 +10,7 @@ use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
 
-class Adddataumatiwire extends Component
+class Addumatwire extends Component
 {
     public $nama, $query, $pengajak_id, $penjamin_id, $nama_pengajak, $nama_penjamin, $kode_branch;
     public $nama_umat, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
@@ -170,7 +170,7 @@ public function updated($fields) {
     {
         $datapandita = Pandita::orderBy('nama_pandita', 'asc')->get();
         $datakota = Kota::orderBy('nama_kota', 'asc')->get();
-        return view('livewire.adddataumatiwire', compact(['datapandita', 'datakota']))
+        return view('livewire.addumatwire', compact(['datapandita', 'datakota']))
         ->extends('layouts.secondMain')
         ->section('content');
     }

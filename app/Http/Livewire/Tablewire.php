@@ -15,7 +15,7 @@ use Auth;
 
 class Tablewire extends Component
 {
-    public $perpage = 25;
+    public $perpage = 5;
     public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;

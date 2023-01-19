@@ -24,7 +24,8 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center w-3/4 py-5 mx-auto my-2 mt-2 shadow-lg shadow-purple-900 bg-purple-50 rounded-xl">
+    <div
+        class="flex justify-center w-3/4 py-5 pb-3 mx-auto my-2 mt-2 mb-5 shadow shadow-purple-300 bg-purple-50 rounded-xl">
         <div class="w-2/5 px-5">
             <div class="mt-3">
                 <label class="px-2 text-sm" for="nama">{{ __('Nama') }}</label>
@@ -83,7 +84,7 @@
             <div class="mt-3">
                 <label class="px-2 text-sm" for="handphone">{{ __('Handphone') }}</label>
                 <input id="handphone" type="text" placeholder="0821 1234 5678" wire:model="hp"
-                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                    class="w-full mb-5 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('hp')
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
@@ -128,7 +129,8 @@
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="nama_pengajak">
                 <input type="hidden" wire:model="pengajak_id">
-                <div x-show="pengajak" class="absolute z-10 overflow-auto h-44">
+                <div x-show="pengajak" @click.away="pengajak = false" x-transition
+                    class="absolute z-10 overflow-auto h-44">
                     <input id="pengajak" type="text" placeholder="Cari Pengajak" wire:model="query"
                         class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     <ul class="bg-white ">
@@ -154,7 +156,8 @@
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="nama_penjamin">
                 <input type="hidden" wire:model="penjamin_id">
-                <div x-show="penjamin" class="absolute z-10 overflow-auto h-44">
+                <div x-show="penjamin" @click.away="penjamin = false" x-transition
+                    class="absolute z-10 overflow-auto h-44">
                     <input id="penjamin" type="text" placeholder="Cari penjamin" wire:model="query"
                         class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     <ul class="bg-white ">
