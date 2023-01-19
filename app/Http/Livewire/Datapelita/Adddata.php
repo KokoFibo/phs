@@ -13,7 +13,7 @@ use App\Models\DataPelita;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
-
+ 
 class Adddata extends Component
 {
 

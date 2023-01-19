@@ -8,6 +8,7 @@ use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use App\Http\Livewire\Tablewire;
 use App\Http\Livewire\Addumatwire;
+use App\Http\Livewire\Editumatwire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Adddataumatiwire;
@@ -72,11 +73,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
 
-    Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
+    // Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
 
     Route::get('/main1', Data::class)->name('main');
     Route::get('/main', Tablewire::class)->name('main');
     Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
+    Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
 
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
 

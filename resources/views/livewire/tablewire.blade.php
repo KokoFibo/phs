@@ -220,7 +220,7 @@
                                             </button>
                                             <div x-show="modal" class="overflow-hidden">
                                                 <div
-                                                    class="fixed top-0 left-0 flex items-center justify-center w-full h-screen overflow-hidden bg-black/50 backdrop-blur-sm">
+                                                    class="fixed top-0 left-0 z-10 flex items-center justify-center w-full h-screen overflow-hidden bg-black/50 backdrop-blur-sm">
                                                     @include('umatViewModal')
                                                 </div>
 
