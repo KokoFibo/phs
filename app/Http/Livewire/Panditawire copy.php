@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\Pandita;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\Redirect;
 
 class Panditawire extends Component
 {
@@ -15,14 +14,12 @@ class Panditawire extends Component
     // public $is_edit = 'false';
     public $is_add = 'true';
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     protected $listeners = ['delete'];
 
 
-
-    public function close () {
-        return redirect()->route('main');
-    }
-
+    
+ 
     public function store () {
         $this->validate([
             'nama_pandita' => 'required|unique:panditas',
@@ -47,7 +44,7 @@ class Panditawire extends Component
              'icon' => 'warning',
              'id' => $id,
         ]);
-    }
+    }  
 
     public function delete ($id) {
         $data = Pandita::find($id);
@@ -62,10 +59,10 @@ class Panditawire extends Component
 
     }
 
-
+    
 
     public function edit ($id) {
-
+        
 
         $this->id_pandita = $id;
         $nama = Pandita::find($id);
@@ -75,7 +72,7 @@ class Panditawire extends Component
     public function clear_fields() {
         $this->nama_pandita='';
     }
-
+    
     public function update() {
         $this->validate([
             'nama_pandita' => 'required|unique:panditas,nama_pandita,'.$this->id_pandita
@@ -85,15 +82,15 @@ class Panditawire extends Component
         $nama->save();
         // $this->is_edit=false;
         $this->clear_fields();
-        $this->is_add=true;
+        $this->is_add=true; 
         session()->flash('message', 'Data Pandita Sudah di Update');
 
     }
     public function render()
-    {
+    { 
         $pandita = Pandita::orderBy('nama_pandita', 'asc')->paginate(5);
         return view('livewire.panditawire', compact('pandita'))
-        ->extends('layouts.secondMain')
+        ->extends('layouts.app')
         ->section('content');
     }
 }

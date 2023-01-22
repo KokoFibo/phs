@@ -15,9 +15,10 @@ class Dashboardwire extends Component
     public function render()
     {
         $thisYear = getYear();
-        $totalUmat = DataPelita::all()->count();
-        $umatActive = DataPelita::where('status','Active')->count();
+        $totalUmat = DataPelita::count();
+        // $umatActive = DataPelita::where('status','Active')->count();
         $umatInactive = DataPelita::where('status','Inactive')->count();
+        $umatActive = $totalUmat -  $umatInactive;
         $umatYTD = DataPelita::where(DB::raw('YEAR(tgl_mohonTao)'), '=', $thisYear)->count();
         $totalPandita = Pandita::all()->count();
         $totalBranch = Branch::all()->count();
@@ -28,4 +29,3 @@ class Dashboardwire extends Component
         ->section('content');
     }
 }
- 

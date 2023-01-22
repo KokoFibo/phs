@@ -55,7 +55,7 @@ public function updated($fields) {
     }
 
     public function updatedQuery () {
-        $this->nama = DataPelita::where('nama_umat', 'like', '%' . $this->query . '%')
+        $this->nama = DataPelita::where('nama_umat', 'like', '%'. $this->query .'%')
         ->get()
         ->toArray();
     }
@@ -161,7 +161,7 @@ public function updated($fields) {
         $this->pengajak_id='';
         $this->penjamin_id='';
         $this->pandita_id='';
-        $this->tgl_mohonTao=NULL;
+        $this->tgl_mohonTao='';
     }
 
 
@@ -169,6 +169,7 @@ public function updated($fields) {
     {
         $datapandita = Pandita::orderBy('nama_pandita', 'asc')->get();
         $datakota = Kota::orderBy('nama_kota', 'asc')->get();
+
         return view('livewire.addumatwire', compact(['datapandita', 'datakota']))
         ->extends('layouts.secondMain')
         ->section('content');

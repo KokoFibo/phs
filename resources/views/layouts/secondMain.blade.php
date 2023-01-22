@@ -12,6 +12,9 @@
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>{{ config('app.name') }} |
+        @yield('title')
+    </title>
     <style>
         [x-cloak] {
             display: none;
@@ -25,7 +28,6 @@
 <body>
     @include('layouts.navbarbaru')
     @yield('content')
-    {{-- <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script> --}}
     @livewireScripts
     @stack('script')
 </body>

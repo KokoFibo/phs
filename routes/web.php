@@ -8,6 +8,8 @@ use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use App\Http\Livewire\Tablewire;
 use App\Http\Livewire\Addumatwire;
+use App\Http\Livewire\Panditawire;
+use App\Http\Livewire\DataKotaWire;
 use App\Http\Livewire\Editumatwire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
@@ -83,6 +85,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
 
     Route::get('/umatview', )->name('umatview');
+    Route::get('/panditawire', Panditawire::class)->name('panditawire');
+    Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
 
 
 

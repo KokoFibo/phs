@@ -10,17 +10,20 @@
 
             <h3 class="text-2xl">
                 <livewire:getbranchname :kode=$kode_branch>
-
             </h3>
 
         </div>
         <div class="flex gap-1">
 
             <div>
-                <button class="button button-yellow">Add Data Pandita</button>
+                {{-- <button class="button button-yellow">Add Data Pandita</button> --}}
+                <a href="/panditawire"><button class="button button-yellow">Add Data Pandita</button>
+                </a>
             </div>
             <div>
-                <button class="button button-teal">Add Data Kota</button>
+                <a href="/datakotawire"><button class="button button-teal">Add Data Kota</button>
+                </a>
+
             </div>
         </div>
     </div>
@@ -116,7 +119,7 @@
                 @enderror
             </div>
             <div class="mt-7">
-                <label class="px-2 text-sm" for="tgl">{{ __('Tanggal Mohon Tao') }}</label>
+                <label class="px-2 text-sm" for="tgl">{{ __('Tanggal Mohon Tao') }} {{ $tgl_mohonTao }}</label>
                 <input id="tgl" type="date" wire:model="tgl_mohonTao"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('tgl_mohonTao')
