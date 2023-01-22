@@ -172,8 +172,10 @@ class Tablewire extends Component
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         // ->orderBy('data_pelitas.updated_at', 'desc')
-        // ->whereDate('data_pelitas.updated_at', '=', Carbon::today()->toDateString())
-        ->where('data_pelitas.updated_at', tgl())
+        ->whereDate('data_pelitas.updated_at', '=', Carbon::today()->toDateString())
+        ->when($this->branch_id, function($query){
+            $query->where('data_pelitas.branch_id', $this->branch_id );
+        })
         ->paginate($this->perpage);
     }
 
