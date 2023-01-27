@@ -37,8 +37,8 @@
                 </div>
                 <div x-data="{ open: false }" class="w-full my-2 mr-3 md:w-1/4">
 
-                    <button @click="open = !open" :class="open ? 'bg-purple-500 text-white' : ''"
-                        class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded "><i
+                    <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
+                        class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white"><i
                             class="fa fa-filter"></i>
                         {{ __('Filter Search') }}</button>
 
@@ -73,7 +73,7 @@
                         </div>
                         <div class="mt-3">
                             <label class="p-1 px-3 rounded bg-purple">{{ __('Status') }} </label>
-                            <select wire:model="active" class="w-full px-2 py-1 border border-gray-400 rounded">
+                            <select wire:model="status" class="w-full px-2 py-1 border border-gray-400 rounded">
                                 <option value="">{{ __('All') }}</option>
                                 <option value="Active">{{ __('Active Only') }}</option>
                                 <option value="Inactive">{{ __('Inactive Only') }}</option>

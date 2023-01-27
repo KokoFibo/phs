@@ -26,10 +26,10 @@ class Tablewire extends Component
     public $current_id, $delete_id;
     public $namaPandita, $namaKota;
     public $category="data_pelitas.nama_umat";
-    public $active="";
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
     protected $listeners = ['delete'];
     public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
+    public $default;
 
 
     public function updatingSearch () {
@@ -47,10 +47,11 @@ class Tablewire extends Component
         $this->endDate = NULL;
         $this->jen_kel = NULL;
         $this->category="data_pelitas.nama_umat";
-        $this->active="";
+        $this->status="";
         $this->kode_branch="";
         $this->branch_id="";
         $this->resetPage();
+        $this->default = true;
     }
     public function hitungUmurSekarang($tgl, $umur) {
         $now = Carbon::now();
@@ -122,6 +123,74 @@ class Tablewire extends Component
 
         }
     }
+    public function mount () {
+        $this->default=true;
+    }
+    public function updatedJenKel () {
+        $this->default=false;
+    }
+
+    public function updatedStatus () {
+        $this->default=false;
+    }
+
+    public function updatedStartUmur () {
+        if($this->startUmur != '')
+        {
+
+            $this->default=false;
+        }
+        else {
+            $this->default=true;
+
+        }
+    }
+    public function updatedEndUmur () {
+        if($this->endUmur != '')
+        {
+
+            $this->default=false;
+        }
+        else {
+            $this->default=true;
+
+        }
+    }
+    public function updatedStartDate () {
+        if($this->startDate != '')
+        {
+
+            $this->default=false;
+        }
+        else {
+            $this->default=true;
+
+        }
+    }
+    public function updatedEndDate () {
+        if($this->endDate != '')
+        {
+
+            $this->default=false;
+        }
+        else {
+            $this->default=true;
+
+        }
+    }
+    public function updatedKodeBranch () {
+        if($this->kode_branch != '')
+        {
+
+            $this->default=false;
+        }
+        else {
+            $this->default=true;
+
+        }
+    }
+
+
 
 
     public function render()
@@ -133,11 +202,13 @@ class Tablewire extends Component
     else {
         $this->branch_id = Auth::user()->branch_id;
         $this->kode_branch = $this->branch_id ;
+        $this->kode_branch = Auth::user()->branch_id;
+
         $this->kode_branch_khusus = $this->kode_branch;
     }
 
 
-    if($this->search != '') {
+    if($this->default == false || $this->search != '') {
         $datapelita = DB::table('data_pelitas')
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
@@ -162,11 +233,43 @@ class Tablewire extends Component
         ->when($this->jen_kel, function($query){
             $query->where('data_pelitas.gender',  $this->jen_kel );
         })
-        ->when($this->active, function($query){
-            $query->where('data_pelitas.status',  $this->active );
+        ->when($this->status, function($query){
+            $query->where('data_pelitas.status',  $this->status );
         })
         ->paginate($this->perpage);
-    } else {
+    } elseif ($this->default == false && $this->search == ''){
+        $datapelita = DB::table('data_pelitas')
+        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+        ->orderBy($this->columnName, $this->direction)
+        ->where($this->category,'like','%'.$this->search.'%')
+        ->when($this->branch_id, function($query){
+            $query->where('data_pelitas.branch_id', $this->branch_id );
+        })
+        ->when($this->startUmur, function($query){
+            $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
+        })
+        ->when($this->endUmur, function($query){
+            $query->where('data_pelitas.umur_sekarang', '<=', $this->endUmur );
+        })
+        ->when($this->startDate, function($query){
+            $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate );
+        })
+        ->when($this->endDate, function($query){
+            $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate );
+        })
+        ->when($this->jen_kel, function($query){
+            $query->where('data_pelitas.gender',  $this->jen_kel );
+        })
+        ->when($this->status, function($query){
+            $query->where('data_pelitas.status',  $this->status );
+        })
+        ->paginate($this->perpage);
+
+
+    }
+    else {
         $datapelita = DB::table('data_pelitas')
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )

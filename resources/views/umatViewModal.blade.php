@@ -2,6 +2,11 @@
     <div>
         <div class="p-5">
             <div class="flex w-full mt-2 ">
+                <div class="w-1/4 text-lg">Vihara</div>
+                <div class="text-lg">:</div>
+                <div class="w-3/4 ml-2 text-lg">{{ $branch_id }}</div>
+            </div>
+            <div class="flex w-full mt-2 ">
                 <div class="w-1/4 text-lg">Nama</div>
                 <div class="text-lg">:</div>
                 <div class="w-3/4 ml-2 text-lg">{{ $nama_umat }}</div>
