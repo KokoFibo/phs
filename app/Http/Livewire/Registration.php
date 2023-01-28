@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Branch;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class Registration extends Component
@@ -20,12 +20,12 @@ class Registration extends Component
     public $is_reset = false;
 
     public function  clear_fields() {
-    
+
         $this->name='';
         $this->email='';
         $this->password='';
         $this->password_confirmation='';
-        $this->role=''; 
+        $this->role='';
         $this->kota_id='';
         $this->branch_id='';
         $this->resetPage();
@@ -36,7 +36,7 @@ class Registration extends Component
     //     return [
     //         'name' => ['required'],
     //          'email' => ['required', 'unique:users,email'],
-    //          //Rule::unique('users')->ignore($this->user), 
+    //          //Rule::unique('users')->ignore($this->user),
     //         //  this->user  adalah model, iluminate/validation/ruleu
     //         'password' => ['required','string', 'min:8', 'confirmed'],
     //      'password_confirmation'=> ['required'],
@@ -49,14 +49,14 @@ class Registration extends Component
     // public function updated($fields) {
     //     $this->validateOnly($fields);
     // }
-    
+
     public function store () {
         // $validatedData = $this->validate();
 
         $this->validate([
             'name' => ['required'],
              'email' => ['required', 'unique:users,email'],
-             //Rule::unique('users')->ignore($this->user), 
+             //Rule::unique('users')->ignore($this->user),
             //  this->user  adalah model, iluminate/validation/ruleu
             'password' => ['required','string', 'min:8', 'confirmed'],
          'password_confirmation'=> ['required'],
@@ -80,7 +80,7 @@ class Registration extends Component
         $branch->branch_is_used = '1';
         $branch->save();
         session()->flash('message', 'Data Registered Successfully');
-        $this->clear_fields();    
+        $this->clear_fields();
     }
 
     public function edit ($id) {
@@ -107,10 +107,10 @@ class Registration extends Component
 
     public function storepassword () {
         $this->validate([
-           
+
             'password' => ['required','string', 'min:8', 'confirmed'],
         //  'password_confirmation'=> ['required'],
-           
+
         ]);
         session()->flash('message', '');
         $data = User::find($this->currentId);
@@ -118,7 +118,7 @@ class Registration extends Component
 
         $data->save();
         session()->flash('message', 'Password Reset Done');
-        $this->clear_fields();    
+        $this->clear_fields();
         $this->is_reset=false;
 
     }
@@ -130,9 +130,9 @@ class Registration extends Component
             //   'email' => ['required', 'email', Rule::unique('users')->ignore($this->user) ],
             //   'email' => 'unique:users,email_address,'.$user->id
               'email' => 'unique:users,email,'.$this->currentId,
-            
+
             //  this->user  adalah model, iluminate/validation/ruleu
-       
+
             'role' => ['required'],
             'kota_id' => ['required'],
             'branch_id' => ['required']
@@ -152,7 +152,7 @@ class Registration extends Component
         $branch->save();
 
         session()->flash('message', 'Data Updated Done');
-        $this->clear_fields();    
+        $this->clear_fields();
         $this->is_edit=false;
 
     }
@@ -175,14 +175,14 @@ class Registration extends Component
         $kota = Kota::orderBy('nama_kota', 'asc')->get();
         $branch = Branch::orderBy('nama_branch', 'asc')->get();
 
-       
 
-        $data = DB::table('users') 
+
+        $data = DB::table('users')
         ->join('kotas', 'users.kota_id', '=', 'kotas.id')
          ->join('branches', 'users.branch_id' , '=','branches.id' )
          ->select('users.*', 'branches.nama_branch', 'kotas.nama_kota')
          ->orderBy('users.id', 'desc')->paginate(5);
-      
+
         return view('livewire.registration', compact(['data', 'kota', 'branch']));
     }
 }

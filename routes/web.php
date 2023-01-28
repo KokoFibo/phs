@@ -7,6 +7,7 @@ use App\Models\DataPelita;
 use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use App\Http\Livewire\Tablewire;
+use App\Http\Livewire\Branchwire;
 use App\Http\Livewire\Addumatwire;
 use App\Http\Livewire\Panditawire;
 use App\Http\Livewire\DataKotaWire;
@@ -61,9 +62,9 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-    Route::get('/branch', function() {
-        return view('menuBranch');
-    })->name('branch');
+    // Route::get('/branch', function() {
+    //     return view('menuBranch');
+    // })->name('branch');
 
 
     Route::get('locale/{locale}', function($locale){
@@ -87,6 +88,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/umatview', )->name('umatview');
     Route::get('/panditawire', Panditawire::class)->name('panditawire');
     Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
+    Route::get('/branch', Branchwire::class)->name('branchwire');
 
 
 

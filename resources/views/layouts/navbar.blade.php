@@ -22,7 +22,7 @@
                     {{ __('Utilities') }}
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('branch') }}">{{ __('Branch') }}</a>
+                    <a class="dropdown-item" href="{{ route('branchwire') }}">{{ __('Branch') }}</a>
                     <a class="dropdown-item" href="{{ route('resetumur') }}">{{ __('Reset Umur') }}</a>
                 </div>
             </li>

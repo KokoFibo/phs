@@ -19,8 +19,24 @@
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
                         class=" mx-auto absolute z-10 px-3 pb-3 border rounded  text-purple-700 bg-white ">
                         <ul class="w-40 mx-5 divide-y">
+                            {{-- language --}}
                             <li class="hover:bg-gray-200 py-2 my-2">
-                                <a class="" href="{{ route('branch') }}">{{ __('Branch') }}</a>
+
+
+                                @if (app()->getLocale() == 'id')
+                                    {{-- <a class="dropdown-item" href="{{ url('locale/en') }}">{{ __('english') }}</a> --}}
+                                    <a class="dropdown-item" href="{{ url('locale/cn') }}">{{ __('中文') }}</a>
+                                @endif
+
+                                @if (app()->getLocale() == 'cn')
+                                    <a class="dropdown-item" href="{{ url('locale/id') }}">{{ __('Indonesia') }}</a>
+                                @endif
+
+
+                            </li>
+                            {{-- language-end --}}
+                            <li class="hover:bg-gray-200 py-2 my-2">
+                                <a class="" href="{{ route('branchwire') }}">{{ __('Branch') }}</a>
                             </li>
 
                             <li class="hover:bg-gray-200 py-2 my-2">

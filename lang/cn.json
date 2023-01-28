@@ -42,6 +42,7 @@
     "Add Data": "添加數據",
     "Nama Lengkap": "姓名",
     "Add Data Pandita": "添加點傳師數據",
+    "Nama Pandita": "點傳師姓名",
     "Add Data Kota": "添加城市數據",
     "Umur antara 1 - 150": "年齡在 1 - 150 歲之間",
     "Alamat Rumah": "家庭地址",
@@ -73,8 +74,9 @@
     "Inactive Only": "Inactive Only",
     "Tambah Kota": "添加城市",
     "Silakan Pilih Kota": "請選擇城市",
-    "Nama Cetya": "佛堂",
-    "Kode Cetya": "佛堂代碼",
+    "Nama Vihara": "佛堂",
+    "Vihara": "佛堂",
+    "Kode Vihara": "佛堂代碼",
     "Action": "行動",
     "Edit": "更新",
     "Register New Administrator": "註冊新管理員",
@@ -87,5 +89,7 @@
     "Silakan Pilih Role": "請選擇角色",
     "Silakan Pilih Branch": "請選擇分支機構",
     "Full Name": "全名",
-    "Filter Search": "篩選搜索"
+    "Filter Search": "篩選搜索",
+    "Close": "關閉",
+    "Register New Admin": "註冊新管理員"
 }

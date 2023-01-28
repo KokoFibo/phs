@@ -17,10 +17,12 @@
         <div class="flex gap-1">
 
             <div>
-                <button class="button button-yellow">Add Data Pandita</button>
+                <a href="/panditawire"><button class="button button-yellow">{{ __('Add Data Pandita') }}</button>
+                </a>
             </div>
             <div>
-                <button class="button button-teal">Add Data Kota</button>
+                <a href="/datakotawire"><button class="button button-teal">{{ __('Add Data Kota') }}</button>
+                </a>
             </div>
         </div>
     </div>
