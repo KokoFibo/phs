@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 class Registration extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+    // protected $paginationTheme = 'bootstrap';
 
     public $name, $email, $password, $role, $branch_id, $kota_id, $password_confirmation , $currentId;
     public $is_edit = false;
@@ -181,8 +181,10 @@ class Registration extends Component
         ->join('kotas', 'users.kota_id', '=', 'kotas.id')
          ->join('branches', 'users.branch_id' , '=','branches.id' )
          ->select('users.*', 'branches.nama_branch', 'kotas.nama_kota')
-         ->orderBy('users.id', 'desc')->paginate(5);
+         ->orderBy('users.id', 'desc')->paginate(10);
 
-        return view('livewire.registration', compact(['data', 'kota', 'branch']));
+        return view('livewire.registration', compact(['data', 'kota', 'branch']))
+        ->extends('layouts.main')
+        ->section('content');
     }
 }

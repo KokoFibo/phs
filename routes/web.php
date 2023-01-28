@@ -12,6 +12,7 @@ use App\Http\Livewire\Addumatwire;
 use App\Http\Livewire\Panditawire;
 use App\Http\Livewire\DataKotaWire;
 use App\Http\Livewire\Editumatwire;
+use App\Http\Livewire\Registration;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Adddataumatiwire;
@@ -50,9 +51,14 @@ Route::get('/navbar', function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/registration', function() {
-        return view('menuRegistration');
-    })->middleware(['supervisor'])->name('registration');
+
+
+    Route::get('/registration', Registration::class)->middleware(['supervisor'])->name('registration');
+
+
+    // Route::get('/registration', function() {
+    //     return view('menuRegistration');
+    // })->middleware(['supervisor'])->name('registration');
 
     Route::get('/', function () {
         return view('auth.login');

@@ -28,11 +28,11 @@
 
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="perpage">
-                        <option value="5">5 {{ __('Rows Per Page') }}</option>
-                        <option value="10">10 {{ __('Rows Per Page') }}</option>
-                        <option value="15">15 {{ __('Rows Per Page') }}</option>
-                        <option value="20">20 {{ __('Rows Per Page') }}</option>
-                        <option value="25">25 {{ __('Rows Per Page') }}</option>
+                        <option value="5">{{ __('5 Rows Per Page') }}</option>
+                        <option value="10">{{ __('10 Rows Per Page') }}</option>
+                        <option value="15">{{ __('15 Rows Per Page') }}</option>
+                        <option value="20">{{ __('20 Rows Per Page') }}</option>
+                        <option value="25">{{ __('25 Rows Per Page') }}</option>
                     </select>
                 </div>
                 <div x-data="{ open: false }" class="w-full my-2 mr-3 md:w-1/4">

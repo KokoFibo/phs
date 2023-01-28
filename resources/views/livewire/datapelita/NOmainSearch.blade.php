@@ -32,11 +32,11 @@
             <div class="form-group col-md-2 mt-3">
                 {{-- <label>{{ __('Page') }}: </label> --}}
                 <select wire:model="perpage" class="form-control">
-                    <option value="5">5 Rows Per Page</option>
-                    <option value="10">10 Rows Per Page</option>
-                    <option value="15">15 Rows Per Page</option>
-                    <option value="20">20 Rows Per Page</option>
-                    <option value="25">25 Rows Per Page</option>
+                    <option value="5">{{ __('5 Rows Per Page') }}</option>
+                    <option value="10">{{ __('10 Rows Per Page') }}</option>
+                    <option value="15">{{ __('15 Rows Per Page') }}</option>
+                    <option value="20">{{ __('20 Rows Per Page') }}</option>
+                    <option value="25">{{ __('225 Rows Per Page') }}</option>
                 </select>
             </div>
 

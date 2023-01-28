@@ -91,5 +91,14 @@
     "Full Name": "全名",
     "Filter Search": "篩選搜索",
     "Close": "關閉",
-    "Register New Admin": "註冊新管理員"
+    "Register New Admin": "註冊新管理員",
+    "Registration": "註冊新管理員",
+    "Reset": "重設密碼",
+    "Data User": "用戶數據",
+    "Main": "主選單",
+    "5 Rows Per Page": "每頁五列",
+    "10 Rows Per Page": "每頁十列",
+    "15 Rows Per Page": "每頁十五列",
+    "20 Rows Per Page": "每頁二十列",
+    "25 Rows Per Page": "每頁二十五列"
 }

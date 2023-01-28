@@ -14129,3 +14129,375 @@
 [stacktrace]
 #0 {main}
 "} 
+[2023-01-28 10:35:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:36:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:37:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:38:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:39:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:40:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:41:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:42:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:43:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:44:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:45:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:46:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:47:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:48:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:49:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:50:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:51:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:52:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:53:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:54:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:55:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:56:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:57:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:58:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 10:59:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:00:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:01:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:02:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:03:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:04:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:05:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:06:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:07:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:08:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:09:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:10:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:11:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:12:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:13:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:14:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:15:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:16:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:17:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:18:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:19:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:20:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:21:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:22:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:23:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:24:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:25:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:26:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:27:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:28:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:29:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:30:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:31:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:32:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:33:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:34:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:35:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:36:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:37:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:38:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:39:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:40:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:41:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:42:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:43:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:44:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:45:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:46:17] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:47:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:48:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:49:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:50:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:51:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:52:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:53:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:54:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:55:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:56:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:57:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:58:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 11:59:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 12:00:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 12:01:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 12:02:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 12:03:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 12:04:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 12:05:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 12:06:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
+[2023-01-28 12:07:18] local.ERROR: Cannot redeclare getNamaBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:49) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getNamaBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:49) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:47)
+[stacktrace]
+#0 {main}
+"} 
