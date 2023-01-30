@@ -34,8 +34,9 @@ return new class extends Migration
             $table->integer('penjamin_id');
             $table->string('penjamin');
             $table->foreignId('pandita_id');
-
-            $table->date('tgl_mohonTao')->default(now());
+            $table->date('tgl_mohonTao')->nullable();
+            $table->date('tgl_sd3h')->nullable();
+            $table->date('tgl_vtotal')->nullable();
             $table->string('status');
             $table->timestamps();
         });

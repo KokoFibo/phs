@@ -22,7 +22,7 @@ class Tablewire extends Component
     public $branch_id;
     public $nama_umat, $mandarin, $gender, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
-    public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $status;
+    public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $status;
     public $current_id, $delete_id;
     public $namaPandita, $namaKota;
     public $category="data_pelitas.nama_umat";
@@ -89,7 +89,7 @@ class Tablewire extends Component
         return $this->direction === 'asc' ? 'desc' : 'asc';
     }
 
-    public function edit ($id) {
+    public function view ($id) {
 
         $this->current_id = $id;
         $data = DataPelita::find($id);
@@ -119,7 +119,8 @@ class Tablewire extends Component
 
             $this->tgl_mohonTao = $data->tgl_mohonTao;
             $this->status = $data->status;
-
+            $this->tgl_sd3h = empty($data->tgl_sd3h) ? '-' : $data->tgl_sd3h;
+            $this->tgl_vtotal = empty($data->tgl_vtotal) ? '-' : $data->tgl_vtotal;
 
         }
     }

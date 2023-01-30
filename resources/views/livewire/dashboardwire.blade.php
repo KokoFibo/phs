@@ -1,7 +1,7 @@
 <div class="bg-slate-100 ">
     @section('title', 'Dashboard')
     {{-- first row --}}
-    <div class="flex flex-col items-center mb-2 pt-5 gap-2 md:flex md:flex-row md:justify-evenly  md:pt-10 ">
+    <div class="flex flex-col items-center gap-2 pt-5 mb-2 md:flex md:flex-row md:justify-evenly md:pt-10 ">
 
         <div>
             <x-card smalltext="Umat" bigtext="{{ $totalUmat }}" textcolor="text-purple-500"
@@ -28,14 +28,14 @@
 
     </div>
     {{-- second row --}}
-    <div class="flex flex-col items-center mb-2 gap-2 md:flex md:flex-row md:justify-evenly  md:pt-10 ">
+    <div class="flex flex-col items-center gap-2 mb-2 md:flex md:flex-row md:justify-evenly md:pt-10 ">
         <div>
             <x-card smalltext="Pandita" bigtext="{{ $totalPandita }}" textcolor="text-indigo-500"
                 bordercolor="border-indigo-500" />
         </div>
 
         <div>
-            <x-card smalltext="Future Reserved" bigtext="{{ $totalUmat }}" textcolor="text-orange-500"
+            <x-card smalltext="Users" bigtext="{{ $totalUsers }}" textcolor="text-orange-500"
                 bordercolor="border-orange-500" />
         </div>
         <div>
@@ -56,7 +56,7 @@
 
     </div>
     {{-- Third row --}}
-    <div class="flex flex-col items-center mb-2 gap-2 md:flex md:flex-row md:justify-evenly  md:pt-10 ">
+    <div class="flex flex-col items-center gap-2 mb-2 md:flex md:flex-row md:justify-evenly md:pt-10 ">
         <div>
             <x-card smalltext="Future Reserved" bigtext="{{ $totalBranch }}" textcolor="text-lime-500"
                 bordercolor="border-lime-500" />

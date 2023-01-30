@@ -76,6 +76,16 @@
                 <div class="text-lg">:</div>
                 <div class="w-3/4 ml-2 text-lg">{{ $status }}</div>
             </div>
+            <div class="flex w-full mt-2 ">
+                <div class="w-1/4 text-lg">{{ __('Sidang Dharma 3 Hari') }}</div>
+                <div class="text-lg">:</div>
+                <div class="w-3/4 ml-2 text-lg">{{ $tgl_sd3h }}</div>
+            </div>
+            <div class="flex w-full mt-2 ">
+                <div class="w-1/4 text-lg">{{ __('Vegetarian Total') }}</div>
+                <div class="text-lg">:</div>
+                <div class="w-3/4 ml-2 text-lg">{{ $tgl_vtotal }}</div>
+            </div>
             <button class="mt-5 button button-teal" @click="modal = false">{{ __('Close') }}</button>
         </div>
     </div>

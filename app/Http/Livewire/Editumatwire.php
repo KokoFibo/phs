@@ -14,7 +14,7 @@ class Editumatwire extends Component
 
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
     public $nama_umat, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
-    public $email, $gender, $tgl_mohonTao, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
+    public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
 
     protected $rules = [
         'nama_umat' => 'required',
@@ -33,7 +33,9 @@ class Editumatwire extends Component
         'penjamin_id' => 'required',
         'penjamin' => 'required',
         'pandita_id' => 'required',
-        'tgl_mohonTao' => 'required|date|before:tomorrow',
+        'tgl_mohonTao' => 'nullable|date|before:tomorrow',
+        'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao',
+        'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_mohonTao',
         'status' => 'nullable',
 ];
 
@@ -63,6 +65,8 @@ public function updated($fields) {
         //   $this->nama_penjamin = getName($data->penjamin_id);
           $this->pandita_id = $data->pandita_id;
           $this->tgl_mohonTao = $data->tgl_mohonTao;
+          $this->tgl_sd3h = $data->tgl_sd3h;
+          $this->tgl_vtotal = $data->tgl_vtotal;
         $this->status = $data->status;
 
         $query = "";
@@ -117,6 +121,13 @@ public function updated($fields) {
         $data_umat->penjamin = $this->penjamin;
         $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
+
+        $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
+        $data_umat->tgl_vtotal = empty($this->tgl_vtotal) ?  null : $this->tgl_vtotal;
+
+
+
+
         $data_umat->status = $this->status;
 
 
@@ -177,7 +188,9 @@ public function updated($fields) {
         $this->penjamin_id='';
         $this->penjamin='';
         $this->pandita_id='';
-        $this->tgl_mohonTao=NULL;
+        $this->tgl_mohonTao='';
+        $this->tgl_sd3h='';
+        $this->tgl_vtotal='';
     }
 
     public function render()

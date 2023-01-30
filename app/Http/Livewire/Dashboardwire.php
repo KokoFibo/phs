@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Branch;
 use App\Models\Pandita;
 use Livewire\Component;
@@ -22,9 +23,10 @@ class Dashboardwire extends Component
         $umatYTD = DataPelita::where(DB::raw('YEAR(tgl_mohonTao)'), '=', $thisYear)->count();
         $totalPandita = Pandita::all()->count();
         $totalBranch = Branch::all()->count();
+        $totalUsers = User::all()->count();
 
 
-        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD','totalPandita', 'totalBranch']))
+        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD','totalPandita', 'totalBranch', 'totalUsers']))
         ->extends('layouts.main')
         ->section('content');
     }

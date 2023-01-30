@@ -2,13 +2,13 @@
     <div class="alert alert-success">{{ session('message') }}</div>
 @endif
 {{-- <div class="container"> --}}
-<div class="mt-1    p-3 shadow-lg rounded-xl  text-gray-700">
+<div class="p-3 mt-1 text-gray-700 shadow-lg rounded-xl">
     {{-- <h5 class="mb-3">Registration : {{ $is_edit }}</h5>
     <hr> --}}
 
     <div class="w-full">
         <label for="name" class="block mb-2">{{ __('Nama') }}</label>
-        <input wire:model="name" {{ $is_reset == true ? 'disabled' : '' }} type="text" class="w-full rounded-lg mb-4"
+        <input wire:model="name" {{ $is_reset == true ? 'disabled' : '' }} type="text" class="w-full mb-4 rounded-lg"
             id="name" placeholder="{{ __('Full Name') }}" name="name" value="{{ old('name') }}">
         @error('name')
             <div class="invalid-feedback">
@@ -20,7 +20,7 @@
     <div class="mb-3">
         <label for="email" class="block mb-2">{{ __('Email') }}</label>
         <input wire:model="email" {{ $is_reset == true ? 'disabled' : '' }} type="text"
-            class="w-full rounded-lg mb-2" id="email" placeholder="user@gmail.com" name="email"
+            class="w-full mb-2 rounded-lg" id="email" placeholder="user@gmail.com" name="email"
             value="{{ old('email') }}">
         @error('email')
             <div class="invalid-feedback">
@@ -32,11 +32,13 @@
     {{-- Role --}}
     <div>
         <label for="email" class="block mb-2">{{ __('Role') }}</label>
-        <select class="w-full rounded-lg mb-4" wire:model="role" {{ $is_reset == true ? 'disabled' : '' }}>
+        <select class="w-full mb-4 rounded-lg" wire:model="role" {{ $is_reset == true ? 'disabled' : '' }}>
             <option value="">{{ __('Silakan Pilih Role') }}</option>
             <option value="1">{{ __('Admin') }}</option>
             <option value="2">{{ __('Supervisor') }}</option>
-            <option value="3">{{ __('Manager') }}</option>
+            @if (Auth::user()->role == '3')
+                <option value="3">{{ __('Manager') }}</option>
+            @endif
         </select>
 
         @error('role')
@@ -48,7 +50,7 @@
     {{-- Kota --}}
     <div class="mb-3">
         <label for="email" class="block mb-2">{{ __('Kota') }}</label>
-        <select class="w-full rounded-lg mb-2" wire:model="kota_id" {{ $is_reset == true ? 'disabled' : '' }}>
+        <select class="w-full mb-2 rounded-lg" wire:model="kota_id" {{ $is_reset == true ? 'disabled' : '' }}>
             <option value="" selected>{{ __('Silakan Pilih Kota') }}</option>
             @foreach ($kota as $k)
                 <option value="{{ $k->id }}">{{ $k->nama_kota }}</option>
@@ -64,7 +66,7 @@
     {{-- Branch --}}
     <div class="mb-3">
         <label for="email" class="block mb-2">{{ __('Branch') }}</label>
-        <select class="w-full rounded-lg mb-2" wire:model="branch_id" {{ $is_reset == true ? 'disabled' : '' }}>
+        <select class="w-full mb-2 rounded-lg" wire:model="branch_id" {{ $is_reset == true ? 'disabled' : '' }}>
             <option value="" selected>{{ __('Silakan Pilih Branch') }}</option>
 
             @foreach ($branch as $b)
@@ -83,7 +85,7 @@
     @if ($is_edit == false)
         <div class="mb-3">
             <label for="password" class="block mb-2">{{ __('Password') }}</label>
-            <input wire:model="password" type="text" class="w-full rounded-lg mb-2" id="password"
+            <input wire:model="password" type="password" class="w-full mb-2 rounded-lg" id="password"
                 placeholder="{{ __('Password') }}" name="password">
             @error('password')
                 <span class="text-danger">{{ $message }}</span>
@@ -92,7 +94,7 @@
 
         <div class="mb-3">
             <label class="block mb-2">{{ __('Confirm Password') }}</label>
-            <input wire:model="password_confirmation" type="text" class="w-full rounded-lg mb-4"
+            <input wire:model="password_confirmation" type="password" class="w-full mb-4 rounded-lg"
                 placeholder="{{ __('Confirm Password') }}">
             @error('password_confirmation')
                 <span class="text-danger">{{ $message }}</span>

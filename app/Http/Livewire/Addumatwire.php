@@ -14,7 +14,7 @@ class Addumatwire extends Component
 {
     public $nama, $query, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $kode_branch;
     public $nama_umat, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
-    public $email, $gender, $tgl_mohonTao, $pandita_id, $status="Active", $branch_id;
+    public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status="Active", $branch_id;
 
     protected $rules = [
         'nama_umat' => 'required',
@@ -32,7 +32,9 @@ class Addumatwire extends Component
         'pengajak' => 'required',
         'penjamin_id' => 'required',
         'pandita_id' => 'required',
-        'tgl_mohonTao' => 'required|date|before:tomorrow',
+        'tgl_mohonTao' => 'nullable|date|before:tomorrow',
+        'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao',
+        'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_mohonTao',
         'status' => 'nullable',
 ];
 
@@ -92,7 +94,12 @@ public function updated($fields) {
         $data_umat->penjamin_id = $this->penjamin_id;
         $data_umat->penjamin = $this->penjamin;
         $data_umat->pandita_id = $this->pandita_id;
-        $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
+        // $data_umat->tgl_mohonTao = $this->tgl_mohonTao ? $this->tgl_mohonTao : null;
+        $data_umat->tgl_mohonTao = empty($this->tgl_mohonTao) ?  Carbon::parse(Carbon::now()) : $this->tgl_mohonTao;
+        $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
+        $data_umat->tgl_vtotal = empty($this->tgl_vtotal) ?  null : $this->tgl_vtotal;
+
+
         $data_umat->status = 'Active';
 
         // update data kota_is_Used
@@ -142,6 +149,8 @@ public function updated($fields) {
         $this->pandita_id='';
         // $this->pandita='';
         $this->tgl_mohonTao='';
+        $this->tgl_sd3h='';
+        $this->tgl_vtotal='';
     }
 
 

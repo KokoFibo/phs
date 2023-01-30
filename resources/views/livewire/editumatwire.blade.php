@@ -86,21 +86,21 @@
             <div class="mt-3">
                 <label class="px-2 text-sm" for="handphone">{{ __('Handphone') }}</label>
                 <input id="handphone" type="text" wire:model="hp"
-                    class="w-full mb-5 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('hp')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="mt-3">
+                <label class="px-2 text-sm" for="email">{{ __('Email') }}</label>
+                <input id="email" type="text" wire:model="email"
+                    class="w-full mb-5 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                @error('email')
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
         </div>
         <div class="w-2/5 px-5">
-            <div class="mt-3">
-                <label class="px-2 text-sm" for="email">{{ __('Email') }}</label>
-                <input id="email" type="text" wire:model="email"
-                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                @error('email')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
             <div class="mt-3">
                 <div>
                     <label class="px-2 text-sm">{{ __('Gender') }}</label>
@@ -192,6 +192,24 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+
+            <div class="mt-3">
+                <label class="px-2 text-sm" for="tgl">{{ __('Tanggal Sidang Dharma 3 Hari') }}</label>
+                <input id="tgl" type="date" wire:model="tgl_sd3h"
+                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                @error('tgl_sd3h')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="mt-3">
+                <label class="px-2 text-sm" for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
+                <input id="tgl" type="date" wire:model="tgl_vtotal"
+                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                @error('tgl_vtotal')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
+            </div>
             <div class="mt-3">
                 <label class="px-2 text-sm" for="nama">{{ __('Status') }}</label>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
@@ -207,7 +225,7 @@
 
             <div class="flex items-center justify-between w-full mt-9">
                 <div>
-                    <button class="button button-purple" wire:click="update">{{ __('Update') }}</button>
+                    <button class="mb-5 button button-purple" wire:click="update">{{ __('Update') }}</button>
                 </div>
                 <div>
                     <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>

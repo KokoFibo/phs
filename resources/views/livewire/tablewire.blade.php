@@ -152,6 +152,8 @@
                         <th class="p-3 text-sm font-semibold text-left">{{ __('PANDITA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('KOTA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('Updated_at') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('SD3H') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('V Total') }}</th>
                         <th class="p-3 text-sm font-semibold ">
                             <div class="flex justify-center space-x-1">
 
@@ -183,10 +185,39 @@
                             <td class="p-3 text-sm text-gray-800 border rounded">
                                 {{ $datapelita->firstItem() + $index }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->nama_umat }}
-                            </td>
-                            <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->mandarin }}
-                            </td>
+                            @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
+                                <td class="p-3 text-sm font-semibold text-purple-500 border rounded">
+                                    {{ $d->nama_umat }}
+                                </td>
+                            @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
+                                <td class="p-3 text-sm font-semibold text-teal-500 border rounded">
+                                    {{ $d->nama_umat }}
+                                </td>
+                            @else
+                                <td class="p-3 text-sm text-gray-800 border rounded">
+                                    {{ $d->nama_umat }}
+                                </td>
+                            @endif
+
+                            {{-- Mandarin --}}
+
+                            @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
+                                <td class="p-3 text-sm font-semibold text-purple-500 border rounded">
+                                    {{ $d->mandarin }}
+                                </td>
+                            @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
+                                <td class="p-3 text-sm font-semibold text-teal-500 border rounded">
+                                    {{ $d->mandarin }}
+                                </td>
+                            @else
+                                <td class="p-3 text-sm text-gray-800 border rounded">
+                                    {{ $d->mandarin }}
+                                </td>
+                            @endif
+                            {{-- Mandarin End --}}
+
+
+
                             <td class="p-3 text-sm text-center text-gray-800 border rounded">
                                 {{ $d->umur_sekarang }}
                             </td>
@@ -196,7 +227,7 @@
                             <td class="p-3 text-sm text-gray-800 border rounded">
                                 {{ $d->tgl_mohonTao }}</td>
                             <td
-                                class="p-3 text-sm text-gray-800  border rounded {{ $d->gender == '1' ? 'text-blue-500' : 'text-pink-500' }} text-center">
+                                class="p-3 text-sm   border rounded {{ $d->gender == '1' ? 'text-blue-500' : 'text-pink-500' }} text-center">
                                 {{ check_JK($d->gender, $d->umur_sekarang) }}
                             </td>
                             {{-- <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->pengajak_id }} --}}
@@ -213,6 +244,10 @@
                             </td>
                             <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->updated_at }}
                             </td>
+                            <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->tgl_sd3h }}
+                            </td>
+                            <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->tgl_vtotal }}
+                            </td>
                             <td class="p-3 text-sm text-gray-800 border rounded ">
 
                                 <div class="flex justify-center space-x-1">
@@ -221,7 +256,7 @@
 
                                     <div>
                                         <div x-data="{ modal: false }">
-                                            <button @click="modal=true" wire:click="edit({{ $d->id }})"
+                                            <button @click="modal=true" wire:click="view({{ $d->id }})"
                                                 type="button" class="p-1 text-black bg-green-500 rounded">
                                                 <i class="fa fa-eye "></i>
                                             </button>
