@@ -30,7 +30,9 @@ return new class extends Migration
             $table->string('hp')->nullable();
             $table->string('email')->nullable();
             $table->integer('pengajak_id');
+            $table->string('pengajak');
             $table->integer('penjamin_id');
+            $table->string('penjamin');
             $table->foreignId('pandita_id');
 
             $table->date('tgl_mohonTao')->default(now());
