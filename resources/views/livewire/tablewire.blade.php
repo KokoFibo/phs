@@ -143,6 +143,7 @@
                         <th class="p-3 text-sm font-semibold text-left">{{ __('NAMA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('中文名') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('UMUR') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('UMURCT') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('TGL CHIU TAO') }}</th>
 
                         <th class="p-3 text-sm font-semibold text-left">{{ __('GENDER') }}</th>
@@ -150,6 +151,7 @@
                         <th class="p-3 text-sm font-semibold text-left">{{ __('PENJAMIN') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('PANDITA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('KOTA') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left">{{ __('Updated_at') }}</th>
                         <th class="p-3 text-sm font-semibold ">
                             <div class="flex justify-center space-x-1">
 
@@ -188,6 +190,9 @@
                             <td class="p-3 text-sm text-center text-gray-800 border rounded">
                                 {{ $d->umur_sekarang }}
                             </td>
+                            <td class="p-3 text-sm text-center text-gray-800 border rounded">
+                                {{ $d->umur }}
+                            </td>
                             <td class="p-3 text-sm text-gray-800 border rounded">
                                 {{ $d->tgl_mohonTao }}</td>
                             <td
@@ -206,6 +211,8 @@
                             </td>
                             <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->nama_kota }}
                             </td>
+                            <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->updated_at }}
+                            </td>
                             <td class="p-3 text-sm text-gray-800 border rounded ">
 
                                 <div class="flex justify-center space-x-1">
@@ -223,12 +230,8 @@
                                                     class="fixed top-0 left-0 z-10 flex items-center justify-center w-full h-screen overflow-hidden bg-black/50 backdrop-blur-sm">
                                                     @include('umatViewModal')
                                                 </div>
-
                                             </div>
-
                                         </div>
-
-
                                     </div>
 
 

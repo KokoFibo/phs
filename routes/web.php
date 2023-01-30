@@ -100,17 +100,19 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/resetumur', function () {
         $data = DataPelita::all();
-            foreach($data as $d ){
-                $now = Carbon::now();
-                $tahun = $now->year;
-                $year = date('Y', strtotime($d->tgl_mohonTao));
-                $selisih = $tahun - $year;
-                $d->umur_sekarang = $d->umur + $selisih;
-                $d->save();
-            session()->flash('message', 'Seluruh Data Umur Umat Sudah di Reset');
-            return redirect(route('main'));
-            }
-        })->name('resetumur');
+        foreach($data as $d ){
+            $now = Carbon::now();
+            $tahun = $now->year;
+            $year = date('Y', strtotime($d->tgl_mohonTao));
+            $selisih = $tahun - $year;
+            $d->umur_sekarang = $d->umur + $selisih;
+            $d->pengajak = getName($d->pengajak_id);
+            $d->penjamin = getName($d->penjamin_id);
+            $d->save();
+        }
+        session()->flash('message', 'Seluruh Data Umur Umat Sudah di Reset');
+        return redirect(route('main'));
+    })->name('resetumur');
 
 
 });

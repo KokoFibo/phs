@@ -130,7 +130,7 @@
                 <label class="px-2 text-sm" for="pengajak">{{ __('Pengajak') }}</label>
                 <input @click="pengajak=true" id="pengajak" type="text" placeholder="Masukkan data Pengajak"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                    wire:model="nama_pengajak">
+                    wire:model="pengajak">
                 <input type="hidden" wire:model="pengajak_id">
                 <div x-show="pengajak" @click.away="pengajak = false" x-transition
                     class="absolute z-10 overflow-auto h-44">
@@ -157,7 +157,7 @@
                 <label class="px-2 text-sm" for="penjamin">{{ __('Penjamin') }}</label>
                 <input @click="penjamin=true" id="penjamin" type="text" placeholder="Masukkan data penjamin"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                    wire:model="nama_penjamin">
+                    wire:model="penjamin">
                 <input type="hidden" wire:model="penjamin_id">
                 <div x-show="penjamin" @click.away="penjamin = false" x-transition
                     class="absolute z-10 overflow-auto h-44">
@@ -189,7 +189,7 @@
                 <label class="px-2 text-sm" for="pandita">{{ __('Pandita') }}</label>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="pandita_id">
-                    <option value="">Masukkan data Pengajak</option>
+                    <option value="">Masukkan data Pandita</option>
                     @foreach ($datapandita as $pandita)
                         <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
                     @endforeach
@@ -220,7 +220,7 @@
                     icon: 'success',
                     title: e.detail.title,
                     showConfirmButton: false,
-                    timer: 3000
+                    timer: 2000
                 });
             });
         </script>

@@ -12,7 +12,7 @@ use App\Models\DataPelita;
 
 class Addumatwire extends Component
 {
-    public $nama, $query, $pengajak_id, $penjamin_id, $nama_pengajak, $nama_penjamin, $kode_branch;
+    public $nama, $query, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $kode_branch;
     public $nama_umat, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $pandita_id, $status="Active", $branch_id;
 
@@ -29,6 +29,7 @@ class Addumatwire extends Component
         'hp' => 'nullable|numeric',
         'email' => 'nullable|email',
         'pengajak_id' => 'required',
+        'pengajak' => 'required',
         'penjamin_id' => 'required',
         'pandita_id' => 'required',
         'tgl_mohonTao' => 'required|date|before:tomorrow',
@@ -46,11 +47,11 @@ public function updated($fields) {
     }
 
     public function getDataPengajak ($nama, $id) {
-        $this->nama_pengajak = $nama;
+        $this->pengajak = $nama;
         $this->pengajak_id = $id;
     }
     public function getDataPenjamin ($nama, $id) {
-        $this->nama_penjamin = $nama;
+        $this->penjamin = $nama;
         $this->penjamin_id = $id;
     }
 
@@ -59,32 +60,6 @@ public function updated($fields) {
         ->get()
         ->toArray();
     }
-
-    // public function rules () {
-
-    //     return [
-    //         'nama_umat' => ['required'],
-    //         'mandarin' => ['nullable'],
-    //         'gender' => ['required'],
-    //         'umur' => ['required', 'numeric', 'min:1', 'max:150'],
-    //         // 'umur_sekarang' => ['nullable'],
-
-    //         'alamat' => ['required'],
-    //         'kota_id' => ['required'],
-    //         'telp' => ['nullable', 'numeric', 'min_digits:9', 'max_digits:13'],
-    //         'hp' => ['nullable', 'numeric'],
-    //         'email' => ['nullable', 'email'],
-    //         'pengajak_id' => ['required'],
-    //         'penjamin_id' => ['required'],
-    //         'pandita_id' => ['required'],
-    //         'tgl_mohonTao' => ['required','date','before:tomorrow'],
-    //         'status' => ['nullable'],
-    //     ];
-
-    // }
-
-
-
 
     public function hitungUmurSekarang($tgl, $umur) {
         $now = Carbon::now();
@@ -113,7 +88,9 @@ public function updated($fields) {
         $data_umat->hp = $this->hp;
         $data_umat->email = $this->email;
         $data_umat->pengajak_id = $this->pengajak_id;
+        $data_umat->pengajak = $this->pengajak;
         $data_umat->penjamin_id = $this->penjamin_id;
+        $data_umat->penjamin = $this->penjamin;
         $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
         $data_umat->status = 'Active';
@@ -159,8 +136,11 @@ public function updated($fields) {
         $this->hp='';
         $this->email='';
         $this->pengajak_id='';
+        $this->pengajak='';
         $this->penjamin_id='';
+        $this->penjamin='';
         $this->pandita_id='';
+        // $this->pandita='';
         $this->tgl_mohonTao='';
     }
 
