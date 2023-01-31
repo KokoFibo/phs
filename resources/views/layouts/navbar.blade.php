@@ -65,7 +65,7 @@
                 {{-- ============================================= --}}
                 <ul class="navbar-nav ">
                     <li class="nav-item dropdown btn-group dropleft">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                        <a class="text-white nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }} (
                             @if (Auth::user()->role == '1')
@@ -81,7 +81,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">{{ __('Change Profile') }}</a>
-                            @if (Auth::user()->role != '1')
+                            @if (Auth::user()->role == '2' || Auth::user()->role == '3')
                                 <a class="dropdown-item"
                                     href="{{ route('registration') }}">{{ __('Register New Admin') }}</a>
                             @endif

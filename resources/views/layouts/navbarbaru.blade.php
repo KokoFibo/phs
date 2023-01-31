@@ -86,7 +86,7 @@
                         <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
                             <a href="#">{{ __('Change Profile') }}</a>
                         </li>
-                        @if (Auth::user()->role != '1')
+                        @if (Auth::user()->role == '2' || Auth::user()->role == '3')
                             <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
                                 <a href="{{ route('registration') }}">{{ __('Register New Admin') }}</a>
                             </li>
