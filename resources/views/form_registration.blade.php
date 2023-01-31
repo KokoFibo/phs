@@ -34,6 +34,7 @@
         <label for="email" class="block mb-2">{{ __('Role') }}</label>
         <select class="w-full mb-4 rounded-lg" wire:model="role" {{ $is_reset == true ? 'disabled' : '' }}>
             <option value="">{{ __('Silakan Pilih Role') }}</option>
+            <option value="0">{{ __('User') }}</option>
             <option value="1">{{ __('Admin') }}</option>
             <option value="2">{{ __('Supervisor') }}</option>
             @if (Auth::user()->role == '3')

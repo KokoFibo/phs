@@ -1,7 +1,7 @@
 @extends('layouts.app1')
 @section('content')
     <div class="container">
-        <div class="col-4 mt-5 mx-auto  p-3 shadow-lg rounded-5" style="border-radius: 15px">
+        <div class="p-3 mx-auto mt-5 shadow-lg col-4 rounded-5" style="border-radius: 15px">
             <h5 class="mb-3">{{ __('Registration') }}</h5>
             <hr>
             <form action="{{ route('register') }}" method="post">

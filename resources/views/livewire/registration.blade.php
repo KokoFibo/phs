@@ -27,17 +27,20 @@
                                 </td>
                                 <td class="h-10 text-center text-gray-700 border ">{{ $d->name }}</td>
                                 <td class="h-10 text-center text-gray-700 border ">{{ $d->email }}</td>
-                                <td class="h-10 text-center text-gray-700 border ">{{ $d->role }}</td>
+                                <td class="h-10 text-center text-gray-700 border ">{{ roleCheck($d->role) }}</td>
                                 <td class="h-10 text-center text-gray-700 border ">{{ $d->nama_kota }}</td>
                                 <td class="h-10 text-center text-gray-700 border ">{{ $d->nama_branch }}</td>
                                 <td class="h-10 text-center text-gray-700 border ">
                                     <div class="text-center">
                                         <button wire:click="edit({{ $d->id }})"
-                                            class="px-2 py-1 text-sm text-black bg-orange-500 rounded">{{ __('Edit') }}</button>
-                                        <button wire:click="delete({{ $d->id }})"
-                                            class="px-2 py-1 text-sm text-white bg-red-500 rounded">{{ __('Delete') }}</button>
+                                            class="px-2 py-1 text-sm text-black bg-orange-500 rounded"><i
+                                                class="fa fa-pen-to-square "></i></button>
+                                        <button wire:click="deleteConfirmation({{ $d->id }})"
+                                            class="px-2 py-1 text-sm text-white bg-red-500 rounded"><i
+                                                class="fa fa-trash "></i></button>
                                         <button wire:click="resetpassword({{ $d->id }})"
-                                            class="px-2 py-1 text-sm text-white bg-teal-500 rounded">{{ __('Reset') }}</button>
+                                            class="px-2 py-1 text-sm text-white bg-teal-500 rounded"><i
+                                                class="fa fa-arrow-rotate-right"></i></button>
                                     </div>
                                 </td>
                             </tr>
@@ -50,4 +53,36 @@
             </div>
         </div>
     </div>
+    {{-- JS utk Sweetalert Delete --}}
+    @push('script')
+        <script>
+            window.addEventListener('delete_confirmation', function(e) {
+                Swal.fire({
+                    title: e.detail.title,
+                    text: e.detail.text,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, silakan hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('delete', e.detail.id)
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your file has been deleted.',
+                        //     'success'
+                        // )
+                    }
+                })
+            });
+            window.addEventListener('deleted', function(e) {
+                Swal.fire(
+                    'Deleted!',
+                    'Data sudah di delete.',
+                    'success'
+                );
+            });
+        </script>
+    @endpush
 </div>

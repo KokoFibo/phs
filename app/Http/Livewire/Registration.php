@@ -18,6 +18,8 @@ class Registration extends Component
     public $name, $email, $password, $role, $branch_id, $kota_id, $password_confirmation , $currentId;
     public $is_edit = false;
     public $is_reset = false;
+    protected $listeners = ['delete'];
+
 
     public function  clear_fields() {
 
@@ -157,11 +159,26 @@ class Registration extends Component
 
     }
 
+
+
     public function delete ($id) {
         $data = User::find($id);
         $data->delete();
-        session()->flash('message', 'Data Deleted');
 
+        $this->dispatchBrowserEvent('deleted');
+    // session()->flash('message', 'Data Sudah di Delete');
+    }
+
+    public function deleteConfirmation ($id) {
+        $data = User::find($id);
+        $nama = $data->name;
+        $this->dispatchBrowserEvent('delete_confirmation', [
+            'title' => 'Yakin Untuk Hapus Data',
+            //  'text' => "You won't be able to revert this!",
+              'text' => "Data : " . $nama,
+             'icon' => 'warning',
+             'id' => $id,
+        ]);
     }
 
 

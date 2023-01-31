@@ -35,9 +35,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/navbar', function () {
-    return view('layouts.navbarbaru');
-});
+
 
 
 // Route::get('/table', Tablewire::class);
@@ -51,7 +49,9 @@ Route::get('/navbar', function () {
 
 Route::middleware(['auth'])->group(function () {
 
-
+    // Route::get('/navbar', function () {
+    //     return view('layouts.navbarbaru');
+    // });
 
     Route::get('/registration', Registration::class)->middleware(['supervisor'])->name('registration');
 
@@ -88,6 +88,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/main', Tablewire::class)->name('main');
     Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
     Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
+
 
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
 

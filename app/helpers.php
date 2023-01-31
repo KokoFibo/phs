@@ -54,5 +54,18 @@ if(!function_exists('getYear')) {
         $data = DataPelita::find($id);
         return $data->nama_umat;
       }
+
+      function roleCheck($role) {
+        switch($role) {
+            case '0': $rolename='User'; break;
+            case '1': $rolename='Admin'; break;
+            case '2': $rolename='Supervisor'; break;
+            case '3': $rolename='Manager'; break;
+        }
+
+        return $rolename;
+      }
+
+
 // }
 

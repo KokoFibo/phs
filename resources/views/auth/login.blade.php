@@ -29,20 +29,20 @@
     <div class="container-fluid bground">
 
 
-        {{-- <div class="card col-4 mt-3 mx-auto"> --}}
+        {{-- <div class="mx-auto mt-3 card col-4"> --}}
         <div class=" col-4">
-            {{-- <div class="card-header border rounded text-center">
+            {{-- <div class="text-center border rounded card-header">
                 Login
             </div> --}}
             {{-- <div class="card-body"> --}}
-            <div class=" glass m-5 mx-auto  p-3   ">
+            <div class="p-3 m-5 mx-auto glass">
 
                 <h5 class="mb-3 text-center text-white">Login</h5>
                 <hr>
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="mb-3">
-                        <label for="email" class="form-label text-white">Email</label>
+                        <label for="email" class="text-white form-label">Email</label>
                         <input type="text" class="form-control @error('email')
             is-invalid
         @enderror"
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label text-white">Password</label>
+                        <label for="password" class="text-white form-label">Password</label>
                         <input type="password"
                             class="form-control @error('password')
             is-invalid
