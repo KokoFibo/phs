@@ -30,7 +30,8 @@
 
 
         {{-- <div class="mx-auto mt-3 card col-4"> --}}
-        <div class=" col-4">
+        {{-- <img src="{{ asset('img/wallpaper.jpg') }}"> --}}
+        <div class="col-4">
             {{-- <div class="text-center border rounded card-header">
                 Login
             </div> --}}
