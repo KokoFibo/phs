@@ -254,21 +254,15 @@
 
 
 
-                                    <div>
-                                        <div x-data="{ modal: false }">
-                                            <button @click="modal=true" wire:click="view({{ $d->id }})"
-                                                type="button" class="p-1 text-black bg-green-500 rounded">
-                                                <i class="fa fa-eye "></i>
-                                            </button>
-                                            <div x-show="modal" class="overflow-hidden">
-                                                <div
-                                                    class="fixed top-0 left-0 z-10 flex items-center justify-center w-full h-screen overflow-hidden bg-black/50 backdrop-blur-sm">
-                                                    @include('umatViewModal')
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
+
+                                    <div>
+                                        <a href="/viewdata/{{ $d->id }}"><button type="button"
+                                                class="p-1 text-black bg-green-500 rounded">
+                                                <i class="fa fa-eye "></i>
+                                            </button></a>
+
+                                    </div>
 
 
                                     {{-- <div> --}}

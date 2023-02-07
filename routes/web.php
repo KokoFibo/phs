@@ -13,6 +13,7 @@ use App\Http\Livewire\Panditawire;
 use App\Http\Livewire\DataKotaWire;
 use App\Http\Livewire\Editumatwire;
 use App\Http\Livewire\Registration;
+use App\Http\Livewire\Viewumatwire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Adddataumatiwire;
@@ -90,6 +91,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/main', Tablewire::class)->name('main');
     Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
     Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
+    Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('editdata');
 
 
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
