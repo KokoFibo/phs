@@ -16,6 +16,7 @@ use App\Http\Livewire\Registration;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Adddataumatiwire;
+use App\Http\Livewire\Changeprofilewire;
 use App\Http\Livewire\Datapelita\Adddata;
 use App\Http\Livewire\Datapelita\Editdata;
 use App\Http\Controllers\menuAddDataController;
@@ -97,6 +98,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/panditawire', Panditawire::class)->name('panditawire');
     Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
     Route::get('/branch', Branchwire::class)->name('branchwire');
+    Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
 
 
 

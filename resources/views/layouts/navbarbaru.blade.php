@@ -84,7 +84,7 @@
                     class="absolute right-0 z-10 py-1 pb-3 text-purple-700 bg-white border top-11 rounded-xl ">
                     <ul class="w-40 mx-5 text-gray-700 divide-y">
                         <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
-                            <a href="#">{{ __('Change Profile') }}</a>
+                            <a href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
                         </li>
                         @if (Auth::user()->role == '2' || Auth::user()->role == '3')
                             <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
