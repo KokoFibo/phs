@@ -237,6 +237,12 @@ class Tablewire extends Component
         ->when($this->status, function($query){
             $query->where('data_pelitas.status',  $this->status );
         })
+        ->when($this->tgl_sd3h, function($query){
+            $query->where('data_pelitas.tgl_sd3h',  '!=', null );
+        })
+        ->when($this->tgl_vtotal, function($query){
+            $query->where('data_pelitas.tgl_vtotal',  '!=', null );
+        })
         ->paginate($this->perpage);
     } elseif ($this->default == false && $this->search == ''){
         $datapelita = DB::table('data_pelitas')
@@ -265,6 +271,12 @@ class Tablewire extends Component
         })
         ->when($this->status, function($query){
             $query->where('data_pelitas.status',  $this->status );
+        })
+        ->when($this->tgl_sd3h, function($query){
+            $query->where('data_pelitas.tgl_sd3h', '!=', null );
+        })
+        ->when($this->tgl_vtotal, function($query){
+            $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
         ->paginate($this->perpage);
 

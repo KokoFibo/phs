@@ -94,6 +94,26 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- <div class="block">
+                            <div class="mt-2">
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" checked />
+                                    <span class="ml-2">Simple checkbox</span>
+                                </label>
+                            </div>
+                        </div> --}}
+                        <div class="mt-3">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" wire:model="tgl_sd3h" />
+                                <span class="ml-2">Sidang Dharma 3 Hari</span>
+                            </label>
+                        </div>
+                        <div class="mt-3">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" wire:model="tgl_vtotal" />
+                                <span class="ml-2">Vegetarian Total</span>
+                            </label>
+                        </div>
 
 
                         {{-- Jika Role adalah Manager --}}
