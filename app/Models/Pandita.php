@@ -9,10 +9,9 @@ class Pandita extends Model
 {
     use HasFactory;
     protected $fillable = ['nama_pandita'];
-    public function datapelita() 
+    public function datapelita()
     {
         return $this->hasMany(Datapelita::class);
     }
 
 }
-                             

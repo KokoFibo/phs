@@ -8,6 +8,7 @@ use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use App\Http\Livewire\Tablewire;
 use App\Http\Livewire\Branchwire;
+use App\Http\Livewire\Absensiwire;
 use App\Http\Livewire\Addumatwire;
 use App\Http\Livewire\Panditawire;
 use App\Http\Livewire\DataKotaWire;
@@ -16,6 +17,8 @@ use App\Http\Livewire\Registration;
 use App\Http\Livewire\Viewumatwire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Daftarkelaswire;
+use App\Http\Livewire\Tambahkelaswire;
 use App\Http\Livewire\Adddataumatiwire;
 use App\Http\Livewire\Changeprofilewire;
 use App\Http\Livewire\Datapelita\Adddata;
@@ -101,6 +104,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
     Route::get('/branch', Branchwire::class)->name('branchwire');
     Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
+    Route::get('/tambahkelas', Tambahkelaswire::class)->name('tambahkelas');
+    Route::get('/daftarkelas', Daftarkelaswire::class)->name('daftarkelas');
+    Route::get('/absensi', Absensiwire::class)->name('absensi');
 
 
 

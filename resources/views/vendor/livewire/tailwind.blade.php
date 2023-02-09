@@ -43,13 +43,13 @@
                         <span>{!! __('Records') !!}</span>
                     </p>
                 </div>
-                <div>
+                {{-- <div>
                     <span class="font-semibold text-purple-500"><i class="fa-solid fa-square"></i> Sidang Dharma 3
                         Hari</span>
                 </div>
                 <div>
                     <span class="font-semibold text-teal-500"><i class="fa-solid fa-square"></i> Vegetarian Total</span>
-                </div>
+                </div> --}}
 
                 <div>
                     <span class="relative z-0 inline-flex rounded-md shadow-sm">

@@ -163,17 +163,13 @@
                         <th class="p-3 text-sm font-semibold text-left">{{ __('NAMA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('中文名') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('UMUR') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('UMURCT') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('TGL CHIU TAO') }}</th>
-
                         <th class="p-3 text-sm font-semibold text-left">{{ __('GENDER') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('PENGAJAK') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('PENJAMIN') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('PANDITA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('KOTA') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('Updated_at') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('SD3H') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('V Total') }}</th>
+
                         <th class="p-3 text-sm font-semibold ">
                             <div class="flex justify-center space-x-1">
 
@@ -241,9 +237,7 @@
                             <td class="p-3 text-sm text-center text-gray-800 border rounded">
                                 {{ $d->umur_sekarang }}
                             </td>
-                            <td class="p-3 text-sm text-center text-gray-800 border rounded">
-                                {{ $d->umur }}
-                            </td>
+
                             <td class="p-3 text-sm text-gray-800 border rounded">
                                 {{ $d->tgl_mohonTao }}</td>
                             <td
@@ -262,19 +256,10 @@
                             </td>
                             <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->nama_kota }}
                             </td>
-                            <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->updated_at }}
-                            </td>
-                            <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->tgl_sd3h }}
-                            </td>
-                            <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->tgl_vtotal }}
-                            </td>
+
                             <td class="p-3 text-sm text-gray-800 border rounded ">
 
                                 <div class="flex justify-center space-x-1">
-
-
-
-
 
                                     <div>
                                         <a href="/viewdata/{{ $d->id }}"><button type="button"
@@ -283,7 +268,6 @@
                                             </button></a>
 
                                     </div>
-
 
                                     {{-- <div> --}}
                                     <div>

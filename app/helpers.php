@@ -1,8 +1,10 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\Kelas;
 use App\Models\Branch;
 use App\Models\DataPelita;
+use App\Models\Daftarkelas;
 
 
 if(!function_exists('tgl')) {
@@ -54,6 +56,34 @@ if(!function_exists('getYear')) {
         $data = DataPelita::find($id);
         return $data->nama_umat;
       }
+
+      function getBranch($id) {
+        $data = Branch::find($id);
+        return $data->nama_branch;
+      }
+
+      function getKelas($id) {
+        $data = Kelas::find($id);
+        return $data->nama_kelas;
+      }
+
+      function getDaftarKelas($id) {
+        $kelas_id = Daftarkelas::find($id);
+
+        $nama_kelas = Kelas::find($kelas_id->kelas_id);
+        return $nama_kelas->nama_kelas;
+
+      }
+
+      function getDaftarKelasCetya($id) {
+        $branch_id = Daftarkelas::find($id);
+
+        $nama_branch = Branch::find($branch_id->branch_id);
+        return $nama_branch->nama_branch;
+
+      }
+
+
 
       function roleCheck($role) {
         switch($role) {
