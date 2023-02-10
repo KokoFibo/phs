@@ -27,9 +27,10 @@ class Tablewire extends Component
     public $namaPandita, $namaKota;
     public $category="data_pelitas.nama_umat";
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
-    protected $listeners = ['delete'];
     public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
     public $default;
+    protected $listeners = ['delete'];
+    // protected $listeners = ['resetfilter'];
 
 
     public function updatingSearch () {
@@ -52,6 +53,8 @@ class Tablewire extends Component
         $this->branch_id="";
         $this->resetPage();
         $this->default = true;
+        $this->dispatchBrowserEvent('resetfield');
+
     }
     public function hitungUmurSekarang($tgl, $umur) {
         $now = Carbon::now();

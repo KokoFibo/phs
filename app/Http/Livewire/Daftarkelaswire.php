@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class Daftarkelaswire extends Component
 {
     public $nama_kelas;
-    public $id_kelas;
+    public $id_daftarkelas;
     public $nama_lama;
     public $is_add = 'true';
     use WithPagination;
@@ -46,9 +46,12 @@ class Daftarkelaswire extends Component
             $data->save();
             $this->updateKelas();
             $this->clear_fields();
-            session()->flash('message', 'Data Kelas Sudah di Simpan');
+            // session()->flash('message', 'Data Kelas Sudah di Simpan');
+            $this->dispatchBrowserEvent('saved');
+
         } else {
-            session()->flash('message', 'Data Sudah Ada');
+            //  session()->flash('message', 'Data Sudah Ada');
+            $this->dispatchBrowserEvent('duplicate');
         }
 
     }
@@ -81,31 +84,41 @@ class Daftarkelaswire extends Component
 
 
 
-    // public function edit ($id) {
+    public function edit ($id) {
 
 
-    //     $this->id_kelas = $id;
-    //     $nama = Kelas::find($id);
-    //     $this->nama_kelas = $nama->nama_kelas;
-    //     $this->is_add=false;
-    // }
+        $this->id_daftarkelas = $id;
+        $data = Daftarkelas::find($id);
+        $this->kelas_id = $data->kelas_id;
+        $this->branch_id = $data->branch_id;
+        $this->is_add=false;
+    }
+
     public function clear_fields() {
         $this->reset();
     }
 
-    // public function update() {
-    //     $this->validate([
-    //         'nama_kelas' => 'required|unique:kelas,nama_kelas,'.$this->id_kelas
-    //     ]);
-    //     $nama = Kelas::find($this->id_kelas);
-    //     $nama->nama_kelas = $this->nama_kelas;
-    //     $nama->save();
-    //     // $this->is_edit=false;
-    //     $this->clear_fields();
-    //     $this->is_add=true;
-    //     session()->flash('message', 'Data Kelas Sudah di Update');
+    public function update() {
+        // $this->validate([
+        //     'nama_kelas' => 'required|unique:kelas,nama_kelas,'.$this->id_daftarkelas
+        // ]);
 
-    // }
+        if($this->checkDuplicate() == false){
+        $data = Daftarkelas::find($this->id_daftarkelas);
+        $data->kelas_id = $this->kelas_id;
+        $data->branch_id = $this->branch_id;
+        $data->save();
+        // $this->is_edit=false;
+        $this->clear_fields();
+        $this->is_add=true;
+        // session()->flash('message', 'Data Kelas Sudah di Update');
+        $this->dispatchBrowserEvent('updated');
+        } else {
+            $this->dispatchBrowserEvent('duplicate');
+
+        }
+
+    }
 
 
     public function render()

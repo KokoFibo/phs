@@ -159,6 +159,8 @@ public function updated($fields) {
         }
 
         session()->flash('message', 'Data Umat Sudah di update');
+        $this->dispatchBrowserEvent('updated');
+
         // $this->dispatchBrowserEvent('updated', [
         //     'title' => 'Data Updated'
         // ]);

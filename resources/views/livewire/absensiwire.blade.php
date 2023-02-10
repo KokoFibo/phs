@@ -155,6 +155,25 @@
                     'success'
                 );
             });
+            window.addEventListener('updated', function(e) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data sudah di update',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
+
+            window.addEventListener('saved', function(e) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data sudah di Simpan',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
         </script>
     @endpush
 

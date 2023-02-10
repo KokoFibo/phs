@@ -34,7 +34,7 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="w-full mt-3">
+            <div class="w-full mt-3 mb-3">
                 <label class="px-2" for="nama_kelas">{{ __('Nama Kelas') }}</label>
                 <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="kelas_id">
                     <option value="">Pilih Kelas</option>
@@ -127,6 +127,34 @@
                     'Data sudah di delete.',
                     'success'
                 );
+            });
+            window.addEventListener('updated', function(e) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data sudah di update',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
+
+            window.addEventListener('saved', function(e) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data sudah di Simpan',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
+
+            window.addEventListener('duplicate', function(e) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Data Duplikat',
+                    text: 'Kelas ini sudah terdaftar pada Vihara',
+                    footer: 'Data Ini Tidak Di Simpan'
+                })
             });
         </script>
     @endpush

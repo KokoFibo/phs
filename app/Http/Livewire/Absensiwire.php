@@ -16,6 +16,8 @@ class Absensiwire extends Component
     public $selectedBranch = null;
     public $selectedKelas = null;
     public $is_add = 'true';
+    protected $listeners = ['delete'];
+
 
 
     public function mount() {
@@ -27,6 +29,31 @@ class Absensiwire extends Component
         }
         $this->resetPage();
     }
+    public function deleteConfirmation ($id) {
+        $data = Absensi::find($id);
+        // $namakelas = getKelas($data->kelas_id);
+        // $namacetya = getBranch($data->branch_id);
+        $this->dispatchBrowserEvent('delete_confirmation', [
+            'title' => 'Yakin Untuk Hapus Data',
+             'text' => "You won't be able to revert this!",
+            //   'text' => "Data Kelas : " . $namakelas . ", di Cetya : " . $namacetya,
+             'icon' => 'warning',
+             'id' => $id,
+        ]);
+    }
+
+    public function delete ($id) {
+        $data = Absensi::find($id);
+        if( $data->daftarkelas_is_used != '1'){
+            $data->delete();
+            $this->dispatchBrowserEvent('deleted');
+        } else {
+            session()->flash('message', 'Data TIDAK di Delete');
+
+        }
+
+
+     }
 
     public function clear_fields() {
          $this->selectedBranch = null;
@@ -47,11 +74,11 @@ class Absensiwire extends Component
 
 
     }
-    // public function updateDaftarKelas() {
-    //     $data_kelas = Daftarkelas::find($this->daftarkelas_id);
-    //     $data_kelas->daftarkelas_is_used = true;
-    //     $data_kelas->save();
-    // }
+    public function updateDaftarKelas() {
+        $data_kelas = Daftarkelas::find($this->daftarkelas_id);
+        $data_kelas->daftarkelas_is_used = true;
+        $data_kelas->save();
+    }
 
 
 
@@ -61,10 +88,9 @@ class Absensiwire extends Component
             $data->tgl_kelas = $this->tgl_kelas;
             $data->jumlah_peserta = $this->jumlah_peserta;
             $data->save();
-            // $this->updateDaftarKelas();
+            $this->updateDaftarKelas();
             $this->clear_fields();
             session()->flash('message', 'Absensi Kelas Sudah di Simpan');
-
 
     }
 

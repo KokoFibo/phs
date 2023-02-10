@@ -332,6 +332,15 @@
                     'success'
                 );
             });
+            window.addEventListener('resetfield', function(e) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Filter Sudah di Reset',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
         </script>
     @endpush
 </div>

@@ -246,6 +246,16 @@
                     timer: 3000
                 });
             });
+
+            window.addEventListener('updated', function(e) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data Updated',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+            });
         </script>
     @endpush
 </div>
