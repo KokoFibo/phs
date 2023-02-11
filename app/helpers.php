@@ -83,6 +83,12 @@ if(!function_exists('getYear')) {
 
       }
 
+      function smartCapitalize($name) {
+        $str = strtolower($name);
+        $str = ucwords($str);
+        return $str;
+      }
+
 
 
       function roleCheck($role) {

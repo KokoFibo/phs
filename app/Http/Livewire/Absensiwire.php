@@ -40,7 +40,7 @@ class Absensiwire extends Component
         $data->tgl_kelas = $this->tgl_kelas;
         $data->jumlah_peserta = $this->jumlah_peserta;
         $data->save();
-        $this->clear_fields();
+        $this->cancel();
         // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
         $this->dispatchBrowserEvent('updated');
 
@@ -122,6 +122,14 @@ class Absensiwire extends Component
 
     }
 
+    public function close () {
+        return redirect()->route('main');
+    }
+    public function cancel () {
+        $this->clear_fields();
+         $this->is_add=true;
+        $this->render();
+    }
 
 
     public function render()

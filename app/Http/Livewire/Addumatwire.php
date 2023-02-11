@@ -33,9 +33,11 @@ class Addumatwire extends Component
         'penjamin_id' => 'required',
         'pandita_id' => 'required',
         'tgl_mohonTao' => 'nullable|date|before:tomorrow',
-        'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao',
-        'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_mohonTao',
+        'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao|before:tomorrow',
+        'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_sd3h|before:tomorrow',
         'status' => 'nullable',
+
+
 ];
 
 public function updated($fields) {
@@ -79,7 +81,10 @@ public function updated($fields) {
         $data_umat = new DataPelita();
         $this->branch_id = Auth::user()->branch_id;
         $data_umat->branch_id = $this->kode_branch;
-        $data_umat->nama_umat = $this->nama_umat;
+
+
+        $data_umat->nama_umat = smartCapitalize($this->nama_umat);
+
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
         $data_umat->umur = $this->umur;

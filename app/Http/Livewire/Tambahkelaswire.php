@@ -26,11 +26,18 @@ class Tambahkelaswire extends Component
         ]);
         // ================
         $data = new Kelas();
-        $data->nama_kelas = $this->nama_kelas;
+        $data->nama_kelas = smartCapitalize($this->nama_kelas);
+
         $data->save();
         $this->clear_fields();
         session()->flash('message', 'Data Kelas Sudah di Simpan');
 
+    }
+
+    public function cancel () {
+        $this->clear_fields();
+        $this->is_add=true;
+        $this->render();
     }
 
     public function deleteConfirmation ($id) {
@@ -77,7 +84,7 @@ class Tambahkelaswire extends Component
             'nama_kelas' => 'required|unique:kelas,nama_kelas,'.$this->id_kelas
         ]);
         $nama = Kelas::find($this->id_kelas);
-        $nama->nama_kelas = $this->nama_kelas;
+        $nama->nama_kelas = smartCapitalize($this->nama_kelas);
         $nama->save();
         // $this->is_edit=false;
         $this->clear_fields();
@@ -85,7 +92,7 @@ class Tambahkelaswire extends Component
         session()->flash('message', 'Data Kelas Sudah di Update');
 
     }
- 
+
     public function render()
     {
         $kelas = Kelas::orderBy('nama_kelas', 'asc')->paginate(5);

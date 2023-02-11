@@ -34,8 +34,8 @@ class Editumatwire extends Component
         'penjamin' => 'required',
         'pandita_id' => 'required',
         'tgl_mohonTao' => 'nullable|date|before:tomorrow',
-        'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao',
-        'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_mohonTao',
+        'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao|before:tomorrow',
+        'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_sd3h|before:tomorrow',
         'status' => 'nullable',
 ];
 
@@ -104,8 +104,9 @@ public function updated($fields) {
 
         $data_umat = DataPelita::find($this->current_id);
 
-        // $data_umat->branch_id = $this->branch_id;
-        $data_umat->nama_umat = $this->nama_umat;
+
+        $data_umat->nama_umat = smartCapitalize($this->nama_umat);
+
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
         $data_umat->umur = $this->umur;
@@ -159,7 +160,7 @@ public function updated($fields) {
         }
 
         session()->flash('message', 'Data Umat Sudah di update');
-        $this->dispatchBrowserEvent('updated');
+    $this->dispatchBrowserEvent('updated');
 
         // $this->dispatchBrowserEvent('updated', [
         //     'title' => 'Data Updated'

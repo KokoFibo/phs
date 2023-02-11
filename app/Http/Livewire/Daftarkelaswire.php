@@ -56,6 +56,12 @@ class Daftarkelaswire extends Component
 
     }
 
+    public function cancel () {
+        $this->clear_fields();
+        $this->is_add=true;
+        $this->render();
+    }
+
     public function deleteConfirmation ($id) {
         $data = Daftarkelas::find($id);
         $namakelas = getKelas($data->kelas_id);

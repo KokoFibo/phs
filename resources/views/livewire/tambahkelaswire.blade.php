@@ -28,10 +28,12 @@
             </div>
             @if ($is_add == true)
                 <button wire:click="store"
-                    class="px-3 py-1 text-teal-600 bg-white rounded hover:text-teal-800">{{ __('Save') }}</button>
+                    class="px-3 py-1 text-teal-600 bg-white border-white rounded hover:bg-teal-800 hover:text-white">{{ __('Save') }}</button>
             @else
-                <button wire:click="update" class="button button-teal">{{ __('Update') }}</button>
+                <button wire:click="update"
+                    class="px-3 py-1 text-teal-600 bg-white border-white rounded hover:bg-teal-800 hover:text-white">{{ __('Update') }}</button>
             @endif
+            <button wire:click="cancel" class="button button-yellow">{{ __('Cancel') }}</button>
         </div>
         <div class="w-1/2 mt-3">
             @if (!empty($kelas))

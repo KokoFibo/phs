@@ -202,6 +202,8 @@
                 @enderror
             </div>
 
+
+
             <div class="mt-3">
                 <label class="px-2 text-sm" for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
                 <input id="tgl" type="date" wire:model="tgl_vtotal"
@@ -210,6 +212,8 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+
+
             <div class="mt-3">
                 <label class="px-2 text-sm" for="nama">{{ __('Status') }}</label>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"

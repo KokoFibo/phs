@@ -16,7 +16,7 @@
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" /> --}}
 
     <style>
         [x-cloak] {
@@ -33,7 +33,7 @@
     @yield('content')
     {{-- <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script> --}}
     {{-- <script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script> --}}
 
     @livewireScripts
     @stack('script')
