@@ -78,10 +78,11 @@
                                 <td class="p-3 text-sm text-center text-gray-800 border rounded">
                                     @if ($p->daftarkelas_is_used == false)
                                         <button class="button-red button "
-                                            wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
+                                            wire:click="deleteConfirmation({{ $p->id }})"><i
+                                                class="fa fa-trash "></i></button>
                                     @else
-                                        <button class="button button-teal"
-                                            wire:click="edit({{ $p->id }})">{{ __('Rename') }}</button>
+                                        <button class="button button-teal" wire:click="edit({{ $p->id }})"><i
+                                                class="fa fa-pen-to-square "></i></button>
                                     @endif
                                 </td>
                             </tr>

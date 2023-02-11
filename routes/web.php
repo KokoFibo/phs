@@ -60,7 +60,21 @@ Route::middleware(['auth'])->group(function () {
     //     return view('layouts.navbarbaru');
     // });
 
-    Route::get('/registration', Registration::class)->middleware(['supervisor'])->name('registration');
+    Route::middleware(['supervisor'])->group(function () {
+
+    // Route::get('/registration', Registration::class)->middleware(['supervisor'])->name('registration');
+    // Route::get('/tambahkelas', Tambahkelaswire::class)->middleware(['supervisor'])->name('tambahkelas');
+    // Route::get('/daftarkelas', Daftarkelaswire::class)->middleware(['supervisor'])->name('daftarkelas');
+
+    Route::get('/registration', Registration::class)->name('registration');
+
+    Route::get('/daftarkelas', Daftarkelaswire::class)->name('daftarkelas');
+
+    });
+
+    Route::get('/tambahkelas', Tambahkelaswire::class)->middleware(['manager'])->name('tambahkelas');
+
+
 
 
     // Route::get('/registration', function() {
@@ -104,8 +118,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
     Route::get('/branch', Branchwire::class)->name('branchwire');
     Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
-    Route::get('/tambahkelas', Tambahkelaswire::class)->name('tambahkelas');
-    Route::get('/daftarkelas', Daftarkelaswire::class)->name('daftarkelas');
     Route::get('/absensi', Absensiwire::class)->name('absensi');
 
 

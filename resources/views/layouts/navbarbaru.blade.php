@@ -20,12 +20,18 @@
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
                         class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded ">
                         <ul class="w-40 mx-5 divide-y">
-                            <li class="py-2 my-2 hover:bg-gray-200">
-                                <a class="dropdown-item" href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
-                            </li>
-                            <li class="py-2 my-2 hover:bg-gray-200">
-                                <a class="dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
-                            </li>
+                            @if (Auth::user()->role == '3')
+                                <li class="py-2 my-2 hover:bg-gray-200">
+                                    <a class="dropdown-item"
+                                        href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
+                                </li>
+                            @endif
+                            @if (Auth::user()->role == '2' || Auth::user()->role == '3')
+                                <li class="py-2 my-2 hover:bg-gray-200">
+                                    <a class="dropdown-item"
+                                        href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
+                                </li>
+                            @endif
                             <li class="py-2 my-2 hover:bg-gray-200">
                                 <a class="dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</a>
                             </li>
