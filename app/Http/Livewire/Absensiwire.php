@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire;
 
+use Auth;
 use App\Models\Branch;
 use App\Models\Absensi;
 use Livewire\Component;
 use App\Models\Daftarkelas;
 use Livewire\WithPagination;
-use Auth;
+use Illuminate\Support\Facades\DB;
 
 class Absensiwire extends Component
 {
@@ -125,11 +126,28 @@ class Absensiwire extends Component
 
     public function render()
     {
-        $absensi = Absensi::orderBy('id', 'desc')->paginate(5);
-        if(Auth::user()->role != '3'){
+        // $absensi = Absensi::orderBy('id', 'desc')->paginate(5);
+        // if(Auth::user()->role != '3'){
 
+        //     $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('branch_id', Auth::user()->branch_id)->get();
+        // }
+
+        if(Auth::user()->role != '3'){
+            $absensi = DB::table('daftarkelas')
+            ->join('absensis', 'daftarkelas.id','=','absensis.daftarkelas_id')
+            ->select('daftarkelas.*','absensis.*')
+            ->where('daftarkelas.branch_id',Auth::user()->role)
+            ->paginate(5);
             $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('branch_id', Auth::user()->branch_id)->get();
+        } else {
+            $absensi = Absensi::orderBy('id', 'desc')->paginate(5);
+            // join Absensi dengan daftarkelas
+
+
         }
+
+
+
         $this->resetPage();
 
 

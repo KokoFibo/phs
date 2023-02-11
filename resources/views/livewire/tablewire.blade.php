@@ -263,7 +263,7 @@
 
                                     <div>
                                         <a href="/viewdata/{{ $d->id }}"><button type="button"
-                                                class="p-1 text-black bg-green-500 rounded">
+                                                class="p-1 text-black bg-green-400 rounded">
                                                 <i class="fa fa-eye "></i>
                                             </button></a>
 
@@ -272,7 +272,7 @@
                                     {{-- <div> --}}
                                     <div>
                                         <a href="/editdata/{{ $d->id }}"><button type="button"
-                                                class="p-1 text-black bg-yellow-500 rounded">
+                                                class="p-1 text-black bg-yellow-300 rounded">
                                                 <i class="fa fa-pen-to-square "></i>
                                             </button></a>
 

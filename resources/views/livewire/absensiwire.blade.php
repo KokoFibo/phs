@@ -72,7 +72,7 @@
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                     <button data-modal-hide="defaultModal" type="button" wire:click="update()"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{ __('Update') }}</button>
+                        class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-600">{{ __('Update') }}</button>
                     <button data-modal-hide="defaultModal" type="button"
                         class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">{{ __('Cancel') }}</button>
                 </div>
@@ -159,8 +159,8 @@
                             <th class="p-3 text-sm font-semibold text-center"></th>
                         </tr>
                     </thead>
-                    @foreach ($absensi as $index => $p)
-                        <tbody>
+                    <tbody>
+                        @foreach ($absensi as $index => $p)
                             <tr>
                                 <td class="p-3 text-sm text-gray-800 border rounded">
                                     {{ $absensi->firstItem() + $index }}</td>
@@ -175,34 +175,34 @@
                                 <td class="p-3 text-sm text-gray-800 border rounded">{{ $p->tgl_kelas }}</td>
                                 <td class="p-3 text-sm text-gray-800 border rounded">{{ $p->jumlah_peserta }}
                                 </td>
+
                                 <td class="p-3 text-sm text-center text-gray-800 border rounded">
-                                    <button class="button-red button "
-                                        wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
-                                    {{-- <button class="button button-teal"
+                                    <div class="flex justify-center space-x-1">
+
+
+
+                                        <button class="p-1 text-white bg-red-500 rounded"
+                                            wire:click="deleteConfirmation({{ $p->id }})"><i
+                                                class="fa fa-trash "></i></button>
+                                        {{-- <button class="button button-teal"
                                         wire:click="edit({{ $p->id }})">{{ __('Edit') }}</button> --}}
 
-                                    {{-- pakai yg diatas --}}
+                                        {{-- pakai yg diatas --}}
 
-                                    <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
-                                        class=" block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                        wire:click="edit({{ $p->id }})" type="button">
-                                        {{ __('Edit') }}
-                                    </button>
+                                        <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
+                                            class="p-1 text-black bg-yellow-300 rounded"
+                                            wire:click="edit({{ $p->id }})" type="button">
+                                            <i class="fa fa-pen-to-square"></i>
+                                        </button>
+
+                                    </div>
 
 
 
-
-                                    {{-- @if ($p->daftarkelas_is_used == false)
-                                        <button class="button-red button "
-                                            wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
-                                    @else
-                                        <button class="button button-teal"
-                                            wire:click="edit({{ $p->id }})">{{ __('Rename') }}</button>
-                                    @endif --}}
                                 </td>
                             </tr>
-                        </tbody>
-                    @endforeach
+                        @endforeach
+                    </tbody>
                 </table>
                 <div class="mt-3">
                     {{ $absensi->links() }}
