@@ -12,13 +12,24 @@ use Auth;
 class Absensiwire extends Component
 {
     use WithPagination;
-    public $branch_id, $kelas_id, $kelas, $daftarkelas_id, $tgl_kelas, $jumlah_peserta, $branch ;
+    public $branch_id, $kelas_id, $kelas, $daftarkelas_id, $tgl_kelas, $jumlah_peserta, $branch, $id_absensi ;
     public $selectedBranch = null;
     public $selectedKelas = null;
     public $is_add = 'true';
     protected $listeners = ['delete'];
 
 
+    public function edit ($id) {
+        $this->id_absensi = $id;
+        $data = Absensi::find($id);
+        // $this->kelas_id = $data->kelas_id;
+        // $this->branch_id = $data->branch_id;
+        $this->daftarkelas_id = $data->daftarkelas_id;
+        $this->selectedBranch = $data->branch_id;
+        $this->tgl_kelas = $data->tgl_kelas;
+        $this->jumlah_peserta = $data->jumlah_peserta;
+        $this->is_add=false;
+    }
 
     public function mount() {
         if(Auth::user()->role == '3'){
@@ -93,6 +104,8 @@ class Absensiwire extends Component
             session()->flash('message', 'Absensi Kelas Sudah di Simpan');
 
     }
+
+
 
     public function render()
     {

@@ -14,4 +14,5 @@ class Absensi extends Model
     {
         return $this->belongsTo(Daftarkelas::class);
     }
+
 }

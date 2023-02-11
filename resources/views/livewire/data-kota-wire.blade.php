@@ -1,6 +1,6 @@
 <div>
 
-    @section('title', 'Add Data Pandita')
+    @section('title', 'Add Data Kota')
 
 
     <div class="flex justify-between w-2/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
@@ -17,7 +17,7 @@
     </div>
     <div class="flex w-2/3 p-3 mx-auto items-top justify-evenly">
         <div class="w-1/2 p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl rounded-xl">
-            <div class="text-xl font-semibold text-center">{{ __('Data Pandita') }}</div>
+            <div class="text-xl font-semibold text-center">{{ __('Data Kota') }}</div>
             <div class="w-full mt-3">
                 @if ($is_add)
                     <div class="col-6">

@@ -68,6 +68,13 @@
                             <li class="py-2 my-2 hover:bg-gray-200">
                                 <a class="" href="{{ route('resetumur') }}">{{ __('Reset Umur') }}</a>
                             </li>
+                            <li class="py-2 my-2 hover:bg-gray-200">
+                                <a class=""
+                                    href="{{ route('panditawire') }}">{{ __('Tambah Data Pandita') }}</a>
+                            </li>
+                            <li class="py-2 my-2 hover:bg-gray-200">
+                                <a class="" href="{{ route('datakotawire') }}">{{ __('Tambah Data Kota') }}</a>
+                            </li>
                         </ul>
                     </div>
 

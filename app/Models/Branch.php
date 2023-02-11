@@ -26,4 +26,6 @@ class Branch extends Model
     {
         return $this->belongsTo(Kota::class);
     }
+
+    
 }

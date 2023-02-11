@@ -1,7 +1,6 @@
 <div>
     @section('title', 'Absensi Kelas Pendalaman')
 
-
     <div class="flex justify-between w-2/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
         <h5 class="text-2xl font-semibold">{{ __('Absensi Kelas') }}</h5>
 
