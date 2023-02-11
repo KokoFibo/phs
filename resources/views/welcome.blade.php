@@ -1,15 +1,18 @@
 @extends('layouts.guest')
 @section('title', 'Welcome')
 @section('content')
-    <div class="flex justify-between px-10 mx-auto">
-        <div class="mt-10">
-            <h1 class="text-5xl font-bold z-1">Vihara Pelita Hati</h1>
-            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, dolorem.</p>
-        </div>
-        <div class="flex gap-4 mt-10">
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
-        </div>
-    </div>
+
+
+    {{-- @if (Auth::user()->role == 0) --}}
+    <h1>anda adalah admin</h1>
+    <h1>Harap hubungi supervisor atau manager anda utk aktifasi</h1>
+    <a href="{{ route('logout') }}"
+        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+        @csrf
+    </form>
+    {{-- @else --}}
+
+
 
 @endsection

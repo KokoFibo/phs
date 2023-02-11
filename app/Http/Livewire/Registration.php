@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Hash;
 class Registration extends Component
 {
     use WithPagination;
-    // protected $paginationTheme = 'bootstrap';
 
     public $name, $email, $password, $role, $branch_id, $kota_id, $password_confirmation , $currentId;
     public $is_edit = false;

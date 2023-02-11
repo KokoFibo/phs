@@ -1,4 +1,5 @@
 <div>
+    @section('title', 'Registration')
     <div class="flex mx-2 mt-3 justify-evenly">
         <div class="w-1/4">
             <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Registration') }}</div>

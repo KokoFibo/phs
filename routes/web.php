@@ -85,58 +85,60 @@ Route::middleware(['auth'])->group(function () {
         return view('auth.login');
     })->name('loginpage');
 
-
-
-
-    // Route::get('/branch', function() {
-    //     return view('menuBranch');
-    // })->name('branch');
-
-
-    Route::get('locale/{locale}', function($locale){
-        \Session::put('locale', $locale);
-        return redirect()->back();
-    });
-
-
-
-    Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
-
-    // Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
-
-    Route::get('/main1', Data::class)->name('main');
-    Route::get('/main', Tablewire::class)->name('main');
-    Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
-    Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
-    Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('editdata');
-
-
     Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
 
-    Route::get('/umatview', )->name('umatview');
-    Route::get('/panditawire', Panditawire::class)->name('panditawire');
-    Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
-    Route::get('/branch', Branchwire::class)->name('branchwire');
-    Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
-    Route::get('/absensi', Absensiwire::class)->name('absensi');
+
+    Route::middleware(['admin'])->group(function () {
 
 
 
-    Route::get('/resetumur', function () {
-        $data = DataPelita::all();
-        foreach($data as $d ){
-            $now = Carbon::now();
-            $tahun = $now->year;
-            $year = date('Y', strtotime($d->tgl_mohonTao));
-            $selisih = $tahun - $year;
-            $d->umur_sekarang = $d->umur + $selisih;
-            $d->pengajak = getName($d->pengajak_id);
-            $d->penjamin = getName($d->penjamin_id);
-            $d->save();
-        }
-        session()->flash('message', 'Seluruh Data Umur Umat Sudah di Reset');
-        return redirect(route('main'));
-    })->name('resetumur');
+
+        Route::get('locale/{locale}', function($locale){
+            \Session::put('locale', $locale);
+            return redirect()->back();
+        });
+
+
+
+        Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
+
+        // Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
+
+        Route::get('/main1', Data::class)->name('main');
+        Route::get('/main', Tablewire::class)->name('main');
+        Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
+        Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
+        Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('editdata');
+
+
+        // Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
+
+        Route::get('/umatview', )->name('umatview');
+        Route::get('/panditawire', Panditawire::class)->name('panditawire');
+        Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
+        Route::get('/branch', Branchwire::class)->name('branchwire');
+        Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
+        Route::get('/absensi', Absensiwire::class)->name('absensi');
+
+
+
+        Route::get('/resetumur', function () {
+            $data = DataPelita::all();
+            foreach($data as $d ){
+                $now = Carbon::now();
+                $tahun = $now->year;
+                $year = date('Y', strtotime($d->tgl_mohonTao));
+                $selisih = $tahun - $year;
+                $d->umur_sekarang = $d->umur + $selisih;
+                $d->pengajak = getName($d->pengajak_id);
+                $d->penjamin = getName($d->penjamin_id);
+                $d->save();
+            }
+            session()->flash('message', 'Seluruh Data Umur Umat Sudah di Reset');
+            return redirect(route('main'));
+        })->name('resetumur');
+
+    });
 
 
 });
