@@ -12,7 +12,7 @@ use Auth;
 class Absensiwire extends Component
 {
     use WithPagination;
-    public $branch_id, $kelas_id, $kelas, $daftarkelas_id, $tgl_kelas, $jumlah_peserta, $branch, $id_absensi ;
+    public $branch_id, $kelas_id, $kelas, $daftarkelas_id, $tgl_kelas, $jumlah_peserta, $branch, $id_absensi, $nama_cetya, $nama_kelas ;
     public $selectedBranch = null;
     public $selectedKelas = null;
     public $is_add = 'true';
@@ -25,10 +25,24 @@ class Absensiwire extends Component
         // $this->kelas_id = $data->kelas_id;
         // $this->branch_id = $data->branch_id;
         $this->daftarkelas_id = $data->daftarkelas_id;
-        $this->selectedBranch = $data->branch_id;
+        $this->nama_cetya = getDaftarKelasCetya($data->daftarkelas_id);
+        $this->nama_kelas = getDaftarKelas($data->daftarkelas_id);
+
+        // $this->selectedBranch = $data->branch_id;
         $this->tgl_kelas = $data->tgl_kelas;
         $this->jumlah_peserta = $data->jumlah_peserta;
         $this->is_add=false;
+    }
+
+    public function update () {
+        $data = Absensi::find($this->id_absensi);
+        $data->tgl_kelas = $this->tgl_kelas;
+        $data->jumlah_peserta = $this->jumlah_peserta;
+        $data->save();
+        $this->clear_fields();
+        // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
+        $this->dispatchBrowserEvent('updated');
+
     }
 
     public function mount() {
@@ -101,7 +115,9 @@ class Absensiwire extends Component
             $data->save();
             $this->updateDaftarKelas();
             $this->clear_fields();
-            session()->flash('message', 'Absensi Kelas Sudah di Simpan');
+            // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
+        $this->dispatchBrowserEvent('saved');
+
 
     }
 
