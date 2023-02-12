@@ -18,7 +18,7 @@ class Supervisor
     {
         if(!auth()->check() || ((auth()->user()->role !== '2') && (auth()->user()->role !== '3'))){
 
-            return redirect(route('main'));
+            return redirect(route('dashboard'));
         }
 
         return $next($request);

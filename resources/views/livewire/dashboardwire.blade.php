@@ -1,18 +1,10 @@
-<div class="bg-slate-100 ">
+<div class="bg-purple-100 ">
 
     @section('title', 'Dashboard')
     {{-- first row --}}
 
     @if (Auth::user()->role == 0)
-        {
-        <h1>Silakan Hubungi Supervisor atau Manager anda untuk mengaktifkan akun anda.</h1>
-        <h1>Terima Kasih</h1>
-        <a href="{{ route('logout') }}"
-            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
-            @csrf
-        </form>
-        }
+        @include('userinfo')
     @else
         <div class="flex flex-col items-center gap-2 pt-5 mb-2 md:flex md:flex-row md:justify-evenly md:pt-10 ">
 
@@ -92,5 +84,6 @@
             </div>
         </div>
     @endif
+
 
 </div>

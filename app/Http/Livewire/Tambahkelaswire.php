@@ -17,7 +17,7 @@ class Tambahkelaswire extends Component
     protected $listeners = ['delete'];
 
     public function close () {
-        return redirect()->route('main');
+        return redirect()->route('dashboard');
     }
 
     public function store () {

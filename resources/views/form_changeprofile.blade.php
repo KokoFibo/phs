@@ -8,23 +8,22 @@
 
     <div class="mb-3">
         <label class="block mb-2">{{ __('Nama') }}</label>
-        <input wire:model="name" type="text" class="w-full mb-4 rounded-lg">
+        <input wire:model="name" type="text" class="w-full mb-2 rounded-lg">
         @error('name')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
         @enderror
         <button wire:click="updatename()" class=" button button-teal">{{ __('Update Name') }}</button>
-
     </div>
+
     <hr>
+
     <div class="mt-3 mb-3">
         <label class="block mb-2">{{ __('Email') }}</label>
         <input wire:model="email" type="text" class="w-full mb-2 rounded-lg">
         @error('email')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
+            <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
         <button wire:click="updateemail()" class=" button button-teal">{{ __('Update Email') }}</button>
     </div>
@@ -35,14 +34,14 @@
         <label class="block mb-2">{{ __('Current Password') }}</label>
         <input wire:model="curr_pass" type="password" class="w-full mb-2 rounded-lg">
         @error('curr_pass')
-            <span class="text-danger">{{ $message }}</span>
+            <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
     </div>
     <div class="mb-3">
         <label class="block mb-2">{{ __('New Password') }}</label>
-        <input wire:model="new_password" type="password" class="w-full mb-2 rounded-lg">
-        @error('new_password')
-            <span class="text-danger">{{ $message }}</span>
+        <input wire:model="password" type="password" class="w-full mb-2 rounded-lg">
+        @error('password')
+            <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
     </div>
 
@@ -50,7 +49,7 @@
         <label class="block mb-2">{{ __('Confirm Password') }}</label>
         <input wire:model="password_confirmation" type="password" class="w-full mb-4 rounded-lg">
         @error('password_confirmation')
-            <span class="text-danger">{{ $message }}</span>
+            <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
 
     </div>

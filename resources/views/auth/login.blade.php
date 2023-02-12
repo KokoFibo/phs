@@ -10,6 +10,22 @@
             align-items: center;
         }
 
+        .main {
+            width: 100%;
+            /* background: url({{ asset('img/background-biru.jpg') }}); */
+            /* background: url({{ asset('img/wallpaper.jpg') }}); */
+            background-image: url('https://source.unsplash.com/1920x1080?nature');
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            position: fixed;
+        }
+
+        .info {
+            padding: 30px;
+            margin: auto;
+        }
+
         .glass {
             /* From https://css.glass */
             background: rgba(255, 255, 255, 0.2);
@@ -20,34 +36,36 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
+        .parent {
+            display: flex;
+            height: 100vh;
+        }
+
         .btnrev {
             background-color: transparent;
             border-color: blue;
             color: blue;
         }
     </style>
-    <div class="container-fluid bground">
+    {{-- <div class="container-fluid bground"> --}}
+    <div class="main">
+        <div class="parent">
 
+            <div class="info glass col-4">
+                {{-- <div class="col-4"> --}}
 
-        {{-- <div class="mx-auto mt-3 card col-4"> --}}
-        {{-- <img src="{{ asset('img/wallpaper.jpg') }}"> --}}
-        <div class="col-4">
-            {{-- <div class="text-center border rounded card-header">
-                Login
-            </div> --}}
-            {{-- <div class="card-body"> --}}
-            <div class="p-3 m-5 mx-auto glass">
+                {{-- <div class="p-3 m-5 mx-auto glass"> --}}
 
                 <h5 class="mb-3 text-center text-white">Login</h5>
                 <hr>
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="mb-3">
-                        <label for="email" class="text-white form-label">Email</label>
+                        <label class="text-white form-label">Email</label>
                         <input type="text" class="form-control @error('email')
             is-invalid
         @enderror"
-                            id="email" placeholder="user@gmail.com" name="email" autocomplete="off">
+                            placeholder="user@gmail.com" name="email" value="{{ old('email') }}" autocomplete="off">
                         {{-- placeholder="user@gmail.com" name="email" value="{{ old('email') }}"> --}}
                         @error('email')
                             <div class="invalid-feedback">
@@ -57,11 +75,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="text-white form-label">Password</label>
+                        <label class="text-white form-label">Password</label>
                         <input type="password"
                             class="form-control @error('password')
             is-invalid
-        @enderror" id="password"
+        @enderror"
                             placeholder="Password" name="password" autocomplete="off">
                     </div>
 
@@ -80,5 +98,6 @@
             </div>
             {{-- </div> --}}
         </div>
+        {{-- </div> --}}
     </div>
 @endsection

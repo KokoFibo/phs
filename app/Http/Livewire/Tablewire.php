@@ -282,8 +282,6 @@ class Tablewire extends Component
             $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
         ->paginate($this->perpage);
-
-
     }
     else {
         $datapelita = DB::table('data_pelitas')

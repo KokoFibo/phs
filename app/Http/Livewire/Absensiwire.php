@@ -123,7 +123,7 @@ class Absensiwire extends Component
     }
 
     public function close () {
-        return redirect()->route('main');
+        return redirect()->route('dashboard');
     }
     public function cancel () {
         $this->clear_fields();

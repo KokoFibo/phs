@@ -36,92 +36,49 @@ use App\Http\Controllers\menuAddDataController;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
+
+Route::get('/', function () {
+    return view('auth/login');
+});
 
 
-
-
-
-
-// Route::get('/table', Tablewire::class);
-
-
-    Route::get('/resetpswd', function() {
-        return view('menuResetPassword');
-    })->name('resetpassword');
+    // Route::get('/resetpswd', function() {
+    //     return view('menuResetPassword');
+    // })->name('resetpassword');
 
 
 
 Route::middleware(['auth'])->group(function () {
 
-    // Route::get('/navbar', function () {
-    //     return view('layouts.navbarbaru');
-    // });
+    Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
 
     Route::middleware(['supervisor'])->group(function () {
-
-    // Route::get('/registration', Registration::class)->middleware(['supervisor'])->name('registration');
-    // Route::get('/tambahkelas', Tambahkelaswire::class)->middleware(['supervisor'])->name('tambahkelas');
-    // Route::get('/daftarkelas', Daftarkelaswire::class)->middleware(['supervisor'])->name('daftarkelas');
-
-    Route::get('/registration', Registration::class)->name('registration');
-
-    Route::get('/daftarkelas', Daftarkelaswire::class)->name('daftarkelas');
-
+        Route::get('/registration', Registration::class)->name('registration');
+        Route::get('/daftarkelas', Daftarkelaswire::class)->name('daftarkelas');
     });
 
     Route::get('/tambahkelas', Tambahkelaswire::class)->middleware(['manager'])->name('tambahkelas');
 
-
-
-
-    // Route::get('/registration', function() {
-    //     return view('menuRegistration');
-    // })->middleware(['supervisor'])->name('registration');
-
-    Route::get('/', function () {
-        return view('auth.login');
-    })->name('loginpage');
-
-    Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
-
-
     Route::middleware(['admin'])->group(function () {
-
-
-
-
         Route::get('locale/{locale}', function($locale){
-            \Session::put('locale', $locale);
+            Session::put('locale', $locale);
             return redirect()->back();
         });
-
-
-
         Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
-
-        // Route::get('/editdata/{current_id}', Editdata::class)->name('editdata');
-
         Route::get('/main1', Data::class)->name('main');
         Route::get('/main', Tablewire::class)->name('main');
         Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
         Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
         Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('editdata');
-
-
-        // Route::get('/dashboard', Dashboardwire::class)->name('dashboard');
-
         Route::get('/umatview', )->name('umatview');
         Route::get('/panditawire', Panditawire::class)->name('panditawire');
         Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
         Route::get('/branch', Branchwire::class)->name('branchwire');
         Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
         Route::get('/absensi', Absensiwire::class)->name('absensi');
-
-
-
         Route::get('/resetumur', function () {
             $data = DataPelita::all();
             foreach($data as $d ){
@@ -129,10 +86,17 @@ Route::middleware(['auth'])->group(function () {
                 $tahun = $now->year;
                 $year = date('Y', strtotime($d->tgl_mohonTao));
                 $selisih = $tahun - $year;
+                $is_save = false;
+                if($d->umur_sekarang != $d->umur + $selisih) {
+                    $is_save = true;
+                }
                 $d->umur_sekarang = $d->umur + $selisih;
                 $d->pengajak = getName($d->pengajak_id);
                 $d->penjamin = getName($d->penjamin_id);
-                $d->save();
+                if($is_save) {
+                    $d->save();
+                    $is_save = false;
+                }
             }
             session()->flash('message', 'Seluruh Data Umur Umat Sudah di Reset');
             return redirect(route('main'));

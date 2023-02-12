@@ -20,7 +20,7 @@ class Daftarkelaswire extends Component
     public $kelas_id, $branch_id;
 
     public function close () {
-        return redirect()->route('main');
+        return redirect()->route('dashboard');
     }
 
     public function checkDuplicate(){
