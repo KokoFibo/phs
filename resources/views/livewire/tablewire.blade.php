@@ -67,8 +67,8 @@
                             <label class="p-1 px-3 rounded bg-purple">{{ __('Gender') }}</label>
                             <select wire:model="jen_kel" class="w-full px-2 py-1 border border-gray-400 rounded">
                                 <option value="0">{{ __('All') }}</option>
-                                <option value="1">{{ __('Laki-laki') }}</option>
-                                <option value="2">{{ __('Perempuan') }}</option>
+                                <option value="Laki-laki">{{ __('Laki-laki') }}</option>
+                                <option value="Perempuan">{{ __('Perempuan') }}</option>
                             </select>
                         </div>
                         <div class="mt-3">
@@ -145,7 +145,7 @@
                 {{-- export Excel $ PDF --}}
                 @if ($selectedId != null)
                     <div class="w-full my-2 mr-3 md:w-1/5">
-                        <button class="button button-teal">Excel</button>
+                        <button wire:click="excel" class="button button-teal">Excel</button>
                         <button class="button button-red">PDF</button>
                     </div>
                 @endif
@@ -262,7 +262,7 @@
                             <td class="p-3 text-sm text-gray-800 border rounded">
                                 {{ $d->tgl_mohonTao }}</td>
                             <td
-                                class="p-3 text-sm   border rounded {{ $d->gender == '1' ? 'text-blue-500' : 'text-pink-500' }} text-center">
+                                class="p-3 text-sm   border rounded {{ $d->gender == 'Laki-laki' ? 'text-blue-500' : 'text-pink-500' }} text-center">
                                 {{ check_JK($d->gender, $d->umur_sekarang) }}
                             </td>
                             {{-- <td class="p-3 text-sm text-gray-800 border rounded">{{ $d->pengajak_id }} --}}

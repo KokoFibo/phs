@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Auth;
 use Carbon\Carbon;
 use App\Models\Kota;
 use App\Models\Branch;
@@ -9,8 +10,10 @@ use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
 use Livewire\WithPagination;
+// use Maatwebsite\Excel\Excel;
+use App\Exports\DataPelitaExport;
 use Illuminate\Support\Facades\DB;
-use Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class Tablewire extends Component
@@ -36,6 +39,11 @@ class Tablewire extends Component
     // protected $listeners = ['resetfilter'];
 
 
+    public function excel () {
+        return (new DataPelitaExport($this->selectedId))->download('datapelita.xlsx');
+
+        // return (new InvoicesExport)->forYear(2018)->download('invoices.xlsx');
+    }
     public function updatingSearch () {
         $this->resetPage();
     }

@@ -98,7 +98,26 @@ Route::middleware(['auth'])->group(function () {
                     $is_save = false;
                 }
             }
-            session()->flash('message', 'Seluruh Data Umur Umat Sudah di Reset');
+            foreach($data as $d) {
+                $gender_before = $d->gender;
+                if($d->gender == '1') {
+                    $d->gender = 'Laki-laki';
+                }elseif($d->gender == '2') {
+                    $d->gender = 'Perempuan';
+                }
+
+                $is_save = false;
+                if($gender_before == '1' || $gender_before == '2' ) {
+                    $is_save = true;
+                }
+                
+                if($is_save) {
+                    $d->save();
+                    $is_save = false;
+                    $gender_before=null;
+                }
+            }
+            session()->flash('message', 'Seluruh Data Umur dan gender Umat Sudah di Reset');
             return redirect(route('main'));
         })->name('resetumur');
 
