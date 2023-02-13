@@ -7,13 +7,13 @@
 
     {{-- Search Bar --}}
     <div class="items-center w-full md:flex">
-        <div class="w-1/2 mx-5 my-3">
+        <div class="w-3/4 mx-5 my-3">
             <div class="items-center md:flex">
-                <div class="w-full my-2 mr-3 md:w-1/4">
+                <div class="w-full my-2 mr-3 md:w-1/5">
                     <input type="text" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded "
                         wire:model="search" placeholder="{{ __('Search') }}">
                 </div>
-                <div class="w-full my-2 mr-3 md:w-1/4">
+                <div class="w-full my-2 mr-3 md:w-1/5">
 
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="category">
@@ -24,7 +24,7 @@
                         <option value="kotas.nama_kota">{{ __('Kota') }}</option>
                     </select>
                 </div>
-                <div class="w-full my-2 mr-3 md:w-1/4">
+                <div class="w-full my-2 mr-3 md:w-1/5">
 
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="perpage">
@@ -35,7 +35,7 @@
                         <option value="25">{{ __('25 Rows Per Page') }}</option>
                     </select>
                 </div>
-                <div x-data="{ open: false }" class="w-full my-2 mr-3 md:w-1/4">
+                <div x-data="{ open: false }" class="w-full my-2 mr-3 md:w-1/5">
 
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
                         class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white"><i
@@ -142,6 +142,14 @@
                     </div>
                     {{-- end isi dropdown --}}
                 </div>
+                {{-- export Excel $ PDF --}}
+                @if ($selectedId != null)
+                    <div class="w-full my-2 mr-3 md:w-1/5">
+                        <button class="button button-teal">Excel</button>
+                        <button class="button button-red">PDF</button>
+                    </div>
+                @endif
+
             </div>
         </div>
         {{-- nama cetya --}}
@@ -150,15 +158,23 @@
         </div>
 
 
+
+        {{-- End Search Bar --}}
+
+
     </div>
-    {{-- End Search Bar --}}
     {{-- Table --}}
     <div class="p-4 ">
         <div class="rounded-lg shadow bg-gray-50">
+            @dump($selectAll)
+            @dump($selectedId)
             <table class="w-full">
                 <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
                     <tr>
                         {{-- <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th> --}}
+                        <th class="text-center border rounded"><input type="checkbox" wire:model="selectAll"
+                                class=" checked:bg-white-500" />
+                        </th>
                         <th class="p-3 text-sm font-semibold text-center">{{ __('#') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('NAMA') }}</th>
                         <th class="p-3 text-sm font-semibold text-left">{{ __('中文名') }}</th>
@@ -198,6 +214,11 @@
                 <tbody>
                     @foreach ($datapelita as $index => $d)
                         <tr class="h-3">
+                            <td class="text-center border rounded">
+                                <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
+                                    class="checked:bg-purple-500" />
+                            </td>
+
                             <td class="p-3 text-sm text-gray-800 border rounded">
                                 {{ $datapelita->firstItem() + $index }}
                             </td>

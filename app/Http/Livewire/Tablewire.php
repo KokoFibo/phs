@@ -29,12 +29,23 @@ class Tablewire extends Component
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
     public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
     public $default;
+    public $selectedId = [];
+    public $selectedAllId = [];
+    public $selectAll = false;
     protected $listeners = ['delete'];
     // protected $listeners = ['resetfilter'];
 
 
     public function updatingSearch () {
         $this->resetPage();
+    }
+
+    public function updatedSelectAll ($value) {
+        if ($value) {
+            $this->selectedId = DataPelita::pluck('id');
+        } else {
+            $this->selectedId = [];
+        }
     }
 
     public function resetFilter () {
