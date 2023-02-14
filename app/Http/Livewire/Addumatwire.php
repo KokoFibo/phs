@@ -9,6 +9,7 @@ use App\Models\Branch;
 use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
+use Illuminate\Support\Str;
 
 class Addumatwire extends Component
 {
@@ -83,7 +84,7 @@ public function updated($fields) {
         $data_umat->branch_id = $this->kode_branch;
 
 
-        $data_umat->nama_umat = smartCapitalize($this->nama_umat);
+        $data_umat->nama_umat = Str::title($this->nama_umat);
 
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;

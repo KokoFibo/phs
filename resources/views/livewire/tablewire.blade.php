@@ -2,6 +2,8 @@
     {{-- @include('datapelita.viewModal') --}}
 
     @section('title', 'Main')
+    {{-- {{ dd($selectedAll) }} --}}
+    {{-- @dump($selectedId) --}}
 
 
 
@@ -146,7 +148,8 @@
                 @if ($selectedId != null)
                     <div class="w-full my-2 mr-3 md:w-1/5">
                         <button wire:click="excel" class="button button-teal">Excel</button>
-                        <button class="button button-red">PDF</button>
+                        <button wire:click="pdf" class="button button-red">PDF</button>
+                        <button wire:click="resetSelectedId" class="button button-purple">Reset</button>
                     </div>
                 @endif
 
@@ -166,25 +169,27 @@
     {{-- Table --}}
     <div class="p-4 ">
         <div class="rounded-lg shadow bg-gray-50">
-            @dump($selectAll)
-            @dump($selectedId)
+
             <table class="w-full">
                 <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
                     <tr>
                         {{-- <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th> --}}
-                        <th class="text-center border rounded"><input type="checkbox" wire:model="selectAll"
+                        {{-- <th class="text-center border rounded"><input type="checkbox" wire:model="selectAll"
                                 class=" checked:bg-white-500" />
-                        </th>
-                        <th class="p-3 text-sm font-semibold text-center">{{ __('#') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('NAMA') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('中文名') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('UMUR') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('TGL CHIU TAO') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('GENDER') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('PENGAJAK') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('PENJAMIN') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('PANDITA') }}</th>
-                        <th class="p-3 text-sm font-semibold text-left">{{ __('KOTA') }}</th>
+                        </th> --}}
+
+                        <th class="p-3 text-sm font-semibold text-center border rounded"></th>
+                        <th class="p-3 text-sm font-semibold text-center border rounded">{{ __('#') }}</th>
+                        {{-- <th class="p-3 text-sm font-semibold text-center border rounded">{{ __('id') }}</th> --}}
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('NAMA') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('中文名') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('UMUR') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('TGL CHIU TAO') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('GENDER') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('PENGAJAK') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('PENJAMIN') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('PANDITA') }}</th>
+                        <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('KOTA') }}</th>
 
                         <th class="p-3 text-sm font-semibold ">
                             <div class="flex justify-center space-x-1">
@@ -222,6 +227,9 @@
                             <td class="p-3 text-sm text-gray-800 border rounded">
                                 {{ $datapelita->firstItem() + $index }}
                             </td>
+                            {{-- <td class="p-3 text-sm text-center text-gray-800 border rounded">
+                                {{ $d->id }}
+                            </td> --}}
                             @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
                                 <td class="p-3 text-sm font-semibold text-purple-500 border rounded">
                                     {{ $d->nama_umat }}
@@ -252,6 +260,7 @@
                                 </td>
                             @endif
                             {{-- Mandarin End --}}
+
 
 
 

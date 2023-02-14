@@ -9,8 +9,9 @@ use App\Models\Branch;
 use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
-use Livewire\WithPagination;
+use Illuminate\Support\Arr;
 // use Maatwebsite\Excel\Excel;
+use Livewire\WithPagination;
 use App\Exports\DataPelitaExport;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -33,28 +34,37 @@ class Tablewire extends Component
     public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
     public $default;
     public $selectedId = [];
-    public $selectedAllId = [];
-    public $selectAll = false;
+    // public $selectedAll = [];
+    // public $selectAll = false;
     protected $listeners = ['delete'];
     // protected $listeners = ['resetfilter'];
 
 
     public function excel () {
-        return (new DataPelitaExport($this->selectedId))->download('datapelita.xlsx');
+        return (new DataPelitaExport($this->selectedId))->download('Data_pelita.xlsx');
 
-        // return (new InvoicesExport)->forYear(2018)->download('invoices.xlsx');
+    }
+    public function pdf () {
+        // return (new DataPelitaExport($this->selectedId))->download('Data_Pelita.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+        return (new DataPelitaExport($this->selectedId))->download('Data_pelita.pdf');
+    }
+
+    public function resetSelectedId () {
+        // return (new DataPelitaExport($this->selectedId))->download('Data_Pelita.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+        // return (new DataPelitaExport($this->selectedId))->download('Data_pelita.pdf');
+        $this->selectedId = [];
     }
     public function updatingSearch () {
         $this->resetPage();
     }
 
-    public function updatedSelectAll ($value) {
-        if ($value) {
-            $this->selectedId = DataPelita::pluck('id');
-        } else {
-            $this->selectedId = [];
-        }
-    }
+    // public function updatedSelectAll ($value) {
+    //     if ($value) {
+    //         $this->selectedId = DataPelita::pluck('id');
+    //     } else {
+    //         $this->selectedId = [];
+    //     }
+    // }
 
     public function resetFilter () {
         $this->perpage = 10;
@@ -341,6 +351,12 @@ class Tablewire extends Component
         $datacetya = Branch::find($this->kode_branch_view);
         $this->nama_cetya_view = $datacetya->nama_branch;
     }
+    // dibawah ini untuk masukin semua array ID hasil querry, tapi kebentur dengan pagination,still no solution
+    // foreach($datapelita as $d) {
+        // $this->selectedAll = Arr::prepend($this->selectedAll, $d->id);
+
+    // }
+
 
 
         return view('livewire.tablewire', compact(['datapelita', 'data_branch', 'all_branch', 'namaft', 'dp']))

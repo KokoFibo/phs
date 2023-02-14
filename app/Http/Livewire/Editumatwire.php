@@ -8,6 +8,7 @@ use App\Models\Branch;
 use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
+use Illuminate\Support\Str;
 
 class Editumatwire extends Component
 {
@@ -105,7 +106,8 @@ public function updated($fields) {
         $data_umat = DataPelita::find($this->current_id);
 
 
-        $data_umat->nama_umat = smartCapitalize($this->nama_umat);
+        $data_umat->nama_umat = Str::title($this->nama_umat);
+
 
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
