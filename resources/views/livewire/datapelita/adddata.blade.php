@@ -7,6 +7,7 @@
                     <h3>{{ __('Add Data') }}
                         <livewire:getbranchname :kode=$kode_branch>
 
+
                     </h3>
                 </div>
                 <div class="d-flex">

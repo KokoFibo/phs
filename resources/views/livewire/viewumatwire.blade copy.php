@@ -4,27 +4,17 @@
     <div
         class="flex items-center justify-between w-3/4 px-5 py-3 mx-auto mt-2 text-white bg-purple-500 shadow-lg rounded-xl">
         <div>
-            <h4>{{ __('Update Data') }}</h3>
+            <h4>{{ __('View Data') }}</h3>
         </div>
         <div>
 
             <h3 class="text-2xl">
-                {{ getBranch($branch_id) }}
-
-
+                <livewire:getbranchname :kode=$kode_branch>
             </h3>
 
         </div>
         <div class="flex gap-1">
 
-            <div>
-                <a href="/panditawire"><button class="button button-yellow">{{ __('Add Data Pandita') }}</button>
-                </a>
-            </div>
-            <div>
-                <a href="/datakotawire"><button class="button button-teal">{{ __('Add Data Kota') }}</button>
-                </a>
-            </div>
         </div>
     </div>
     <div
@@ -203,8 +193,6 @@
                 @enderror
             </div>
 
-
-
             <div class="mt-3">
                 <label class="px-2 text-sm" for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
                 <input id="tgl" type="date" wire:model="tgl_vtotal"
@@ -213,8 +201,6 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
-
-
             <div class="mt-3">
                 <label class="px-2 text-sm" for="nama">{{ __('Status') }}</label>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
@@ -228,39 +214,15 @@
             </div>
 
 
-            <div class="flex items-center justify-between w-full mt-9">
+
+            <div class="flex items-center justify-end w-full mt-9">
                 <div>
-                    <button class="mb-5 button button-purple" wire:click="update">{{ __('Update') }}</button>
-                </div>
-                <div>
-                    <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>
-                        {{ __('Back') }}</a>
-                    {{-- <button class="button button-orange">{{ __('Back') }}</button> --}}
+                    <a href="{{ route('main') }}"><button type="button" class="button button-purple"><i
+                                class="fa fa-circle-arrow-left"></i>
+                            {{ __('Back') }}</button></a>
                 </div>
             </div>
         </div>
     </div>
-    @push('script')
-        <script>
-            window.addEventListener('stored', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: e.detail.title,
-                    showConfirmButton: false,
-                    timer: 3000
-                });
-            });
 
-            window.addEventListener('updated', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Data Updated',
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-            });
-        </script>
-    @endpush
 </div>

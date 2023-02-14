@@ -24,9 +24,10 @@ class Dashboardwire extends Component
         $totalPandita = Pandita::all()->count();
         $totalBranch = Branch::all()->count();
         $totalUsers = User::all()->count();
+        $sd3h = DataPelita::where('tgl_sd3h','!=', null)->count();
+        $vtotal = DataPelita::where('tgl_vtotal','!=', null)->count();
 
-
-        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD','totalPandita', 'totalBranch', 'totalUsers']))
+        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD','totalPandita', 'totalBranch', 'totalUsers', 'sd3h','vtotal']))
         ->extends('layouts.main')
         ->section('content');
 

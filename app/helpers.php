@@ -1,8 +1,10 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\Kota;
 use App\Models\Kelas;
 use App\Models\Branch;
+use App\Models\Pandita;
 use App\Models\DataPelita;
 use App\Models\Daftarkelas;
 
@@ -58,9 +60,16 @@ if(!function_exists('getYear')) {
       }
 
       function getBranch($id) {
-        $data = Branch::find($id);
-        return $data->nama_branch;
-      }
+        if($id != null ){
+            $data = Branch::find($id);
+            return $data->nama_branch;
+
+        } else{
+            return 'Welcome';
+        }
+
+
+        }
 
       function getKelas($id) {
         $data = Kelas::find($id);
@@ -82,6 +91,18 @@ if(!function_exists('getYear')) {
         return $nama_branch->nama_branch;
 
       }
+
+      function getNamaKota($id){
+        $kota_id = Kota::find($id);
+        return $kota_id->nama_kota;
+      }
+
+      function getNamaPandita($id){
+        $pandita_id = Pandita::find($id);
+        return $pandita_id->nama_pandita;
+      }
+
+
 
       function smartCapitalize($name) {
         $str = strtolower($name);

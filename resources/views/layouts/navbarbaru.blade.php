@@ -94,7 +94,7 @@
         </div>
         <div>
             <div class="flex items-center space-x-10">
-                <h4>{{ Auth::user()->name }}</h4>
+                <h4>{{ Auth::user()->name }} ({{ roleCheck(Auth::user()->role) }})</h4>
                 <div x-data="{ open: false }" class="relative items-center">
                     <button @click="open=!open">
                         <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?rounded=true&length=1&background=random&font-size=.8"

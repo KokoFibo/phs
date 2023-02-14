@@ -11,12 +11,13 @@
     <div class="items-center w-full md:flex">
         <div class="w-3/4 mx-5 my-3">
             <div class="items-center md:flex">
+                {{-- Search --}}
                 <div class="w-full my-2 mr-3 md:w-1/5">
                     <input type="text" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded "
                         wire:model="search" placeholder="{{ __('Search') }}">
                 </div>
+                {{-- Category --}}
                 <div class="w-full my-2 mr-3 md:w-1/5">
-
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="category">
                         <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
@@ -26,8 +27,8 @@
                         <option value="kotas.nama_kota">{{ __('Kota') }}</option>
                     </select>
                 </div>
+                {{-- Rows per Page --}}
                 <div class="w-full my-2 mr-3 md:w-1/5">
-
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="perpage">
                         <option value="5">{{ __('5 Rows Per Page') }}</option>
@@ -37,8 +38,8 @@
                         <option value="25">{{ __('25 Rows Per Page') }}</option>
                     </select>
                 </div>
+                {{-- Filter Dropdown --}}
                 <div x-data="{ open: false }" class="w-full my-2 mr-3 md:w-1/5">
-
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
                         class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white"><i
                             class="fa fa-filter"></i>
@@ -157,10 +158,10 @@
         </div>
         {{-- nama cetya --}}
         <div class="w-1/2 mx-5 my-3">
-            <h1 class="text-3xl font-bold text-center text-purple-700">{{ $nama_cetya }} </h1>
+            {{-- kode_branch --}}
+            {{-- <h1 class="text-3xl font-bold text-center text-purple-700">{{ $nama_cetya }} </h1> --}}
+            <h1 class="text-3xl font-bold text-center text-purple-700">{{ getBranch($kode_branch) }} </h1>
         </div>
-
-
 
         {{-- End Search Bar --}}
 

@@ -35,16 +35,16 @@
         {{-- second row --}}
         <div class="flex flex-col items-center gap-2 mb-2 md:flex md:flex-row md:justify-evenly md:pt-10 ">
             <div>
-                <x-card smalltext="Pandita" bigtext="{{ $totalPandita }}" textcolor="text-indigo-500"
+                <x-card smalltext="Kelas 3 Hari" bigtext="{{ $sd3h }}" textcolor="text-indigo-500"
                     bordercolor="border-indigo-500" />
             </div>
 
             <div>
-                <x-card smalltext="Users" bigtext="{{ $totalUsers }}" textcolor="text-orange-500"
+                <x-card smalltext="V. Total" bigtext="{{ $vtotal }}" textcolor="text-orange-500"
                     bordercolor="border-orange-500" />
             </div>
             <div>
-                <x-card smalltext="Future Reserved" bigtext="{{ $umatActive }}" textcolor="text-teal-500"
+                <x-card smalltext="Users" bigtext="{{ $totalUsers }}" textcolor="text-teal-500"
                     bordercolor="border-teal-500" />
             </div>
 

@@ -9,7 +9,9 @@
         <div>
 
             <h3 class="text-2xl">
-                <livewire:getbranchname :kode=$kode_branch>
+                {{-- <livewire:getbranchname :kode=$kode_branch> --}}
+                {{ getBranch($kode_branch) }}
+
             </h3>
 
         </div>
