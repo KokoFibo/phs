@@ -1,5 +1,8 @@
 <div>
     @section('title', 'Registration')
+
+
+
     <div class="flex mx-2 mt-3 justify-evenly">
         @if ($is_edit == true || $is_reset == true)
             <div class="w-1/4">
@@ -64,7 +67,9 @@
         </div>
         <button wire:click="close" class="button button-teal">Back</button>
     </div>
+
 </div>
+
 {{-- JS utk Sweetalert Delete --}}
 @push('script')
     <script>

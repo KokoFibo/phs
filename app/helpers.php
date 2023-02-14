@@ -48,11 +48,11 @@ if(!function_exists('getYear')) {
       //       return 'hello';
       //       // return $branch->nama_branch;
       // }
-      function getNamaBranch() {
+    //   function getNamaBranch() {
 
-            return 'hello';
-            // return $branch->nama_branch;
-      }
+    //         return 'hello';
+    //         // return $branch->nama_branch;
+    //   }
 
       function getName($id) {
         $data = DataPelita::find($id);
@@ -102,6 +102,12 @@ if(!function_exists('getYear')) {
         return $pandita_id->nama_pandita;
       }
 
+      function getNamaKelas($id) {
+        $daftarkelas = Daftarkelas::find($id);
+        $kelas = Kelas::find($daftarkelas->kelas_id);
+        return $kelas->nama_kelas;
+
+      }
 
 
       function smartCapitalize($name) {
