@@ -11,6 +11,9 @@
                 <li>
                     <a href="{{ route('main') }}">{{ __('Main') }}</a>
                 </li>
+                <li>
+                    <a href="{{ route('chartjs') }}">{{ __('Chart JS') }}</a>
+                </li>
 
 
                 <li>

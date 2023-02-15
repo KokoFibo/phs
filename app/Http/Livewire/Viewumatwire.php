@@ -42,7 +42,7 @@ class Viewumatwire extends Component
           $this->tgl_sd3h = $data->tgl_sd3h;
           $this->tgl_vtotal = $data->tgl_vtotal;
         $this->status = $data->status;
-        $this->last_update = $data->updated_at;
+        $this->last_update = $data->updated_at->diffForHumans();
 
         $query = "";
         $nama = [];

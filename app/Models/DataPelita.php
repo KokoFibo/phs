@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DataPelita extends Model
 {
@@ -29,6 +30,10 @@ class DataPelita extends Model
         'branch_id'
     ];
 
+public function scopeGroupBaru (Builder $query) {
+    return $query;
+}
+
     public function branch()
     {
         return $this->belongsTo(Branch::class);
@@ -41,4 +46,6 @@ class DataPelita extends Model
     {
         return $this->belongsTo(Kota::class);
     }
+
+
 }

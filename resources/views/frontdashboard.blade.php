@@ -2,24 +2,27 @@
 {{-- <select wire:model="selectedBranch">
     <option value="">Pilih Cetya</option>
     @foreach ($branch as $b)
-        <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
+    <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
     @endforeach
 </select> --}}
 {{-- select box --}}
 <div class="relative inline-flex m-5">
-    <svg class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg"
+    <svg class="absolute top-0 right-0 w-2 h-2 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 412 232">
         <path
             d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z"
             fill="#648299" fill-rule="nonzero" />
     </svg>
+    <span>Pilih Cetya</span>
     <select wire:model="selectedBranch"
-        class="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-        <option value="">{{ __('Pilih Cetya') }}</option>
+        class="h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-full appearance-none hover:border-gray-400 focus:outline-none">
+        <label>Pilih Kelas</label>
+        <option value="">Pilih Cetya</option>
         @foreach ($branch as $b)
-            <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
+        <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
         @endforeach
     </select>
+
 </div>
 {{-- select box end --}}
 <div class="flex flex-col items-center gap-2 pt-5 mb-2 md:flex md:flex-row md:justify-evenly md:pt-10 ">
@@ -59,8 +62,7 @@
             bordercolor="border-orange-500" />
     </div>
     <div>
-        <x-card smalltext="Users" bigtext="{{ $totalUsers }}" textcolor="text-teal-500"
-            bordercolor="border-teal-500" />
+        <x-card smalltext="Users" bigtext="{{ $totalUsers }}" textcolor="text-teal-500" bordercolor="border-teal-500" />
     </div>
 
     <div>
@@ -76,7 +78,7 @@
 
 </div>
 {{-- Third row --}}
-<div class="flex flex-col items-center gap-2 mb-2 md:flex md:flex-row md:justify-evenly md:pt-10 ">
+{{-- <div class="flex flex-col items-center gap-2 mb-2 md:flex md:flex-row md:justify-evenly md:pt-10 ">
     <div>
         <x-card smalltext="Future Reserved" bigtext="{{ $totalBranch }}" textcolor="text-lime-500"
             bordercolor="border-lime-500" />
@@ -97,4 +99,4 @@
         <x-card smalltext="Umat {{ getYear() }}" bigtext="{{ $umatYTD }}" textcolor="text-yellow-500"
             bordercolor="border-yellow-500" />
     </div>
-</div>
+</div> --}}

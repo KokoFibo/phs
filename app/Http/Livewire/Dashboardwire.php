@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Branch;
+use App\Models\Absensi;
 use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
@@ -15,27 +16,79 @@ use Illuminate\Support\Facades\DB;
 
 class Dashboardwire extends Component
 {
+    public $dataAbsensi;
+    public $selected = 1;
+    // dari sini
     public $selectedBranch;
     public $selectedDaftarKelas_id = [];
+    public $selectedKelasId;
     public $totalUmat_sp;
+    public  $daftarKelasIdUpdate=2, $daftarkelas=[];
+    public $data;
 
     public function mount () {
         $this->selectedBranch=null;
+        $this->updateAbsensi();
+
+    }
+
+    public function updateAbsensi () {
+        $this->dataAbsensi = null;
+        $absensi = Absensi::where('daftarkelas_id',$this->selected)->get();
+        foreach($absensi as $a){
+            $data['label'][] = $a->tgl_kelas;
+            $data['data'][] = $a->jumlah_peserta;
+        }
+        $this->dataAbsensi = json_encode($data);
+
+}
+
+    public function kirimId($daftarKelasId)  {
+        $this->daftarKelasIdUpdate = $daftarKelasId;
     }
 
     public function updatedSelectedBranch () {
         $this->totalUmat_sp = DataPelita::where('branch_id',$this->selectedBranch)->count();
-        $daftarkelas = Daftarkelas::where('branch_id',$this->selectedBranch)->get();
+
+        $this->daftarkelas = Daftarkelas::where('branch_id',$this->selectedBranch)->get();
         $this->selectedDaftarKelas_id=[];
-        foreach($daftarkelas as $dk) {
-            $this->selectedDaftarKelas_id = Arr::prepend($this->selectedDaftarKelas_id, $dk->id);
+        foreach($this->daftarkelas as $dk) {
+            $this->selectedDaftarKelas_id[] =  $dk->id;
         }
 
+    }
+    public function updatedSelectedKelasId () {
+        $absensi = Absensi::where('daftarkelas_id',$this->selectedKelasId)->get();
+        foreach($absensi as $a){
+            $this->data['label'][] = $a->tgl_kelas;
+            $this->data['data'][] = $a->jumlah_peserta;
+        }
+        $this->dataAbsensi = json_encode($this->data);
+        $this->emit('berubah', $this->selectedKelasId);
+    }
+
+    public function tampilchart () {
+
+        $absensi = Absensi::where('daftarkelas_id',$this->selectedKelasId)->get();
+        foreach($absensi as $a){
+            $this->data['label'][] = $a->tgl_kelas;
+            $this->data['data'][] = $a->jumlah_peserta;
+        }
+        $this->dataAbsensi = json_encode($this->data);
+    }
+    public function updatedSelected () {
+
+        $this->updateAbsensi();
+        $this->emit('updatedata', ['data' => $this->dataAbsensi]);
 
     }
 
     public function render()
     {
+
+
+
+
         if($this->selectedBranch == null){
             $thisYear = getYear();
             $totalUmat = DataPelita::count();

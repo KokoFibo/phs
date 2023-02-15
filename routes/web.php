@@ -6,6 +6,7 @@ use App\Models\Propinsi;
 use App\Models\DataPelita;
 use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
+use App\Http\Livewire\Chartjswr;
 use App\Http\Livewire\Tablewire;
 use App\Http\Livewire\Branchwire;
 use App\Http\Livewire\Absensiwire;
@@ -70,6 +71,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
         Route::get('/main1', Data::class)->name('main');
         Route::get('/main', Tablewire::class)->name('main');
+        Route::get('/chartjs', Chartjswr::class)->name('chartjs');
         Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
         Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
         Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('editdata');
@@ -110,7 +112,7 @@ Route::middleware(['auth'])->group(function () {
                 if($gender_before == '1' || $gender_before == '2' ) {
                     $is_save = true;
                 }
-                
+
                 if($is_save) {
                     $d->save();
                     $is_save = false;
