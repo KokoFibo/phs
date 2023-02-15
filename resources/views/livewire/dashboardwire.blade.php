@@ -10,8 +10,10 @@
 
 
       <div x-data="{ open : false}">
+            @if ($selectedBranch != null)
 
-            <span><button @click="open = !open" wire:click="tampilchart" class="button button-teal">Tampilkan Chart</button></span>
+            <span><button @click="open = !open" wire:click="tampilchart" class="p-3 m-5 button button-teal">Tampilkan Chart</button></span>
+            @endif
             <div x-show="open">
 
                   {{-- select box --}}
@@ -33,10 +35,15 @@
                   {{-- select box end --}}
 
                   {{-- <button wire:click="ubahChart" class="button button-teal">Ubah Chart</button> --}}
-                  <div class="mt-5 bg-white w-72">
-
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                  <div class="w-[800px] mx-auto mt-5  bg-white rounded-xl shadow-2xl p-5">
+                        <h2 class="p-5 text-2xl text-center text-purple-500">{{ getNamaCetya($selected) }} - {{ getNamaKelas($selected) }}</h2>
+                        <canvas id="myChart" width="800" height="500"></canvas>
                   </div>
+                  <div class=h-72">
+                        hello
+                  </div>
+
+
                   {{-- untuk panggil chart END --}}
             </div>
             {{-- untuk panggil chart --}}

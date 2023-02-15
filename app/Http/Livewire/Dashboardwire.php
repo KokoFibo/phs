@@ -40,7 +40,6 @@ class Dashboardwire extends Component
             $data['data'][] = $a->jumlah_peserta;
         }
         $this->dataAbsensi = json_encode($data);
-
 }
 
     public function kirimId($daftarKelasId)  {

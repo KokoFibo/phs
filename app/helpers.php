@@ -106,7 +106,12 @@ if(!function_exists('getYear')) {
         $daftarkelas = Daftarkelas::find($id);
         $kelas = Kelas::find($daftarkelas->kelas_id);
         return $kelas->nama_kelas;
+      }
 
+      function getNamaCetya($id) {
+        $daftarkelas = Daftarkelas::find($id);
+        $cetya = Branch::find($daftarkelas->branch_id);
+        return $cetya->nama_branch;
       }
 
 
