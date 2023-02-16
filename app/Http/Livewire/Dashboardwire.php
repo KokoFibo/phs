@@ -12,29 +12,58 @@ use App\Models\DataPelita;
 use App\Models\Daftarkelas;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 
 class Dashboardwire extends Component
 {
     public $dataAbsensi;
-    public $selected = 1;
+    public $selected  ;
     // dari sini
     public $selectedBranch;
     public $selectedDaftarKelas_id = [];
     public $selectedKelasId;
     public $totalUmat_sp;
     public  $daftarKelasIdUpdate=2, $daftarkelas=[];
-    public $data;
+    public $data, $years;
+
+    // $now = Carbon::now();
+    //     $tahun = $now->year;
+    // public $selectedYear = date('Y', strtotime($tgl));
+    public $selectedYear;
 
     public function mount () {
-        $this->selectedBranch=null;
+
+
+        if(Auth::user()->role != 3) {
+            $this->selectedBranch=Auth::user()->branch_id;
+        } else {
+            $this->selectedBranch=null;
+        }
+        $this->selected = Auth::user()->branch_id;
+
+        $this->isiPilihKelas ();
+        $this->selectedYear = date('Y');
         $this->updateAbsensi();
+        $this->getYears();
 
     }
 
     public function updateAbsensi () {
+        if ($this->selectedYear == null) {
+            $this->selectedYear = date('Y');
+        }
+        if($this->selected == null) {
+            $this->selected = 1;
+
+        }
+
         $this->dataAbsensi = null;
-        $absensi = Absensi::where('daftarkelas_id',$this->selected)->get();
+        $absensi = Absensi::query()
+        ->whereYear('tgl_kelas',$this->selectedYear)
+        ->orderBy('tgl_kelas', 'asc')
+        ->where('daftarkelas_id',$this->selected)
+        ->get();
         foreach($absensi as $a){
             $data['label'][] = $a->tgl_kelas;
             $data['data'][] = $a->jumlah_peserta;
@@ -47,8 +76,21 @@ class Dashboardwire extends Component
     }
 
     public function updatedSelectedBranch () {
+
+        $dataPertama = Daftarkelas::where('branch_id', $this->selectedBranch)->first();
+        // dd($dataPertama->id);
+        $this->selected = $dataPertama->id;
+        $this->selectedYear = date('Y');
+        $this->getYears();
+
         $this->totalUmat_sp = DataPelita::where('branch_id',$this->selectedBranch)->count();
 
+        $this->isiPilihKelas ();
+
+
+
+    }
+    public function isiPilihKelas () {
         $this->daftarkelas = Daftarkelas::where('branch_id',$this->selectedBranch)->get();
         $this->selectedDaftarKelas_id=[];
         foreach($this->daftarkelas as $dk) {
@@ -77,8 +119,22 @@ class Dashboardwire extends Component
     }
     public function updatedSelected () {
 
+
+        $this->getYears();
+        $this->selectedYear = date('Y');
         $this->updateAbsensi();
         $this->emit('updatedata', ['data' => $this->dataAbsensi]);
+
+    }
+    public function updatedSelectedYear () {
+        $this->getYears();
+
+        $this->updateAbsensi();
+        $this->emit('updatedata', ['data' => $this->dataAbsensi]);
+
+    }
+    public function getYears () {
+        $this->years = Absensi::orderBy('tgl_kelas','asc')->where('daftarkelas_id',$this->selected)->distinct()->get([DB::raw('YEAR(tgl_kelas) as year')]);
 
     }
 
@@ -116,6 +172,10 @@ class Dashboardwire extends Component
             $vtotal = DataPelita::where('branch_id',$this->selectedBranch)->where('tgl_vtotal','!=', null)->count();
             $branch = Branch::all();
         }
+
+        // $tahun = Absensi::distinct()->get(['tgl_kelas']);
+        // $years = Absensi::orderBy('tgl_kelas','asc')->where('daftarkelas_id',$this->selected)->whereNotNull('tgl_kelas')->distinct()->get([DB::raw('YEAR(tgl_kelas) as year')]);
+
 
 
         return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD','totalPandita',

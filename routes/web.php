@@ -71,7 +71,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
         Route::get('/main1', Data::class)->name('main');
         Route::get('/main', Tablewire::class)->name('main');
-        Route::get('/chartjs', Chartjswr::class)->name('chartjs');
         Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
         Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
         Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('editdata');
@@ -119,7 +118,7 @@ Route::middleware(['auth'])->group(function () {
                     $gender_before=null;
                 }
             }
-            session()->flash('message', 'Seluruh Data Umur dan gender Umat Sudah di Reset');
+            // session()->flash('message', 'Seluruh Data Umur dan gender Umat Sudah di Reset');
             return redirect(route('main'));
         })->name('resetumur');
 

@@ -55,4 +55,11 @@
     .button-orange:hover {
         @apply text-black bg-orange-600;
     }
+
+    .active {
+        @apply font-semibold border-b-2;
+    }
+    .active1 {
+        @apply text-lg font-semibold text-pink-500;
+    }
 }

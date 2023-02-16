@@ -243,102 +243,112 @@ class Tablewire extends Component
 
     if($this->default == false || $this->search != '') {
 
-        $datapelita = DataPelita::query()
+        $datapelita = DB::table('data_pelitas')
+        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->branch_id, function($query){
-            $query->where('branch_id', $this->branch_id );
+            $query->where('data_pelitas.branch_id', $this->branch_id );
         })
         ->when($this->startUmur, function($query){
-            $query->where('umur_sekarang', '>=', $this->startUmur );
+            $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
         })
         ->when($this->endUmur, function($query){
-            $query->where('umur_sekarang', '<=', $this->endUmur );
+            $query->where('data_pelitas.umur_sekarang', '<=', $this->endUmur );
         })
         ->when($this->startDate, function($query){
-            $query->where('tgl_mohonTao', '>=', $this->startDate );
+            $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate );
         })
         ->when($this->endDate, function($query){
-            $query->where('tgl_mohonTao', '<=', $this->endDate );
+            $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate );
         })
         ->when($this->jen_kel, function($query){
-            $query->where('gender',  $this->jen_kel );
+            $query->where('data_pelitas.gender',  $this->jen_kel );
         })
         ->when($this->status, function($query){
-            $query->where('status',  $this->status );
+            $query->where('data_pelitas.status',  $this->status );
         })
         ->when($this->tgl_sd3h, function($query){
-            $query->where('tgl_sd3h',  '!=', null );
+            $query->where('data_pelitas.tgl_sd3h', '!=', null );
         })
         ->when($this->tgl_vtotal, function($query){
-            $query->where('tgl_vtotal',  '!=', null );
-        })->paginate($this->perpage);
+            $query->where('data_pelitas.tgl_vtotal',  '!=', null );
+        })
+        ->paginate($this->perpage);
 
 
     } elseif ($this->default == false && $this->search == ''){
-        $datapelita = DataPelita::query()
+        $datapelita = DB::table('data_pelitas')
+        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->branch_id, function($query){
-            $query->where('branch_id', $this->branch_id );
+            $query->where('data_pelitas.branch_id', $this->branch_id );
         })
         ->when($this->startUmur, function($query){
-            $query->where('umur_sekarang', '>=', $this->startUmur );
+            $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
         })
         ->when($this->endUmur, function($query){
-            $query->where('umur_sekarang', '<=', $this->endUmur );
+            $query->where('data_pelitas.umur_sekarang', '<=', $this->endUmur );
         })
         ->when($this->startDate, function($query){
-            $query->where('tgl_mohonTao', '>=', $this->startDate );
+            $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate );
         })
         ->when($this->endDate, function($query){
-            $query->where('tgl_mohonTao', '<=', $this->endDate );
+            $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate );
         })
         ->when($this->jen_kel, function($query){
-            $query->where('gender',  $this->jen_kel );
+            $query->where('data_pelitas.gender',  $this->jen_kel );
         })
         ->when($this->status, function($query){
-            $query->where('status',  $this->status );
+            $query->where('data_pelitas.status',  $this->status );
         })
         ->when($this->tgl_sd3h, function($query){
-            $query->where('tgl_sd3h', '!=', null );
+            $query->where('data_pelitas.tgl_sd3h', '!=', null );
         })
         ->when($this->tgl_vtotal, function($query){
-            $query->where('tgl_vtotal',  '!=', null );
+            $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
         ->paginate($this->perpage);
     }
     // yg ini
     elseif ($this->default == true && $this->search != ''){
-        $datapelita = DataPelita::query()
+        $datapelita = DB::table('data_pelitas')
+        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->branch_id, function($query){
-            $query->where('branch_id', $this->branch_id );
+            $query->where('data_pelitas.branch_id', $this->branch_id );
         })
         ->when($this->startUmur, function($query){
-            $query->where('umur_sekarang', '>=', $this->startUmur );
+            $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
         })
         ->when($this->endUmur, function($query){
-            $query->where('umur_sekarang', '<=', $this->endUmur );
+            $query->where('data_pelitas.umur_sekarang', '<=', $this->endUmur );
         })
         ->when($this->startDate, function($query){
-            $query->where('tgl_mohonTao', '>=', $this->startDate );
+            $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate );
         })
         ->when($this->endDate, function($query){
-            $query->where('tgl_mohonTao', '<=', $this->endDate );
+            $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate );
         })
         ->when($this->jen_kel, function($query){
-            $query->where('gender',  $this->jen_kel );
+            $query->where('data_pelitas.gender',  $this->jen_kel );
         })
         ->when($this->status, function($query){
-            $query->where('status',  $this->status );
+            $query->where('data_pelitas.status',  $this->status );
         })
         ->when($this->tgl_sd3h, function($query){
-            $query->where('tgl_sd3h', '!=', null );
+            $query->where('data_pelitas.tgl_sd3h', '!=', null );
         })
         ->when($this->tgl_vtotal, function($query){
-            $query->where('tgl_vtotal',  '!=', null );
+            $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
         ->paginate($this->perpage);
     }
@@ -351,35 +361,38 @@ class Tablewire extends Component
         //     $query->where('branch_id', $this->branch_id );
         // })
         // ->paginate($this->perpage);
-        $datapelita = DataPelita::query()
+        $datapelita = DB::table('data_pelitas')
+        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->branch_id, function($query){
-            $query->where('branch_id', $this->branch_id );
+            $query->where('data_pelitas.branch_id', $this->branch_id );
         })
         ->when($this->startUmur, function($query){
-            $query->where('umur_sekarang', '>=', $this->startUmur );
+            $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
         })
         ->when($this->endUmur, function($query){
-            $query->where('umur_sekarang', '<=', $this->endUmur );
+            $query->where('data_pelitas.umur_sekarang', '<=', $this->endUmur );
         })
         ->when($this->startDate, function($query){
-            $query->where('tgl_mohonTao', '>=', $this->startDate );
+            $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate );
         })
         ->when($this->endDate, function($query){
-            $query->where('tgl_mohonTao', '<=', $this->endDate );
+            $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate );
         })
         ->when($this->jen_kel, function($query){
-            $query->where('gender',  $this->jen_kel );
+            $query->where('data_pelitas.gender',  $this->jen_kel );
         })
         ->when($this->status, function($query){
-            $query->where('status',  $this->status );
+            $query->where('data_pelitas.status',  $this->status );
         })
         ->when($this->tgl_sd3h, function($query){
-            $query->where('tgl_sd3h', '!=', null );
+            $query->where('data_pelitas.tgl_sd3h', '!=', null );
         })
         ->when($this->tgl_vtotal, function($query){
-            $query->where('tgl_vtotal',  '!=', null );
+            $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
         ->paginate($this->perpage);
 
