@@ -5,16 +5,20 @@ namespace App\Http\Livewire;
 use Auth;
 use Carbon\Carbon;
 use App\Models\Kota;
+use Livewire\Request;
 use App\Models\Branch;
 use App\Models\Pandita;
+// use Barryvdh\DomPDF\PDF;
 use Livewire\Component;
+// use Maatwebsite\Excel\Excel;
 use App\Models\DataPelita;
 use Illuminate\Support\Arr;
-// use Maatwebsite\Excel\Excel;
 use Livewire\WithPagination;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\DataPelitaExport;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+
 
 
 class Tablewire extends Component
@@ -40,14 +44,28 @@ class Tablewire extends Component
     // protected $listeners = ['resetfilter'];
 
 
+
+    public function pdfdom () {
+         $datapelita = DataPelita::whereIn('id',$this->selectedId)->get();
+
+        $pdfContent = PDF::loadView('datapelitapdf', ['datapelita'=>$datapelita])->setPaper('a4', 'landscape')->output();
+        return response()->streamDownload(
+             fn () => print($pdfContent),
+             "pelita-hati.pdf"
+        );
+
+        return response()->streamDownload(function () {
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadHTML('<h1>Test</h1>');
+            echo $pdf->stream();
+        }, 'test.pdf');
+    }
     public function excel () {
+
         return (new DataPelitaExport($this->selectedId))->download('Data_pelita.xlsx');
 
     }
-    public function pdf () {
-        // return (new DataPelitaExport($this->selectedId))->download('Data_Pelita.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
-        return (new DataPelitaExport($this->selectedId))->download('Data_pelita.pdf');
-    }
+
 
     public function resetSelectedId () {
         // return (new DataPelitaExport($this->selectedId))->download('Data_Pelita.pdf', \Maatwebsite\Excel\Excel::DOMPDF);

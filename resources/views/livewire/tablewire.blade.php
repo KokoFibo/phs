@@ -150,7 +150,7 @@
       @if ($selectedId != null)
       <div class="flex items-center w-full gap-2 px-5 mt-3 md:w-1/2">
             <button wire:click="excel" class="button button-teal">Excel</button>
-            <button wire:click="pdf" class="button button-red">PDF</button>
+            <button wire:click="pdfdom" class="button button-red">PDF</button>
             <button wire:click="resetSelectedId" class="button button-purple">Reset</button>
             <p class="text-lg font-semibold text-purple-500">{{ count($selectedId)}} Data Selected</p>
       </div>
@@ -162,25 +162,25 @@
                   <table class="w-full">
                         <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
                               <tr>
-                                    {{-- <th class="p-3 text-sm font-semibold text-left">{{ __('#') }}</th> --}}
+                                    {{-- <th class="p-3 font-semibold text-left">{{ __('#') }}</th> --}}
                                     {{-- <th class="text-center border rounded"><input type="checkbox" wire:model="selectAll"
                                 class=" checked:bg-white-500" />
                         </th> --}}
 
-                                    <th class="p-3 text-sm font-semibold text-center border rounded"></th>
-                                    <th class="p-3 text-sm font-semibold text-center border rounded">{{ __('#') }}</th>
-                                    {{-- <th class="p-3 text-sm font-semibold text-center border rounded">{{ __('id') }}</th> --}}
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('NAMA') }}</th>
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('中文名') }}</th>
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('UMUR') }}</th>
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('TGL CHIU TAO') }}</th>
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('GENDER') }}</th>
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('PENGAJAK') }}</th>
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('PENJAMIN') }}</th>
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('PANDITA') }}</th>
-                                    <th class="p-3 text-sm font-semibold text-left border rounded">{{ __('KOTA') }}</th>
+                                    <th class="p-3 font-semibold text-center border rounded cursor-pointer" "></th>
+                                    <th class=" p-3 font-semibold text-center border rounded cursor-pointer " ">{{ __('#') }}</th>
+                                    {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" ">{{ __('id') }}</th> --}}
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer " wire:click="sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('mandarin')">{{ __('中文名') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('umur_sekarang') ">{{ __('UMUR') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('tgl_mohonTao')">{{ __('TGL CHIU TAO') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('gender')">{{ __('GENDER') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('pengajak')">{{ __('PENGAJAK') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('penjamin')">{{ __('PENJAMIN') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('nama_pandita')">{{ __('PANDITA') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('nama_kota')">{{ __('KOTA') }}</th>
 
-                                    <th class="p-3 text-sm font-semibold ">
+                                    <th class="p-3 font-semibold ">
                                           <div class="flex justify-center space-x-1">
 
                                                 @if ($kode_branch != '')
@@ -213,15 +213,15 @@
                                     <td class="p-3 text-gray-800 border rounded">
                                           {{ $datapelita->firstItem() + $index }}
                                     </td>
-                                    {{-- <td class="p-3 text-sm text-center text-gray-800 border rounded">
+                                    {{-- <td class="p-3 text-center text-gray-800 border rounded">
                             {{ $d->id }}
                                     </td> --}}
                                     @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
-                                    <td class="p-3 text-sm font-semibold text-purple-500 border rounded">
+                                    <td class="p-3 font-semibold text-purple-500 border rounded">
                                           {{ $d->nama_umat }}
                                     </td>
                                     @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
-                                    <td class="p-3 text-sm font-semibold text-teal-500 border rounded">
+                                    <td class="p-3 font-semibold text-teal-500 border rounded">
                                           {{ $d->nama_umat }}
                                     </td>
                                     @else
@@ -233,11 +233,11 @@
                                     {{-- Mandarin --}}
 
                                     @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
-                                    <td class="p-3 text-sm font-semibold text-purple-500 border rounded">
+                                    <td class="p-3 font-semibold text-purple-500 border rounded">
                                           {{ $d->mandarin }}
                                     </td>
                                     @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
-                                    <td class="p-3 text-sm font-semibold text-teal-500 border rounded">
+                                    <td class="p-3 font-semibold text-teal-500 border rounded">
                                           {{ $d->mandarin }}
                                     </td>
                                     @else
@@ -250,13 +250,13 @@
 
 
 
-                                    <td class="p-3 text-sm text-center text-gray-800 border rounded">
+                                    <td class="p-3 text-center text-gray-800 border rounded">
                                           {{ $d->umur_sekarang }}
                                     </td>
 
                                     <td class="p-3 text-gray-800 border rounded">
                                           {{ $d->tgl_mohonTao }}</td>
-                                    <td class="p-3    border rounded {{ $d->gender == 'Laki-laki' ? 'text-blue-500' : 'text-pink-500' }} text-center">
+                                    <td class="p-3    border rounded {{ $d->gender == 'Laki-laki' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                                           {{ check_JK($d->gender, $d->umur_sekarang) }}
                                     </td>
                                     {{-- <td class="p-3 text-gray-800 border rounded">{{ $d->pengajak_id }} --}}

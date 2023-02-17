@@ -8,6 +8,7 @@ use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use App\Http\Livewire\Chartjswr;
 use App\Http\Livewire\Tablewire;
+use App\Http\Controllers\TestPdf;
 use App\Http\Livewire\Branchwire;
 use App\Http\Livewire\Absensiwire;
 use App\Http\Livewire\Addumatwire;
@@ -122,7 +123,7 @@ Route::middleware(['auth'])->group(function () {
             return redirect(route('main'));
         })->name('resetumur');
 
+
     });
-
-
+    Route::get('/testpdf', [TestPdf::class, 'index']);
 });
