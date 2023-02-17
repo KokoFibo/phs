@@ -36,7 +36,7 @@ class Editumatwire extends Component
         'pandita_id' => 'required',
         'tgl_mohonTao' => 'nullable|date|before:tomorrow',
         'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao|before:tomorrow',
-        'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_sd3h|before:tomorrow',
+        'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_sd3h|before:tomorrow|prohibited_if:tgl_sd3h,=,null',
         'status' => 'nullable',
 ];
 

@@ -68,7 +68,7 @@
                                           </li>
 
                                           <li class="py-2 my-2 hover:bg-gray-200 ">
-                                                <a class="" href="{{ route('resetumur') }}">{{ __('Reset Umur') }}</a>
+                                                <a class="" href="{{ route('resetumur') }}">{{ __('Reset All') }}</a>
                                           </li>
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'panditawire' == request()->path() ? 'active1' : ''  }}">
                                                 <a class="" href="{{ route('panditawire') }}">{{ __('Tambah Data Pandita') }}</a>
