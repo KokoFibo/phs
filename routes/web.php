@@ -6,6 +6,7 @@ use App\Models\Propinsi;
 use App\Models\DataPelita;
 use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
+use App\Http\Livewire\Testaja;
 use App\Http\Livewire\Chartjswr;
 use App\Http\Livewire\Tablewire;
 use App\Http\Controllers\TestPdf;
@@ -124,6 +125,6 @@ Route::middleware(['auth'])->group(function () {
         })->name('resetumur');
 
 
+
     });
-    Route::get('/testpdf', [TestPdf::class, 'index']);
 });

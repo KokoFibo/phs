@@ -22,16 +22,16 @@
                                     <ul class="w-32 mx-5 divide-y">
                                           @if (Auth::user()->role == '3')
                                           <li class="py-2 my-2  hover:bg-gray-200 {{ 'tambahkelas' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="dropdown-item" href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
+                                                <a class="block dropdown-item" href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
                                           </li>
                                           @endif
                                           @if (Auth::user()->role == '2' || Auth::user()->role == '3')
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'daftarkelas' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
+                                                <a class="block dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
                                           </li>
                                           @endif
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</a>
+                                                <a class="block dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</a>
                                           </li>
 
 
@@ -53,28 +53,28 @@
 
                                                 @if (app()->getLocale() == 'id')
                                                 {{-- <a class="dropdown-item" href="{{ url('locale/en') }}">{{ __('english') }}</a> --}}
-                                                <a class="dropdown-item" href="{{ url('locale/cn') }}">{{ __('中文') }}</a>
+                                                <a class="block dropdown-item" href="{{ url('locale/cn') }}">{{ __('中文') }}</a>
                                                 @endif
 
                                                 @if (app()->getLocale() == 'cn')
-                                                <a class="dropdown-item" href="{{ url('locale/id') }}">{{ __('Indonesia') }}</a>
+                                                <a class="block dropdown-item" href="{{ url('locale/id') }}">{{ __('Indonesia') }}</a>
                                                 @endif
 
 
                                           </li>
                                           {{-- language-end --}}
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'branch' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="" href="{{ route('branchwire') }}">{{ __('Branch') }}</a>
+                                                <a class="block" href="{{ route('branchwire') }}">{{ __('Branch') }}</a>
                                           </li>
 
                                           <li class="py-2 my-2 hover:bg-gray-200 ">
-                                                <a class="" href="{{ route('resetumur') }}">{{ __('Reset All') }}</a>
+                                                <a class="block" href="{{ route('resetumur') }}">{{ __('Reset All') }}</a>
                                           </li>
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'panditawire' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="" href="{{ route('panditawire') }}">{{ __('Tambah Data Pandita') }}</a>
+                                                <a class="block" href="{{ route('panditawire') }}">{{ __('Tambah Data Pandita') }}</a>
                                           </li>
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'datakotawire' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="" href="{{ route('datakotawire') }}">{{ __('Tambah Data Kota') }}</a>
+                                                <a class="block" href="{{ route('datakotawire') }}">{{ __('Tambah Data Kota') }}</a>
                                           </li>
                                     </ul>
                               </div>
@@ -93,15 +93,15 @@
                         <div x-show="open" x-cloak @click.away="open = false" x-transition class="absolute right-0 z-10 py-1 pb-3 text-purple-700 bg-white border top-11 rounded-xl ">
                               <ul class="w-40 mx-5 text-gray-700 divide-y">
                                     <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
-                                          <a href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
+                                          <a class="block" href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
                                     </li>
                                     @if (Auth::user()->role == '2' || Auth::user()->role == '3')
                                     <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
-                                          <a href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
+                                          <a class="block" href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
                                     </li>
                                     @endif
                                     <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
-                                          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                          <a class="block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                                                 @csrf
                                           </form>

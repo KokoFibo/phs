@@ -149,8 +149,8 @@
       {{-- export Excel $ PDF --}}
       @if ($selectedId != null)
       <div class="flex items-center w-full gap-2 px-5 mt-3 md:w-1/2">
-            <button wire:click="excel" class="button button-teal">Excel</button>
-            <button wire:click="pdfdom" class="button button-red">PDF</button>
+            <button wire:click="excel" wire:loading.attr="disabled" class="button button-teal">Excel</button>
+            <button wire:click="pdfdom" wire:loading.attr="disabled" class="button button-red">PDF</button>
             <button wire:click="resetSelectedId" class="button button-purple">Reset</button>
             <p class="text-lg font-semibold text-purple-500">{{ count($selectedId)}} Data Selected</p>
       </div>

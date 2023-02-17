@@ -100,6 +100,7 @@ class Tablewire extends Component
         $this->branch_id="";
         $this->resetPage();
         $this->default = true;
+        $this->selectedId = [];
         $this->dispatchBrowserEvent('resetfield');
 
     }
