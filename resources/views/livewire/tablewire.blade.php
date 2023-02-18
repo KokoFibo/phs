@@ -8,7 +8,7 @@
                   <div class="items-center md:flex">
                         {{-- Search --}}
                         <div class="w-full mt-3 mr-3 md:w-1/5">
-                              <input type="text" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded " wire:model="search" placeholder="{{ __('Search') }}">
+                              <input type="text" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded " wire:model="search" placeholder="{{ __('Search...') }}">
                         </div>
                         {{-- Category --}}
                         <div class="w-full mt-3 mr-3 md:w-1/5">
