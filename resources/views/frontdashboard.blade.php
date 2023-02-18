@@ -34,7 +34,7 @@
             <x-card smalltext="Umat" bigtext="{{ $totalUmat }}" textcolor="text-purple-500" bordercolor="border-purple-500" />
       </div>
       <div>
-            <x-card smalltext="UmatActive" bigtext="{{ $umatActive }}" textcolor="text-green-500" bordercolor="border-green-500" />
+            <x-card smalltext="Umat Active" bigtext="{{ $umatActive }}" textcolor="text-green-500" bordercolor="border-green-500" />
       </div>
 
       <div>
