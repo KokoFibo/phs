@@ -89,15 +89,15 @@
                         </button>
                         <div x-show="open" x-cloak @click.away="open = false" x-transition class="absolute right-0 z-10 py-1 pb-3 text-purple-700 bg-white border top-11 rounded-xl ">
                               <ul class="w-40 mx-5 text-gray-700 divide-y">
-                                    <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
+                                    <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                           <a class="block" href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
                                     </li>
                                     @if (Auth::user()->role == '2' || Auth::user()->role == '3')
-                                    <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
+                                    <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                           <a class="block" href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
                                     </li>
                                     @endif
-                                    <li class="py-2 my-2 text-center text-black hover:bg-gray-100">
+                                    <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                           <a class="block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                                                 @csrf
