@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Auth;
 use App\Models\Kelas;
 use App\Models\Branch;
 use Livewire\Component;
@@ -42,7 +43,13 @@ class Daftarkelaswire extends Component
         if($this->checkDuplicate() == false){
             $data = new Daftarkelas();
             $data->kelas_id = $this->kelas_id;
-            $data->branch_id = $this->branch_id;
+            if(Auth::user()->role != 3) {
+                $data->branch_id = Auth::user()->branch_id;
+            }
+            else {
+                $data->branch_id = $this->branch_id;
+            }
+
             $data->save();
             $this->updateKelas();
             $this->clear_fields();
@@ -82,17 +89,10 @@ class Daftarkelaswire extends Component
             $this->dispatchBrowserEvent('deleted');
         } else {
             session()->flash('message', 'Data TIDAK di Delete');
-
         }
 
-
      }
-
-
-
     public function edit ($id) {
-
-
         $this->id_daftarkelas = $id;
         $data = Daftarkelas::find($id);
         $this->kelas_id = $data->kelas_id;
@@ -121,16 +121,25 @@ class Daftarkelaswire extends Component
         $this->dispatchBrowserEvent('updated');
         } else {
             $this->dispatchBrowserEvent('duplicate');
-
         }
-
     }
-
 
     public function render()
     {
-        $daftarkelas = Daftarkelas::orderBy('id', 'asc')->paginate(5);
+        if ( Auth::user()->role == 3 ) {
+
+            $daftarkelas = Daftarkelas::orderBy('id', 'asc')
+            ->paginate(5);
+        } else {
+            $daftarkelas = Daftarkelas::orderBy('id', 'asc')
+            ->where('branch_id', Auth::user()->branch_id)
+            ->paginate(5);
+
+        }
+
+
         $kelas = Kelas::all();
+
         $branch = Branch::all();
 
         return view('livewire.daftarkelaswire', compact(['daftarkelas', 'branch', 'kelas']))

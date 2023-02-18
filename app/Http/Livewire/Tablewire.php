@@ -434,7 +434,7 @@ class Tablewire extends Component
         $datacetya = Branch::find($this->kode_branch);
         $this->nama_cetya = $datacetya->nama_branch;
     } else {
-        $datacetya = Branch::find(auth::user()->branch_id);
+        $datacetya = Branch::find(Auth::user()->branch_id);
         $this->nama_cetya = $datacetya->nama_branch;
 
         // $this->nama_cetya = "Welcome";

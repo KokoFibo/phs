@@ -9,11 +9,8 @@
                         <a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
                   </li>
                   <li class="{{ 'main' == request()->path() ? 'active' : ''  }}">
-                        <a href="{{ route('main') }}">{{ __('Main') }}</a>
+                        <a href="{{ route('main') }}">{{ __('Data Umat') }}</a>
                   </li>
-
-
-
                   <li>
                         <div x-data="{ open: false }">
                               <button @click="open = !open" class="{{ 'tambahkelas' == request()->path() || 'daftarkelas' == request()->path() || 'absensi' == request()->path() ? 'active' : ''  }}">{{ __('Kelas Pendalaman') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
