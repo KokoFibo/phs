@@ -64,7 +64,7 @@
                                           </li>
                                           {{-- language-end --}}
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'branch' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="block" href="{{ route('branchwire') }}">{{ __('Branch') }}</a>
+                                                <a class="block" href="{{ route('branchwire') }}">{{ __('Tambah Data Cetya') }}</a>
                                           </li>
 
                                           <li class="py-2 my-2 hover:bg-gray-200 ">
