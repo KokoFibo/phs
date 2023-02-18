@@ -144,7 +144,7 @@ class Absensiwire extends Component
             $absensi = DB::table('daftarkelas')
             ->join('absensis', 'daftarkelas.id','=','absensis.daftarkelas_id')
             ->select('daftarkelas.*','absensis.*')
-            ->where('daftarkelas.branch_id',Auth::user()->role)
+            ->where('daftarkelas.branch_id',Auth::user()->branch_id)
             ->paginate(5);
             $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('branch_id', Auth::user()->branch_id)->get();
         } else {
