@@ -124,7 +124,7 @@ Route::middleware(['auth'])->group(function () {
             return redirect(route('main'));
         })->name('resetumur');
 
-
+    Route::get('/test', Testaja::class);
 
     });
 });
