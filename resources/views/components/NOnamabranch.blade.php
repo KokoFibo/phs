@@ -1,0 +1,3 @@
+<div>
+    {{ $NamaCetya }}
+</div>

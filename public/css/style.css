@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,800;1,300;1,400;1,800&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+
+.bg-purple {
+    background-color: #a855f7;
+    color: white;
+}
+.bg-blue {
+    background-color: #3abff8;
+    color: black;
+}
+
+.bg-pink {
+    background-color: #fb70a9;
+    color: white;
+}
+
+.text-pink {
+    color: #fb70a9;
+}
+.text-blue {
+    color: #3abff8;
+}

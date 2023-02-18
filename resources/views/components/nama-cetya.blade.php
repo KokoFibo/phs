@@ -1,0 +1,3 @@
+<div>
+    {{ $Namaft }}
+</div>
