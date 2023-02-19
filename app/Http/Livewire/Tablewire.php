@@ -38,8 +38,8 @@ class Tablewire extends Component
     public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
     public $default;
     public $selectedId = [];
-    // public $selectedAll = [];
-    // public $selectAll = false;
+    public $selectedAll = [];
+    public $selectAll = false;
     protected $listeners = ['delete'];
     // protected $listeners = ['resetfilter'];
 
@@ -101,6 +101,8 @@ class Tablewire extends Component
         $this->resetPage();
         $this->default = true;
         $this->selectedId = [];
+        $this->selectedAll = [];
+        $this->selectAll = false;
         $this->dispatchBrowserEvent('resetfield');
 
     }
@@ -448,6 +450,10 @@ class Tablewire extends Component
         // $this->selectedAll = Arr::prepend($this->selectedAll, $d->id);
 
     // }
+
+    foreach($datapelita as $d) {
+         $this->selectedAll[] = $d->id;
+    }
 
 
 

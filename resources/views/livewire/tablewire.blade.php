@@ -159,13 +159,15 @@
       <div class="p-4 ">
             <div class="rounded-lg shadow bg-gray-50">
 
+                  @dump($selectAll)
+                  @dump($selectedAll)
+                  @dump($selectedId)
                   <table class="w-full">
                         <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
                               <tr>
                                     {{-- <th class="p-3 font-semibold text-left">{{ __('#') }}</th> --}}
-                                    {{-- <th class="text-center border rounded"><input type="checkbox" wire:model="selectAll"
-                                class=" checked:bg-white-500" />
-                        </th> --}}
+                                    <th class="text-center border rounded"><input type="checkbox" wire:model="selectAll" class=" checked:bg-white-500" />
+                                    </th>
 
                                     <th class="p-3 font-semibold text-center border rounded cursor-pointer" "></th>
                                     <th class=" p-3 font-semibold text-center border rounded cursor-pointer " ">{{ __('#') }}</th>
