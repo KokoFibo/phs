@@ -33,7 +33,7 @@
                   <div class="mt-3">
                         <label class="px-2 " for="nama">{{ __('Nama') }}</label>
                         <input id="nama" type="text" placeholder="{{ __('Nama Lengkap') }}" wire:model="nama_umat" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        @error('nama_umat')
+                        @error('email')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
