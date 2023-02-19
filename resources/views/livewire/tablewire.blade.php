@@ -1,13 +1,11 @@
 <div>
 
-
-
       {{-- Search Bar --}}
       <div class="items-center w-full md:flex">
             <div class="w-3/4 mx-5 ">
                   <div class="items-center md:flex">
                         {{-- Search --}}
-                        <div class="w-full mt-3 mr-3 md:w-1/5">
+                        <div class="w-full mt-3 mr-3 md:w-2/5">
                               <input type="search" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded " wire:model="search" placeholder="{{ __('Search...') }}">
                         </div>
                         {{-- Category --}}
@@ -23,11 +21,11 @@
                         {{-- Rows per Page --}}
                         <div class="w-full mt-3 mr-3 md:w-1/5">
                               <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="perpage">
-                                    <option value="5">{{ __('5 Rows Per Page') }}</option>
-                                    <option value="10">{{ __('10 Rows Per Page') }}</option>
-                                    <option value="15">{{ __('15 Rows Per Page') }}</option>
-                                    <option value="20">{{ __('20 Rows Per Page') }}</option>
-                                    <option value="25">{{ __('25 Rows Per Page') }}</option>
+                                    <option value="5">{{ __('5 Rows') }}</option>
+                                    <option value="10">{{ __('10 Rows') }}</option>
+                                    <option value="15">{{ __('15 Rows') }}</option>
+                                    <option value="20">{{ __('20 Rows') }}</option>
+                                    <option value="25">{{ __('25 Rows') }}</option>
                               </select>
                         </div>
                         {{-- Filter Dropdown --}}
@@ -151,7 +149,6 @@
       <div class="flex items-center w-full gap-2 px-5 mt-3 md:w-1/2">
             <button wire:click="excel" wire:loading.attr="disabled" class="button button-teal">Excel</button>
             <button wire:click="pdfdom" wire:loading.attr="disabled" class="button button-red">PDF</button>
-            <button wire:click="resetSelectedId" class="button button-purple">Reset</button>
             <p class="text-lg font-semibold text-purple-500">{{ count($selectedId)}} Data Selected</p>
       </div>
       @endif
@@ -159,20 +156,18 @@
       <div class="p-4 ">
             <div class="rounded-lg shadow bg-gray-50">
 
-                  @dump($selectAll)
-                  @dump($selectedAll)
-                  @dump($selectedId)
+
                   <table class="w-full">
                         <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
                               <tr>
                                     {{-- <th class="p-3 font-semibold text-left">{{ __('#') }}</th> --}}
-                                    <th class="text-center border rounded"><input type="checkbox" wire:model="selectAll" class=" checked:bg-white-500" />
+                                    <th class="px-2 text-center border rounded"><input type="checkbox" wire:model="selectAll" class=" checked:bg-white-500" />
                                     </th>
 
-                                    <th class="p-3 font-semibold text-center border rounded cursor-pointer" "></th>
-                                    <th class=" p-3 font-semibold text-center border rounded cursor-pointer " ">{{ __('#') }}</th>
+                                    {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" "></th> --}}
+                                    <th class="p-3 font-semibold text-center border rounded " ">{{ __('#') }}</th>
                                     {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" ">{{ __('id') }}</th> --}}
-                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer " wire:click="sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
+                                    <th class=" p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('mandarin')">{{ __('中文名') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('umur_sekarang') ">{{ __('UMUR') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('tgl_mohonTao')">{{ __('TGL CHIU TAO') }}</th>
@@ -206,14 +201,14 @@
                               </tr>
                         </thead>
                         <tbody>
-                              @foreach ($datapelita as $index => $d)
+                              @foreach ($datapelita1 as $index => $d)
                               <tr class="h-3">
-                                    <td class="text-center border rounded">
+                                    <td class="text-center border rounded ">
                                           <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}" class="checked:bg-purple-500" />
                                     </td>
 
                                     <td class="p-3 text-gray-800 border rounded">
-                                          {{ $datapelita->firstItem() + $index }}
+                                          {{ $datapelita1->firstItem() + $index }}
                                     </td>
                                     {{-- <td class="p-3 text-center text-gray-800 border rounded">
                             {{ $d->id }}
@@ -311,7 +306,7 @@
                   </table>
 
                   <div class="p-3">
-                        {{ $datapelita->links() }}
+                        {{ $datapelita1->links() }}
 
                   </div>
             </div>
