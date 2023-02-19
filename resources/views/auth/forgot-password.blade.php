@@ -1,83 +1,43 @@
-@extends('layouts.app2')
+@extends('layouts.app1')
 @section('content')
-<style>
-      .bground {
-            background: rgb(140, 151, 255);
-            background: linear-gradient(157deg, rgba(140, 151, 255, 1) 0%, rgba(255, 185, 250, 1) 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-      }
-
-      .glass {
-            /* From https://css.glass */
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-      }
-
-      .btnrev {
-            background-color: transparent;
-            border-color: blue;
-            color: blue;
-      }
-
-</style>
-{{-- login --}}
-
-<div class="container-fluid bground">
-
-
-      {{-- <div class="mx-auto mt-3 card col-4"> --}}
-      <div class=" col-4">
-            {{-- <div class="text-center border rounded card-header">
-                Login
-            </div> --}}
-            {{-- <div class="card-body"> --}}
-            <div class="p-3 m-5 mx-auto glass">
-
-                  <h5 class="mb-3 text-center text-white">Password Reseto</h5>
-                  <hr>
+<section class="flex items-center justify-center min-h-screen bg-gray-50">
+      <!-- login container -->
+      <div class="flex items-center max-w-3xl p-5 bg-teal-100 shadow-lg rounded-2xl">
+            <!-- image -->
+            <div class="hidden w-1/2 md:block">
+                  <img class="rounded-2xl" src="https://images.unsplash.com/photo-1616606103915-dea7be788566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80">
+            </div>
+            <!-- form -->
+            <div class="px-8 md:w-1/2 md:px-16">
+                  <h2 class="font-bold text-2xl text-[#002D74]">Reset Password</h2>
+                  <p class="text-xs mt-4 text-[#002D74]">Enter your email address to reset</p>
                   @if (session('status'))
-                  <div class="alert alert-success">
-                        {{ session('status') }}
+                  <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+                        <span class="font-medium">{{ session('status') }}
                   </div>
+
                   @endif
 
-                  {{-- form --}}
-
-                  <form action="{{ route('password.request') }}" method="post">
+                  <form action="{{ route('password.request') }}" method="post" class="flex flex-col gap-4 ">
                         @csrf
-                        <div class="mb-3">
-                              <label for="email" class="form-label">Email</label>
-                              <input type="text" class="form-control @error('email')
-                        is-invalid
-                    @enderror" id="email" placeholder="user@gmail.com" name="email" value="{{ old('email') }}">
-                              @error('email')
-                              <div class="invalid-feedback">
-                                    {{ $message }}
-                              </div>
-                              @enderror
-                        </div>
-                        <div class="mb-3">
-                              <button class="btnrev btn btn-primary" type="submit">Reset</button>
-                        </div>
+                        <input class="p-2 mt-8 border rounded-xl" type="email" name="email" placeholder="Email" value="{{ old('email') }}" autocomplete="off">
+                        @error('email')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                        <button type="submit" class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 mt-5">Reset</button>
                   </form>
-                  {{-- form end --}}
+                  <div class="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
+                        <a href="login">Ready to login?</a>
+                  </div>
 
-                  <hr>
-                  <div class="d-flex justify-content-between">
+                  <div class="mt-3 text-xs flex justify-between items-center text-[#002D74]">
+                        <p>Don't have an account?</p>
+                        <a href="register"><button class="px-5 py-2 duration-300 bg-white border rounded-xl hover:scale-110">Register</button></a>
 
-                        <a href="/">Login</a>
-                        <a href="register">Create New Account</a>
                   </div>
             </div>
-            {{-- </div> --}}
+
+
       </div>
-</div>
-{{-- login end --}}
+</section>
 @endsection

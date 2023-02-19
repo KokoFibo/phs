@@ -38,13 +38,19 @@ class Tablewire extends Component
     public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
     public $default;
     public $selectedId = [];
-    // public $selectedAll = [];
-    // public $selectAll = false;
+    public $selectedAll = [];
+    public $selectAll = false;
     protected $listeners = ['delete'];
     // protected $listeners = ['resetfilter'];
 
 
-
+public function updatedSelectAll () {
+    if ($this->selectAll == true ) {
+        $this->selectedId = $this->selectedAll;
+    } else {
+        $this->selectedId = [];
+    }
+}
     public function pdfdom () {
          $datapelita = DataPelita::whereIn('id',$this->selectedId)->get();
 
@@ -67,11 +73,7 @@ class Tablewire extends Component
     }
 
 
-    public function resetSelectedId () {
-        // return (new DataPelitaExport($this->selectedId))->download('Data_Pelita.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
-        // return (new DataPelitaExport($this->selectedId))->download('Data_pelita.pdf');
-        $this->selectedId = [];
-    }
+
     public function updatingSearch () {
         $this->resetPage();
     }
@@ -101,6 +103,8 @@ class Tablewire extends Component
         $this->resetPage();
         $this->default = true;
         $this->selectedId = [];
+        $this->selectedAll = [];
+        $this->selectAll = false;
         $this->dispatchBrowserEvent('resetfield');
 
     }
@@ -295,7 +299,7 @@ class Tablewire extends Component
         ->when($this->tgl_vtotal, function($query){
             $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
-        ->paginate($this->perpage);
+        ;
 
 
     } elseif ($this->default == false && $this->search == ''){
@@ -332,7 +336,7 @@ class Tablewire extends Component
         ->when($this->tgl_vtotal, function($query){
             $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
-        ->paginate($this->perpage);
+        ;
     }
     // yg ini
     elseif ($this->default == true && $this->search != ''){
@@ -369,7 +373,7 @@ class Tablewire extends Component
         ->when($this->tgl_vtotal, function($query){
             $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
-        ->paginate($this->perpage);
+        ;
     }
     // elseif ($this->default == true && $this->search == '') {
     else {
@@ -379,7 +383,7 @@ class Tablewire extends Component
         // ->when($this->branch_id, function($query){
         //     $query->where('branch_id', $this->branch_id );
         // })
-        // ->paginate($this->perpage);
+        // ;
         $datapelita = DB::table('data_pelitas')
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
@@ -413,7 +417,7 @@ class Tablewire extends Component
         ->when($this->tgl_vtotal, function($query){
             $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
-        ->paginate($this->perpage);
+        ;
 
     }
 
@@ -443,28 +447,12 @@ class Tablewire extends Component
         $datacetya = Branch::find($this->kode_branch_view);
         $this->nama_cetya_view = $datacetya->nama_branch;
     }
-    // dibawah ini untuk masukin semua array ID hasil querry, tapi kebentur dengan pagination,still no solution
-    // foreach($datapelita as $d) {
-        // $this->selectedAll = Arr::prepend($this->selectedAll, $d->id);
 
-    // }
+     $this->selectedAll = $datapelita->pluck('id');
+    $datapelita1 = $datapelita->paginate($this->perpage);
 
-
-
-        return view('livewire.tablewire', compact(['datapelita', 'data_branch', 'all_branch', 'namaft', 'dp']))
+        return view('livewire.tablewire', compact(['datapelita1', 'data_branch', 'all_branch', 'namaft', 'dp']))
         ->extends('layouts.main')
         ->section('content');
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
