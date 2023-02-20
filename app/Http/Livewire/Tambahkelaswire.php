@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Kelas;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Livewire\WithPagination;
 
 class Tambahkelaswire extends Component
@@ -26,7 +27,7 @@ class Tambahkelaswire extends Component
         ]);
         // ================
         $data = new Kelas();
-        $data->nama_kelas = smartCapitalize($this->nama_kelas);
+        $data->nama_kelas = Str::title($this->nama_kelas);
 
         $data->save();
         $this->clear_fields();
@@ -84,7 +85,8 @@ class Tambahkelaswire extends Component
             'nama_kelas' => 'required|unique:kelas,nama_kelas,'.$this->id_kelas
         ]);
         $nama = Kelas::find($this->id_kelas);
-        $nama->nama_kelas = smartCapitalize($this->nama_kelas);
+        $data->nama_kelas = Str::title($this->nama_kelas);
+
         $nama->save();
         // $this->is_edit=false;
         $this->clear_fields();

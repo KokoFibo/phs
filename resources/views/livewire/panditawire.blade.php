@@ -3,7 +3,7 @@
 
 
       <div class="flex justify-between w-2/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
-            <h5 class="text-2xl font-semibold">{{ __('Add Data Pandita') }}</h5>
+            <h5 class="text-2xl font-semibold">{{ __('Add Data Pandita1') }}</h5>
 
             <button wire:click="close">
                   <i class="fa fa-circle-xmark fa-2xl"></i>
