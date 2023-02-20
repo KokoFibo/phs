@@ -14,7 +14,7 @@ class DataPelita extends Model
         'nama_alias',
         'mandarin',
         'gender',
-        'umur',
+        'tgl_lahir',
         'umur_sekarang',
         'alamat',
         'kota',

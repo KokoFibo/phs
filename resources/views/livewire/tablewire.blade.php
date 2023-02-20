@@ -260,7 +260,7 @@
                                     </td>
 
                                     <td class="p-3 text-gray-800 border rounded">
-                                          {{ $d->tgl_mohonTao }}</td>
+                                          {{ tgl($d->tgl_mohonTao) }}</td>
                                     <td class="p-3    border rounded {{ $d->gender == 'Laki-laki' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                                           {{ check_JK($d->gender, $d->umur_sekarang) }}
                                     </td>

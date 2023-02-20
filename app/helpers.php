@@ -113,6 +113,9 @@ if(!function_exists('getYear')) {
             //   return $e->getMessage();
           }
       }
+      function tgl($tgl) {
+        return date('d-m-Y', strtotime($tgl));
+      }
 
       function getNamaCetya($id) {
 

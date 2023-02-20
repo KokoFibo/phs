@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('nama_alias')->nullable();
             $table->string('mandarin')->nullable();
             $table->string('gender');
-            $table->integer('umur');
+            $table->date('tgl_lahir');
             $table->integer('umur_sekarang')->nullable();
             $table->string('alamat');
             // $table->string('kota');

@@ -14,7 +14,7 @@ class Viewumatwire extends Component
 {
 
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
-    public $nama_umat, $nama_alias, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
+    public $nama_umat, $nama_alias, $mandarin, $umur, $umur_sekarang, $tgl_lahir,  $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
     public $last_update;
     public function mount ($current_id) {
@@ -25,8 +25,8 @@ class Viewumatwire extends Component
           $this->nama_alias = $data->nama_alias;
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
-          $this->umur = $data->umur;
-        // $data->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
+          $this->tgl_lahir = $data->tgl_lahir;
+          $this->umur_sekarang = tgl($data->tgl_lahir).' / '.$this->hitungUmurSekarang($data->tgl_lahir).' Tahun';
           $this->alamat = $data->alamat;
           $this->kota_id = $data->kota_id;
           $this->telp = $data->telp;
@@ -39,9 +39,10 @@ class Viewumatwire extends Component
           $this->penjamin = $data->penjamin;
         //   $this->nama_penjamin = getName($data->penjamin_id);
           $this->pandita_id = $data->pandita_id;
-          $this->tgl_mohonTao = $data->tgl_mohonTao;
-          $this->tgl_sd3h = $data->tgl_sd3h;
-          $this->tgl_vtotal = $data->tgl_vtotal;
+          $this->tgl_mohonTao = tgl($data->tgl_mohonTao);
+        //   $this->tgl_mohonTao = $data->tgl_mohonTao;
+          $this->tgl_sd3h = tgl($data->tgl_sd3h);
+          $this->tgl_vtotal = tgl($data->tgl_vtotal);
         $this->status = $data->status;
         $this->last_update = $data->updated_at->diffForHumans();
 
@@ -50,12 +51,11 @@ class Viewumatwire extends Component
 
     }
 
-    public function hitungUmurSekarang($tgl, $umur) {
+    public function hitungUmurSekarang($tgl) {
         $now = Carbon::now();
         $tahun = $now->year;
         $year = date('Y', strtotime($tgl));
-        $selisih = $tahun - $year;
-        return $umur + $selisih;
+        return $tahun - $year;
     }
 
     public function getDataPengajak ($nama, $id) {
