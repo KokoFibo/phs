@@ -46,7 +46,10 @@
                         {{-- select box end --}}
 
                         <div class="w-[800px] mx-auto mt-5  bg-white rounded-xl shadow-2xl p-5">
+
+
                               <h2 class="p-5 text-2xl text-center text-purple-500">{{ getNamaCetya($selected) }} - {{ getNamaKelas($selected) }}</h2>
+
                               <canvas id="myChart" width="800" height="500"></canvas>
                         </div>
 

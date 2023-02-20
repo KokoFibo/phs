@@ -28,7 +28,7 @@ class Tablewire extends Component
     public $search = '';
     use WithPagination;
     public $branch_id;
-    public $nama_umat, $mandarin, $gender, $umur, $umur_sekarang;
+    public $nama_umat, $nama_alias, $mandarin, $gender, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $status;
     public $current_id, $delete_id;
@@ -153,6 +153,7 @@ public function updatedSelectAll () {
             $this->branch_id = $data->branch_id;
             $this->kode_branch_view = $this->branch_id;
             $this->nama_umat = $data->nama_umat;
+            $this->nama_alias = $data->nama_alias;
             $this->mandarin = $data->mandarin;
             $this->gender = $data->gender;
             $this->umur = $data->umur;

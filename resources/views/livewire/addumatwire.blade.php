@@ -33,7 +33,14 @@
                   <div class="mt-3">
                         <label class="px-2 " for="nama">{{ __('Nama') }}</label>
                         <input id="nama" type="text" placeholder="{{ __('Nama Lengkap') }}" wire:model="nama_umat" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        @error('email')
+                        @error('nama_umat')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+                  </div>
+                  <div class="mt-3">
+                        <label class="px-2 " for="nama">{{ __('Alias') }}</label>
+                        <input id="nama" type="text" placeholder="{{ __('Nama Alias') }}" wire:model="nama_alias" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        @error('nama_alias')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
@@ -85,6 +92,10 @@
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
+
+
+            </div>
+            <div class="w-2/5 px-5">
                   <div class="mt-3">
                         <label class="px-2 " for="email">{{ __('Email') }}</label>
                         <input id="email" type="text" placeholder="name@example.com" wire:model="email" class="w-full mb-5 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
@@ -92,10 +103,7 @@
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
-
-            </div>
-            <div class="w-2/5 px-5">
-                  <div class="mt-3">
+                  <div>
                         <div>
                               <label class="px-2 ">{{ __('Gender') }}</label>
                         </div>
@@ -111,7 +119,7 @@
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
-                  <div class="mt-7">
+                  <div class="mt-5">
                         <label class="px-2 " for="tgl">{{ __('Tanggal Mohon Tao') }} {{ $tgl_mohonTao }}</label>
                         <input id="tgl" type="date" wire:model="tgl_mohonTao" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('tgl_mohonTao')

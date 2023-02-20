@@ -14,11 +14,12 @@ use Illuminate\Support\Str;
 class Addumatwire extends Component
 {
     public $nama, $query, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $kode_branch;
-    public $nama_umat, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
+    public $nama_umat, $nama_alias, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status="Active", $branch_id;
 
     protected $rules = [
         'nama_umat' => 'required',
+        'nama_alias' => 'nullable',
         'mandarin' => 'nullable',
         'gender' => 'required',
         'umur' => 'required|numeric|min:1|max:150',
@@ -86,6 +87,7 @@ public function updated($fields) {
 
 
         $data_umat->nama_umat = Str::title($this->nama_umat);
+        $data_umat->nama_alias = Str::title($this->nama_alias);
 
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
@@ -140,6 +142,7 @@ public function updated($fields) {
 
         $this->branch_id= '';
         $this->nama_umat='';
+        $this->nama_alias='';
         $this->mandarin='';
         $this->gender='';
         $this->umur='';

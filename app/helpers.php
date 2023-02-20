@@ -103,15 +103,30 @@ if(!function_exists('getYear')) {
       }
 
       function getNamaKelas($id) {
-        $daftarkelas = Daftarkelas::find($id);
-        $kelas = Kelas::find($daftarkelas->kelas_id);
-        return $kelas->nama_kelas;
+        try {
+
+            $daftarkelas = Daftarkelas::find($id);
+            $kelas = Kelas::find($daftarkelas->kelas_id);
+            return $kelas->nama_kelas;
+        }catch (\Exception $e) {
+            return 'Tidak ada Data Absensi Dalam Database';
+            //   return $e->getMessage();
+          }
       }
 
       function getNamaCetya($id) {
-        $daftarkelas = Daftarkelas::find($id);
-        $cetya = Branch::find($daftarkelas->branch_id);
-        return $cetya->nama_branch;
+
+        try {
+
+            $daftarkelas = Daftarkelas::find($id);
+            $cetya = Branch::find($daftarkelas->branch_id);
+            return $cetya->nama_branch;
+
+          } catch (\Exception $e) {
+            return 'Tidak ada Data Absensi Dalam Database';
+            //   return $e->getMessage();
+          }
+
       }
 
 
@@ -136,4 +151,3 @@ if(!function_exists('getYear')) {
 
 
 // }
-

@@ -14,11 +14,12 @@ class Editumatwire extends Component
 {
 
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
-    public $nama_umat, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
+    public $nama_umat, $nama_alias, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
 
     protected $rules = [
         'nama_umat' => 'required',
+        'nama_alias' => 'nullable',
         'mandarin' => 'nullable',
         'gender' => 'required',
         'umur' => 'required|numeric|min:1|max:150',
@@ -49,6 +50,7 @@ public function updated($fields) {
         $data = DataPelita::find($this->current_id);
          $this->branch_id = $data->branch_id;
           $this->nama_umat = $data->nama_umat;
+          $this->nama_alias = $data->nama_alias;
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
           $this->umur = $data->umur;
@@ -107,6 +109,7 @@ public function updated($fields) {
 
 
         $data_umat->nama_umat = Str::title($this->nama_umat);
+        $data_umat->nama_alias = Str::title($this->nama_alias);
 
 
         $data_umat->mandarin = $this->mandarin;
@@ -179,6 +182,7 @@ public function updated($fields) {
 
         // $this->branch_id= $this->defaultBranch_id;
         $this->nama_umat='';
+        $this->nama_alias='';
         $this->mandarin='';
         $this->gender='';
         $this->umur='';

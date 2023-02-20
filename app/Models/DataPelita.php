@@ -11,6 +11,7 @@ class DataPelita extends Model
     use HasFactory;
     protected $fillable = [
         'nama_umat',
+        'nama_alias',
         'mandarin',
         'gender',
         'umur',
