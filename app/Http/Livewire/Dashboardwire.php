@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use Auth;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Kelas;
 use App\Models\Branch;
 use App\Models\Absensi;
 use App\Models\Pandita;
@@ -12,7 +14,6 @@ use App\Models\DataPelita;
 use App\Models\Daftarkelas;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
-use Auth;
 
 
 class Dashboardwire extends Component
@@ -26,6 +27,7 @@ class Dashboardwire extends Component
     public $totalUmat_sp;
     public  $daftarKelasIdUpdate=2, $daftarkelas=[];
     public $data, $years;
+    // public $is_absensi = false;
 
     // $now = Carbon::now();
     //     $tahun = $now->year;
@@ -33,7 +35,17 @@ class Dashboardwire extends Component
     public $selectedYear;
 
     public function mount () {
+            // $absensi = Absensi::all();
+            // $daftarkelas = DaftarKelas::all();
+            // $kelas = Kelas::all();
+            // if($absensi == null || $daftarkelas == null | $kelas == null){
 
+            //     $this->is_absensi = false;
+            // }
+            // else {
+            //     $this->is_absensi = true;
+
+            // }
 
         if(Auth::user()->role != 3) {
             $this->selectedBranch=Auth::user()->branch_id;
@@ -50,6 +62,7 @@ class Dashboardwire extends Component
     }
 
     public function updateAbsensi () {
+
         if ($this->selectedYear == null) {
             $this->selectedYear = date('Y');
         }
@@ -64,11 +77,14 @@ class Dashboardwire extends Component
         ->orderBy('tgl_kelas', 'asc')
         ->where('daftarkelas_id',$this->selected)
         ->get();
-        foreach($absensi as $a){
-            $data['label'][] = $a->tgl_kelas;
-            $data['data'][] = $a->jumlah_peserta;
+        if($this->dataAbsensi != null) {
+
+            foreach($absensi as $a){
+                $data['label'][] = $a->tgl_kelas;
+                $data['data'][] = $a->jumlah_peserta;
+            }
+            $this->dataAbsensi = json_encode($data);
         }
-        $this->dataAbsensi = json_encode($data);
 }
 
     public function kirimId($daftarKelasId)  {
@@ -76,16 +92,22 @@ class Dashboardwire extends Component
     }
 
     public function updatedSelectedBranch () {
+        try {
 
-        $dataPertama = Daftarkelas::where('branch_id', $this->selectedBranch)->first();
-        // dd($dataPertama->id);
-        $this->selected = $dataPertama->id;
-        $this->selectedYear = date('Y');
-        $this->getYears();
+            $dataPertama = Daftarkelas::where('branch_id', $this->selectedBranch)->first();
+            // dd($dataPertama->id);
+            $this->selected = $dataPertama->id;
+            $this->selectedYear = date('Y');
+            $this->getYears();
 
-        $this->totalUmat_sp = DataPelita::where('branch_id',$this->selectedBranch)->count();
+            $this->totalUmat_sp = DataPelita::where('branch_id',$this->selectedBranch)->count();
 
-        $this->isiPilihKelas ();
+            $this->isiPilihKelas ();
+        } catch (\Exception $e) {
+            // return 'Nama Cetya Tidak Ada Dalam Database';
+              return $e->getMessage();
+          }
+
 
 
 
@@ -100,22 +122,27 @@ class Dashboardwire extends Component
     }
     public function updatedSelectedKelasId () {
         $absensi = Absensi::where('daftarkelas_id',$this->selectedKelasId)->get();
-        foreach($absensi as $a){
-            $this->data['label'][] = $a->tgl_kelas;
-            $this->data['data'][] = $a->jumlah_peserta;
+        if($this->data != null) {
+
+            foreach($absensi as $a){
+                $this->data['label'][] = $a->tgl_kelas;
+                $this->data['data'][] = $a->jumlah_peserta;
+            }
+            $this->dataAbsensi = json_encode($this->data);
+            $this->emit('berubah', $this->selectedKelasId);
         }
-        $this->dataAbsensi = json_encode($this->data);
-        $this->emit('berubah', $this->selectedKelasId);
     }
 
     public function tampilchart () {
+if($this->dataAbsensi != null){
 
-        $absensi = Absensi::where('daftarkelas_id',$this->selectedKelasId)->get();
-        foreach($absensi as $a){
-            $this->data['label'][] = $a->tgl_kelas;
-            $this->data['data'][] = $a->jumlah_peserta;
-        }
-        $this->dataAbsensi = json_encode($this->data);
+    $absensi = Absensi::where('daftarkelas_id',$this->selectedKelasId)->get();
+    foreach($absensi as $a){
+        $this->data['label'][] = $a->tgl_kelas;
+        $this->data['data'][] = $a->jumlah_peserta;
+    }
+    $this->dataAbsensi = json_encode($this->data);
+}
     }
     public function updatedSelected () {
 
@@ -140,9 +167,6 @@ class Dashboardwire extends Component
 
     public function render()
     {
-
-
-
 
         if($this->selectedBranch == null){
             $thisYear = getYear();

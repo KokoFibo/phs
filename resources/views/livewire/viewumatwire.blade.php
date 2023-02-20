@@ -21,7 +21,10 @@
                   <div class="mt-3">
                         <label class="px-2 " for="nama">{{ __('Nama') }}</label>
                         <input id="nama" type="text" wire:model="nama_umat" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
-
+                  </div>
+                  <div class="mt-3">
+                        <label class="px-2 " for="nama">{{ __('Nama Alias') }}</label>
+                        <input id="nama_alias" type="text" wire:model="nama_alias" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
                   </div>
                   <div class="mt-3">
                         <label class="px-2 " for="mandarin">{{ __('中文名') }}</label>
@@ -29,8 +32,8 @@
 
                   </div>
                   <div class="mt-3">
-                        <label class="px-2 " for="umur">{{ __('Umur') }}</label>
-                        <input id="umur" type="text" wire:model="umur" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                        <label class="px-2 " for="umur">{{ __('Umur / Tanggal Lahir') }}</label>
+                        <input id="umur" type="text" wire:model="umur_sekarang" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
 
                   </div>
                   <div class="mt-3">

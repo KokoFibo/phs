@@ -29,9 +29,16 @@
       <div class="flex justify-center w-3/4 py-5 pb-3 mx-auto my-2 mt-2 mb-5 shadow shadow-purple-300 bg-purple-50 rounded-xl">
             <div class="w-2/5 px-5">
                   <div class="mt-3">
-                        <label class="px-2 " for="nama">{{ __('Nama') }}</label>
+                        <label class="px-2 " for="nama">{{ __('Nama Lengkap') }}</label>
                         <input id="nama" type="text" wire:model="nama_umat" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('nama_umat')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+                  </div>
+                  <div class="mt-3">
+                        <label class="px-2 " for="nama">{{ __('Nama Alias') }}</label>
+                        <input id="nama" type="text" wire:model="nama_alias" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        @error('nama_alias')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
@@ -43,9 +50,9 @@
                         @enderror
                   </div>
                   <div class="mt-3">
-                        <label class="px-2 " for="umur">{{ __('Umur') }}</label>
-                        <input id="umur" type="text" wire:model="umur" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        @error('umur')
+                        <label class="px-2 " for="tgl_lahir">{{ __('Tanggal Lahir') }}</label>
+                        <input id="tgl_lahir" type="date" wire:model="tgl_lahir" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        @error('tgl_lahir')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>

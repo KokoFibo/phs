@@ -90,10 +90,10 @@ Route::middleware(['auth'])->group(function () {
                 $year = date('Y', strtotime($d->tgl_mohonTao));
                 $selisih = $tahun - $year;
                 $is_save = false;
-                if($d->umur_sekarang != $d->umur + $selisih) {
+                if($d->umur_sekarang != hitungUmurSekarang($d->tgl_lahir)) {
                     $is_save = true;
                 }
-                $d->umur_sekarang = $d->umur + $selisih;
+                $d->umur_sekarang = hitungUmurSekarang($d->tgl_lahir);
                 $d->pengajak = getName($d->pengajak_id);
                 $d->penjamin = getName($d->penjamin_id);
                 if($is_save) {

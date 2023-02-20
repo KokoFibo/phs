@@ -12,10 +12,13 @@
                         <div class="w-full mt-3 mr-3 md:w-1/5">
                               <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="category">
                                     <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
+                                    <option value="data_pelitas.nama_alias">{{ __('Alias') }}</option>
+                                    <option value="data_pelitas.mandarin">{{ __('中文') }}</option>
                                     <option value="data_pelitas.pengajak">{{ __('Pengajak') }}</option>
                                     <option value="data_pelitas.penjamin">{{ __('Penjamin') }}</option>
                                     <option value="panditas.nama_pandita">{{ __('Pandita') }}</option>
                                     <option value="kotas.nama_kota">{{ __('Kota') }}</option>
+
                               </select>
                         </div>
                         {{-- Rows per Page --}}
@@ -168,6 +171,7 @@
                                     <th class="p-3 font-semibold text-center border rounded " ">{{ __('#') }}</th>
                                     {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" ">{{ __('id') }}</th> --}}
                                     <th class=" p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_alias')">{{ __('ALIAS') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('mandarin')">{{ __('中文名') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('umur_sekarang') ">{{ __('UMUR') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('tgl_mohonTao')">{{ __('TGL CHIU TAO') }}</th>
@@ -217,36 +221,34 @@
                                     <td class="p-3 font-semibold text-purple-500 border rounded">
                                           {{ $d->nama_umat }}
                                     </td>
-                                    @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
-                                    <td class="p-3 font-semibold text-teal-500 border rounded">
-                                          {{ $d->nama_umat }}
+                                    <td class="p-3 font-semibold text-purple-500 border rounded">
+                                          {{ $d->nama_alias }}
                                     </td>
-                                    @else
-                                    <td class="p-3 text-gray-800 border rounded">
-                                          {{ $d->nama_umat }}
-                                    </td>
-                                    @endif
-
-                                    {{-- Mandarin --}}
-
-                                    @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
                                     <td class="p-3 font-semibold text-purple-500 border rounded">
                                           {{ $d->mandarin }}
                                     </td>
+
                                     @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
+                                    <td class="p-3 font-semibold text-teal-500 border rounded">
+                                          {{ $d->nama_umat }}
+                                    </td>
+                                    <td class="p-3 font-semibold text-teal-500 border rounded">
+                                          {{ $d->nama_alias }}
+                                    </td>
                                     <td class="p-3 font-semibold text-teal-500 border rounded">
                                           {{ $d->mandarin }}
                                     </td>
                                     @else
                                     <td class="p-3 text-gray-800 border rounded">
+                                          {{ $d->nama_umat }}
+                                    </td>
+                                    <td class="p-3 text-gray-800 border rounded">
+                                          {{ $d->nama_alias }}
+                                    </td>
+                                    <td class="p-3 text-gray-800 border rounded">
                                           {{ $d->mandarin }}
                                     </td>
                                     @endif
-                                    {{-- Mandarin End --}}
-
-
-
-
                                     <td class="p-3 text-center text-gray-800 border rounded">
                                           {{ $d->umur_sekarang }}
                                     </td>
@@ -258,12 +260,10 @@
                                     </td>
                                     {{-- <td class="p-3 text-gray-800 border rounded">{{ $d->pengajak_id }} --}}
                                     <td class="p-3 text-gray-800 border rounded">
-                                          <?php echo getName($d->pengajak_id); ?>
+                                          {{ getName($d->pengajak_id) }}
                                     </td>
-                                    <td class="p-3 text-gray-800 border rounded">@php
-                                          echo getName($d->penjamin_id);
-                                          @endphp
-                                    </td>
+                                    <td class="p-3 text-gray-800 border rounded">{{ getName($d->penjamin_id) }}</td>
+
                                     <td class="p-3 text-gray-800 border rounded">
                                           {{ $d->nama_pandita }}
                                     </td>

@@ -14,20 +14,21 @@ use Illuminate\Support\Str;
 class Addumatwire extends Component
 {
     public $nama, $query, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $kode_branch;
-    public $nama_umat, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
+    public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status="Active", $branch_id;
+    public $umur_sekarang;
 
     protected $rules = [
         'nama_umat' => 'required',
+        'nama_alias' => 'nullable',
         'mandarin' => 'nullable',
         'gender' => 'required',
-        'umur' => 'required|numeric|min:1|max:150',
-        // 'umur_sekarang' => 'nullable',
-
+        'tgl_lahir' => 'required|date|before_or_equal:tgl_mohonTao',
+        'umur_sekarang' => 'nullable',
         'alamat' => 'required',
         'kota_id' => 'required',
-        'telp' => 'nullable|numeric|min_digits:9|max_digits:13',
-        'hp' => 'nullable|numeric',
+        'telp' => 'nullable|min_digits:9|max_digits:13',
+        'hp' => 'nullable|min_digits:9|max_digits:13',
         'email' => 'nullable|email',
         'pengajak_id' => 'required',
         'pengajak' => 'required',
@@ -67,13 +68,7 @@ public function updated($fields) {
         ->toArray();
     }
 
-    public function hitungUmurSekarang($tgl, $umur) {
-        $now = Carbon::now();
-        $tahun = $now->year;
-        $year = date('Y', strtotime($tgl));
-        $selisih = $tahun - $year;
-        return $umur + $selisih;
-    }
+
 
 
     public function store () {
@@ -86,11 +81,12 @@ public function updated($fields) {
 
 
         $data_umat->nama_umat = Str::title($this->nama_umat);
+        $data_umat->nama_alias = Str::title($this->nama_alias);
 
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
-        $data_umat->umur = $this->umur;
-        $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
+        $data_umat->tgl_lahir = $this->tgl_lahir;
+        $data_umat->umur_sekarang = hitungUmurSekarang($this->tgl_lahir);
         $data_umat->alamat = $this->alamat;
         $data_umat->kota_id = $this->kota_id;
         $data_umat->telp = $this->telp;
@@ -101,7 +97,6 @@ public function updated($fields) {
         $data_umat->penjamin_id = $this->penjamin_id;
         $data_umat->penjamin = $this->penjamin;
         $data_umat->pandita_id = $this->pandita_id;
-        // $data_umat->tgl_mohonTao = $this->tgl_mohonTao ? $this->tgl_mohonTao : null;
         $data_umat->tgl_mohonTao = empty($this->tgl_mohonTao) ?  Carbon::parse(Carbon::now()) : $this->tgl_mohonTao;
         $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
         $data_umat->tgl_vtotal = empty($this->tgl_vtotal) ?  null : $this->tgl_vtotal;
@@ -140,9 +135,10 @@ public function updated($fields) {
 
         $this->branch_id= '';
         $this->nama_umat='';
+        $this->nama_alias='';
         $this->mandarin='';
         $this->gender='';
-        $this->umur='';
+        $this->tgl_lahir='';
         $this->umur_sekarang='';
         $this->alamat='';
         $this->kota_id='';

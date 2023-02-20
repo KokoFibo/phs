@@ -14,7 +14,7 @@ class Viewumatwire extends Component
 {
 
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
-    public $nama_umat, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
+    public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir,  $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
     public $last_update;
     public function mount ($current_id) {
@@ -22,10 +22,11 @@ class Viewumatwire extends Component
         $data = DataPelita::find($this->current_id);
          $this->branch_id = $data->branch_id;
           $this->nama_umat = $data->nama_umat;
+          $this->nama_alias = $data->nama_alias;
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
-          $this->umur = $data->umur;
-        // $data->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
+          $this->tgl_lahir = $data->tgl_lahir;
+          $this->umur_sekarang = hitungUmurSekarang($data->tgl_lahir).' Tahun / '.$data->tgl_lahir;
           $this->alamat = $data->alamat;
           $this->kota_id = $data->kota_id;
           $this->telp = $data->telp;
@@ -47,14 +48,6 @@ class Viewumatwire extends Component
         $query = "";
         $nama = [];
 
-    }
-
-    public function hitungUmurSekarang($tgl, $umur) {
-        $now = Carbon::now();
-        $tahun = $now->year;
-        $year = date('Y', strtotime($tgl));
-        $selisih = $tahun - $year;
-        return $umur + $selisih;
     }
 
     public function getDataPengajak ($nama, $id) {
