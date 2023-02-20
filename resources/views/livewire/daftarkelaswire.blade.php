@@ -14,7 +14,6 @@
             <div class="w-full py-2 text-xl text-white bg-teal-500 rounded-xl">{{ session('message') }}</div>
             @endif
       </div>
-
       <div class="flex w-2/3 p-3 mx-auto items-top justify-evenly">
             <div class="w-1/2 p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl rounded-xl">
                   @if(Auth::user()->role == 3)
@@ -23,6 +22,7 @@
                   <div class="text-xl font-semibold text-center">{{ __('Daftar Kelas') }} Vihara {{ getNamaCetya(Auth::user()->branch_id) }}</div>
                   @endif
                   @if( Auth::user()->role == 3)
+
                   <div class="w-full mt-3">
                         <label class="px-2" for="nama_kelas">{{ __('Nama Cetya') }}</label>
                         <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="branch_id">
@@ -32,7 +32,7 @@
                               @endforeach
                         </select>
 
-                        @error('branch_id')
+                        @error('selectedBranch')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
@@ -40,7 +40,11 @@
                   <div class="w-full mt-3 mb-3">
                         <label class="px-2" for="nama_kelas">{{ __('Nama Kelas') }}</label>
                         <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="kelas_id">
-                              <option value="">Pilih Kelas</option>
+                              @if (empty($kelas))
+                              <option value="" selected>Tidak ada kelas</option>
+                              @else
+                              <option value="" selected>Pilih Kelas</option>
+                              @endif
 
                               @foreach ($kelas as $b)
                               <option value="{{ $b->id }}">{{ $b->nama_kelas }}</option>

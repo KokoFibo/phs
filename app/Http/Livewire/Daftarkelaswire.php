@@ -19,10 +19,14 @@ class Daftarkelaswire extends Component
     use WithPagination;
     protected $listeners = ['delete'];
     public $kelas_id, $branch_id;
+    public $selectedBranch;
+
 
     public function close () {
         return redirect()->route('dashboard');
     }
+
+
 
     public function checkDuplicate(){
         $data = Daftarkelas::where('kelas_id',$this->kelas_id)->where('branch_id', $this->branch_id)->first();
@@ -126,21 +130,25 @@ class Daftarkelaswire extends Component
 
     public function render()
     {
-        if ( Auth::user()->role == 3 ) {
-
-            $daftarkelas = Daftarkelas::orderBy('id', 'asc')
-            ->paginate(5);
-        } else {
-            $daftarkelas = Daftarkelas::orderBy('id', 'asc')
-            ->where('branch_id', Auth::user()->branch_id)
-            ->paginate(5);
-
-        }
-
-
-        $kelas = Kelas::all();
-
         $branch = Branch::all();
+
+
+        if ( Auth::user()->role != 3 ) {
+            $this->selectedBranch = Auth::user()->branch_id;
+        } else {
+            $this->selectedBranch  = $this->branch_id;
+        }
+            $daftarkelas = Daftarkelas::orderBy('id', 'asc')
+            ->where('branch_id', $this->selectedBranch)
+            ->paginate(5);
+            $existingKelas = [];
+            foreach($daftarkelas as $dk) {
+                $existingKelas[] = $dk->kelas_id;
+            }
+
+
+            $kelas = Kelas::whereNotIn('id', $existingKelas)->get();
+
 
         return view('livewire.daftarkelaswire', compact(['daftarkelas', 'branch', 'kelas']))
         ->extends('layouts.main')
