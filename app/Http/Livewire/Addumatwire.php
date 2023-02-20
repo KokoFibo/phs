@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 class Addumatwire extends Component
 {
     public $nama, $query, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $kode_branch;
-    public $nama_umat, $nama_alias, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
+    public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status="Active", $branch_id;
 
     protected $rules = [
@@ -22,8 +22,7 @@ class Addumatwire extends Component
         'nama_alias' => 'nullable',
         'mandarin' => 'nullable',
         'gender' => 'required',
-        'umur' => 'required|numeric|min:1|max:150',
-        // 'umur_sekarang' => 'nullable',
+        'tgl_lahir' => 'required|date|before:tomorrow',
 
         'alamat' => 'required',
         'kota_id' => 'required',
@@ -68,13 +67,7 @@ public function updated($fields) {
         ->toArray();
     }
 
-    public function hitungUmurSekarang($tgl, $umur) {
-        $now = Carbon::now();
-        $tahun = $now->year;
-        $year = date('Y', strtotime($tgl));
-        $selisih = $tahun - $year;
-        return $umur + $selisih;
-    }
+
 
 
     public function store () {
@@ -91,8 +84,7 @@ public function updated($fields) {
 
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
-        $data_umat->umur = $this->umur;
-        $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
+        $data_umat->tgl_lahir = $this->tgl_lahir;
         $data_umat->alamat = $this->alamat;
         $data_umat->kota_id = $this->kota_id;
         $data_umat->telp = $this->telp;
@@ -103,7 +95,6 @@ public function updated($fields) {
         $data_umat->penjamin_id = $this->penjamin_id;
         $data_umat->penjamin = $this->penjamin;
         $data_umat->pandita_id = $this->pandita_id;
-        // $data_umat->tgl_mohonTao = $this->tgl_mohonTao ? $this->tgl_mohonTao : null;
         $data_umat->tgl_mohonTao = empty($this->tgl_mohonTao) ?  Carbon::parse(Carbon::now()) : $this->tgl_mohonTao;
         $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
         $data_umat->tgl_vtotal = empty($this->tgl_vtotal) ?  null : $this->tgl_vtotal;
@@ -145,8 +136,7 @@ public function updated($fields) {
         $this->nama_alias='';
         $this->mandarin='';
         $this->gender='';
-        $this->umur='';
-        $this->umur_sekarang='';
+        $this->tgl_lahir='';
         $this->alamat='';
         $this->kota_id='';
         $this->telp='';

@@ -32,7 +32,7 @@
 
                   </div>
                   <div class="mt-3">
-                        <label class="px-2 " for="umur">{{ __('Tanggal Lahir / Umur') }}</label>
+                        <label class="px-2 " for="umur">{{ __('Umur / Tanggal Lahir') }}</label>
                         <input id="umur" type="text" wire:model="umur_sekarang" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
 
                   </div>

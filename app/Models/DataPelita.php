@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -31,9 +32,11 @@ class DataPelita extends Model
         'branch_id'
     ];
 
-public function scopeGroupBaru (Builder $query) {
-    return $query;
-}
+    public function getTgl_mohonTaoAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['tgl_mohonTao'])
+       ->format('d, M Y H:i');
+    }
 
     public function branch()
     {

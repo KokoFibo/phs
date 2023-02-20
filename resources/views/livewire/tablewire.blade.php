@@ -249,29 +249,21 @@
                                           {{ $d->mandarin }}
                                     </td>
                                     @endif
-
-
-
-
-
-
                                     <td class="p-3 text-center text-gray-800 border rounded">
-                                          {{ $d->umur_sekarang }}
+                                          {{ hitungUmurSekarang($d->tgl_lahir) }}
                                     </td>
 
                                     <td class="p-3 text-gray-800 border rounded">
-                                          {{ tgl($d->tgl_mohonTao) }}</td>
+                                          {{ $d->tgl_mohonTao }}</td>
                                     <td class="p-3    border rounded {{ $d->gender == 'Laki-laki' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                                           {{ check_JK($d->gender, $d->umur_sekarang) }}
                                     </td>
                                     {{-- <td class="p-3 text-gray-800 border rounded">{{ $d->pengajak_id }} --}}
                                     <td class="p-3 text-gray-800 border rounded">
-                                          <?php echo getName($d->pengajak_id); ?>
+                                          {{ getName($d->pengajak_id) }}
                                     </td>
-                                    <td class="p-3 text-gray-800 border rounded">@php
-                                          echo getName($d->penjamin_id);
-                                          @endphp
-                                    </td>
+                                    <td class="p-3 text-gray-800 border rounded">{{ getName($d->penjamin_id) }}</td>
+
                                     <td class="p-3 text-gray-800 border rounded">
                                           {{ $d->nama_pandita }}
                                     </td>
