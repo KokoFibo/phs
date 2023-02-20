@@ -14,7 +14,7 @@ class Editumatwire extends Component
 {
 
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
-    public $nama_umat, $nama_alias, $mandarin, $umur, $alamat, $kota_id, $telp, $hp;
+    public $nama_umat, $nama_alias, $mandarin, $umur, $tgl_lahir, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
 
     protected $rules = [
@@ -22,9 +22,9 @@ class Editumatwire extends Component
         'nama_alias' => 'nullable',
         'mandarin' => 'nullable',
         'gender' => 'required',
-        'umur' => 'required|numeric|min:1|max:150',
-        // 'umur_sekarang' => 'nullable',
 
+
+        'tgl_mohonTao' => 'nullable|date|before:tomorrow',
         'alamat' => 'required',
         'kota_id' => 'required',
         'telp' => 'nullable|numeric|min_digits:9|max_digits:13',
@@ -53,8 +53,9 @@ public function updated($fields) {
           $this->nama_alias = $data->nama_alias;
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
-          $this->umur = $data->umur;
-        // $data->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
+        //   $this->umur = $data->umur;
+          $this->tgl_lahir = $data->tgl_lahir;
+        $data->umur_sekarang = hitungUmurSekarang($data->tgl_lahir);
           $this->alamat = $data->alamat;
           $this->kota_id = $data->kota_id;
           $this->telp = $data->telp;
@@ -77,13 +78,13 @@ public function updated($fields) {
 
     }
 
-    public function hitungUmurSekarang($tgl, $umur) {
-        $now = Carbon::now();
-        $tahun = $now->year;
-        $year = date('Y', strtotime($tgl));
-        $selisih = $tahun - $year;
-        return $umur + $selisih;
-    }
+    // public function hitungUmurSekarang($tgl, $umur) {
+    //     $now = Carbon::now();
+    //     $tahun = $now->year;
+    //     $year = date('Y', strtotime($tgl));
+    //     $selisih = $tahun - $year;
+    //     return $umur + $selisih;
+    // }
 
     public function getDataPengajak ($nama, $id) {
         $this->pengajak = $nama;
@@ -114,8 +115,10 @@ public function updated($fields) {
 
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
-        $data_umat->umur = $this->umur;
-        $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
+        // $data_umat->umur = $this->umur;
+        // $data_umat->umur_sekarang = $this->hitungUmurSekarang($this->tgl_mohonTao,$this->umur);
+        $data_umat->tgl_lahir = $this->tgl_lahir;
+        $data_umat->umur_sekarang = hitungUmurSekarang($this->tgl_lahir);
         $data_umat->alamat = $this->alamat;
         $data_umat->kota_id = $this->kota_id;
         $data_umat->telp = $this->telp;
@@ -186,6 +189,7 @@ public function updated($fields) {
         $this->mandarin='';
         $this->gender='';
         $this->umur='';
+        $this->tgl_lahir='';
         $this->umur_sekarang='';
         $this->alamat='';
         $this->kota_id='';

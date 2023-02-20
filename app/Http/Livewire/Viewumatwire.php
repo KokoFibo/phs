@@ -26,7 +26,7 @@ class Viewumatwire extends Component
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
           $this->tgl_lahir = $data->tgl_lahir;
-          $this->umur_sekarang = tgl($data->tgl_lahir).' / '.$this->hitungUmurSekarang($data->tgl_lahir).' Tahun';
+          $this->umur_sekarang = tgl($data->tgl_lahir).' / '.hitungUmurSekarang($data->tgl_lahir).' Tahun';
           $this->alamat = $data->alamat;
           $this->kota_id = $data->kota_id;
           $this->telp = $data->telp;
@@ -51,12 +51,12 @@ class Viewumatwire extends Component
 
     }
 
-    public function hitungUmurSekarang($tgl) {
-        $now = Carbon::now();
-        $tahun = $now->year;
-        $year = date('Y', strtotime($tgl));
-        return $tahun - $year;
-    }
+    // public function hitungUmurSekarang($tgl) {
+    //     $now = Carbon::now();
+    //     $tahun = $now->year;
+    //     $year = date('Y', strtotime($tgl));
+    //     return $tahun - $year;
+    // }
 
     public function getDataPengajak ($nama, $id) {
         $this->pengajak = $nama;

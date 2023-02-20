@@ -50,9 +50,9 @@
                         @enderror
                   </div>
                   <div class="mt-3">
-                        <label class="px-2 " for="umur">{{ __('Umur') }}</label>
-                        <input id="umur" type="text" wire:model="umur" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        @error('umur')
+                        <label class="px-2 " for="tgl_lahir">{{ __('Tanggal Lahir') }}</label>
+                        <input id="tgl_lahir" type="date" wire:model="tgl_lahir" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        @error('tgl_lahir')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>

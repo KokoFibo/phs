@@ -132,6 +132,13 @@ if(!function_exists('getYear')) {
 
       }
 
+      function hitungUmurSekarang($tgl) {
+        $now = Carbon::now();
+        $tahun = $now->year;
+        $year = date('Y', strtotime($tgl));
+        return $tahun - $year;
+    }
+
 
       function smartCapitalize($name) {
         $str = strtolower($name);
