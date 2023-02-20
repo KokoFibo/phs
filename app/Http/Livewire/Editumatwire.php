@@ -16,7 +16,7 @@ class Editumatwire extends Component
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
     public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
-
+    public $umur_sekarang;
     protected $rules = [
         'nama_umat' => 'required',
         'nama_alias' => 'nullable',
@@ -24,11 +24,11 @@ class Editumatwire extends Component
         'gender' => 'required',
 
 
-        'tgl_mohonTao' => 'required|date|before:tomorrow',
+        'tgl_mohonTao' => 'required|date|before_or_equal:tgl_mohonTao',
         'alamat' => 'required',
         'kota_id' => 'required',
-        'telp' => 'nullable|numeric|min_digits:9|max_digits:13',
-        'hp' => 'nullable|numeric',
+        'telp' => 'nullable|min_digits:9|max_digits:13',
+        'hp' => 'nullable|min_digits:9|max_digits:13',
         'email' => 'nullable|email',
         'pengajak_id' => 'required',
         'pengajak' => 'required',
@@ -54,6 +54,7 @@ public function updated($fields) {
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
           $this->tgl_lahir = $data->tgl_lahir;
+          $this->umur_sekarang = $data->umur_sekarang;
           $this->alamat = $data->alamat;
           $this->kota_id = $data->kota_id;
           $this->telp = $data->telp;
@@ -108,6 +109,7 @@ public function updated($fields) {
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
         $data_umat->tgl_lahir = $this->tgl_lahir;
+        $data_umat->umur_sekarang = hitungUmurSekarang($this->tgl_lahir);
         $data_umat->alamat = $this->alamat;
         $data_umat->kota_id = $this->kota_id;
         $data_umat->telp = $this->telp;
@@ -178,6 +180,7 @@ public function updated($fields) {
         $this->mandarin='';
         $this->gender='';
         $this->tgl_lahir='';
+        $this->umur_sekarang='';
         $this->alamat='';
         $this->kota_id='';
         $this->telp='';

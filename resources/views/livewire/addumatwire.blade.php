@@ -80,14 +80,14 @@
                   </div>
                   <div class="mt-3">
                         <label class="px-2 " for="telepon">{{ __('Telepon') }}</label>
-                        <input id="telepon" type="text" placeholder="021 12345678" wire:model="telp" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        <input id="telepon" type="text" placeholder="02112345678" wire:model="telp" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('telp')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
                   <div class="mt-3">
                         <label class="px-2 " for="handphone">{{ __('Handphone') }}</label>
-                        <input id="handphone" type="text" placeholder="0821 1234 5678" wire:model="hp" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        <input id="handphone" type="text" placeholder="082112345678" wire:model="hp" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('hp')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
@@ -120,7 +120,7 @@
                         @enderror
                   </div>
                   <div class="mt-5">
-                        <label class="px-2 " for="tgl">{{ __('Tanggal Mohon Tao') }} {{ $tgl_mohonTao }}</label>
+                        <label class="px-2 " for="tgl">{{ __('Tanggal Mohon Tao') }}</label>
                         <input id="tgl" type="date" wire:model="tgl_mohonTao" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('tgl_mohonTao')
                         <span class="text-red-500">{{ $message }}</span>
@@ -128,7 +128,7 @@
                   </div>
                   <div class="relative mt-3" x-data="{ pengajak: false }">
                         <label class="px-2 " for="pengajak">{{ __('Pengajak') }}</label>
-                        <input @click="pengajak=true" id="pengajak" type="text" placeholder="Masukkan data Pengajak" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pengajak">
+                        <input @click="pengajak=true" id="pengajak" autocomplete="off" type="text" placeholder="Masukkan data Pengajak" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pengajak">
                         <input type="hidden" wire:model="pengajak_id">
                         <div x-show="pengajak" @click.away="pengajak = false" x-transition class="absolute z-10 overflow-auto h-44">
                               <input id="pengajak" type="text" placeholder="Cari Pengajak" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
@@ -149,7 +149,7 @@
 
                   <div class="relative mt-3" x-data="{ penjamin: false }">
                         <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label>
-                        <input @click="penjamin=true" id="penjamin" type="text" placeholder="Masukkan data penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="penjamin">
+                        <input @click="penjamin=true" autocomplete="off" id="penjamin" type="text" placeholder="Masukkan data penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="penjamin">
                         <input type="hidden" wire:model="penjamin_id">
                         <div x-show="penjamin" @click.away="penjamin = false" x-transition class="absolute z-10 overflow-auto h-44">
                               <input id="penjamin" type="text" placeholder="Cari penjamin" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">

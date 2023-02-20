@@ -52,7 +52,7 @@ public function updatedSelectAll () {
     }
 }
     public function pdfdom () {
-         $datapelita = DataPelita::whereIn('id',$this->selectedId)->get();
+         $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
 
         $pdfContent = PDF::loadView('datapelitapdf', ['datapelita'=>$datapelita])->setPaper('a4', 'landscape')->output();
         return response()->streamDownload(
@@ -72,19 +72,11 @@ public function updatedSelectAll () {
 
     }
 
-
-
     public function updatingSearch () {
         $this->resetPage();
     }
 
-    // public function updatedSelectAll ($value) {
-    //     if ($value) {
-    //         $this->selectedId = DataPelita::pluck('id');
-    //     } else {
-    //         $this->selectedId = [];
-    //     }
-    // }
+
 
     public function resetFilter () {
         $this->perpage = 5;
@@ -105,6 +97,8 @@ public function updatedSelectAll () {
         $this->selectedId = [];
         $this->selectedAll = [];
         $this->selectAll = false;
+        $this->tgl_sd3h = false;
+        $this->tgl_vtotal = false;
         $this->dispatchBrowserEvent('resetfield');
 
     }
@@ -247,9 +241,6 @@ public function updatedSelectAll () {
         }
     }
 
-
-
-
     public function render()
     {
         if (Auth::user()->role == '3'){
@@ -376,15 +367,8 @@ public function updatedSelectAll () {
         })
         ;
     }
-    // elseif ($this->default == true && $this->search == '') {
     else {
-        // $datapelita = DataPelita::query()
-        // ->orderBy('id', 'desc')
-        // // ->whereDate('updated_at', '=', Carbon::today()->toDateString())
-        // ->when($this->branch_id, function($query){
-        //     $query->where('branch_id', $this->branch_id );
-        // })
-        // ;
+
         $datapelita = DB::table('data_pelitas')
         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
@@ -422,8 +406,6 @@ public function updatedSelectAll () {
 
     }
 
-
-
     $data_branch = Branch::find(Auth::user()->branch_id);
     $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
 
@@ -442,7 +424,6 @@ public function updatedSelectAll () {
         $datacetya = Branch::find(Auth::user()->branch_id);
         $this->nama_cetya = $datacetya->nama_branch;
 
-        // $this->nama_cetya = "Welcome";
     }
     if($this->kode_branch_view != NULL){
         $datacetya = Branch::find($this->kode_branch_view);

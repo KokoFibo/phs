@@ -250,7 +250,7 @@
                                     </td>
                                     @endif
                                     <td class="p-3 text-center text-gray-800 border rounded">
-                                          {{ hitungUmurSekarang($d->tgl_lahir) }}
+                                          {{ $d->umur_sekarang }}
                                     </td>
 
                                     <td class="p-3 text-gray-800 border rounded">
