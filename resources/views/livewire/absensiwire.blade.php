@@ -57,7 +57,7 @@
                         <label class="px-2" for="tgl_kelas">{{ __('Tanggal Kelas') }}</label>
                         <input id="tgl_kelas" type="date" wire:model="tgl_kelas" class="w-full my-3 text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('tgl_kelas')
-                        <span class="text-red-500">{{ $message }}</span>
+                        <span class="text-black">{{ $message }}</span>
                         @enderror
                   </div>
 
@@ -65,7 +65,7 @@
                         <label class="px-2" for="jumlah_peserta">{{ __('Jumlah Peserta') }}</label>
                         <input id="jumlah_peserta" type="number" wire:model="jumlah_peserta" class="w-full my-3 text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('jumlah_peserta')
-                        <span class="text-red-500">{{ $message }}</span>
+                        <span class="text-black">{{ $message }}</span>
                         @enderror
                   </div>
 

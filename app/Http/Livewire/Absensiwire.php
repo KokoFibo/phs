@@ -106,18 +106,36 @@ class Absensiwire extends Component
         $data_kelas->save();
     }
 
+    protected $rules = [
+
+        'daftarkelas_id' => 'required',
+        'tgl_kelas' => 'required',
+        'jumlah_peserta' => 'numeric',
+
+];
+public function updated($fields) {
+    $this->validateOnly($fields);
+}
+
 
 
     public function store () {
-            $data = new Absensi();
-            $data->daftarkelas_id = $this->daftarkelas_id;
-            $data->tgl_kelas = $this->tgl_kelas;
-            $data->jumlah_peserta = $this->jumlah_peserta;
+        $validatedData = $this->validate();
+        try {
+        $data = new Absensi();
+        $data->daftarkelas_id = $this->daftarkelas_id;
+        $data->tgl_kelas = $this->tgl_kelas;
+        $data->jumlah_peserta = $this->jumlah_peserta;
             $data->save();
             $this->updateDaftarKelas();
             $this->clear_fields();
             // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
-        $this->dispatchBrowserEvent('saved');
+            $this->dispatchBrowserEvent('saved');
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
+
 
 
     }
