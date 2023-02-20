@@ -5,7 +5,8 @@
       <div class="flex items-center max-w-3xl p-5 bg-teal-100 shadow-lg rounded-2xl">
             <!-- image -->
             <div class="hidden w-1/2 md:block">
-                  <img class="rounded-2xl" src="https://images.unsplash.com/photo-1616606103915-dea7be788566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80">
+                  {{-- <img class="rounded-2xl" src="https://images.unsplash.com/photo-1616606103915-dea7be788566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"> --}}
+                  <img class="rounded-2xl" src="{{ asset('img/love-corn.avif') }}">
             </div>
             <!-- form -->
             <div class="px-8 md:w-1/2 md:px-16">
