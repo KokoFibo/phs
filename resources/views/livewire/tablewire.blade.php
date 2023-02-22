@@ -46,7 +46,7 @@
                                     {{-- <div class="card card-body glass" style="width: 400px; color: purple;"> --}}
                                     @if (Auth::user()->role == '3')
                                     <div class="mt-3">
-                                          <label class="p-1 px-3 rounded bg-purple">{{ __('Group') }} </label>
+                                          <label class="p-1 px-3 rounded bg-purple">{{ __('Group') }} <span class="text-red-500">(Under Construction)</span> </label>
                                           <select wire:model="group_id" class="w-full px-2 py-1 border border-gray-400 rounded">
                                                 <option value="" selected>{{ __('All') }}</option>
                                                 @foreach ($group as $a)
