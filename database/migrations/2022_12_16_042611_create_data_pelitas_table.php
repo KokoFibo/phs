@@ -27,6 +27,7 @@ return new class extends Migration
             // $table->string('kota');
             $table->foreignId('kota_id');
 
+
             $table->string('telp')->nullable();
             $table->string('hp')->nullable();
             $table->string('email')->nullable();

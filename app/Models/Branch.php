@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Branch extends Model
 {
     use HasFactory;
-    protected $fillable = ['kota_id', 'nama_branch', 'kode_branch'];
+    protected $fillable = ['kota_id', 'nama_branch', 'group_id'];
     public function datapelita()
     {
         return $this->hasMany(DataPelita::class);
@@ -26,6 +26,10 @@ class Branch extends Model
     {
         return $this->belongsTo(Kota::class);
     }
+    public function groupvihara()
+    {
+        return $this->belongsTo(Groupvihara::class);
+    }
 
-    
+
 }

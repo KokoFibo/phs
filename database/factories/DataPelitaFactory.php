@@ -36,6 +36,7 @@ class DataPelitaFactory extends Factory
             'pandita_id' => fake()->numberBetween(1,3),
             'status' => 'Active',
             'branch_id' => fake()->numberBetween(1,3),
+
         ];
     }
 }

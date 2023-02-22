@@ -7,11 +7,12 @@ use Carbon\Carbon;
 use App\Models\Kota;
 use Livewire\Request;
 use App\Models\Branch;
-use App\Models\Pandita;
 // use Barryvdh\DomPDF\PDF;
-use Livewire\Component;
+use App\Models\Pandita;
 // use Maatwebsite\Excel\Excel;
+use Livewire\Component;
 use App\Models\DataPelita;
+use App\Models\Groupvihara;
 use Illuminate\Support\Arr;
 use Livewire\WithPagination;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -42,6 +43,7 @@ class Tablewire extends Component
     public $selectAll = false;
     protected $listeners = ['delete'];
     // protected $listeners = ['resetfilter'];
+    public $group_id;
 
 
 public function updatedSelectAll () {
@@ -402,6 +404,7 @@ public function updatedSelectAll () {
         ->when($this->tgl_vtotal, function($query){
             $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
+
         ;
 
     }
@@ -432,8 +435,9 @@ public function updatedSelectAll () {
 
      $this->selectedAll = $datapelita->pluck('id');
     $datapelita1 = $datapelita->paginate($this->perpage);
+    $group = Groupvihara::all();
 
-        return view('livewire.tablewire', compact(['datapelita1', 'data_branch', 'all_branch', 'namaft', 'dp']))
+        return view('livewire.tablewire', compact(['datapelita1', 'data_branch', 'all_branch', 'namaft', 'dp', 'group']))
         ->extends('layouts.main')
         ->section('content');
     }

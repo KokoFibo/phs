@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Auth;
 use Carbon\Carbon;
 use App\Models\Kota;
+use App\Models\User;
+use App\Models\Groupvihara;
 use App\Models\Branch;
 use App\Models\Pandita;
 use Livewire\Component;
@@ -17,16 +19,37 @@ class Addumatwire extends Component
     public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status="Active", $branch_id;
     public $umur_sekarang;
+    public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota;
+
+    public function mount () {
+        $this->selectedGroup = Auth::user()->group_id;
+        $this->selectedBranch = Auth::user()->branch_id;
+        $this->selectedKota = Auth::user()->kota_id;
+
+        $this->selectGroup = Groupvihara::all();
+        // $this->selectBranch = Branch::all();
+        $this->selectBranch = Branch::where('group_id', $this->selectedGroup)->get();
+        $this->selectKota = Kota::all();
+
+
+        $query = "";
+        $nama = [];
+    }
+    public function updatedSelectedGroup () {
+
+        $this->selectBranch = Branch::where('group_id', $this->selectedGroup)->get();
+        $this->selectedBranch = $this->selectBranch[0]->id;
+    }
 
     protected $rules = [
         'nama_umat' => 'required',
         'nama_alias' => 'nullable',
         'mandarin' => 'nullable',
         'gender' => 'required',
-        'tgl_lahir' => 'required|date|before_or_equal:tgl_mohonTao',
+        'tgl_lahir' => 'required|date|date|before:tomorrow',
         'umur_sekarang' => 'nullable',
         'alamat' => 'required',
-        'kota_id' => 'required',
+        // 'kota_id' => 'required',
         'telp' => 'nullable|min_digits:9|max_digits:13',
         'hp' => 'nullable|min_digits:9|max_digits:13',
         'email' => 'nullable|email',
@@ -43,15 +66,26 @@ class Addumatwire extends Component
 
 ];
 
+public function setDefault () {
+    $data = User::find(Auth::user()->id);
+    $data->group_id = $this->selectedGroup;
+    $data->branch_id = $this->selectedBranch;
+    $data->kota_id = $this->selectedKota;
+    $data->save();
+    $this->dispatchBrowserEvent('setDefault', [
+        'title' => 'Set to default'
+    ]);
+
+
+
+
+}
+
 public function updated($fields) {
         $this->validateOnly($fields);
 }
 
-    public function mount () {
 
-        $query = "";
-        $nama = [];
-    }
 
     public function getDataPengajak ($nama, $id) {
         $this->pengajak = $nama;
@@ -77,7 +111,11 @@ public function updated($fields) {
 
         $data_umat = new DataPelita();
         $this->branch_id = Auth::user()->branch_id;
-        $data_umat->branch_id = $this->kode_branch;
+
+
+        $data_umat->branch_id = $this->selectedBranch;
+        $data_umat->kota_id = $this->selectedKota;
+
 
 
         $data_umat->nama_umat = Str::title($this->nama_umat);
@@ -87,8 +125,7 @@ public function updated($fields) {
         $data_umat->gender = $this->gender;
         $data_umat->tgl_lahir = $this->tgl_lahir;
         $data_umat->umur_sekarang = hitungUmurSekarang($this->tgl_lahir);
-        $data_umat->alamat = $this->alamat;
-        $data_umat->kota_id = $this->kota_id;
+        $data_umat->alamat = Str::title($this->alamat);
         $data_umat->telp = $this->telp;
         $data_umat->hp = $this->hp;
         $data_umat->email = $this->email;
@@ -105,7 +142,7 @@ public function updated($fields) {
         $data_umat->status = 'Active';
 
         // update data kota_is_Used
-        $data_kota = Kota::find($this->kota_id);
+        $data_kota = Kota::find($this->selectedKota);
         $data_kota->kota_is_used = true;
         $data_kota->save();
 
@@ -161,6 +198,7 @@ public function updated($fields) {
     {
         $datapandita = Pandita::orderBy('nama_pandita', 'asc')->get();
         $datakota = Kota::orderBy('nama_kota', 'asc')->get();
+
 
         return view('livewire.addumatwire', compact(['datapandita', 'datakota']))
         ->extends('layouts.secondMain')

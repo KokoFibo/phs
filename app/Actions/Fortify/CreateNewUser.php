@@ -39,6 +39,7 @@ class CreateNewUser implements CreatesNewUsers
             'role' => '3',
             'kota_id' => '1',
             'branch_id' => '1',
+            'group_id' => '1',
         ]);
     }
 }

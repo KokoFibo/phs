@@ -14,12 +14,14 @@
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" /> --}}
 
+
       <style>
             [x-cloak] {
                   display: none;
             }
 
       </style>
+
 
       @livewireStyles
 

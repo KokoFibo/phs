@@ -39,14 +39,23 @@
 
                               {{-- isi dari dropdown --}}
 
-                              <div x-show="open" x-cloak @click.away="open = false" x-transition class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-[#ffffff/.62]  shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
+                              <div x-show="open" x-cloak @click.away="open = false" x-transition class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-white  shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
                                     {{-- class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 min-h-120px rounded-xl w-400px glass "> --}}
 
 
                                     {{-- <div class="card card-body glass" style="width: 400px; color: purple;"> --}}
                                     @if (Auth::user()->role == '3')
                                     <div class="mt-3">
-                                          <label class="p-1 px-3 rounded bg-purple">{{ __('Branch') }} </label>
+                                          <label class="p-1 px-3 rounded bg-purple">{{ __('Group') }} </label>
+                                          <select wire:model="group_id" class="w-full px-2 py-1 border border-gray-400 rounded">
+                                                <option value="" selected>{{ __('All') }}</option>
+                                                @foreach ($group as $a)
+                                                <option value="{{ $a->id }}">{{ $a->nama_group }}</option>
+                                                @endforeach
+                                          </select>
+                                    </div>
+                                    <div class="mt-3">
+                                          <label class="p-1 px-3 rounded bg-purple">{{ __('Vihara') }} </label>
                                           <select wire:model="kode_branch" class="w-full px-2 py-1 border border-gray-400 rounded">
                                                 <option value="" selected>{{ __('All') }}</option>
                                                 @foreach ($all_branch as $a)
@@ -184,14 +193,12 @@
                                     <th class="p-3 font-semibold ">
                                           <div class="flex justify-center space-x-1">
 
-                                                @if ($kode_branch != '')
                                                 <div>
-                                                      <a href="/adddata/{{ $kode_branch }}"><button type="button" class="p-1 text-white bg-blue-500 rounded ">
+                                                      <a href="/adddata"><button type="button" class="p-1 text-white bg-blue-500 rounded ">
                                                                   <i class="fa-solid fa-user-plus"></i>
                                                             </button></a>
 
                                                 </div>
-                                                @endif
 
                                                 {{-- Reset --}}
                                                 <div>
