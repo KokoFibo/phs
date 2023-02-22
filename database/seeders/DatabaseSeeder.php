@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
                 'role' => '3',
                 'kota_id' => '1',
                 'branch_id' => '1',
-                'group_id' => '1',
+                'groupvihara_id' => '1',
             ],
         );
         DB::table('users')->insert(
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
                 'role' => '2',
                 'kota_id' => '1',
                 'branch_id' => '1',
-                'group_id' => '1',
+                'groupvihara_id' => '1',
             ],
         );
         DB::table('users')->insert(
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
                 'role' => '1',
                 'kota_id' => '1',
                 'branch_id' => '1',
-                'group_id' => '1',
+                'groupvihara_id' => '1',
             ],
         );
         DB::table('panditas')->insert(
