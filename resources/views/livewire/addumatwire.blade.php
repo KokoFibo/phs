@@ -31,7 +31,7 @@
 
 
 
-      <div class="flex items-center w-3/4 py-5 pb-3 mx-auto my-2 mt-2 mb-5 shadow justify-evenly shadow-purple-300 bg-purple-50 rounded-xl">
+      <div class="flex items-center w-3/4 py-3 mx-auto my-2 mb-3 shadow justify-evenly shadow-purple-300 bg-purple-50 rounded-xl">
 
             <div class="w-1/4 ">
                   <label class="px-2 ">{{ __('Group') }}</label><span class="text-red-500">*</span>

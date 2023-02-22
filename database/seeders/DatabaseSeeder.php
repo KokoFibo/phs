@@ -128,19 +128,22 @@ class DatabaseSeeder extends Seeder
             'branch_is_used' => true,
             ],
         );
-        DB::table('groups')->insert(
+        DB::table('groupviharas')->insert(
             [
             'nama_group' => 'Group Lik Ta',
+            'group_is_used' => false,
             ],
         );
-        DB::table('groups')->insert(
+        DB::table('groupviharas')->insert(
             [
             'nama_group' => 'Group Taman Surya',
+            'group_is_used' => false,
             ],
         );
-        DB::table('groups')->insert(
+        DB::table('groupviharas')->insert(
             [
             'nama_group' => 'Group Dadap',
+            'group_is_used' => false,
             ],
         );
 

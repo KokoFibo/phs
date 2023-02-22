@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('groupviharas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_group');
+            $table->boolean('group_is_used')->default(false);
+
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 
 
       <div class="flex justify-between w-2/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
-            <h5 class="text-2xl font-semibold">{{ __('Add Data Pandita1') }}</h5>
+            <h5 class="text-2xl font-semibold">{{ __('Add Data Pandita') }}</h5>
 
             <button wire:click="close">
                   <i class="fa fa-circle-xmark fa-2xl"></i>
@@ -48,7 +48,7 @@
                                           {{ $pandita->firstItem() + $index }}</td>
                                     <td class="p-3 text-gray-800 border rounded">{{ $p->nama_pandita }}</td>
                                     <td class="p-3 text-center text-gray-800 border rounded">
-                                          @if ($p->pandita_is_used == false)
+                                          @if ($p->group_is_used == false)
                                           <button class="button-red button " wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
                                           @else
                                           <button class="button button-teal" wire:click="edit({{ $p->id }})">{{ __('Rename') }}</button>

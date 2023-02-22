@@ -21,6 +21,7 @@ use App\Http\Livewire\Viewumatwire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Daftarkelaswire;
+use App\Http\Livewire\Tambahgroupwire;
 use App\Http\Livewire\Tambahkelaswire;
 use App\Http\Livewire\Adddataumatiwire;
 use App\Http\Livewire\Changeprofilewire;
@@ -83,6 +84,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/branch', Branchwire::class)->name('branchwire');
         Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
         Route::get('/absensi', Absensiwire::class)->name('absensi');
+        Route::get('/tambahgroup', Tambahgroupwire::class)->name('tambahgroup');
         Route::get('/resetumur', function () {
             $data = DataPelita::all();
             foreach($data as $d ){

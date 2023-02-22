@@ -73,6 +73,9 @@
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'datakotawire' == request()->path() ? 'active1' : ''  }}">
                                                 <a class="block" href="{{ route('datakotawire') }}">{{ __('Tambah Data Kota') }}</a>
                                           </li>
+                                          <li class="py-2 my-2 hover:bg-gray-200 {{ 'tambahgroup' == request()->path() ? 'active1' : ''  }}">
+                                                <a class="block" href="{{ route('tambahgroup') }}">{{ __('Tambah Group Vihara') }}</a>
+                                          </li>
                                     </ul>
                               </div>
 
