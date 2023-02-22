@@ -22,7 +22,7 @@ return new class extends Migration
             $table->char('role')->nullable();
             $table->integer('kota_id')->nullable();
             $table->integer('branch_id')->nullable();
-            $table->integer('group_id')->nullable();
+            $table->integer('groupvihara_id')->nullable();
 
 
             $table->rememberToken();
