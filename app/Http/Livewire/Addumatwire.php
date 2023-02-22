@@ -22,13 +22,13 @@ class Addumatwire extends Component
     public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota;
 
     public function mount () {
-        $this->selectedGroup = Auth::user()->group_id;
+        $this->selectedGroup = Auth::user()->groupvihara_id;
         $this->selectedBranch = Auth::user()->branch_id;
         $this->selectedKota = Auth::user()->kota_id;
 
         $this->selectGroup = Groupvihara::all();
         // $this->selectBranch = Branch::all();
-        $this->selectBranch = Branch::where('group_id', $this->selectedGroup)->get();
+        $this->selectBranch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
         $this->selectKota = Kota::all();
 
 
@@ -37,7 +37,7 @@ class Addumatwire extends Component
     }
     public function updatedSelectedGroup () {
 
-        $this->selectBranch = Branch::where('group_id', $this->selectedGroup)->get();
+        $this->selectBranch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
         $this->selectedBranch = $this->selectBranch[0]->id;
     }
 
@@ -68,7 +68,7 @@ class Addumatwire extends Component
 
 public function setDefault () {
     $data = User::find(Auth::user()->id);
-    $data->group_id = $this->selectedGroup;
+    $data->groupvihara_id = $this->selectedGroup;
     $data->branch_id = $this->selectedBranch;
     $data->kota_id = $this->selectedKota;
     $data->save();
@@ -153,7 +153,7 @@ public function updated($fields) {
         $data_pandita->save();
 
         // update data branch_is_Used
-        $data_branch = Branch::find($this->branch_id);
+        $data_branch = Branch::find($this->selectedBranch);
         $data_branch->branch_is_used = true;
         $data_branch->save();
 

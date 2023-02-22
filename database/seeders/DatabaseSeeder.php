@@ -104,8 +104,7 @@ class DatabaseSeeder extends Seeder
         DB::table('branches')->insert(
             [
             'nama_branch' => '立達壇',
-            'group_id' => 1,
-            'kota_id' => 1,
+            'groupvihara_id' => 1,
             'branch_is_used' => true,
             ],
         );
@@ -114,8 +113,7 @@ class DatabaseSeeder extends Seeder
 
             [
             'nama_branch' => '立德壇',
-            'group_id' => 2,
-            'kota_id' => 1,
+            'groupvihara_id' => 2,
             'branch_is_used' => true,
             ],
         );
@@ -123,8 +121,7 @@ class DatabaseSeeder extends Seeder
         DB::table('branches')->insert(
             [
             'nama_branch' => 'Dadap',
-            'group_id' => 3,
-            'kota_id' =>2,
+            'groupvihara_id' => 3,
             'branch_is_used' => true,
             ],
         );

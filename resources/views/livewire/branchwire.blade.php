@@ -1,5 +1,5 @@
 <div>
-      @section('title', 'Branch')
+      @section('title', 'Add Data Vihara')
       <div class="flex justify-between w-2/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
             <h5 class="text-2xl font-semibold">{{ __('Add Data Vihara') }}</h5>
 
@@ -18,33 +18,27 @@
             <div class="w-1/2 p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl rounded-xl">
                   <div class="text-xl font-semibold text-center">{{ __('Data Vihara') }}</div>
                   <div class="w-full mt-3">
-                        <label class="block px-2" for="kota">{{ __('Kota') }}</label>
-                        <select id="kota" wire:model="kota_id" class="w-full my-3 text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                              <option value="" selected>--> {{ __('Silakan Pilih Kota') }}
-                                    <-- </option>
-                                          @foreach ($kota as $k)
-                              <option value="{{ $k->id }}"">{{ $k->nama_kota }}</option>
-                    @endforeach
-                </select>
+                        <label class="block px-2" for="kota">{{ __('Group Vihara') }}</label>
+                        <select wire:model="groupvihara_id" class="w-full my-3 text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                              {{-- $kode_cetya = $data->kode_branch; --}}
+                              <option value="" selected>{{ __('Silakan Pilih Group Vihara') }}</option>
+                              @foreach ($groupvihara as $k)
+                              <option value="{{ $k->id }}">{{ $k->nama_group }}</option>
+                              @endforeach
+                        </select>
 
-                @error('kota')
-                    <span class=" text-red-500">{{ $message }}</span>
-                                    @enderror
+                        @error('groupvihara_id')
+                        <span class="text-red-500 ">{{ $message }}</span>
+                        @enderror
                   </div>
-                  <div class="w-full mt-3">
-                        <label class="px-2" for="nama_vihara">{{ __('Nama Vihara') }}</label>
+                  <div class="w-full mt-3 ">
+                        <label class="px-2 " for=" nama_vihara">{{ __('Nama Vihara') }}</label>
                         <input id="nama_vihara" type="text" placeholder="{{ __('Nama Vihara') }}" wire:model="nama_branch" class="w-full my-3 text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('nama_branch')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
-                  <div class="w-full mt-3">
-                        <label class="px-2" for="kode_vihara">{{ __('Kode Vihara') }}</label>
-                        <input id="kode_vihara" type="text" placeholder="{{ __('Kode Vihara') }}" wire:model="kode_branch" class="w-full my-3 text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        @error('kode_branch')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                  </div>
+
                   @if ($is_add == true)
                   <button wire:click="store" class="px-3 py-1 text-teal-600 bg-white rounded hover:text-teal-800">{{ __('Save') }}</button>
                   @else
@@ -58,9 +52,8 @@
                         <thead class="text-white bg-purple-500 border-b-2 border-gray-200 rounded-xl">
                               <tr>
                                     <th class="p-3 font-semibold text-center">#</th>
-                                    <th class="p-3 font-semibold text-center">{{ __('Kota') }}</th>
                                     <th class="p-3 font-semibold text-center">{{ __('Nama Vihara') }}</th>
-                                    <th class="p-3 font-semibold text-center">{{ __('Kode Vihara') }}</th>
+                                    <th class="p-3 font-semibold text-center">{{ __('Group Vihara') }}</th>
                                     <th class="p-3 font-semibold text-center">{{ __('Action') }}</th>
                               </tr>
                         </thead>
@@ -69,14 +62,13 @@
                               <tr>
                                     <td class="p-3 text-gray-800 border rounded">
                                           {{ $branch->firstItem() + $index }}</td>
-                                    <td class="p-3 text-gray-800 border rounded">{{ $b->nama_kota }}</td>
                                     <td class="p-3 text-gray-800 border rounded">{{ $b->nama_branch }}</td>
-                                    <td class="p-3 text-gray-800 border rounded">{{ $b->kode_branch }}</td>
+                                    <td class="p-3 text-gray-800 border rounded">{{ $b->groupvihara->nama_group }}</td>
                                     <td class="p-3 text-center text-gray-800 border rounded">
                                           @if ($b->branch_is_used == false)
                                           <button class="button-red button " wire:click="delete_confirmation({{ $b->id }})">{{ __('Delete') }}</button>
                                           @else
-                                          <button class="button button-teal" wire:click="edit({{ $b->id }})">{{ __('Rename') }}</button>
+                                          <button class="button button-teal" wire:click="edit({{ $b->id }})">{{ __('Edit') }}</button>
                                           @endif
                                     </td>
                               </tr>
@@ -122,9 +114,7 @@
 
       window.addEventListener('deleted', function(e) {
             Swal.fire(
-                  'Deleted!'
-                  , 'Data sudah di delete.'
-                  , 'success'
+                  'Deleted!', 'Data sudah di delete.', 'success'
             );
       });
 

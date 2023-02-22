@@ -5,12 +5,13 @@ namespace App\Http\Livewire;
 use App\Models\Kota;
 use App\Models\Branch;
 use Livewire\Component;
+use App\Models\Groupvihara;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
 class Branchwire extends Component
 {
-    public $kota_id, $nama_branch, $kode_branch, $current_id;
+    public $nama_branch, $groupvihara_id, $current_id;
     public $is_add = true;
 
     use WithPagination;
@@ -21,18 +22,16 @@ class Branchwire extends Component
     public function rules () {
 
         return [
-            'kota_id' => ['required'],
+            'groupvihara_id' => ['required'],
             'nama_branch' => ['required'],
-            'kode_branch' => ['required'],
         ];
 
     }
 
     public function  clear_fields() {
 
-        $this->kota_id= '';
+        $this->groupvihara_id= '';
         $this->nama_branch='';
-        $this->kode_branch='';
 
     }
 
@@ -46,9 +45,8 @@ class Branchwire extends Component
 
         $data = new Branch();
 
-        $data->kota_id = $this->kota_id;
+        $data->groupvihara_id = $this->groupvihara_id;
         $data->nama_branch = $this->nama_branch;
-        $data->kode_branch = $this->kode_branch;
         $data->save();
 
         session()->flash('message', 'Data Branch Sudah di tambah');
@@ -64,9 +62,8 @@ class Branchwire extends Component
     public function edit ($id) {
         $data = Branch::find($id);
         $this->current_id = $id;
-        $this->kota_id = $data->kota_id;
+        $this->groupvihara_id = $data->groupvihara_id;
         $this->nama_branch = $data->nama_branch;
-        $this->kode_branch = $data->kode_branch;
         $this->is_add=false;
     }
     public function update () {
@@ -76,9 +73,8 @@ class Branchwire extends Component
         $data = new Branch();
         $data = Branch::find($this->current_id);
 
-        $data->kota_id = $this->kota_id;
+        $data->groupvihara_id = $this->groupvihara_id;
         $data->nama_branch = $this->nama_branch;
-        $data->kode_branch = $this->kode_branch;
         $data->save();
         $this->is_add=true;
 
@@ -99,11 +95,10 @@ class Branchwire extends Component
     public function delete_confirmation ($id) {
         $data = Branch::find($id);
         $nama_cetya = $data->nama_branch;
-        $kode_cetya = $data->kode_branch;
         $this->dispatchBrowserEvent('delete_confirmation_branch', [
             'title' => 'Yakin Untuk Hapus Data kota',
             //  'text' => "You won't be able to revert this!",
-              'text' => "Data Cetya : " . $nama_cetya . " & Kode : " . $kode_cetya,
+              'text' => "Data Cetya : " . $nama_cetya,
              'icon' => 'warning',
              'id' => $id,
         ]);
@@ -124,14 +119,13 @@ class Branchwire extends Component
 
     public function render()
     {
-        $branch = DB::table('branches')
-        ->join('kotas', 'branches.kota_id', '=', 'kotas.id')
-        ->select('branches.*',  'kotas.nama_kota')
-        ->orderBy('kotas.id', 'desc')
-        ->paginate(5);;
 
-        $kota = Kota::orderBy('nama_kota', 'asc')->get();
-        return view('livewire.branchwire', compact(['kota', 'branch']))
+        $groupvihara = Groupvihara::all();
+
+        $branch = Branch::orderBy('nama_branch', 'asc')
+        ->paginate(5);
+
+        return view('livewire.branchwire', compact(['groupvihara', 'branch']))
         ->extends('layouts.main')
         ->section('content');
     }
