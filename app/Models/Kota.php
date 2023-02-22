@@ -7,14 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kota extends Model
 {
-    use HasFactory; 
+    use HasFactory;
     protected $fillable = ['nama_kota'];
 
-    public function branch() {
-        return $this->hasMany(Branch::class);
-    }
+    
 
-    public function datapelita() 
+    public function datapelita()
     {
         return $this->hasMany(Datapelita::class);
     }

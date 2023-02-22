@@ -105,7 +105,7 @@ public function updated($fields) {
         $data_umat->nama_umat = Str::title($this->nama_umat);
         $data_umat->nama_alias = Str::title($this->nama_alias);
 
-
+        $data_umat->branch_id = $this->branch_id;
         $data_umat->mandarin = $this->mandarin;
         $data_umat->gender = $this->gender;
         $data_umat->tgl_lahir = $this->tgl_lahir;
@@ -200,7 +200,8 @@ public function updated($fields) {
     {
         $datapandita = Pandita::orderBy('nama_pandita', 'asc')->get();
         $datakota = Kota::orderBy('nama_kota', 'asc')->get();
-        return view('livewire.editumatwire', compact(['datapandita', 'datakota']))
+        $databranch = Branch::orderBy('nama_branch', 'asc')->get();
+        return view('livewire.editumatwire', compact(['datapandita', 'datakota', 'databranch']))
         ->extends('layouts.secondMain')
         ->section('content');
     }

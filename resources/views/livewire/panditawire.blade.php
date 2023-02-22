@@ -48,7 +48,7 @@
                                           {{ $pandita->firstItem() + $index }}</td>
                                     <td class="p-3 text-gray-800 border rounded">{{ $p->nama_pandita }}</td>
                                     <td class="p-3 text-center text-gray-800 border rounded">
-                                          @if ($p->pandita_is_used == false)
+                                          @if ($p->group_is_used == false)
                                           <button class="button-red button " wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
                                           @else
                                           <button class="button button-teal" wire:click="edit({{ $p->id }})">{{ __('Rename') }}</button>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Pandita;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Redirect;
 
@@ -29,7 +30,8 @@ class Panditawire extends Component
         ]);
         // ================
         $data = new Pandita();
-        $data->nama_pandita = $this->nama_pandita;
+
+        $data->nama_pandita = Str::title($this->nama_pandita);
         $data->save();
         $this->clear_fields();
         // $this->redirect(route('adddata'));
@@ -81,7 +83,8 @@ class Panditawire extends Component
             'nama_pandita' => 'required|unique:panditas,nama_pandita,'.$this->id_pandita
         ]);
         $nama = Pandita::find($this->id_pandita);
-        $nama->nama_pandita = $this->nama_pandita;
+        $data->nama_pandita = Str::title($this->nama_pandita);
+
         $nama->save();
         // $this->is_edit=false;
         $this->clear_fields();

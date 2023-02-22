@@ -29,6 +29,19 @@
       <div class="flex justify-center w-3/4 py-5 pb-3 mx-auto my-2 mt-2 mb-5 shadow shadow-purple-300 bg-purple-50 rounded-xl">
             <div class="w-2/5 px-5">
                   <div class="mt-3">
+                        <label class="px-2 ">{{ __('Vihara') }}</label>
+                        <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="branch_id">
+                              {{-- <option value="">{{ __('Silakan Pilih Kota') }}</option> --}}
+                              @foreach ($databranch as $branch)
+                              <option value="{{ $branch->id }}">{{ $branch->nama_branch }}</option>
+                              @endforeach
+
+                        </select>
+                        @error('branch_id')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+                  </div>
+                  <div class="mt-3">
                         <label class="px-2 " for="nama">{{ __('Nama Lengkap') }}</label>
                         <input id="nama" type="text" wire:model="nama_umat" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         @error('nama_umat')

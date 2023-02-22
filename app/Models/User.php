@@ -23,7 +23,8 @@ class User extends Authenticatable
         'password',
         'role',
         'branch_id',
-        'kota_id'
+        'kota_id',
+        'group_id'
     ];
 
     public function branch()
@@ -33,6 +34,10 @@ class User extends Authenticatable
     public function kota()
     {
         return $this->belongsTo(Kota::class);
+    }
+    public function groupvihara()
+    {
+        return $this->belongsTo(Groupvihara::class);
     }
 
     /**

@@ -21,6 +21,7 @@ use App\Http\Livewire\Viewumatwire;
 use App\Http\Livewire\Dashboardwire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Daftarkelaswire;
+use App\Http\Livewire\Tambahgroupwire;
 use App\Http\Livewire\Tambahkelaswire;
 use App\Http\Livewire\Adddataumatiwire;
 use App\Http\Livewire\Changeprofilewire;
@@ -73,7 +74,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
         Route::get('/main1', Data::class)->name('main');
         Route::get('/main', Tablewire::class)->name('main');
-        Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
+        // Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
+        Route::get('/adddata', Addumatwire::class)->name('adddata');
         Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
         Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('editdata');
         Route::get('/umatview', )->name('umatview');
@@ -82,6 +84,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/branch', Branchwire::class)->name('branchwire');
         Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
         Route::get('/absensi', Absensiwire::class)->name('absensi');
+        Route::get('/tambahgroup', Tambahgroupwire::class)->name('tambahgroup');
         Route::get('/resetumur', function () {
             $data = DataPelita::all();
             foreach($data as $d ){
