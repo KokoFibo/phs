@@ -20,9 +20,9 @@ if(!function_exists('check_JK')) {
 
 
       function check_JK($jk, $umur) {
-            if ($jk == 'Laki-laki' && $umur <= 16) return "童";
-            else if ($jk == 'Laki-laki' && $umur > 16) return "乾";
-            else if ($jk == 'Perempuan' && $umur <= 16) return "女";
+            if ($jk == '1' && $umur <= 16) return "童";
+            else if ($jk == '1' && $umur > 16) return "乾";
+            else if ($jk == '2' && $umur <= 16) return "女";
             else return "坤";
             // if ($jk == 1 && $umur <= 16) return "童 - Anak Laki-Laki";
             // else if ($jk == 1 && $umur > 16) return "乾 - Laki-Laki";

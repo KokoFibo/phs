@@ -16,7 +16,7 @@ class Editumatwire extends Component
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
     public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
-    public $umur_sekarang;
+    public $umur_sekarang, $keterangan;
     protected $rules = [
         'nama_umat' => 'required',
         'nama_alias' => 'nullable',
@@ -27,8 +27,8 @@ class Editumatwire extends Component
         'tgl_mohonTao' => 'required|date|before_or_equal:tgl_mohonTao',
         'alamat' => 'required',
         'kota_id' => 'required',
-        'telp' => 'nullable|min_digits:9|max_digits:13',
-        'hp' => 'nullable|min_digits:9|max_digits:13',
+        'telp' => 'nullable|min_digits:9|max_digits:13|numeric',
+        'hp' => 'nullable|min_digits:9|max_digits:13|numeric',
         'email' => 'nullable|email',
         'pengajak_id' => 'required',
         'pengajak' => 'required',
@@ -39,6 +39,7 @@ class Editumatwire extends Component
         'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao|before:tomorrow',
         'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_sd3h|before:tomorrow|prohibited_if:tgl_sd3h,=,null',
         'status' => 'nullable',
+        'keterangan' => 'nullable',
 ];
 
 public function updated($fields) {
@@ -71,6 +72,7 @@ public function updated($fields) {
           $this->tgl_sd3h = $data->tgl_sd3h;
           $this->tgl_vtotal = $data->tgl_vtotal;
         $this->status = $data->status;
+        $this->keterangan = $data->keterangan;
 
         $query = "";
         $nama = [];
@@ -129,6 +131,7 @@ public function updated($fields) {
 
 
         $data_umat->status = $this->status;
+        $data_umat->keterangan = $this->keterangan;
 
 
 

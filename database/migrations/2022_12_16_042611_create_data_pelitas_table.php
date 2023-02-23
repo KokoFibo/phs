@@ -40,6 +40,8 @@ return new class extends Migration
             $table->date('tgl_sd3h')->nullable();
             $table->date('tgl_vtotal')->nullable();
             $table->string('status');
+            $table->string('keterangan')->nullable();
+
             $table->timestamps();
         });
     }

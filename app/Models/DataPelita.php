@@ -29,7 +29,8 @@ class DataPelita extends Model
         'pandita_id',
         'tgl_mohonTao',
         'status',
-        'branch_id'
+        'branch_id',
+        'keterangan'
     ];
 
     public function getTgl_mohonTaoAttribute()

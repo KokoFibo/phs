@@ -18,10 +18,7 @@
       </div>
       <div class="flex justify-center w-3/4 py-5 pb-3 mx-auto my-2 mt-2 mb-5 shadow shadow-purple-300 bg-purple-50 rounded-xl">
             <div class="w-2/5 px-5">
-                  <div class="mt-3">
-                        <label class="px-2 " for="nama">{{ __('Cetya') }}</label>
-                        <input id="nama" type="text" value="{{ getBranch($branch_id) }}" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
-                  </div>
+
                   <div class="mt-3">
                         <label class="px-2 " for="nama">{{ __('Nama') }}</label>
                         <input id="nama" type="text" wire:model="nama_umat" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
@@ -58,15 +55,15 @@
                   <div class="mt-3">
                         <label class="px-2 " for="handphone">{{ __('Handphone') }}</label>
                         <input id="handphone" type="text" wire:model="hp" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
-
                   </div>
-
-            </div>
-            <div class="w-2/5 px-5">
                   <div class="mt-3">
                         <label class="px-2 " for="email">{{ __('Email') }}</label>
                         <input id="email" type="text" wire:model="email" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
                   </div>
+
+            </div>
+            <div class="w-2/5 px-5">
+
                   <div class="mt-3">
                         <div>
                               <label class="px-2 ">{{ __('Gender') }}</label>
@@ -105,6 +102,10 @@
                   <div class="mt-3">
                         <label class="px-2 " for="nama">{{ __('Status') }}</label>
                         <input id="tgl" type="text" wire:model="status" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                  </div>
+                  <div class="mt-3">
+                        <label class="px-2 " for="nama">{{ __('Keterangan') }}</label>
+                        <input id="tgl" type="text" wire:model="keterangan" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
                   </div>
 
 

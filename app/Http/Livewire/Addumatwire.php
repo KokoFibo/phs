@@ -30,8 +30,6 @@ class Addumatwire extends Component
         // $this->selectBranch = Branch::all();
         $this->selectBranch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
         $this->selectKota = Kota::all();
-
-
         $query = "";
         $nama = [];
     }
@@ -46,7 +44,7 @@ class Addumatwire extends Component
         'nama_alias' => 'nullable',
         'mandarin' => 'nullable',
         'gender' => 'required',
-        'tgl_lahir' => 'required|date|date|before:tomorrow',
+        'tgl_lahir' => 'required|date|before:tomorrow',
         'umur_sekarang' => 'nullable',
         'alamat' => 'required',
         // 'kota_id' => 'required',
@@ -98,7 +96,7 @@ public function updated($fields) {
 
     public function updatedQuery () {
         $this->nama = DataPelita::where('nama_umat', 'like', '%'. $this->query .'%')
-        ->get()
+        ->get(['id', 'nama_umat'])
         ->toArray();
     }
 

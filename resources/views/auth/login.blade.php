@@ -15,11 +15,7 @@
 
                   <form action="{{ route('login') }}" method="post" class="flex flex-col gap-4 ">
                         @csrf
-
-
                         <input class="p-2 mt-8 border rounded-xl" type="email" name="email" placeholder="Email" value="{{ old('email') }}" autocomplete="off">
-
-
                         <div class="relative" x-data="{ showPassword: false}">
                               <input class="w-full p-2 border rounded-xl" :type="showPassword ? 'text' : 'password'" name="password" placeholder="Password">
 
@@ -36,10 +32,6 @@
                         @enderror
                         <button type="submit" class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 mt-5">Login</button>
                   </form>
-
-
-
-
 
                   <div class="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
                         <a href="{{ route('password.request') }}">Forgot your password?</a>

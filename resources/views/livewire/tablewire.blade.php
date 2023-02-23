@@ -4,6 +4,8 @@
       <div class="items-center w-full md:flex">
             <div class="w-3/4 mx-5 ">
                   <div class="items-center md:flex">
+
+
                         {{-- Search --}}
                         <div class="w-full mt-3 mr-3 md:w-2/5">
                               <input type="search" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded " wire:model="search" placeholder="{{ __('Search...') }}">
@@ -46,7 +48,7 @@
                                     {{-- <div class="card card-body glass" style="width: 400px; color: purple;"> --}}
                                     @if (Auth::user()->role == '3')
                                     <div class="mt-3">
-                                          <label class="p-1 px-3 rounded bg-purple">{{ __('Group') }} <span class="text-red-500">(Under Construction)</span> </label>
+                                          <label class="p-1 px-3 rounded bg-purple">{{ __('Group') }}</label>
                                           <select wire:model="group_id" class="w-full px-2 py-1 border border-gray-400 rounded">
                                                 <option value="" selected>{{ __('All') }}</option>
                                                 @foreach ($group as $a)
@@ -54,22 +56,24 @@
                                                 @endforeach
                                           </select>
                                     </div>
+                                    @endif
                                     <div class="mt-3">
                                           <label class="p-1 px-3 rounded bg-purple">{{ __('Vihara') }} </label>
                                           <select wire:model="kode_branch" class="w-full px-2 py-1 border border-gray-400 rounded">
-                                                <option value="" selected>{{ __('All') }}</option>
+                                                <option value="">{{ __('All') }}</option>
                                                 @foreach ($all_branch as $a)
                                                 <option value="{{ $a->id }}">{{ $a->nama_branch }}</option>
                                                 @endforeach
                                           </select>
                                     </div>
-                                    @endif
                                     <div class="mt-3">
                                           <label class="p-1 px-3 rounded bg-purple">{{ __('Gender') }}</label>
                                           <select wire:model="jen_kel" class="w-full px-2 py-1 border border-gray-400 rounded">
                                                 <option value="0">{{ __('All') }}</option>
-                                                <option value="Laki-laki">{{ __('Laki-laki') }}</option>
-                                                <option value="Perempuan">{{ __('Perempuan') }}</option>
+                                                {{-- <option value="Laki-laki">{{ __('Laki-laki') }}</option>
+                                                <option value="Perempuan">{{ __('Perempuan') }}</option> --}}
+                                                <option value="1">{{ __('Laki-laki') }}</option>
+                                                <option value="2">{{ __('Perempuan') }}</option>
                                           </select>
                                     </div>
                                     <div class="mt-3">
@@ -179,7 +183,7 @@
                                     {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" "></th> --}}
                                     <th class="p-3 font-semibold text-center border rounded " ">{{ __('#') }}</th>
                                     {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" ">{{ __('id') }}</th> --}}
-                                    <th class=" p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_alias')">{{ __('ALIAS') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('mandarin')">{{ __('中文名') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('umur_sekarang') ">{{ __('UMUR') }}</th>
@@ -189,6 +193,8 @@
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('penjamin')">{{ __('PENJAMIN') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('nama_pandita')">{{ __('PANDITA') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('nama_kota')">{{ __('KOTA') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('nama_branch')">{{ __('CETYA') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('nama_group')">{{ __('GROUP') }}</th>
 
                                     <th class="p-3 font-semibold ">
                                           <div class="flex justify-center space-x-1">
@@ -262,7 +268,7 @@
 
                                     <td class="p-3 text-gray-800 border rounded">
                                           {{ $d->tgl_mohonTao }}</td>
-                                    <td class="p-3    border rounded {{ $d->gender == 'Laki-laki' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
+                                    <td class="p-3    border rounded {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                                           {{ check_JK($d->gender, $d->umur_sekarang) }}
                                     </td>
                                     {{-- <td class="p-3 text-gray-800 border rounded">{{ $d->pengajak_id }} --}}
@@ -275,6 +281,10 @@
                                           {{ $d->nama_pandita }}
                                     </td>
                                     <td class="p-3 text-gray-800 border rounded">{{ $d->nama_kota }}
+                                    </td>
+                                    <td class="p-3 text-gray-800 border rounded">{{ $d->nama_branch }}
+                                    </td>
+                                    <td class="p-3 text-gray-800 border rounded">{{ $d->nama_group }}
                                     </td>
 
                                     <td class="p-3 text-gray-800 border rounded ">
