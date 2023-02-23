@@ -14,7 +14,12 @@ class Groupvihara extends Model
     {
         return $this->hasMany(Branch::class);
     }
-    public function user() 
+
+    public function datapelita () {
+        return $this->hasManyThrough(DataPelita::class, Branch::class);
+    }
+
+    public function user()
     {
         return $this->hasMany(User::class);
     }

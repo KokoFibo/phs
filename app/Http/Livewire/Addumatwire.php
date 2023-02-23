@@ -30,8 +30,6 @@ class Addumatwire extends Component
         // $this->selectBranch = Branch::all();
         $this->selectBranch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
         $this->selectKota = Kota::all();
-
-
         $query = "";
         $nama = [];
     }
@@ -98,7 +96,7 @@ public function updated($fields) {
 
     public function updatedQuery () {
         $this->nama = DataPelita::where('nama_umat', 'like', '%'. $this->query .'%')
-        ->get()
+        ->get(['id', 'nama_umat'])
         ->toArray();
     }
 

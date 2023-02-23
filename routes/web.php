@@ -47,6 +47,8 @@ use App\Http\Controllers\menuAddDataController;
 Route::get('/', function () {
     return view('auth/login');
 });
+Route::get('/test', Testaja::class);
+
 
 
     // Route::get('/resetpswd', function() {
@@ -127,7 +129,6 @@ Route::middleware(['auth'])->group(function () {
             return redirect(route('main'));
         })->name('resetumur');
 
-    Route::get('/test', Testaja::class);
 
     });
 });
