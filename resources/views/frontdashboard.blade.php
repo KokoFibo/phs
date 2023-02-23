@@ -24,7 +24,7 @@
 
       </div>
       <div class=w-full mx-auto>
-            <h1 class="text-4xl font-semibold text-center text-purple-500">{{ getBranch($selectedBranch) }}</h1>
+            {{-- <h1 class="text-4xl font-semibold text-center text-purple-500">{{ getBranch($selectedBranch) }}</h1> --}}
       </div>
 </div>
 {{-- select box end --}}

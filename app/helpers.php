@@ -7,6 +7,7 @@ use App\Models\Branch;
 use App\Models\Pandita;
 use App\Models\DataPelita;
 use App\Models\Daftarkelas;
+use App\Models\Groupvihara;
 
 
 if(!function_exists('tgl')) {
@@ -59,11 +60,10 @@ if(!function_exists('getYear')) {
         return $data->nama_umat;
       }
 
-      function getBranch($id) {
+      function getGroupVihara($id) {
         if($id != null ){
-            $data = Branch::find($id);
-            return $data->nama_branch;
-
+            $data = Groupvihara::find($id);
+            return $data->nama_group;
         } else{
             return 'Welcome';
         }
