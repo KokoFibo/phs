@@ -219,6 +219,13 @@
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
+                  <div class="mt-3">
+                        <label class="px-2 " for="nama">{{ __('Keterangan') }}</label>
+                        <input id="keterangan" type="text" wire:model="keterangan" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        @error('keterangan')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+                  </div>
 
 
                   <div class="flex items-center justify-between w-full mt-9">

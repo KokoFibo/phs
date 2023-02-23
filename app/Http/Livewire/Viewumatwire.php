@@ -16,7 +16,7 @@ class Viewumatwire extends Component
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
     public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir,  $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $status, $branch_id;
-    public $last_update;
+    public $last_update, $keterangan;
     public function mount ($current_id) {
         $this->current_id = $current_id;
         $data = DataPelita::find($this->current_id);
@@ -43,6 +43,7 @@ class Viewumatwire extends Component
           $this->tgl_sd3h = $data->tgl_sd3h;
           $this->tgl_vtotal = $data->tgl_vtotal;
         $this->status = $data->status;
+        $this->keterangan = $data->keterangan;
         $this->last_update = $data->updated_at->diffForHumans();
 
         $query = "";

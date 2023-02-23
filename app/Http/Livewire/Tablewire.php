@@ -245,6 +245,7 @@ public function updatedSelectAll () {
 
     public function render()
     {
+
         if (Auth::user()->role == '3'){
             $this->branch_id = $this->kode_branch;
             $this->kode_branch_khusus = $this->kode_branch;
