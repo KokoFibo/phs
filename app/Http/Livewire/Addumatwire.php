@@ -46,7 +46,7 @@ class Addumatwire extends Component
         'nama_alias' => 'nullable',
         'mandarin' => 'nullable',
         'gender' => 'required',
-        'tgl_lahir' => 'required|date|date|before:tomorrow',
+        'tgl_lahir' => 'required|date|before:tomorrow',
         'umur_sekarang' => 'nullable',
         'alamat' => 'required',
         // 'kota_id' => 'required',
