@@ -89,48 +89,30 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/resetumur', function () {
             $data = DataPelita::all();
             foreach($data as $d ){
-                $now = Carbon::now();
-                $tahun = $now->year;
-                $year = date('Y', strtotime($d->tgl_mohonTao));
-                $selisih = $tahun - $year;
+                // $now = Carbon::now();
+                // $tahun = $now->year;
+                // $year = date('Y', strtotime($d->tgl_mohonTao));
+                // $selisih = $tahun - $year;
                 $is_save = false;
                 if($d->umur_sekarang != hitungUmurSekarang($d->tgl_lahir)) {
                     $is_save = true;
                 }
                 $d->umur_sekarang = hitungUmurSekarang($d->tgl_lahir);
-                $d->pengajak = getName($d->pengajak_id);
-                $d->penjamin = getName($d->penjamin_id);
+
+                // $d->pengajak = getName($d->pengajak_id);
+                // $d->penjamin = getName($d->penjamin_id);
+
                 if($is_save) {
                     $d->save();
                     $is_save = false;
                 }
             }
-            foreach($data as $d) {
-                $gender_before = $d->gender;
-                if($d->gender == '1') {
-                    $d->gender = 'Laki-laki';
-                }elseif($d->gender == '2') {
-                    $d->gender = 'Perempuan';
-                }
 
-                $is_save = false;
-                if($gender_before == '1' || $gender_before == '2' ) {
-                    $is_save = true;
-                }
-
-                if($is_save) {
-                    $d->save();
-                    $is_save = false;
-                    $gender_before=null;
-                }
-            }
             // session()->flash('message', 'Seluruh Data Umur dan gender Umat Sudah di Reset');
             return redirect(route('main'));
         })->name('resetumur');
 
 Route::get('/test', Testaja::class);
-
-
 
     });
 });
