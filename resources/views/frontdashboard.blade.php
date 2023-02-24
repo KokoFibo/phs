@@ -11,7 +11,7 @@
       @if (Auth::user()->role == 3)
       <div class="relative inline-flex w-1/4 m-5">
             <select wire:model="selectedGroup" class="h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-full appearance-none hover:border-gray-400 focus:outline-none">
-                  <option value="">Pilih Group</option>
+                  <option value="">All Groups</option>
                   @foreach ($groupvihara as $g)
                   <option value="{{ $g->id }}">{{ $g->nama_group }}</option>
                   @endforeach
@@ -22,7 +22,7 @@
       <div class="relative inline-flex w-1/4 m-5">
             <select wire:model="selectedBranch" class="h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-full appearance-none hover:border-gray-400 focus:outline-none">
                   <label>Pilih Kelas</label>
-                  <option value="">Pilih Cetya</option>
+                  <option value="">All Vihara</option>
                   @foreach ($branch as $b)
                   <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
                   @endforeach
