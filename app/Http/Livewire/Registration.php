@@ -6,6 +6,7 @@ use App\Models\Kota;
 use App\Models\User;
 use App\Models\Branch;
 use Livewire\Component;
+use App\Models\Groupvihara;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,7 @@ class Registration extends Component
 {
     use WithPagination;
 
-    public $name, $email, $password, $role, $branch_id, $kota_id, $password_confirmation, $currentId;
+    public $name, $email, $password, $role, $branch_id, $groupvihara_id,  $kota_id, $password_confirmation, $currentId;
     public $is_edit = false;
     public $is_reset = false;
     protected $listeners = ['delete'];
@@ -28,6 +29,7 @@ class Registration extends Component
         $this->role = '';
         $this->kota_id = '';
         $this->branch_id = '';
+        $this->groupvihara_id = '';
         $this->resetPage();
         $this->is_edit = false;
         $this->is_reset = false;
@@ -46,6 +48,7 @@ class Registration extends Component
             'role' => ['required'],
             'kota_id' => ['required'],
             'branch_id' => ['required'],
+            'groupvihara_id' => ['required'],
         ]);
         session()->flash('message', '');
         $data_user = new User();
@@ -55,6 +58,7 @@ class Registration extends Component
         $data_user->role = $this->role;
         $data_user->kota_id = $this->kota_id;
         $data_user->branch_id = $this->branch_id;
+        $data_user->groupvihara_id = $this->groupvihara_id;
         $data_user->save();
 
         // update branch is_used
@@ -77,6 +81,7 @@ class Registration extends Component
         $this->role = $data->role;
         $this->kota_id = $data->kota_id;
         $this->branch_id = $data->branch_id;
+        $this->groupvihara_id = $data->groupvihara_id;
     }
 
     public function resetpassword($id)
@@ -113,6 +118,7 @@ class Registration extends Component
             'role' => 'required',
             'kota_id' => 'required',
             'branch_id' => 'required',
+            'groupvihara_id' => 'required',
         ]);
 
         session()->flash('message', '');
@@ -122,12 +128,17 @@ class Registration extends Component
         $data_user->role = $this->role;
         $data_user->kota_id = $this->kota_id;
         $data_user->branch_id = $this->branch_id;
+        $data_user->groupvihara_id = $this->groupvihara_id;
         $data_user->save();
 
         // update branch is_used
         $branch = Branch::find($this->branch_id);
         $branch->branch_is_used = '1';
         $branch->save();
+
+        $group = GroupVihara::find($this->groupvihara_id);
+        $group->group_is_used = '1';
+        $group->save();
 
         $this->dispatchBrowserEvent('updated');
 
@@ -172,15 +183,17 @@ class Registration extends Component
     {
         $kota = Kota::orderBy('nama_kota', 'asc')->get();
         $branch = Branch::orderBy('nama_branch', 'asc')->get();
+        $group = Groupvihara::orderBy('nama_group', 'asc')->get();
 
         $data = DB::table('users')
             ->join('kotas', 'users.kota_id', '=', 'kotas.id')
             ->join('branches', 'users.branch_id', '=', 'branches.id')
-            ->select('users.*', 'branches.nama_branch', 'kotas.nama_kota')
+            ->join('groupviharas', 'users.groupvihara_id', '=', 'groupviharas.id')
+            ->select('users.*', 'branches.nama_branch', 'kotas.nama_kota', 'groupviharas.nama_group')
             ->orderBy('users.id', 'desc')
             ->paginate(10);
 
-        return view('livewire.registration', compact(['data', 'kota', 'branch']))
+        return view('livewire.registration', compact(['data', 'kota', 'branch', 'group']))
             ->extends('layouts.main')
             ->section('content');
     }

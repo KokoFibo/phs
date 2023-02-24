@@ -56,6 +56,22 @@
             <span class="text-sm text-red-500">{{ $message }}</span>
             @enderror
       </div>
+      {{-- Group --}}
+      <div class="mb-3">
+            <label for="group" class="block mb-2">{{ __('Group') }}</label>
+            <select class="w-full mb-2 rounded-lg" wire:model="groupvihara_id" {{ $is_reset == true ? 'disabled' : '' }}>
+                  <option value="" selected>{{ __('Silakan Pilih Group') }}</option>
+
+                  @foreach ($group as $b)
+                  <option value="{{ $b->id }}">{{ $b->nama_group }}</option>
+                  @endforeach
+            </select>
+
+            @error('groupvihara_id')
+            <span class="text-sm text-red-500">{{ $message }}</span>
+            @enderror
+      </div>
+
       {{-- Branch --}}
       <div class="mb-3">
             <label for="email" class="block mb-2">{{ __('Branch') }}</label>
