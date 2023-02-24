@@ -8,11 +8,18 @@
 {{-- select box --}}
 <div class="flex items-center w-full pt-5 px-14">
 
+      @if (Auth::user()->role == 3)
       <div class="relative inline-flex w-1/4 m-5">
+            <select wire:model="selectedGroup" class="h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-full appearance-none hover:border-gray-400 focus:outline-none">
+                  <option value="">Pilih Group</option>
+                  @foreach ($groupvihara as $g)
+                  <option value="{{ $g->id }}">{{ $g->nama_group }}</option>
+                  @endforeach
+            </select>
+      </div>
+      @endif
 
-            @if (Auth::user()->role == 3)
-
-            {{-- <span>Pilih Cetya</span> --}}
+      <div class="relative inline-flex w-1/4 m-5">
             <select wire:model="selectedBranch" class="h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-full appearance-none hover:border-gray-400 focus:outline-none">
                   <label>Pilih Kelas</label>
                   <option value="">Pilih Cetya</option>
@@ -20,14 +27,25 @@
                   <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
                   @endforeach
             </select>
-            @endif
+      </div>
 
-      </div>
-      <div class=w-full mx-auto>
-            <h1 class="text-4xl font-semibold text-center text-purple-500">{{ getBranch($selectedBranch) }}</h1>
-      </div>
+      {{-- <div class="w-full">
+
+            <p>Selected Group : {{ $selectedGroup }}</p>
+      <p>Selected Branch : {{ $selectedBranch }}</p>
+</div> --}}
+<div class=w-full mx-auto>
+      @if (Auth::user()->role == '3')
+      <h1 class="text-4xl font-semibold text-center text-purple-500">{{ getGroupVihara($selectedGroup) }} {{ getBranch($selectedBranch) }}</h1>
+      @elseif ($selectedBranch == '')
+      <h1 class="text-4xl font-semibold text-center text-purple-500">{{ getGroupVihara($selectedGroup) }}</h1>
+      @else
+      <h1 class="text-4xl font-semibold text-center text-purple-500">{{ getGroupVihara($selectedGroup) }} - {{ getBranch($selectedBranch) }}</h1>
+      @endif
+</div>
 </div>
 {{-- select box end --}}
+
 <div class="flex flex-col items-center pt-5 bg-purple-100 md:flex md:flex-row md:justify-evenly md:pt-10 ">
 
       <div>

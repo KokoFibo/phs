@@ -7,11 +7,7 @@
             </div>
             <div>
 
-                  <h3 class="text-2xl">
-                        {{ getBranch($branch_id) }}
-
-
-                  </h3>
+                  <h3 class="text-2xl">{{ getBranch($branch_id) }}</h3>
 
             </div>
             <div class="flex gap-1">

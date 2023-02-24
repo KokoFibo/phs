@@ -271,12 +271,10 @@ public function updatedSelectAll () {
     public function render()
     {
 
-
-
-
         if (Auth::user()->role == '3'){
             // $this->branch_id = $this->kode_branch;
             $this->kode_branch_khusus = $this->kode_branch;
+            $this->branch_id = $this->kode_branch;
         }
         else {
         $this->branch_id = $this->kode_branch;
@@ -484,9 +482,13 @@ public function updatedSelectAll () {
 
     }
 
-    if($this->kode_branch_khusus != null){
-        $dataft = Branch::find($this->kode_branch_khusus);
-        $namaft = $dataft->nama_branch;
+    // if($this->kode_branch_khusus != null){
+    //     $dataft = Branch::find($this->kode_branch_khusus);
+    //     $namaft = $dataft->nama_branch;
+    // }
+    if($this->group_id != null){
+        $dataGroup = GroupVihara::find($this->group_id);
+        $namaft = $dataGroup->nama_group;
     }
     $namaft = 'Welcome';
 

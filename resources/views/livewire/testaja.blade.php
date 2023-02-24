@@ -1,27 +1,34 @@
 <div>
-      {{ $gabung[0]->nama_group }}
-      <table>
-            <thead>
-                  <tr>
-                        <th>Group</th>
+      <div class="flex justify-evenly ">
+            <div>
+                  <label for="">Pilih Group: </label>
+                  <select wire:model="selectedGroup">
+                        <option value="">Pilih Group</option>
 
-                  </tr>
-            </thead>
-            <tbody>
+                        @foreach ($groupvihara as $g)
+                        <option value="{{ $g->id }}">{{ $g->nama_group }}</option>
+                        @endforeach
+                  </select>
 
-                  @foreach ($gabung as $index=>$g)
-                  <tr>
-                        <td>{{ $index +1 }}</td>
-                        <td>{{ $g->nama_umat }}</td>
-                        <td>{{ $g->nama_kota }}</td>
-                        <td>{{ $g->nama_pandita }}</td>
-                        <td>{{ $g->nama_branch }}</td>
-                  </tr>
-                  @endforeach
-                  << /td>
+            </div>
+            <div>
+
+                  <label for="">Pilih Branch: </label>
+                  <select wire:model="selectedBranch">
+                        <option value="">Pilih Branch</option>
+                        @foreach ($branch as $b)
+                        <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
+                        @endforeach
+                  </select>
+            </div>
+      </div>
+      <div class="w-3/4 mx-auto mt-20">
+            <p>selectedGroup: {{ $selectedGroup }}</p>
+            <p>selectedBranch: {{ $selectedBranch }}</p>
+
+            <h1>ToTal Data Umat selected group : {{ $totalpergroup }} </h1>
+            <h1>ToTal Data Umat umatYTDpergroup selected group : {{ $umatYTDpergroup }} </h1>
 
 
-            </tbody>
-
-      </table>
+      </div>
 </div>

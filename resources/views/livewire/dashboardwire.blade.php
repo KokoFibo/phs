@@ -32,7 +32,6 @@
                         {{-- </div> --}}
                         {{-- select box Tahun--}}
                         <div class="relative inline-flex ">
-
                               <select wire:model="selectedYear" class="h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-full appearance-none hover:border-gray-400 focus:outline-none">
                                     {{-- <option value="{{ date('Y') }}" selected>{{ date('Y') }}</option> --}}
                                     <option value="">{{ $selectedYear }}</option>

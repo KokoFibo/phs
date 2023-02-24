@@ -47,7 +47,6 @@ use App\Http\Controllers\menuAddDataController;
 Route::get('/', function () {
     return view('auth/login');
 });
-Route::get('/test', Testaja::class);
 
 
 
@@ -128,6 +127,9 @@ Route::middleware(['auth'])->group(function () {
             // session()->flash('message', 'Seluruh Data Umur dan gender Umat Sudah di Reset');
             return redirect(route('main'));
         })->name('resetumur');
+
+Route::get('/test', Testaja::class);
+
 
 
     });

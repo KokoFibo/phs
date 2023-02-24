@@ -153,7 +153,7 @@
             <div class="w-1/2 mx-5 mt-3 ">
                   {{-- kode_branch --}}
                   {{-- <h1 class="text-3xl font-bold text-center text-purple-700">{{ $nama_cetya }} </h1> --}}
-                  <h1 class="text-3xl font-bold text-center text-purple-700">{{ getBranch($kode_branch) }} </h1>
+                  <h1 class="text-3xl font-bold text-center text-purple-700">{{ getGroupVihara($group_id) }} </h1>
             </div>
 
             {{-- End Search Bar --}}
