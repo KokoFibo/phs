@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 class Changeprofilewire extends Component
 {
     use WithPagination;
-    public  $name, $email, $role, $branch_id, $kota_id, $password_confirmation, $password, $currentId, $curr_pass, $current_id;
+    public  $name, $email, $role, $branch_id, $groupvihara_id, $kota_id, $password_confirmation, $password, $currentId, $curr_pass, $current_id;
 
 
 
@@ -37,6 +37,7 @@ public function mount () {
         $this->role='';
         $this->kota_id='';
         $this->branch_id='';
+        $this->groupvihara_id='';
         $this->resetPage();
         // $this->is_edit=false;
         $this->reset();
