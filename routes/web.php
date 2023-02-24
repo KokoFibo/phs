@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Daftarkelaswire;
 use App\Http\Livewire\Tambahgroupwire;
 use App\Http\Livewire\Tambahkelaswire;
+use App\Http\Livewire\Usersettingwire;
 use App\Http\Livewire\Adddataumatiwire;
 use App\Http\Livewire\Changeprofilewire;
 use App\Http\Livewire\Datapelita\Adddata;
@@ -112,6 +113,7 @@ Route::middleware(['auth'])->group(function () {
             return redirect(route('main'));
         })->name('resetumur');
 
+Route::get('/setting', Usersettingwire::class)->name('setting');
 Route::get('/test', Testaja::class);
 
     });

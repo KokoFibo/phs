@@ -13,6 +13,7 @@ use Livewire\Component;
 use App\Models\DataPelita;
 use App\Models\Daftarkelas;
 use App\Models\Groupvihara;
+use App\Models\Usersetting;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
@@ -272,6 +273,15 @@ if($this->dataAbsensi != null){
          } else {
              $branch = Branch::all();
          }
+
+         $checkUserSetting = Usersetting::where('user_id',Auth::user()->id );
+         if(!empty($checkUserSetting)) {
+
+            $datauser = new Usersetting();
+
+        $datauser->user_id = Auth::user()->id;
+        $datauser->save();
+                     }
 
         return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD',
         'totalBranch', 'totalUsers', 'sd3h','vtotal', 'branch', 'groupvihara']))
