@@ -48,8 +48,10 @@ class Branchwire extends Component
         $data->groupvihara_id = $this->groupvihara_id;
         $data->nama_branch = $this->nama_branch;
         $data->save();
+        $this->updateGroupVihara ();
 
         session()->flash('message', 'Data Branch Sudah di tambah');
+
 
         $this->clear_fields();
         $this->is_add=true;
@@ -66,6 +68,12 @@ class Branchwire extends Component
         $this->nama_branch = $data->nama_branch;
         $this->is_add=false;
     }
+
+    public function updateGroupVihara () {
+        $data = Groupvihara::find($this->groupvihara_id);
+        $data->group_is_used = 1;
+        $data->save();
+    }
     public function update () {
         $validatedData = $this->validate();
         session()->flash('message', '');
@@ -76,6 +84,13 @@ class Branchwire extends Component
         $data->groupvihara_id = $this->groupvihara_id;
         $data->nama_branch = $this->nama_branch;
         $data->save();
+
+        // update data group vihara
+
+
+
+
+        $this->updateGroupVihara ();
         $this->is_add=true;
 
         session()->flash('message', 'Data Branch Sudah di Update');

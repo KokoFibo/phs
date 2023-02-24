@@ -61,20 +61,20 @@
                                           </li>
                                           {{-- language-end --}}
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'branch' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="block" href="{{ route('branchwire') }}">{{ __('Tambah Data Cetya') }}</a>
+                                                <a class="block" href="{{ route('branchwire') }}">{{ __('Data Cetya') }}</a>
                                           </li>
 
                                           <li class="py-2 my-2 hover:bg-gray-200 ">
                                                 <a class="block" href="{{ route('resetumur') }}">{{ __('Reset All') }}</a>
                                           </li>
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'panditawire' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="block" href="{{ route('panditawire') }}">{{ __('Tambah Data Pandita') }}</a>
+                                                <a class="block" href="{{ route('panditawire') }}">{{ __('Data Pandita') }}</a>
                                           </li>
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'datakotawire' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="block" href="{{ route('datakotawire') }}">{{ __('Tambah Data Kota') }}</a>
+                                                <a class="block" href="{{ route('datakotawire') }}">{{ __('Data Kota') }}</a>
                                           </li>
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'tambahgroup' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="block" href="{{ route('tambahgroup') }}">{{ __('Tambah Group Vihara') }}</a>
+                                                <a class="block" href="{{ route('tambahgroup') }}">{{ __('Group Vihara') }}</a>
                                           </li>
                                     </ul>
                               </div>
