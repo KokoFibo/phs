@@ -12,6 +12,7 @@ use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
 use App\Models\Daftarkelas;
+use App\Models\Groupvihara;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
@@ -22,6 +23,7 @@ class Dashboardwire extends Component
     public $selected  ;
     // dari sini
     public $selectedBranch;
+    public $selectedGroup;
     public $selectedDaftarKelas_id = [];
     public $selectedKelasId;
     public $totalUmat_sp;
@@ -34,32 +36,7 @@ class Dashboardwire extends Component
     // public $selectedYear = date('Y', strtotime($tgl));
     public $selectedYear;
 
-    public function mount () {
-            // $absensi = Absensi::all();
-            // $daftarkelas = DaftarKelas::all();
-            // $kelas = Kelas::all();
-            // if($absensi == null || $daftarkelas == null | $kelas == null){
 
-            //     $this->is_absensi = false;
-            // }
-            // else {
-            //     $this->is_absensi = true;
-
-            // }
-
-        if(Auth::user()->role != 3) {
-            $this->selectedBranch=Auth::user()->branch_id;
-        } else {
-            $this->selectedBranch=null;
-        }
-        $this->selected = Auth::user()->branch_id;
-
-        $this->isiPilihKelas ();
-        $this->selectedYear = date('Y');
-        $this->updateAbsensi();
-        $this->getYears();
-
-    }
 
     public function updateAbsensi () {
 
@@ -165,45 +142,71 @@ if($this->dataAbsensi != null){
 
     }
 
+    public function mount () {
+        // $absensi = Absensi::all();
+        // $daftarkelas = DaftarKelas::all();
+        // $kelas = Kelas::all();
+        // if($absensi == null || $daftarkelas == null | $kelas == null){
+
+        //     $this->is_absensi = false;
+        // }
+        // else {
+        //     $this->is_absensi = true;
+
+        // }
+
+    if(Auth::user()->role != 3) {
+        $this->selectedGroup=Auth::user()->groupvihara_id;
+    } else {
+        $this->selectedGroup=null;
+    }
+    $this->selected = Auth::user()->branch_id;
+
+    $this->isiPilihKelas ();
+    $this->selectedYear = date('Y');
+    $this->updateAbsensi();
+    $this->getYears();
+
+}
+
     public function render()
     {
 
-        if($this->selectedBranch == null){
-            $thisYear = getYear();
-            $totalUmat = DataPelita::count();
-            // $umatActive = DataPelita::where('status','Active')->count();
-            $umatInactive = DataPelita::where('status','Inactive')->count();
-            $umatActive = $totalUmat -  $umatInactive;
-            $umatYTD = DataPelita::where(DB::raw('YEAR(tgl_mohonTao)'), '=', $thisYear)->count();
-            $totalPandita = Pandita::all()->count();
-            $totalBranch = Branch::all()->count();
-            $totalUsers = User::all()->count();
-            $sd3h = DataPelita::where('tgl_sd3h','!=', null)->count();
-            $vtotal = DataPelita::where('tgl_vtotal','!=', null)->count();
-            $branch = Branch::all();
+        // if($this->selectedBranch == null){
+        //     $thisYear = getYear();
+        //     $totalUmat = DataPelita::count();
+        //     // $umatActive = DataPelita::where('status','Active')->count();
+        //     $umatInactive = DataPelita::where('status','Inactive')->count();
+        //     $umatActive = $totalUmat -  $umatInactive;
+        //     $umatYTD = DataPelita::where(DB::raw('YEAR(tgl_mohonTao)'), '=', $thisYear)->count();
+        //     $totalPandita = Pandita::all()->count();
+        //     $totalBranch = Branch::all()->count();
+        //     $totalUsers = User::all()->count();
+        //     $sd3h = DataPelita::where('tgl_sd3h','!=', null)->count();
+        //     $vtotal = DataPelita::where('tgl_vtotal','!=', null)->count();
+        //     $branch = Branch::all();
 
-        } else {
-            $thisYear = getYear();
-            $totalUmat = DataPelita::where('branch_id',$this->selectedBranch)->count();
-            $umatInactive = DataPelita::where('status','Inactive')->count();
-            $umatActive = $totalUmat -  $umatInactive;
-            // $umatYTD = DataPelita::where(DB::raw('YEAR(tgl_mohonTao)'), '=', $thisYear)->count();
-            $umatYTD = DataPelita::where('branch_id',$this->selectedBranch)->whereYear('tgl_mohonTao', '=', $thisYear)->count();
-            $totalPandita = Pandita::all()->count();
-            $totalBranch = Branch::all()->count();
-            $totalUsers = User::all()->count();
-            $sd3h = DataPelita::where('branch_id',$this->selectedBranch)->where('tgl_sd3h','!=', null)->count();
-            $vtotal = DataPelita::where('branch_id',$this->selectedBranch)->where('tgl_vtotal','!=', null)->count();
-            $branch = Branch::all();
-        }
+        // } else {
+        //     $thisYear = getYear();
+        //     $totalUmat = DataPelita::where('branch_id',$this->selectedBranch)->count();
+        //     $umatInactive = DataPelita::where('status','Inactive')->count();
+        //     $umatActive = $totalUmat -  $umatInactive;
+        //     $umatYTD = DataPelita::where('branch_id',$this->selectedBranch)->whereYear('tgl_mohonTao', '=', $thisYear)->count();
+        //     $totalPandita = Pandita::all()->count();
+        //     $totalBranch = Branch::all()->count();
+        //     $totalUsers = User::all()->count();
+        //     $sd3h = DataPelita::where('branch_id',$this->selectedBranch)->where('tgl_sd3h','!=', null)->count();
+        //     $vtotal = DataPelita::where('branch_id',$this->selectedBranch)->where('tgl_vtotal','!=', null)->count();
+        //     $branch = Branch::all();
+        // }
 
         // $tahun = Absensi::distinct()->get(['tgl_kelas']);
         // $years = Absensi::orderBy('tgl_kelas','asc')->where('daftarkelas_id',$this->selected)->whereNotNull('tgl_kelas')->distinct()->get([DB::raw('YEAR(tgl_kelas) as year')]);
 
-
+        $groupvihara = Groupvihara::all();
 
         return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD','totalPandita',
-        'totalBranch', 'totalUsers', 'sd3h','vtotal', 'branch']))
+        'totalBranch', 'totalUsers', 'sd3h','vtotal', 'branch', 'groupvihara']))
         ->extends('layouts.main')
         ->section('content');
 
