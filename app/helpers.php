@@ -55,6 +55,16 @@ if(!function_exists('getYear')) {
     //         // return $branch->nama_branch;
     //   }
 
+            function getBranch($id) {
+            if($id != '') {
+                $data = Branch::find($id);
+                return $data->nama_branch;
+            }
+            else{
+                return '';
+            }
+        }
+
       function getName($id) {
         $data = DataPelita::find($id);
         return $data->nama_umat;
@@ -65,7 +75,7 @@ if(!function_exists('getYear')) {
             $data = Groupvihara::find($id);
             return $data->nama_group;
         } else{
-            return 'Welcome';
+            return '';
         }
 
 

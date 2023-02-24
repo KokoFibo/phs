@@ -69,6 +69,8 @@ class Dashboardwire extends Component
     }
 
     public function updatedSelectedBranch () {
+    $this->selectedGroup = '';
+
         try {
 
             $dataPertama = Daftarkelas::where('branch_id', $this->selectedBranch)->first();
@@ -142,6 +144,12 @@ if($this->dataAbsensi != null){
 
     }
 
+
+
+    public function updatedSelectedGroup () {
+        $this->selectedBranch='';
+    }
+
     public function mount () {
         // $absensi = Absensi::all();
         // $daftarkelas = DaftarKelas::all();
@@ -171,41 +179,101 @@ if($this->dataAbsensi != null){
 
     public function render()
     {
+         if(Auth::user()->role != '3'){
+            $this->selectedGroup = Auth::user()->groupvihara_id;
+         }
 
-        // if($this->selectedBranch == null){
-        //     $thisYear = getYear();
-        //     $totalUmat = DataPelita::count();
-        //     // $umatActive = DataPelita::where('status','Active')->count();
-        //     $umatInactive = DataPelita::where('status','Inactive')->count();
-        //     $umatActive = $totalUmat -  $umatInactive;
-        //     $umatYTD = DataPelita::where(DB::raw('YEAR(tgl_mohonTao)'), '=', $thisYear)->count();
-        //     $totalPandita = Pandita::all()->count();
-        //     $totalBranch = Branch::all()->count();
-        //     $totalUsers = User::all()->count();
-        //     $sd3h = DataPelita::where('tgl_sd3h','!=', null)->count();
-        //     $vtotal = DataPelita::where('tgl_vtotal','!=', null)->count();
-        //     $branch = Branch::all();
 
-        // } else {
-        //     $thisYear = getYear();
-        //     $totalUmat = DataPelita::where('branch_id',$this->selectedBranch)->count();
-        //     $umatInactive = DataPelita::where('status','Inactive')->count();
-        //     $umatActive = $totalUmat -  $umatInactive;
-        //     $umatYTD = DataPelita::where('branch_id',$this->selectedBranch)->whereYear('tgl_mohonTao', '=', $thisYear)->count();
-        //     $totalPandita = Pandita::all()->count();
-        //     $totalBranch = Branch::all()->count();
-        //     $totalUsers = User::all()->count();
-        //     $sd3h = DataPelita::where('branch_id',$this->selectedBranch)->where('tgl_sd3h','!=', null)->count();
-        //     $vtotal = DataPelita::where('branch_id',$this->selectedBranch)->where('tgl_vtotal','!=', null)->count();
-        //     $branch = Branch::all();
-        // }
-
+        // yg dibawah ini emang udah di remark
         // $tahun = Absensi::distinct()->get(['tgl_kelas']);
         // $years = Absensi::orderBy('tgl_kelas','asc')->where('daftarkelas_id',$this->selected)->whereNotNull('tgl_kelas')->distinct()->get([DB::raw('YEAR(tgl_kelas) as year')]);
 
+            // Total Umat
+        $totalUmat = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+        ->select('data_pelitas.*')
+        ->when($this->selectedGroup, function($query){
+            $query->where('groupviharas.id',$this->selectedGroup);
+        })
+        ->when($this->selectedBranch, function($query){
+            $query->where('branches.id',$this->selectedBranch);
+        })
+        ->count();
+
+        // Umat Inactive
+        $umatInactive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+        // ->select('data_pelitas.*')
+        ->when($this->selectedGroup, function($query){
+            $query->where('data_pelitas.status','Inactive');
+        })
+        ->when($this->selectedBranch, function($query){
+            $query->where('data_pelitas.status','Inactive');
+        })
+        ->count();
+        // Umat Active
+        $umatActive = $totalUmat -  $umatInactive;
+
+        // Umat YTD
+        $umatYTD = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+        ->whereYear('tgl_mohonTao', '=', getYear())
+        ->when($this->selectedGroup, function($query){
+            $query->where('groupviharas.id',$this->selectedGroup);
+        })
+        ->when($this->selectedBranch, function($query){
+            $query->where('branch_id',$this->selectedBranch);
+        })
+        ->count();
+
+        // Total Cetya
+        if( Auth::user()->role != 3){
+            $totalBranch = Branch::where('groupvihara_id', Auth::user()->groupvihara_id )->count();
+        }
+        else if ($this->selectedGroup != ''){
+                $totalBranch = Branch::where('groupvihara_id', $this->selectedGroup)->count();
+
+        } else {
+            $totalBranch = Branch::all()->count();
+        }
+
+        // Total yang sudahpernah ikut Sidang dharma 3 hari
+        $sd3h = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+        ->where('tgl_sd3h','!=', null)
+        ->when($this->selectedGroup, function($query){
+            $query->where('groupviharas.id',$this->selectedGroup);
+        })
+        ->when($this->selectedBranch, function($query){
+            $query->where('branch_id',$this->selectedBranch);
+        })
+        ->count();
+
+        // Total Vegetarian Total
+        $vtotal = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+        ->select('data_pelitas.*')
+        ->where('tgl_vtotal','!=', null)
+        ->when($this->selectedGroup, function($query){
+            $query->where('groupviharas.id',$this->selectedGroup);
+        })
+        ->when($this->selectedBranch, function($query){
+            $query->where('branch_id',$this->selectedBranch);
+        })
+        ->count();
+
+        // Jumlah Users
+         $totalUsers = User::all()->count();
+
         $groupvihara = Groupvihara::all();
 
-        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD','totalPandita',
+        if(Auth::user()->role != '3'){
+            $branch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
+         } else {
+             $branch = Branch::all();
+         }
+
+        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD',
         'totalBranch', 'totalUsers', 'sd3h','vtotal', 'branch', 'groupvihara']))
         ->extends('layouts.main')
         ->section('content');
