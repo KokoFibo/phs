@@ -153,13 +153,13 @@ public function updated($fields) {
          $data_branch->branch_is_used = true;
          $data_branch->save();
 
-         // update data Nama pengajak dan Penjamin
-        $data = DataPelita::all();
-        foreach($data as $d ){
-            $d->pengajak = getName($d->pengajak_id);
-            $d->penjamin = getName($d->penjamin_id);
-            $d->save();
-        }
+        //  // update data Nama pengajak dan Penjamin
+        // $data = DataPelita::all();
+        // foreach($data as $d ){
+        //     $d->pengajak = getName($d->pengajak_id);
+        //     $d->penjamin = getName($d->penjamin_id);
+        //     $d->save();
+        // }
 
         session()->flash('message', 'Data Umat Sudah di update');
     $this->dispatchBrowserEvent('updated');
