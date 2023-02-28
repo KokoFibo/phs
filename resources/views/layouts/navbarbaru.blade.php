@@ -27,99 +27,96 @@
                                                 <a class="block dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
                                           </li>
                                           @endif
-                                          {{-- <li class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : ''  }}">
-                                          <a class="block dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</a>
-                  </li> --}}
-                  <li class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : ''  }}">
-                        <a class="block dropdown-item" href="#">{{ __('Absensi Kelas') }} <span class="text-red-500">(Under Construction)</span></a>
+                                          <li class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : ''  }}">
+                                                <a class="block dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}<span class="text-red-500">(Under Construction)</span></a>
+                                          </li>
 
+
+
+                                    </ul>
+                              </div>
+
+                        </div>
                   </li>
+                  <li>
+                        <div x-data="{ open: false }">
+                              <button @click="open = !open" class="{{ 'branch' == request()->path() || 'panditawire' == request()->path() || 'datakotawire' == request()->path() ? 'active' : ''  }}">{{ __('Utilities') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
+
+                              </button>
+                              <div x-show="open" x-cloak @click.away="open = false" x-transition class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded ">
+                                    <ul class="mx-5 divide-y w-44">
+                                          {{-- language --}}
+                                          <li class="py-2 my-2 hover:bg-gray-200">
 
 
+                                                @if (app()->getLocale() == 'id')
+                                                {{-- <a class="dropdown-item" href="{{ url('locale/en') }}">{{ __('english') }}</a> --}}
+                                                <a class="block dropdown-item" href="{{ url('locale/cn') }}">{{ __('中文') }}</a>
+                                                @endif
+
+                                                @if (app()->getLocale() == 'cn')
+                                                <a class="block dropdown-item" href="{{ url('locale/id') }}">{{ __('Indonesia') }}</a>
+                                                @endif
+
+
+                                          </li>
+                                          {{-- language-end --}}
+                                          <li class="py-2 my-2 hover:bg-gray-200 {{ 'branch' == request()->path() ? 'active1' : ''  }}">
+                                                <a class="block" href="{{ route('branchwire') }}">{{ __('Data Cetya') }}</a>
+                                          </li>
+
+                                          <li class="py-2 my-2 hover:bg-gray-200 ">
+                                                <a class="block" href="{{ route('resetumur') }}">{{ __('Reset All') }}</a>
+                                          </li>
+                                          <li class="py-2 my-2 hover:bg-gray-200 {{ 'panditawire' == request()->path() ? 'active1' : ''  }}">
+                                                <a class="block" href="{{ route('panditawire') }}">{{ __('Data Pandita') }}</a>
+                                          </li>
+                                          <li class="py-2 my-2 hover:bg-gray-200 {{ 'datakotawire' == request()->path() ? 'active1' : ''  }}">
+                                                <a class="block" href="{{ route('datakotawire') }}">{{ __('Data Kota') }}</a>
+                                          </li>
+                                          <li class="py-2 my-2 hover:bg-gray-200 {{ 'tambahgroup' == request()->path() ? 'active1' : ''  }}">
+                                                <a class="block" href="{{ route('tambahgroup') }}">{{ __('Group Vihara') }}</a>
+                                          </li>
+                                    </ul>
+                              </div>
+
+                        </div>
+                  </li>
             </ul>
       </div>
+      <div>
+            <div class="flex items-center space-x-10">
+                  <h4>{{ Auth::user()->name }} ({{ roleCheck(Auth::user()->role) }})</h4>
+                  <div x-data="{ open: false }" class="relative items-center">
+                        <button @click="open=!open">
+                              <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?rounded=true&length=1&background=random&font-size=.8" width="30" />
+                        </button>
+                        <div x-show="open" x-cloak @click.away="open = false" x-transition class="absolute right-0 z-10 py-1 pb-3 text-purple-700 bg-white border top-11 rounded-xl ">
+                              <ul class="w-40 mx-5 text-gray-700 divide-y">
+                                    <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
+                                          <a class="block" href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
+                                    </li>
+                                    @if (Auth::user()->role == '2' || Auth::user()->role == '3')
+                                    <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
+                                          <a class="block" href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
+                                    </li>
+                                    @endif
+                                    <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
+                                          {{-- <a class="block" href="{{ route('setting') }}">{{ __('User Setting') }}</a> --}}
+                                          <a class="block" href="#">{{ __('User Setting') }} <span class="text-red-500">(Under Construction)</span></a>
 
-</div>
-</li>
-<li>
-      <div x-data="{ open: false }">
-            <button @click="open = !open" class="{{ 'branch' == request()->path() || 'panditawire' == request()->path() || 'datakotawire' == request()->path() ? 'active' : ''  }}">{{ __('Utilities') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
-
-            </button>
-            <div x-show="open" x-cloak @click.away="open = false" x-transition class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded ">
-                  <ul class="mx-5 divide-y w-44">
-                        {{-- language --}}
-                        <li class="py-2 my-2 hover:bg-gray-200">
-
-
-                              @if (app()->getLocale() == 'id')
-                              {{-- <a class="dropdown-item" href="{{ url('locale/en') }}">{{ __('english') }}</a> --}}
-                              <a class="block dropdown-item" href="{{ url('locale/cn') }}">{{ __('中文') }}</a>
-                              @endif
-
-                              @if (app()->getLocale() == 'cn')
-                              <a class="block dropdown-item" href="{{ url('locale/id') }}">{{ __('Indonesia') }}</a>
-                              @endif
-
-
-                        </li>
-                        {{-- language-end --}}
-                        <li class="py-2 my-2 hover:bg-gray-200 {{ 'branch' == request()->path() ? 'active1' : ''  }}">
-                              <a class="block" href="{{ route('branchwire') }}">{{ __('Data Cetya') }}</a>
-                        </li>
-
-                        <li class="py-2 my-2 hover:bg-gray-200 ">
-                              <a class="block" href="{{ route('resetumur') }}">{{ __('Reset All') }}</a>
-                        </li>
-                        <li class="py-2 my-2 hover:bg-gray-200 {{ 'panditawire' == request()->path() ? 'active1' : ''  }}">
-                              <a class="block" href="{{ route('panditawire') }}">{{ __('Data Pandita') }}</a>
-                        </li>
-                        <li class="py-2 my-2 hover:bg-gray-200 {{ 'datakotawire' == request()->path() ? 'active1' : ''  }}">
-                              <a class="block" href="{{ route('datakotawire') }}">{{ __('Data Kota') }}</a>
-                        </li>
-                        <li class="py-2 my-2 hover:bg-gray-200 {{ 'tambahgroup' == request()->path() ? 'active1' : ''  }}">
-                              <a class="block" href="{{ route('tambahgroup') }}">{{ __('Group Vihara') }}</a>
-                        </li>
-                  </ul>
-            </div>
-
-      </div>
-</li>
-</ul>
-</div>
-<div>
-      <div class="flex items-center space-x-10">
-            <h4>{{ Auth::user()->name }} ({{ roleCheck(Auth::user()->role) }})</h4>
-            <div x-data="{ open: false }" class="relative items-center">
-                  <button @click="open=!open">
-                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?rounded=true&length=1&background=random&font-size=.8" width="30" />
-                  </button>
-                  <div x-show="open" x-cloak @click.away="open = false" x-transition class="absolute right-0 z-10 py-1 pb-3 text-purple-700 bg-white border top-11 rounded-xl ">
-                        <ul class="w-40 mx-5 text-gray-700 divide-y">
-                              <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
-                                    <a class="block" href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
-                              </li>
-                              @if (Auth::user()->role == '2' || Auth::user()->role == '3')
-                              <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
-                                    <a class="block" href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
-                              </li>
-                              @endif
-                              <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
-                                    {{-- <a class="block" href="{{ route('setting') }}">{{ __('User Setting') }}</a> --}}
-                                    <a class="block" href="#">{{ __('User Setting') }} <span class="text-red-500">(Under Construction)</span></a>
-
-                              </li>
-                              <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
-                                    <a class="block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
-                                          @csrf
-                                    </form>
-                              </li>
-                        </ul>
+                                    </li>
+                                    <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
+                                          <a class="block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                                                @csrf
+                                          </form>
+                                    </li>
+                              </ul>
+                        </div>
                   </div>
             </div>
       </div>
-</div>
 </div>
 @endif
 {{-- @endsection --}}

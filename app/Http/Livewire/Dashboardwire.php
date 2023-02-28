@@ -71,7 +71,7 @@ class Dashboardwire extends Component
         $this->selectedGroup = '';
 
         try {
-            $dataPertama = Daftarkelas::where('branch_id', $this->selectedBranch)->first();
+            $dataPertama = Daftarkelas::where('groupvihara_id', $this->selectedGroup)->first();
             // dd($dataPertama->id);
             $this->selected = $dataPertama->id;
             $this->selectedYear = date('Y');
@@ -87,7 +87,7 @@ class Dashboardwire extends Component
     }
     public function isiPilihKelas()
     {
-        $this->daftarkelas = Daftarkelas::where('branch_id', $this->selectedBranch)->get();
+        $this->daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroup)->get();
         $this->selectedDaftarKelas_id = [];
         foreach ($this->daftarkelas as $dk) {
             $this->selectedDaftarKelas_id[] = $dk->id;
