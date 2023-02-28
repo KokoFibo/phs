@@ -39,7 +39,7 @@ class CreateNewUser implements CreatesNewUsers
             'role' => '0',
             'kota_id' => '1',
             'branch_id' => '1',
-            'group_id' => '1',
+            'groupvihara_id' => '1',
         ]);
     }
 }
