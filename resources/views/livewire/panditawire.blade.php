@@ -51,7 +51,7 @@
                                           @if ($p->pandita_is_used == false)
                                           <button class="button-red button " wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
                                           @else
-                                          <button class="button button-teal" wire:click="edit({{ $p->id }})">{{ __('Rename') }}</button>
+                                          <button class="button button-teal" wire:click="edit({{ $p->id }})">{{ __('Edit') }}</button>
                                           @endif
                                     </td>
                               </tr>
