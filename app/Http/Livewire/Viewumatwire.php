@@ -25,8 +25,8 @@ class Viewumatwire extends Component
           $this->nama_alias = $data->nama_alias;
           $this->mandarin = $data->mandarin;
           $this->gender = $data->gender;
-          $this->tgl_lahir = $data->tgl_lahir;
-          $this->umur_sekarang = hitungUmurSekarang($data->tgl_lahir).' Tahun / '.$data->tgl_lahir;
+          $this->tgl_lahir =  date('d M Y', strtotime($data->tgl_lahir));
+          $this->umur_sekarang = hitungUmurSekarang($data->tgl_lahir).' Tahun / '.$this->tgl_lahir;
           $this->alamat = $data->alamat;
           $this->kota_id = $data->kota_id;
           $this->telp = $data->telp;
@@ -39,9 +39,9 @@ class Viewumatwire extends Component
           $this->penjamin = $data->penjamin;
         //   $this->nama_penjamin = getName($data->penjamin_id);
           $this->pandita_id = $data->pandita_id;
-          $this->tgl_mohonTao = $data->tgl_mohonTao;
-          $this->tgl_sd3h = $data->tgl_sd3h;
-          $this->tgl_vtotal = $data->tgl_vtotal;
+          $this->tgl_mohonTao = date('d M Y', strtotime($data->tgl_mohonTao));
+          $this->tgl_sd3h = date('d M Y', strtotime($data->tgl_sd3h));
+          $this->tgl_vtotal = date('d M Y', strtotime($data->tgl_vtotal));
         $this->status = $data->status;
         $this->keterangan = $data->keterangan;
         $this->last_update = $data->updated_at->diffForHumans();

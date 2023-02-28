@@ -94,7 +94,7 @@ public function updated($fields) {
         $data_umat->gender = $this->gender;
         $data_umat->tgl_lahir = $this->tgl_lahir;
         $data_umat->umur_sekarang = hitungUmurSekarang($this->tgl_lahir);
-        $data_umat->alamat = $this->alamat;
+        $data_umat->alamat = Str::title($this->alamat);
         $data_umat->kota_id = $this->kota_id;
         $data_umat->telp = $this->telp;
         $data_umat->hp = $this->hp;
