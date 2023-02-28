@@ -131,133 +131,149 @@
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
-                  <div class="relative mt-3" x-data="{ pengajak: false }">
+                  {{-- <div class="relative mt-3" x-data="{ pengajak: false }">
                         <label class="px-2 " for="pengajak">{{ __('Pengajak') }}</label>
-                        <input @click="pengajak=true" id="pengajak" type="text" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pengajak">
-                        <input type="hidden" wire:model="pengajak_id">
-                        <div x-show="pengajak" @click.away="pengajak = false" x-transition class="absolute z-10 overflow-auto h-44">
-                              <input id="pengajak" type="text" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                              <ul class="bg-white ">
-                                    @if (!empty($nama))
-                                    @foreach ($nama as $n)
-                                    <li class="px-4 py-1 text-purple-500 border ">
-                                          <button class="hover:bg-gray-300" wire:click="getDataPengajak( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )" @click="pengajak=false">{{ $n['nama_umat'] }}</button>
-                                    </li>
-                                    @endforeach
-                                    @endif
-                              </ul>
-                        </div>
-                        @error('pengajak_id')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                  </div>
-
-                  <div class="relative mt-3" x-data="{ penjamin: false }">
-                        <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label>
-                        <input @click="penjamin=true" id="penjamin" type="text" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="penjamin">
-                        <input type="hidden" wire:model="penjamin_id">
-                        <div x-show="penjamin" @click.away="penjamin = false" x-transition class="absolute z-10 overflow-auto h-44">
-                              <input id="penjamin" type="text" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                              <ul class="bg-white ">
-                                    @if (!empty($nama))
-                                    @foreach ($nama as $n)
-                                    <li class="px-4 py-1 text-purple-500 border ">
-                                          <button class="hover:bg-gray-300" wire:click="getDataPenjamin( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )" @click="penjamin=false">{{ $n['nama_umat'] }}</button>
-                                    </li>
-                                    @endforeach
-                                    @endif
-                              </ul>
-                        </div>
-                        @error('penjamin_id')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                  </div>
-
-                  <div class="mt-3">
-                        <label class="px-2 " for="pandita">{{ __('Pandita') }}</label>
-                        <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pandita_id">
-                              <option value="">Masukkan data Pengajak</option>
-                              @foreach ($datapandita as $pandita)
-                              <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
+                  <input @click="pengajak=true" id="pengajak" type="text" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pengajak">
+                  <input type="hidden" wire:model="pengajak_id">
+                  <div x-show="pengajak" @click.away="pengajak = false" x-transition class="absolute z-10 overflow-auto h-44">
+                        <input id="pengajak" type="text" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        <ul class="bg-white ">
+                              @if (!empty($nama))
+                              @foreach ($nama as $n)
+                              <li class="px-4 py-1 text-purple-500 border ">
+                                    <button class="hover:bg-gray-300" wire:click="getDataPengajak( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )" @click="pengajak=false">{{ $n['nama_umat'] }}</button>
+                              </li>
                               @endforeach
-                        </select>
-                        @error('pandita_id')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
+                              @endif
+                        </ul>
                   </div>
+                  @error('pengajak_id')
+                  <span class="text-red-500">{{ $message }}</span>
+                  @enderror
+            </div> --}}
 
-                  <div class="mt-3">
-                        <label class="px-2 " for="tgl">{{ __('Tanggal Sidang Dharma 3 Hari') }}</label>
-                        <input id="tgl" type="date" wire:model="tgl_sd3h" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        @error('tgl_sd3h')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                  </div>
+            <div class="mt-3">
+                  <label class="px-2 " for="pengajak">{{ __('Nama Pengajak') }}</label>
+                  <input id="pengajak" type="text" wire:model="pengajak" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                  @error('pengajak')
+                  <span class="text-red-500">{{ $message }}</span>
+                  @enderror
+            </div>
+
+            {{-- <div class="relative mt-3" x-data="{ penjamin: false }">
+                  <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label>
+            <input @click="penjamin=true" id="penjamin" type="text" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="penjamin">
+            <input type="hidden" wire:model="penjamin_id">
+            <div x-show="penjamin" @click.away="penjamin = false" x-transition class="absolute z-10 overflow-auto h-44">
+                  <input id="penjamin" type="text" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                  <ul class="bg-white ">
+                        @if (!empty($nama))
+                        @foreach ($nama as $n)
+                        <li class="px-4 py-1 text-purple-500 border ">
+                              <button class="hover:bg-gray-300" wire:click="getDataPenjamin( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )" @click="penjamin=false">{{ $n['nama_umat'] }}</button>
+                        </li>
+                        @endforeach
+                        @endif
+                  </ul>
+            </div>
+            @error('penjamin_id')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
+      </div> --}}
+
+      <div class="mt-3">
+            <label class="px-2 " for="penjamin">{{ __('Nama Penjamin') }}</label>
+            <input id="penjamin" type="text" wire:model="penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+            @error('penjamin')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
+      </div>
+
+      <div class="mt-3">
+            <label class="px-2 " for="pandita">{{ __('Pandita') }}</label>
+            <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pandita_id">
+                  <option value="">Masukkan data Pengajak</option>
+                  @foreach ($datapandita as $pandita)
+                  <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
+                  @endforeach
+            </select>
+            @error('pandita_id')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
+      </div>
+
+      <div class="mt-3">
+            <label class="px-2 " for="tgl">{{ __('Tanggal Sidang Dharma 3 Hari') }}</label>
+            <input id="tgl" type="date" wire:model="tgl_sd3h" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+            @error('tgl_sd3h')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
+      </div>
 
 
 
-                  <div class="mt-3">
-                        <label class="px-2 " for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
-                        <input id="tgl" type="date" wire:model="tgl_vtotal" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        @error('tgl_vtotal')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                  </div>
+      <div class="mt-3">
+            <label class="px-2 " for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
+            <input id="tgl" type="date" wire:model="tgl_vtotal" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+            @error('tgl_vtotal')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
+      </div>
 
 
-                  <div class="mt-3">
-                        <label class="px-2 " for="nama">{{ __('Status') }}</label>
-                        <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="status">
-                              <option value="Active">{{ __('Active') }}</option>
-                              <option value="Inactive">{{ __('Inactive') }}</option>
-                        </select>
-                        @error('status')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                  </div>
-                  <div class="mt-3">
-                        <label class="px-2 " for="nama">{{ __('Keterangan') }}</label>
-                        <input id="keterangan" type="text" wire:model="keterangan" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        @error('keterangan')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                  </div>
+      <div class="mt-3">
+            <label class="px-2 " for="nama">{{ __('Status') }}</label>
+            <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="status">
+                  <option value="Active">{{ __('Active') }}</option>
+                  <option value="Inactive">{{ __('Inactive') }}</option>
+            </select>
+            @error('status')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
+      </div>
+      <div class="mt-3">
+            <label class="px-2 " for="nama">{{ __('Keterangan') }}</label>
+            <input id="keterangan" type="text" wire:model="keterangan" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+            @error('keterangan')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
+      </div>
 
 
-                  <div class="flex items-center justify-between w-full mt-9">
-                        <div>
-                              <button class="mb-5 button button-purple" wire:click="update">{{ __('Update') }}</button>
-                        </div>
-                        <div>
-                              <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>
-                                    {{ __('Back') }}</a>
-                              {{-- <button class="button button-orange">{{ __('Back') }}</button> --}}
-                        </div>
-                  </div>
+      <div class="flex items-center justify-between w-full mt-9">
+            <div>
+                  <button class="mb-5 button button-purple" wire:click="update">{{ __('Update') }}</button>
+            </div>
+            <div>
+                  <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>
+                        {{ __('Back') }}</a>
+                  {{-- <button class="button button-orange">{{ __('Back') }}</button> --}}
             </div>
       </div>
-      @push('script')
-      <script>
-            window.addEventListener('stored', function(e) {
-                  Swal.fire({
-                        position: 'top-end'
-                        , icon: 'success'
-                        , title: e.detail.title
-                        , showConfirmButton: false
-                        , timer: 3000
-                  });
+</div>
+</div>
+@push('script')
+<script>
+      window.addEventListener('stored', function(e) {
+            Swal.fire({
+                  position: 'top-end'
+                  , icon: 'success'
+                  , title: e.detail.title
+                  , showConfirmButton: false
+                  , timer: 3000
             });
+      });
 
-            window.addEventListener('updated', function(e) {
-                  Swal.fire({
-                        position: 'top-end'
-                        , icon: 'success'
-                        , title: 'Data Updated'
-                        , showConfirmButton: false
-                        , timer: 3000
-                  })
-            });
+      window.addEventListener('updated', function(e) {
+            Swal.fire({
+                  position: 'top-end'
+                  , icon: 'success'
+                  , title: 'Data Updated'
+                  , showConfirmButton: false
+                  , timer: 3000
+            })
+      });
 
-      </script>
-      @endpush
+</script>
+@endpush
 </div>
