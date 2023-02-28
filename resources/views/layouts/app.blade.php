@@ -5,6 +5,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="icon" href="{{ url('favicon-32x32.png') }}">
       <title>{{ config('app.name') }} |
             @yield('title')
       </title>
