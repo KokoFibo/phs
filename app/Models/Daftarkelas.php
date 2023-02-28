@@ -13,9 +13,9 @@ class Daftarkelas extends Model
     {
         return $this->belongsTo(Kelas::class);
     }
-    public function branch()
+    public function groupvihara()
     {
-        return $this->belongsTo(Branch::class);
+        return $this->belongsTo(Groupvihara::class);
     }
     public function absensi()
     {

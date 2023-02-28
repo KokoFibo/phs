@@ -23,4 +23,8 @@ class Groupvihara extends Model
     {
         return $this->hasMany(User::class);
     }
+    public function daftarkelas()
+    {
+        return $this->hasMany(Daftarkelas::class);
+    }
 }

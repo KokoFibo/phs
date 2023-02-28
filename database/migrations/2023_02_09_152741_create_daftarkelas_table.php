@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('daftarkelas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kelas_id');
-            $table->foreignId('branch_id');
+            $table->foreignId('groupvihara_id');
             $table->boolean('daftarkelas_is_used')->default(false);
 
             $table->timestamps();

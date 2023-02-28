@@ -7,6 +7,7 @@ use App\Models\Kelas;
 use App\Models\Branch;
 use Livewire\Component;
 use App\Models\Daftarkelas;
+use App\Models\Groupvihara;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
@@ -18,8 +19,8 @@ class Daftarkelaswire extends Component
     public $is_add = 'true';
     use WithPagination;
     protected $listeners = ['delete'];
-    public $kelas_id, $branch_id;
-    public $selectedBranch;
+    public $kelas_id;
+    public $selectedGroup, $groupvihara_id;
 
 
     public function close () {
@@ -29,7 +30,7 @@ class Daftarkelaswire extends Component
 
 
     public function checkDuplicate(){
-        $data = Daftarkelas::where('kelas_id',$this->kelas_id)->where('branch_id', $this->branch_id)->first();
+        $data = Daftarkelas::where('kelas_id',$this->kelas_id)->where('groupvihara_id', $this->groupvihara_id)->first();
         if($data==null){
             return false;
         }
@@ -48,10 +49,10 @@ class Daftarkelaswire extends Component
             $data = new Daftarkelas();
             $data->kelas_id = $this->kelas_id;
             if(Auth::user()->role != 3) {
-                $data->branch_id = Auth::user()->branch_id;
+                $data->groupvihara_id = Auth::user()->groupvihara_id;
             }
             else {
-                $data->branch_id = $this->branch_id;
+                $data->groupvihara_id = $this->groupvihara_id;
             }
 
             $data->save();
@@ -76,11 +77,11 @@ class Daftarkelaswire extends Component
     public function deleteConfirmation ($id) {
         $data = Daftarkelas::find($id);
         $namakelas = getKelas($data->kelas_id);
-        $namacetya = getBranch($data->branch_id);
+        $namagroup = getGroupVihara($data->groupvihara_id);
         $this->dispatchBrowserEvent('delete_confirmation', [
             'title' => 'Yakin Untuk Hapus Data',
             //  'text' => "You won't be able to revert this!",
-              'text' => "Data Kelas : " . $namakelas . ", di Cetya : " . $namacetya,
+              'text' => "Data Kelas : " . $namakelas . ", di Cetya : " . $namagroup,
              'icon' => 'warning',
              'id' => $id,
         ]);
@@ -100,12 +101,12 @@ class Daftarkelaswire extends Component
         $this->id_daftarkelas = $id;
         $data = Daftarkelas::find($id);
         $this->kelas_id = $data->kelas_id;
-        $this->branch_id = $data->branch_id;
+        $this->groupvihara_id = $data->groupvihara_id;
         $this->is_add=false;
     }
 
     public function clear_fields() {
-        $this->reset();
+        // $this->reset();
     }
 
     public function update() {
@@ -116,7 +117,7 @@ class Daftarkelaswire extends Component
         if($this->checkDuplicate() == false){
         $data = Daftarkelas::find($this->id_daftarkelas);
         $data->kelas_id = $this->kelas_id;
-        $data->branch_id = $this->branch_id;
+        $data->groupvihara_id = $this->groupvihara_id;
         $data->save();
         // $this->is_edit=false;
         $this->clear_fields();
@@ -130,16 +131,17 @@ class Daftarkelaswire extends Component
 
     public function render()
     {
-        $branch = Branch::all();
+        // $branch = Branch::all();
+        $group = Groupvihara::all();
 
 
         if ( Auth::user()->role != 3 ) {
-            $this->selectedBranch = Auth::user()->branch_id;
+            $this->selectedGroup = Auth::user()->groupvihara_id;
         } else {
-            $this->selectedBranch  = $this->branch_id;
+            $this->selectedGroup  = $this->groupvihara_id;
         }
             $daftarkelas = Daftarkelas::orderBy('id', 'asc')
-            ->where('branch_id', $this->selectedBranch)
+            ->where('groupvihara_id', $this->selectedGroup)
             ->paginate(5);
             $existingKelas = [];
             foreach($daftarkelas as $dk) {
@@ -150,7 +152,7 @@ class Daftarkelaswire extends Component
             $kelas = Kelas::whereNotIn('id', $existingKelas)->get();
 
 
-        return view('livewire.daftarkelaswire', compact(['daftarkelas', 'branch', 'kelas']))
+        return view('livewire.daftarkelaswire', compact(['daftarkelas', 'kelas', 'group']))
         ->extends('layouts.main')
         ->section('content');
     }

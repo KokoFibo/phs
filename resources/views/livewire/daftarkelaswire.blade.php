@@ -19,20 +19,20 @@
                   @if(Auth::user()->role == 3)
                   <div class="text-xl font-semibold text-center">{{ __('Daftar Kelas') }}</div>
                   @else
-                  <div class="text-xl font-semibold text-center">{{ __('Daftar Kelas') }} Vihara {{ getNamaCetya(Auth::user()->branch_id) }}</div>
+                  <div class="text-xl font-semibold text-center">{{ __('Daftar Kelas') }} {{ __('Group ') }} {{ getGroupVihara(Auth::user()->groupvihara_id) }}</div>
                   @endif
                   @if( Auth::user()->role == 3)
 
                   <div class="w-full mt-3">
-                        <label class="px-2" for="nama_kelas">{{ __('Nama Cetya') }}</label>
-                        <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="branch_id">
-                              <option value="">Pilih Cetya</option>
-                              @foreach ($branch as $b)
-                              <option value="{{ $b->id }}">{{ $b->nama_branch }} </option>
+                        <label class="px-2" for="nama_kelas">{{ __('Group') }}</label>
+                        <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="groupvihara_id">
+                              <option value="">Pilih Group</option>
+                              @foreach ($group as $b)
+                              <option value="{{ $b->id }}">{{ $b->nama_group }} </option>
                               @endforeach
                         </select>
 
-                        @error('selectedBranch')
+                        @error('selectedGroup')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
                   </div>
@@ -68,7 +68,7 @@
                         <thead class="text-white bg-purple-500 border-b-2 border-gray-200 rounded-xl">
                               <tr>
                                     <th class="p-3 font-semibold text-center">#</th>
-                                    <th class="p-3 font-semibold text-center">{{ __('Cetya') }}</th>
+                                    <th class="p-3 font-semibold text-center">{{ __('Group') }}</th>
                                     <th class="p-3 font-semibold text-center">{{ __('Kelas') }}</th>
                                     <th class="p-3 font-semibold text-center"></th>
                               </tr>
@@ -79,7 +79,7 @@
                                     <td class="p-3 text-gray-800 border rounded">
                                           {{ $daftarkelas->firstItem() + $index }}</td>
                                     {{-- <td class="p-3 text-gray-800 border rounded">{{ $p->nama_kelas }}</td> --}}
-                                    <td class="p-3 text-gray-800 border rounded">{{ getBranch($p->branch_id) }}
+                                    <td class="p-3 text-gray-800 border rounded">{{ getGroupVihara($p->groupvihara_id) }}
                                     </td>
                                     <td class="p-3 text-gray-800 border rounded">{{ getKelas($p->kelas_id) }}</td>
                                     <td class="p-3 text-center text-gray-800 border rounded">
