@@ -88,6 +88,17 @@ class DataKotaWire extends Component
         ]);
     }
 
+    public function deleteConfirmation ($id) {
+        $data = Kota::find($id);
+        $nama = $data->nama_kota;
+        $this->dispatchBrowserEvent('delete_confirmation', [
+            'title' => 'Yakin Untuk Hapus Data',
+            //  'text' => "You won't be able to revert this!",
+              'text' => "Data Kota : " . $nama,
+             'icon' => 'warning',
+             'id' => $id,
+        ]);
+    }
     public function delete_kota ($id) {
         $data = Kota::find($id);
         if($data->kota_is_used != '1'){
