@@ -82,7 +82,7 @@
                         , confirmButtonText: 'Yes, silakan hapus!'
                   }).then((result) => {
                         if (result.isConfirmed) {
-                              window.livewire.emit('delete', e.detail.id)
+                              window.livewire.emit('delete_kota', e.detail.id)
                               // Swal.fire(
                               //     'Deleted!',
                               //     'Your file has been deleted.',
