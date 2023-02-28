@@ -145,10 +145,11 @@
     "Set as Default": "設為默認",
     "Nama Group Vihara": "佛堂群組名字",
     "Data Group Vihara": "佛堂群組",
-    "Input Nama Kota": "輸入城市名字",
-    "Input Nama Cetya": "輸入佛堂名字",
-    "Input Nama Group Vihara": "輸入佛堂群組名字",
+    "Data Kota": "輸入城市名字",
+    "Data Cetya": "輸入佛堂名字",
+    "Group Vihara": "輸入佛堂群組名字",
     "Update New Admin": "更新新管理員",
     "User Setting": "用戶設置",
-    "Under Construction": "建設中"
+    "Under Construction": "建設中",
+    "Tanggal Lahir": "出生日期"
 }

@@ -2193,3 +2193,39 @@
 [stacktrace]
 #0 {main}
 "} 
+[2023-02-28 21:47:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:48:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:49:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:50:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:51:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:52:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:53:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:54:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:55:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
