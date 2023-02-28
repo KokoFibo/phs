@@ -232,3 +232,124 @@
 [stacktrace]
 #0 {main}
 "} 
+[2023-02-28 14:24:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:25:32] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:26:32] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:27:32] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:28:01] local.ERROR: Attempt to assign property "nama_group" on null {"userId":1,"exception":"[object] (Error(code: 0): Attempt to assign property \"nama_group\" on null at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Livewire\\Tambahgroupwire.php:84)
+[stacktrace]
+#0 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Http\\Livewire\\Tambahgroupwire->update()
+#1 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#3 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#4 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\HandlesActions.php(149): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array)
+#5 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\HydrationMiddleware\\PerformActionCalls.php(38): Livewire\\Component->callMethod('update', Array, Object(Closure))
+#6 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\LifecycleManager.php(89): Livewire\\HydrationMiddleware\\PerformActionCalls::hydrate(Object(App\\Http\\Livewire\\Tambahgroupwire), Object(Livewire\\Request))
+#7 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\Connection\\ConnectionHandler.php(13): Livewire\\LifecycleManager->hydrate()
+#8 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\Controllers\\HttpConnectionHandler.php(20): Livewire\\Connection\\ConnectionHandler->handle(Array)
+#9 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(46): Livewire\\Controllers\\HttpConnectionHandler->__invoke('tambahgroupwire')
+#10 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Livewire\\Controllers\\HttpConnectionHandler), '__invoke')
+#11 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#12 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
+#13 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Localization.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Localization->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#24 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#31 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#33 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#35 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php(66): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(36): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#54 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\Anton\\Documents\\applications\\phs\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\Anton\\\\...')
+#57 {main}
+"} 
+[2023-02-28 14:28:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:29:32] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:30:32] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:31:32] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:32:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:33:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:34:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:35:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:36:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:37:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:38:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
