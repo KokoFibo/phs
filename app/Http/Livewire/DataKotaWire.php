@@ -12,37 +12,24 @@ use Livewire\WithPagination;
 
 class DataKotaWire extends Component
 {
-    public $propinsi, $namakota;
+    public  $namakota;
     public $nama_kota;
     use WithPagination;
     public $is_add = true;
     protected $listeners = ['delete_kota', 'render'];
 
     public function mount  () {
-        $this->propinsi = Province::orderBy('nama', 'asc')->get();
-        $this->namakota = collect();
+
         $this->resetPage();
     }
 
     public function close () {
         return redirect()->route('adddata');
-
     }
 
     public function  clear_fields() {
-        // $this->propinsi= '';
         $this->nama_kota='';
-        //  $this->selectedPropinsi = NULL;
-    //  $this->selectedNamaKota = NULL;
-    //  $this->propinsi = Province::orderBy('nama', 'asc')->get();
-    //  $this->namakota = collect();
     }
-    // public function updatedSelectedPropinsi ($propinsi) {
-    //     $this->namakota = City::orderBy('nama', 'asc')->where('province_id', $propinsi)->get();
-    //     $this->selectedNamaKota = NULL;
-    // }
-
-
 
     public function store () {
          $this->validate([
