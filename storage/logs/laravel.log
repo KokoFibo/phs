@@ -353,3 +353,199 @@
 [stacktrace]
 #0 {main}
 "} 
+[2023-02-28 14:39:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:40:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:41:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:42:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:43:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:44:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:45:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:46:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:47:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:48:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:49:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:50:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:51:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:52:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:53:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:54:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:55:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:56:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:57:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:58:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 14:59:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:00:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:01:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:02:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:03:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:04:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:05:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:06:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:07:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:08:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:09:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:10:33] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:16:29] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\Input.php(52): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Command\\Command.php(271): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(153): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(1022): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(314): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(168): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\Users\\Anton\\Documents\\applications\\phs\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 {main}
+"} 
+[2023-02-28 15:16:31] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\Input.php(52): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Command\\Command.php(271): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(153): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(1022): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(314): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(168): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\Users\\Anton\\Documents\\applications\\phs\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 {main}
+"} 
+[2023-02-28 15:16:34] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Input\\Input.php(52): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Command\\Command.php(271): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(153): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(1022): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(314): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\symfony\\console\\Application.php(168): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\Users\\Anton\\Documents\\applications\\phs\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 {main}
+"} 
+[2023-02-28 15:34:39] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:35:37] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:36:37] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:37:37] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 15:38:37] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
