@@ -105,7 +105,9 @@
                               </li>
                               @endif
                               <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
-                                    <a class="block" href="{{ route('setting') }}">{{ __('User Setting') }}</a>
+                                    {{-- <a class="block" href="{{ route('setting') }}">{{ __('User Setting') }}</a> --}}
+                                    <a class="block" href="#">{{ __('User Setting') }} <span class="text-red-500">(Under Construction)</span></a>
+
                               </li>
                               <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                     <a class="block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
