@@ -115,8 +115,6 @@ public function updated($fields) {
         $data_umat->branch_id = $this->selectedBranch;
         $data_umat->kota_id = $this->selectedKota;
 
-
-
         $data_umat->nama_umat = Str::title($this->nama_umat);
         $data_umat->nama_alias = Str::title($this->nama_alias);
 

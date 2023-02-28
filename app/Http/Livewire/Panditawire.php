@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 class Panditawire extends Component
 {
     public $nama_pandita;
-    public $id_pandita;
-    public $nama_lama;
-    // public $is_edit = 'false';
+    // public $id_pandita;
     public $is_add = 'true';
     use WithPagination;
     protected $listeners = ['delete'];
@@ -83,7 +81,7 @@ class Panditawire extends Component
             'nama_pandita' => 'required|unique:panditas,nama_pandita,'.$this->id_pandita
         ]);
         $nama = Pandita::find($this->id_pandita);
-        $data->nama_pandita = Str::title($this->nama_pandita);
+        $nama->nama_pandita = Str::title($this->nama_pandita);
 
         $nama->save();
         // $this->is_edit=false;
