@@ -99,8 +99,8 @@ public function updated($fields) {
         $data_umat->telp = $this->telp;
         $data_umat->hp = $this->hp;
         $data_umat->email = $this->email;
-        $data_umat->pengajak = $this->pengajak;
-        $data_umat->penjamin = $this->penjamin;
+        $data_umat->pengajak = Str::title($this->pengajak);
+        $data_umat->penjamin = Str::title($this->penjamin);
         $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
 
