@@ -81,7 +81,7 @@ class Tambahgroupwire extends Component
             'nama_group' => 'required|unique:groupviharas,nama_group,'.$this->id_group
         ]);
         $nama = Groupvihara::find($this->id_group);
-        $data->nama_group = Str::title($this->nama_group);
+        $nama->nama_group = Str::title($this->nama_group);
 
         $nama->save();
         // $this->is_edit=false;

@@ -127,9 +127,9 @@ public function updated($fields) {
         $data_umat->hp = $this->hp;
         $data_umat->email = $this->email;
         // $data_umat->pengajak_id = $this->pengajak_id;
-        $data_umat->pengajak = $this->pengajak;
+        $data_umat->pengajak = Str::title($this->pengajak);
         // $data_umat->penjamin_id = $this->penjamin_id;
-        $data_umat->penjamin = $this->penjamin;
+        $data_umat->penjamin = Str::title($this->penjamin);
         $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = empty($this->tgl_mohonTao) ?  Carbon::parse(Carbon::now()) : $this->tgl_mohonTao;
         $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
