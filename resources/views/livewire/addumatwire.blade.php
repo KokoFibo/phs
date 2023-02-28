@@ -232,7 +232,7 @@
 <div class="mt-3">
       <label class="px-2 " for="pandita">{{ __('Pandita') }}</label><span class="text-red-500">*</span>
       <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pandita_id">
-            <option value="">Masukkan data Pandita</option>
+            <option value="">{{ __('Data Pandita') }}</option>
             @foreach ($datapandita as $pandita)
             <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
             @endforeach

@@ -108,13 +108,13 @@
                                     <div class="mt-3">
                                           <label class="inline-flex items-center">
                                                 <input type="checkbox" wire:model="tgl_sd3h" />
-                                                <span class="ml-2">Sidang Dharma 3 Hari</span>
+                                                <span class="ml-2">{{ __('Sidang Dharma 3 Hari') }}</span>
                                           </label>
                                     </div>
                                     <div class="mt-3">
                                           <label class="inline-flex items-center">
                                                 <input type="checkbox" wire:model="tgl_vtotal" />
-                                                <span class="ml-2">Vegetarian Total</span>
+                                                <span class="ml-2">{{ __('Vegetarian Total') }}</span>
                                           </label>
                                     </div>
 
