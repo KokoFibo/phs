@@ -2061,3 +2061,135 @@
 [stacktrace]
 #0 {main}
 "} 
+[2023-02-28 21:14:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:15:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:16:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:17:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:18:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:19:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:20:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:21:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:22:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:23:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:24:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:25:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:26:28] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:27:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:28:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:29:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:30:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:31:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:32:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:33:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:34:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:35:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:36:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:37:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:38:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:39:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:40:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:41:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:42:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:43:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:44:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:45:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
+[2023-02-28 21:46:29] local.ERROR: Cannot redeclare getBranch() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:58) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare getBranch() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:58)
+[stacktrace]
+#0 {main}
+"} 
