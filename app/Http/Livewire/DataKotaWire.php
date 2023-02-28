@@ -6,14 +6,13 @@ use App\Models\City;
 use App\Models\Kota;
 use Livewire\Component;
 use App\Models\Province;
+use Illuminate\Support\Str;
 use Livewire\WithPagination;
 
 
 class DataKotaWire extends Component
 {
     public $propinsi, $namakota;
-    public $selectedPropinsi = NULL;
-    public $selectedNamaKota = NULL;
     public $nama_kota;
     use WithPagination;
     public $is_add = true;
@@ -26,21 +25,23 @@ class DataKotaWire extends Component
     }
 
     public function close () {
-        return redirect()->route('main');
+        return redirect()->route('adddata');
+
     }
 
     public function  clear_fields() {
-        $this->propinsi= '';
+        // $this->propinsi= '';
         $this->nama_kota='';
-         $this->selectedPropinsi = NULL;
-     $this->selectedNamaKota = NULL;
-     $this->propinsi = Province::orderBy('nama', 'asc')->get();
-     $this->namakota = collect();
+        //  $this->selectedPropinsi = NULL;
+    //  $this->selectedNamaKota = NULL;
+    //  $this->propinsi = Province::orderBy('nama', 'asc')->get();
+    //  $this->namakota = collect();
     }
-    public function updatedSelectedPropinsi ($propinsi) {
-        $this->namakota = City::orderBy('nama', 'asc')->where('province_id', $propinsi)->get();
-        $this->selectedNamaKota = NULL;
-    }
+    // public function updatedSelectedPropinsi ($propinsi) {
+    //     $this->namakota = City::orderBy('nama', 'asc')->where('province_id', $propinsi)->get();
+    //     $this->selectedNamaKota = NULL;
+    // }
+
 
 
     public function store () {
@@ -48,10 +49,9 @@ class DataKotaWire extends Component
             'nama_kota' => 'required|unique:kotas,nama_kota',
         ]);
         $data_kota = new Kota();
-        $data_kota->nama_kota = $this->nama_kota;
+        $data_kota->nama_kota = Str::title($this->nama_kota);
         $data_kota->save();
         $this->clear_fields();
-        $this->is_add=true;
         session()->flash('message', 'Data Kota Sudah di Simpan');
     }
 
@@ -68,7 +68,8 @@ class DataKotaWire extends Component
             'nama_kota' => 'unique:kotas,nama_kota,'.$this->current_id,
         ]);
         $data = Kota::find($this->current_id);
-        $data->nama_kota = $this->nama_kota;
+        $data->nama_kota = Str::title($this->nama_kota);
+
         $data->save();
         $this->clear_fields();
         session()->flash('message', 'Data Kota Sudah di Update');
@@ -94,7 +95,6 @@ class DataKotaWire extends Component
             $data->delete();
             $this->dispatchBrowserEvent('deleted');
         }else {
-
             session()->flash('message', 'Data Tidak di Delete');
         }
     }
