@@ -21,7 +21,7 @@ class Panditawire extends Component
 
 
     public function close () {
-        return redirect()->route('main');
+        return redirect()->route('adddata');
     }
 
     public function store () {

@@ -12,7 +12,7 @@
       <div x-data="{ open : false}">
             @if ($selectedBranch != null)
 
-            <span><button @click="open = !open" wire:click="tampilchart" class="p-3 m-5 button button-teal">Tampilkan Chart</button></span>
+            {{-- <span><button @click="open = !open" wire:click="tampilchart" class="p-3 m-5 button button-teal">Tampilkan Chart</button></span> --}}
             @endif
             <div x-show="open">
 

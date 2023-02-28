@@ -26,7 +26,8 @@ class DataKotaWire extends Component
     }
 
     public function close () {
-        return redirect()->route('main');
+        return redirect()->route('adddata');
+
     }
 
     public function  clear_fields() {
