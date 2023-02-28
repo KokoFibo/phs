@@ -51,10 +51,9 @@ class Addumatwire extends Component
         'telp' => 'nullable|min_digits:9|max_digits:13',
         'hp' => 'nullable|min_digits:9|max_digits:13',
         'email' => 'nullable|email',
-        // 'pengajak_id' => 'required',
+        'pengajak_id' => 'required',
         'pengajak' => 'required',
-        // 'penjamin_id' => 'required',
-        'penjamin' => 'required',
+        'penjamin_id' => 'required',
         'pandita_id' => 'required',
         'tgl_mohonTao' => 'nullable|date|before:tomorrow',
         'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao|before:tomorrow',
@@ -86,20 +85,20 @@ public function updated($fields) {
 
 
 
-    // public function getDataPengajak ($nama, $id) {
-    //     $this->pengajak = $nama;
-    //     $this->pengajak_id = $id;
-    // }
-    // public function getDataPenjamin ($nama, $id) {
-    //     $this->penjamin = $nama;
-    //     $this->penjamin_id = $id;
-    // }
+    public function getDataPengajak ($nama, $id) {
+        $this->pengajak = $nama;
+        $this->pengajak_id = $id;
+    }
+    public function getDataPenjamin ($nama, $id) {
+        $this->penjamin = $nama;
+        $this->penjamin_id = $id;
+    }
 
-    // public function updatedQuery () {
-    //     $this->nama = DataPelita::where('nama_umat', 'like', '%'. $this->query .'%')
-    //     ->get(['id', 'nama_umat'])
-    //     ->toArray();
-    // }
+    public function updatedQuery () {
+        $this->nama = DataPelita::where('nama_umat', 'like', '%'. $this->query .'%')
+        ->get(['id', 'nama_umat'])
+        ->toArray();
+    }
 
 
 
@@ -128,9 +127,9 @@ public function updated($fields) {
         $data_umat->telp = $this->telp;
         $data_umat->hp = $this->hp;
         $data_umat->email = $this->email;
-        // $data_umat->pengajak_id = $this->pengajak_id;
+        $data_umat->pengajak_id = $this->pengajak_id;
         $data_umat->pengajak = $this->pengajak;
-        // $data_umat->penjamin_id = $this->penjamin_id;
+        $data_umat->penjamin_id = $this->penjamin_id;
         $data_umat->penjamin = $this->penjamin;
         $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = empty($this->tgl_mohonTao) ?  Carbon::parse(Carbon::now()) : $this->tgl_mohonTao;
@@ -181,9 +180,9 @@ public function updated($fields) {
         $this->telp='';
         $this->hp='';
         $this->email='';
-        // $this->pengajak_id='';
+        $this->pengajak_id='';
         $this->pengajak='';
-        // $this->penjamin_id='';
+        $this->penjamin_id='';
         $this->penjamin='';
         $this->pandita_id='';
         // $this->pandita='';

@@ -183,7 +183,7 @@
                                     {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" "></th> --}}
                                     <th class="p-3 font-semibold text-center border rounded " ">{{ __('#') }}</th>
                                     {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" ">{{ __('id') }}</th> --}}
-                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
+                                    <th class=" p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_alias')">{{ __('ALIAS') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('mandarin')">{{ __('中文名') }}</th>
                                     <th class="p-3 font-semibold text-left border rounded cursor-pointer" wire:click="sortColumnName('umur_sekarang') ">{{ __('UMUR') }}</th>
@@ -273,9 +273,9 @@
                                     </td>
                                     {{-- <td class="p-3 text-gray-800 border rounded">{{ $d->pengajak_id }} --}}
                                     <td class="p-3 text-gray-800 border rounded">
-                                          {{ getName($d->pengajak_id) }}
+                                          {{ $d->pengajak }}
                                     </td>
-                                    <td class="p-3 text-gray-800 border rounded">{{ getName($d->penjamin_id) }}</td>
+                                    <td class="p-3 text-gray-800 border rounded">{{ $d->penjamin }}</td>
 
                                     <td class="p-3 text-gray-800 border rounded">
                                           {{ $d->nama_pandita }}

@@ -168,95 +168,110 @@
                   <span class="text-red-500">{{ $message }}</span>
                   @enderror
             </div>
-            <div class="relative mt-3" x-data="{ pengajak: false }">
+            {{-- <div class="relative mt-3" x-data="{ pengajak: false }">
                   <label class="px-2 " for="pengajak">{{ __('Pengajak') }}</label><span class="text-red-500">*</span>
-                  <input @click="pengajak=true" id="pengajak" autocomplete="off" type="text" placeholder="Masukkan data Pengajak" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pengajak">
-                  <input type="hidden" wire:model="pengajak_id">
-                  <div x-show="pengajak" @click.away="pengajak = false" x-transition class="absolute z-10 overflow-auto h-44">
-                        <input id="pengajak" type="text" placeholder="Cari Pengajak" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        <ul class="bg-white ">
-                              @if (!empty($nama))
-                              @foreach ($nama as $n)
-                              <li class="px-4 py-1 text-purple-500 border ">
-                                    <button class="hover:bg-gray-300" wire:click="getDataPengajak( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )" @click="pengajak=false">{{ $n['nama_umat'] }}</button>
-                              </li>
-                              @endforeach
-                              @endif
-                        </ul>
-                  </div>
-                  @error('pengajak_id')
-                  <span class="text-red-500">{{ $message }}</span>
-                  @enderror
+            <input @click="pengajak=true" id="pengajak" autocomplete="off" type="text" placeholder="Masukkan data Pengajak" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pengajak">
+            <input type="hidden" wire:model="pengajak_id">
+            <div x-show="pengajak" @click.away="pengajak = false" x-transition class="absolute z-10 overflow-auto h-44">
+                  <input id="pengajak" type="text" placeholder="Cari Pengajak" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                  <ul class="bg-white ">
+                        @if (!empty($nama))
+                        @foreach ($nama as $n)
+                        <li class="px-4 py-1 text-purple-500 border ">
+                              <button class="hover:bg-gray-300" wire:click="getDataPengajak( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )" @click="pengajak=false">{{ $n['nama_umat'] }}</button>
+                        </li>
+                        @endforeach
+                        @endif
+                  </ul>
             </div>
-
-            <div class="relative mt-3" x-data="{ penjamin: false }">
-                  <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label><span class="text-red-500">*</span>
-                  <input @click="penjamin=true" autocomplete="off" id="penjamin" type="text" placeholder="Masukkan data penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="penjamin">
-                  <input type="hidden" wire:model="penjamin_id">
-                  <div x-show="penjamin" @click.away="penjamin = false" x-transition class="absolute z-10 overflow-auto h-44">
-                        <input id="penjamin" type="text" placeholder="Cari penjamin" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                        <ul class="bg-white ">
-                              @if (!empty($nama))
-                              @foreach ($nama as $n)
-                              <li class="px-4 py-1 text-purple-500 border ">
-                                    <button class="hover:bg-gray-300" wire:click="getDataPenjamin( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )" @click="penjamin=false">{{ $n['nama_umat'] }}</button>
-                              </li>
-                              @endforeach
-                              @endif
-                        </ul>
-                  </div>
-                  @error('penjamin_id')
-                  <span class="text-red-500">{{ $message }}</span>
-                  @enderror
-            </div>
-
-            {{-- <div class="mt-3">
-                <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label>
-            <input id="penjamin" type="text" placeholder="Masukkan data Penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+            @error('pengajak_id')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
       </div> --}}
       <div class="mt-3">
-            <label class="px-2 " for="pandita">{{ __('Pandita') }}</label><span class="text-red-500">*</span>
-            <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pandita_id">
-                  <option value="">Masukkan data Pandita</option>
-                  @foreach ($datapandita as $pandita)
-                  <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
+            <label class="px-2 " for="pengajak">{{ __('Nama Pengajak') }}</label><span class="text-red-500">*</span>
+            <input id="pengajak" type="text" placeholder="{{ __('Nama Pengajak') }}" wire:model="pengajak" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+            @error('pengajak')
+            <span class="text-red-500">{{ $message }}</span>
+            @enderror
+      </div>
+
+      {{-- <div class="relative mt-3" x-data="{ penjamin: false }">
+            <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label><span class="text-red-500">*</span>
+      <input @click="penjamin=true" autocomplete="off" id="penjamin" type="text" placeholder="Masukkan data penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="penjamin">
+      <input type="hidden" wire:model="penjamin_id">
+      <div x-show="penjamin" @click.away="penjamin = false" x-transition class="absolute z-10 overflow-auto h-44">
+            <input id="penjamin" type="text" placeholder="Cari penjamin" wire:model="query" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+            <ul class="bg-white ">
+                  @if (!empty($nama))
+                  @foreach ($nama as $n)
+                  <li class="px-4 py-1 text-purple-500 border ">
+                        <button class="hover:bg-gray-300" wire:click="getDataPenjamin( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )" @click="penjamin=false">{{ $n['nama_umat'] }}</button>
+                  </li>
                   @endforeach
-
-            </select>
-            @error('pandita_id')
-            <span class="text-red-500">{{ $message }}</span>
-            @enderror
-
+                  @endif
+            </ul>
       </div>
+      @error('penjamin_id')
+      <span class="text-red-500">{{ $message }}</span>
+      @enderror
+</div> --}}
 
-      <div class="mt-3">
-            <label class="px-2 " for="tgl">{{ __('Tanggal Sidang Dharma 3 Hari') }}</label>
+<div class="mt-3">
+      <label class="px-2 " for="penjamin">{{ __('Nama Penjamin') }}</label><span class="text-red-500">*</span>
+      <input id="penjamin" type="text" placeholder="{{ __('Nama Penjamin') }}" wire:model="penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+      @error('penjamin')
+      <span class="text-red-500">{{ $message }}</span>
+      @enderror
+</div>
 
-            <input id="datepicker" type="date" wire:model="tgl_sd3h" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-            @error('tgl_sd3h')
-            <span class="text-red-500">{{ $message }}</span>
-            @enderror
+{{-- <div class="mt-3">
+                <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label>
+<input id="penjamin" type="text" placeholder="Masukkan data Penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+</div> --}}
+<div class="mt-3">
+      <label class="px-2 " for="pandita">{{ __('Pandita') }}</label><span class="text-red-500">*</span>
+      <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="pandita_id">
+            <option value="">Masukkan data Pandita</option>
+            @foreach ($datapandita as $pandita)
+            <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
+            @endforeach
 
+      </select>
+      @error('pandita_id')
+      <span class="text-red-500">{{ $message }}</span>
+      @enderror
+
+</div>
+
+<div class="mt-3">
+      <label class="px-2 " for="tgl">{{ __('Tanggal Sidang Dharma 3 Hari') }}</label>
+
+      <input id="datepicker" type="date" wire:model="tgl_sd3h" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+      @error('tgl_sd3h')
+      <span class="text-red-500">{{ $message }}</span>
+      @enderror
+
+</div>
+
+<div class="mt-3">
+      <label class="px-2 " for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
+      <input id="datepicker" type="date" wire:model="tgl_vtotal" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+      @error('tgl_vtotal')
+      <span class="text-red-500">{{ $message }}</span>
+      @enderror
+</div>
+
+<div class="flex items-center justify-between w-full mt-9">
+      <div>
+            <button class="button button-purple" wire:click="store">{{ __('Save') }}</button>
       </div>
-
-      <div class="mt-3">
-            <label class="px-2 " for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
-            <input id="datepicker" type="date" wire:model="tgl_vtotal" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-            @error('tgl_vtotal')
-            <span class="text-red-500">{{ $message }}</span>
-            @enderror
+      <div>
+            <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>
+                  {{ __('Back') }}</a>
+            {{-- <button class="button button-orange">{{ __('Back') }}</button> --}}
       </div>
-
-      <div class="flex items-center justify-between w-full mt-9">
-            <div>
-                  <button class="button button-purple" wire:click="store">{{ __('Save') }}</button>
-            </div>
-            <div>
-                  <a href="{{ route('main') }}"><i class="fa fa-circle-arrow-left"></i>
-                        {{ __('Back') }}</a>
-                  {{-- <button class="button button-orange">{{ __('Back') }}</button> --}}
-            </div>
-      </div>
+</div>
 </div>
 </div>
 @push('script')
