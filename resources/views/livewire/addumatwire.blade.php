@@ -190,7 +190,7 @@
       </div> --}}
       <div class="mt-3">
             <label class="px-2 " for="pengajak">{{ __('Nama Pengajak') }}</label><span class="text-red-500">*</span>
-            <input id="pengajak" type="text" placeholder="{{ __('Nama Pengajak') }}" wire:model="pengajak" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+            <input id="pengajak" type="text" placeholder="{{ __('Nama Pengajak') }}" wire:model="pengajak" autocomplete="on" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
             @error('pengajak')
             <span class="text-red-500">{{ $message }}</span>
             @enderror
@@ -219,7 +219,7 @@
 
 <div class="mt-3">
       <label class="px-2 " for="penjamin">{{ __('Nama Penjamin') }}</label><span class="text-red-500">*</span>
-      <input id="penjamin" type="text" placeholder="{{ __('Nama Penjamin') }}" wire:model="penjamin" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+      <input id="penjamin" type="text" placeholder="{{ __('Nama Penjamin') }}" wire:model="penjamin" autocomplete="on" class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
       @error('penjamin')
       <span class="text-red-500">{{ $message }}</span>
       @enderror

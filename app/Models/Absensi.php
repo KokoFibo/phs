@@ -15,4 +15,8 @@ class Absensi extends Model
         return $this->belongsTo(Daftarkelas::class);
     }
 
+    public function datapelita () {
+        return $this->belongsTo(DataPelita::class);
+    }
+
 }
