@@ -50,6 +50,10 @@ class DataPelita extends Model
         return $this->belongsTo(Kota::class);
     }
 
+    public function absensi () {
+        return $this->hasMany(Absensi::class);
+    }
+
 
 
 }
