@@ -183,17 +183,17 @@ class Dashboardwire extends Component
 
         // Total Umat
 
-        if($this->selectedGroup){
-            $umatActive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
-            ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
-            ->where('groupviharas.id', $this->selectedGroup)
-            ->where('data_pelitas.status', 'Active')
-            ->count();
-            $umatInactive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
-            ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
-            ->where('groupviharas.id', $this->selectedGroup)
-            ->where('data_pelitas.status', 'Inactive')
-            ->count();
+        // if($this->selectedGroup){
+            // $umatActive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+            // ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+            // ->where('groupviharas.id', $this->selectedGroup)
+            // ->where('data_pelitas.status', 'Active')
+            // ->count();
+            // $umatInactive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+            // ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+            // ->where('groupviharas.id', $this->selectedGroup)
+            // ->where('data_pelitas.status', 'Inactive')
+            // ->count();
 
             // $umatYTD = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
             // ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
@@ -201,17 +201,42 @@ class Dashboardwire extends Component
             // ->whereYear('data_pelitas.tgl_mohonTao', '=', getYear())
             // ->count();
 
-        } elseif ($this->selectedBranch) {
+        // } elseif ($this->selectedBranch) {
 
-            $umatActive = DataPelita::where('status','Active')->where('branch_id',$this->selectedBranch)->count();
-            $umatInactive = DataPelita::where('status','Inactive')->where('branch_id',$this->selectedBranch)->count();
+            // $umatActive = DataPelita::where('status','Active')->where('branch_id',$this->selectedBranch)->count();
+            // $umatInactive = DataPelita::where('status','Inactive')->where('branch_id',$this->selectedBranch)->count();
             // $umatYTD = DataPelita::where('branch_id',$this->selectedBranch)->whereYear('data_pelitas.tgl_mohonTao', '=', getYear())->count();
-        } else {
+        // } else {
 
-            $umatActive = DataPelita::where('status','Active')->count();
-            $umatInactive = DataPelita::where('status','Inactive')->count();
+            // $umatActive = DataPelita::where('status','Active')->count();
+            // $umatInactive = DataPelita::where('status','Inactive')->count();
             // $umatYTD = DataPelita::whereYear('data_pelitas.tgl_mohonTao', '=', getYear())->count();
-        }
+        // }
+
+        // umat Active
+        $umatActive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+        ->where('data_pelitas.status', 'Active')
+        ->when($this->selectedGroup, function ($query) {
+            $query->where('groupviharas.id', $this->selectedGroup);
+        })
+        ->when($this->selectedBranch, function ($query) {
+            $query->where('branch_id', $this->selectedBranch);
+        })
+        ->count();
+
+        // umat Inactive
+        $umatInactive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+        ->where('data_pelitas.status', 'Inactive')
+        ->when($this->selectedGroup, function ($query) {
+            $query->where('groupviharas.id', $this->selectedGroup);
+        })
+        ->when($this->selectedBranch, function ($query) {
+            $query->where('branch_id', $this->selectedBranch);
+        })
+        ->count();
+
         $totalUmat = $umatActive + $umatInactive;
 
 
