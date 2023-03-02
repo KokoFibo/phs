@@ -27,39 +27,37 @@
                                                 <a class="block dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
                                           </li>
                                           @endif
+
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="block dropdown-item" href="#">{{ __('Absensi Kelas') }}<span class="text-red-500">({{ __('Under Construction') }})</span></a>
+                                                <a class="block dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}<span class="text-red-500">({{ __('Under Construction') }})</span></a>
                                           </li>
-                                          {{-- <li class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : ''  }}">
-                                          <a class="block dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}<span class="text-red-500">({{ __('Under Construction') }})</span></a>
+                                    </ul>
+                              </div>
+
+                        </div>
+                  </li>
+
+                  <li>
+                        <div x-data="{ open: false }">
+                              <button @click="open = !open" class="{{ 'branch' == request()->path() || 'panditawire' == request()->path() || 'datakotawire' == request()->path() ? 'active' : ''  }}">{{ __('Utilities') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
+
+                              </button>
+                              <div x-show="open" x-cloak @click.away="open = false" x-transition class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded ">
+                                    <ul class="mx-5 divide-y w-44">
+
+                                          <li class="py-2 my-2 hover:bg-gray-200 {{ 'tambahgroup' == request()->path() ? 'active1' : ''  }}">
+                                                <a class="block" href="{{ route('tambahgroup') }}">{{ __('Tambah Group Vihara') }}</a>
+                                          </li>
+                                          <li class="py-2 my-2 hover:bg-gray-200 {{ 'branch' == request()->path() ? 'active1' : ''  }}">
+                                                <a class="block" href="{{ route('branchwire') }}">{{ __('Tambah Data Cetya') }}</a>
+                                          </li>
+                                          {{-- reset pakai link aja /resetumur --}}
+                                          {{-- <li class="py-2 my-2 hover:bg-gray-200 ">
+                                                <a class="block" href="{{ route('resetumur') }}">{{ __('Reset All') }}</a>
                   </li> --}}
+
             </ul>
       </div>
-
-</div>
-</li>
-
-<li>
-      <div x-data="{ open: false }">
-            <button @click="open = !open" class="{{ 'branch' == request()->path() || 'panditawire' == request()->path() || 'datakotawire' == request()->path() ? 'active' : ''  }}">{{ __('Utilities') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
-
-            </button>
-            <div x-show="open" x-cloak @click.away="open = false" x-transition class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded ">
-                  <ul class="mx-5 divide-y w-44">
-
-                        <li class="py-2 my-2 hover:bg-gray-200 {{ 'tambahgroup' == request()->path() ? 'active1' : ''  }}">
-                              <a class="block" href="{{ route('tambahgroup') }}">{{ __('Tambah Group Vihara') }}</a>
-                        </li>
-                        <li class="py-2 my-2 hover:bg-gray-200 {{ 'branch' == request()->path() ? 'active1' : ''  }}">
-                              <a class="block" href="{{ route('branchwire') }}">{{ __('Tambah Data Cetya') }}</a>
-                        </li>
-                        {{-- reset pakai link aja /resetumur --}}
-                        {{-- <li class="py-2 my-2 hover:bg-gray-200 ">
-                                                <a class="block" href="{{ route('resetumur') }}">{{ __('Reset All') }}</a>
-</li> --}}
-
-</ul>
-</div>
 </div>
 </li>
 {{-- language --}}

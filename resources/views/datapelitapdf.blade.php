@@ -5,6 +5,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Data Pelita PDF</title>
 
+
+
 </head>
 <body>
       <h1 class="header">Data Umat Vihara</h1>
@@ -35,10 +37,22 @@
       </table>
 </body>
 <style>
+      /* @font-face {
+            font-family: 'Comic Sans MS Custom';
+            src: url('{{ asset('storage/fonts/DroidSansFallbackFull.ttf') }}') format("truetype");
+            font-weight: normal;
+            font-style: normal;
+            font-variant: normal;
+      }
+
+      body {
+            font-family: 'Droid Sans Fallback Full H', sans-serif
+      } */
+
       .header {
             font-size: 2em;
             color: #A855F7;
-            font-family: sans-serif;
+            /* font-family: sans-serif; */
             text-align: center;
       }
 
@@ -47,7 +61,7 @@
             border-radius: 10px;
             margin: 25px 0;
             font-size: 0.9em;
-            font-family: sans-serif;
+            /* font-family: sans-serif; */
             min-width: 400px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       }
@@ -77,9 +91,9 @@
       }
 
       /* .styled-table tbody tr.active-row {
-            font-weight: bold;
-            color: #A855F7;
-      } */
+font-weight: bold;
+color: #A855F7;
+} */
 
 </style>
 </html>

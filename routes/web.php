@@ -26,6 +26,7 @@ use App\Http\Livewire\Tambahkelaswire;
 use App\Http\Livewire\Usersettingwire;
 use App\Http\Livewire\Adddataumatiwire;
 use App\Http\Livewire\Changeprofilewire;
+use App\Http\Controllers\CetakController;
 use App\Http\Livewire\Datapelita\Adddata;
 use App\Http\Livewire\Datapelita\Editdata;
 use App\Http\Controllers\menuAddDataController;
@@ -115,6 +116,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/setting', Usersettingwire::class)->name('setting');
 Route::get('/test', Testaja::class);
+Route::get('/cetak', [CetakController::class, 'index']);
+
 
     });
 });
