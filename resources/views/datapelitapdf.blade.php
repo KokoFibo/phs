@@ -18,7 +18,7 @@
                         <th>Telepon</th>
                         <th>Handphone</th>
                         <th>Alamat</th>
-                        <th>Pengajak</th>
+                        {{-- <th>Pengajak</th> --}}
                   </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                         <td>{{ $d->telp }}</td>
                         <td>{{ $d->hp }}</td>
                         <td>{{ $d->alamat }}</td>
-                        <td>{{ $d->pengajak }}</td>
+                        {{-- <td>{{ $d->pengajak }}</td> --}}
                   </tr>
 
                   @endforeach
@@ -43,11 +43,11 @@
             font-weight: normal;
             font-style: normal;
             font-variant: normal;
-      }
+      } */
 
       body {
             font-family: 'Droid Sans Fallback Full H', sans-serif
-      } */
+      }
 
       .header {
             font-size: 2em;

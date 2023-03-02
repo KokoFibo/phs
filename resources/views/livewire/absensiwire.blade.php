@@ -2,6 +2,9 @@
 
       @section('title', 'Absensi Kelas Pendalaman')
 
+      @if ($menuUtama)
+      {{-- start menu Utama --}}
+
       <div class="flex justify-between w-2/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
             <h5 class="text-2xl font-semibold">{{ __('Absensi Kelas') }}</h5>
 
@@ -21,11 +24,11 @@
                   @if ($is_add == true)
                   @if (Auth::user()->role == '3')
                   <div class="w-full mt-3">
-                        <label class="px-2" for="nama_kelas">{{ __('Nama Cetya') }}</label>
-                        <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="selectedBranch">
-                              <option value="">Pilih Cetya</option>
-                              @foreach ($branch as $b)
-                              <option value="{{ $b->id }}">{{ $b->nama_branch }} </option>
+                        <label class="px-2" for="nama_kelas">{{ __('Nama Group') }}</label>
+                        <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded" wire:model="selectedGroup">
+                              <option value="">Pilih Group</option>
+                              @foreach ($group as $b)
+                              <option value="{{ $b->id }}">{{ $b->nama_group }} </option>
                               @endforeach
                         </select>
                   </div>
@@ -61,29 +64,26 @@
                         @enderror
                   </div>
 
-                  <div class="w-full mt-3">
-                        <button wire:click="tambahPeserta" class="button button-yellow">Tambah data Peserta Kelas</button>
+                  <div class="flex gap-2">
+                        <div class="">
+                              <button wire:click="tambahPeserta" class="button button-purple">Tambah Peserta Kelas</button>
+                        </div>
+                        <div class="">
+                              <button wire:click="tambahAbsensi" class="button button-blue">Input Absensi</button>
+                        </div>
                   </div>
-                  <div class="w-full mt-3">
-                        <button wire:click="tambahAbsensi" class="button button-yellow">Masukkan data Absensi</button>
-                  </div>
-
-
-
-                  @if ($is_add == true)
-                  <button wire:click="store" class="px-3 py-1 text-teal-600 bg-white border-white rounded hover:bg-teal-800 hover:text-white">{{ __('Save') }}</button>
-                  @else
-                  <button wire:click="update" class="px-3 py-1 text-teal-600 bg-white border-white rounded hover:bg-teal-800 hover:text-white">{{ __('Update') }}</button>
-                  @endif
-                  <button wire:click="cancel" class="button button-yellow">{{ __('Cancel') }}</button>
+                  <button wire:click="close" class="mt-3 button button-yellow">{{ __('Close') }}</button>
 
             </div>
+            @endif
             @if ($menuTambahData == true)
             @include('livewire.absensi.tambahdatapeserta')
             @endif
             @if ($menuAbsensi == true)
             @include('livewire.absensi.menuabsensi')
             @endif
+            {{-- end menu Utama --}}
+
 
       </div>
 

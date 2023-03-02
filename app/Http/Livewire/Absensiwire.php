@@ -3,22 +3,26 @@
 namespace App\Http\Livewire;
 
 use Auth;
-use App\Models\Branch;
 use App\Models\Absensi;
 use Livewire\Component;
 use App\Models\DataPelita;
 use App\Models\Daftarkelas;
+use App\Models\Groupvihara;
+use App\Models\Pesertakelas;
 use Livewire\WithPagination;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
 class Absensiwire extends Component
 {
     use WithPagination;
-    public $branch_id, $kelas_id, $kelas, $daftarkelas_id, $tgl_kelas,  $branch, $id_absensi, $nama_cetya, $nama_kelas ;
-    public $selectedBranch = null;
+    public $groupvihara_id, $kelas_id, $kelas, $daftarkelas_id, $tgl_kelas,  $group, $id_absensi, $nama_cetya, $nama_kelas ;
+    public $selectedGroup = null;
     public $selectedKelas = null;
     public $is_add = true;
     public $menuTambahData;
+    public $menuUtama ;
+
     public $menuAbsensi, $nama, $query;
     public $selectedPeserta, $peserta, $datapelita_id;
     protected $listeners = ['delete'];
@@ -27,13 +31,9 @@ class Absensiwire extends Component
     public function edit ($id) {
         $this->id_absensi = $id;
         $data = Absensi::find($id);
-        // $this->kelas_id = $data->kelas_id;
-        // $this->branch_id = $data->branch_id;
         $this->daftarkelas_id = $data->daftarkelas_id;
         $this->nama_cetya = getDaftarKelasCetya($data->daftarkelas_id);
         $this->nama_kelas = getDaftarKelas($data->daftarkelas_id);
-
-        // $this->selectedBranch = $data->branch_id;
         $this->tgl_kelas = $data->tgl_kelas;
         $this->is_add=false;
     }
@@ -50,14 +50,14 @@ class Absensiwire extends Component
 
     public function mount() {
         $this->menuTambahData = false;
+        $this->menuUtama = true;
         $query = "";
         $nama = [];
     $this->menuAbsensi = false;
         if(Auth::user()->role == '3'){
 
-            $this->branch = Branch::orderBy('nama_branch', 'asc')->get();
+            $this->group = Groupvihara::orderBy('nama_group', 'asc')->get();
             $this->kelas = collect();
-            // $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('branch_id', Auth::user()->branch_id)->get();
         }
         $this->resetPage();
     }
@@ -65,6 +65,18 @@ class Absensiwire extends Component
     public function getDataPeserta ($nama, $id) {
         $this->peserta = $nama;
         $this->datapelita_id = $id;
+    }
+
+    public function storePeserta () {
+
+        // belum ada validasi
+            $data_peserta = new Pesertakelas();
+            $data_peserta->datapelita_id = $this->datapelita_id;
+            $data_peserta->daftarkelas_id = $this->daftarkelas_id;
+            $data_peserta->save();
+            $this->peserta='';
+
+
     }
 
     public function updatedQuery () {
@@ -75,7 +87,6 @@ class Absensiwire extends Component
     public function deleteConfirmation ($id) {
         $data = Absensi::find($id);
         // $namakelas = getKelas($data->kelas_id);
-        // $namacetya = getBranch($data->branch_id);
         $this->dispatchBrowserEvent('delete_confirmation', [
             'title' => 'Yakin Untuk Hapus Data',
              'text' => "You won't be able to revert this!",
@@ -99,21 +110,26 @@ class Absensiwire extends Component
      }
 
     public function clear_fields() {
-         $this->selectedBranch = null;
+         $this->selectedGroup = null;
      $this->selectedKelas = null;
      $this->kelas = '';
-     $this->branch = '';
+     $this->group = '';
      $this->tgl_kelas='';
      $this->datapelita_id='';
 
 
-     $this->branch = Branch::orderBy('nama_branch', 'asc')->get();
+     $this->group = Groupvihara::orderBy('nama_group', 'asc')->get();
      $this->kelas = collect();
     }
-    public function updatedSelectedBranch($id) {
+    public function updatedSelectedGroup($id) {
         $this->kelas = collect();
 
-        $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('branch_id', $id)->get();
+        try {
+
+            $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('groupvihara_id', $id)->get();
+        } catch (\Exception $e) {
+             return $e->getMessage();
+}
 
 
     }
@@ -134,16 +150,27 @@ public function updated($fields) {
     $this->validateOnly($fields);
 }
 
-public function tambahPeserta () {
-    $this->menuTambahData = true;
+
+public function closeMenuTambahDataPeserta () {
+    $this->menuTambahData = false;
     $this->menuAbsensi = false;
-
-
+    $this->menuUtama = true;
+}
+public function tambahPeserta () {
+    if( $this->daftarkelas_id!='' && $this->selectedGroup!='') {
+        $this->menuTambahData = true;
+        $this->menuAbsensi = false;
+        $this->menuUtama = false;
+    }
 }
 
 public function tambahAbsensi () {
-    $this->menuTambahData = false;
-    $this->menuAbsensi = true;
+    if( $this->daftarkelas_id!='' && $this->selectedGroup!='' && $this->tgl_kelas!='') {
+        $this->menuTambahData = false;
+        $this->menuAbsensi = true;
+        $this->menuUtama = false;
+    }
+
 
 }
 
@@ -183,11 +210,6 @@ public function tambahAbsensi () {
 
     public function render()
     {
-        // $absensi = Absensi::orderBy('id', 'desc')->paginate(5);
-        // if(Auth::user()->role != '3'){
-
-        //     $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('branch_id', Auth::user()->branch_id)->get();
-        // }
 
         $nama_peserta = DataPelita::all();
 
@@ -196,22 +218,16 @@ public function tambahAbsensi () {
             ->join('absensis', 'daftarkelas.id','=','absensis.daftarkelas_id')
             ->join('datapelitas', 'absensis.datapelita_id', '=', 'datapelitas.id')
             ->select('daftarkelas.*','absensis.*', 'datapelitas.nama_umat')
-            ->where('daftarkelas.branch_id',Auth::user()->branch_id)
+            ->where('daftarkelas.groupvihara_id',Auth::user()->groupvihara_id)
             ->paginate(5);
-            $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('branch_id', Auth::user()->branch_id)->get();
+            $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('groupvihara_id', Auth::user()->groupvihara_id)->get();
         } else {
             $absensi = Absensi::orderBy('id', 'desc')->paginate(5);
-            // join Absensi dengan daftarkelas
-
-
         }
-
-
-
+        $pesertakelas = Pesertakelas::where('daftarkelas_id',$this->daftarkelas_id)->orderBy('id', 'asc')
+        ->paginate(5);
         $this->resetPage();
-
-
-        return view('livewire.absensiwire', compact(['absensi', 'nama_peserta']))
+        return view('livewire.absensiwire', compact(['absensi', 'nama_peserta','pesertakelas']))
         ->extends('layouts.main')
         ->section('content');
     }
