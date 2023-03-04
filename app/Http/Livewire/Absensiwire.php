@@ -12,6 +12,7 @@ use App\Models\Pesertakelas;
 use Livewire\WithPagination;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class Absensiwire extends Component
 {
@@ -21,11 +22,104 @@ class Absensiwire extends Component
     public $selectedKelas = null;
     public $is_add = true;
     public $menuTambahData;
-    public $menuUtama ;
+    public $menuUtama, $data, $jumlahpeserta, $jumlahdaftarkelas,  $pesertaKelasId, $pesertaKelasAdd;
+    public $tglTable =[];
+    public $namaTable =[];
 
-    public $menuAbsensi, $nama, $query;
-    public $selectedPeserta, $peserta, $datapelita_id;
-    protected $listeners = ['delete'];
+    public $menuInputAbsensi, $menuEditAbsensi, $nama, $query;
+    public $selectedPeserta, $peserta, $datapelita_id, $selectedTgl, $selectedTglEdit;
+    protected $listeners = ['delete', 'deleteAbsensiByTgl', 'deletePesertaKelas'];
+
+    public function updatedSelectedTglEdit () {
+        $this->tgl_kelas = $this->selectedTglEdit;
+
+    }
+
+    public function deleteAbsensiByTglConfirmation () {
+        $this->dispatchBrowserEvent('deleteAbsensiByTglConfirmation', [
+            'title' => 'Yakin Untuk Hapus Data',
+              'text' => "Kelas  : " . getDaftarKelas($this->daftarkelas_id) . ", Tanggal :" . $this->selectedTglEdit,
+             'icon' => 'warning',
+        ]);
+    }
+   public function deleteAbsensiByTgl () {
+
+     DB::table('absensis')->where('daftarkelas_id',$this->daftarkelas_id)->where('tgl_kelas',$this->tgl_kelas)->delete();
+
+   }
+
+
+
+    public function createAbsensi ( $daftarkelas_id) {
+        $checkDuplicate = Absensi::where('daftarkelas_id',$daftarkelas_id)->where('tgl_kelas',$this->tgl_kelas)->first();
+        if($checkDuplicate == null) {
+            $pesertakelas = Pesertakelas::where('daftarkelas_id',$daftarkelas_id)->get();
+        foreach($pesertakelas as $p) {
+            $absensi = new Absensi();
+        $absensi->datapelita_id = $p->datapelita_id;
+        $absensi->daftarkelas_id = $p->daftarkelas_id;
+        $absensi->absensi = "-";
+        $absensi->tgl_kelas = $this->tgl_kelas;
+        $absensi->save();
+        }
+        } else {
+            $this->dispatchBrowserEvent('absensiSudahAda', [
+            ]);
+        }
+
+
+
+    }
+
+    public function updatedTglKelas () {
+        $absensi = Absensi::where('daftarkelas_id',$this->daftarkelas_id)->where('tgl_kelas', $this->tgl_kelas)->get();
+        $this->resetPage();
+
+
+    }
+    public function hadir ($id, $kodeAbsen) {
+        $absensi = Absensi::find($id);
+        $daftarkelasid = $absensi->daftarkelas_id;
+        $datapelitaid = $absensi->datapelita_id;
+
+
+        $absensi->absensi = $kodeAbsen;
+        $absensi->save();
+
+        // update data kota_is_Used
+        $dataID = Pesertakelas::where('datapelita_id',$datapelitaid)->where('daftarkelas_id', $daftarkelasid )->first();
+        $data = Pesertakelas::find($dataID->id);
+        $data->pesertakelas_is_used = true;
+        $data->save();
+
+        $this->resetPage();
+
+
+
+
+
+
+    }
+
+    public function editpesertakelas ($id) {
+        $this->pesertaKelasAdd = false;
+
+        $this->pesertaKelasId = $id;
+        $data = Pesertakelas::find($id);
+        $this->datapelita_id = $data->datapelita_id;
+        $this->peserta = getName($this->datapelita_id);
+
+    }
+
+    public function updatePesertakelas () {
+        $data = Pesertakelas::find($this->pesertaKelasId);
+        $data->datapelita_id = $this->datapelita_id;
+        $data->save();
+        $this->pesertaKelasAdd = true;
+        // $this->cancel();
+        // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
+        $this->dispatchBrowserEvent('updated');
+    }
 
 
     public function edit ($id) {
@@ -45,20 +139,29 @@ class Absensiwire extends Component
         $this->cancel();
         // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
         $this->dispatchBrowserEvent('updated');
-
     }
 
     public function mount() {
         $this->menuTambahData = false;
         $this->menuUtama = true;
+        $this->jumlahpeserta = 0;
+        $this->jumlahdaftarkelas = 0;
+        $this->pesertaKelasAdd = true;
         $query = "";
         $nama = [];
-    $this->menuAbsensi = false;
-        if(Auth::user()->role == '3'){
+
+        if(Auth::user()->role!=3){
+            $this->selectedGroup = Auth::user()->groupvihara_id;
+        }
+        $this->data='';
+
+        $this->menuInputAbsensi = false;
+        $this->menuEditAbsensi = false;
+        // if(Auth::user()->role == '3'){
 
             $this->group = Groupvihara::orderBy('nama_group', 'asc')->get();
             $this->kelas = collect();
-        }
+        // }
         $this->resetPage();
     }
 
@@ -69,12 +172,31 @@ class Absensiwire extends Component
 
     public function storePeserta () {
 
+            //  dd($this->datapelita_id, $this->daftarkelas_id);
+        // $validatedData = Validator::make(
+        //     ['daftarkelas_id' =>'required'],
+        //     ['datapelita_id' =>'required'],
+        // )->validate();
+        // Pesertakelas::create($validatedData);
+
         // belum ada validasi
-            $data_peserta = new Pesertakelas();
-            $data_peserta->datapelita_id = $this->datapelita_id;
-            $data_peserta->daftarkelas_id = $this->daftarkelas_id;
-            $data_peserta->save();
-            $this->peserta='';
+        if($this->datapelita_id != '') {
+            // $data = Pesertakelas::where('datapelita_id','$this->datapelita_id')->where('daftarkelas_id', '$this->daftarkelas_id')->count();
+            // if($data>0){
+                // $this->dispatchBrowserEvent('pesertaTerdaftar');
+            // } else {
+                $data_peserta = new Pesertakelas();
+                $data_peserta->datapelita_id = $this->datapelita_id;
+                $data_peserta->daftarkelas_id = $this->daftarkelas_id;
+                try {
+                    $data_peserta->save();
+
+                } catch (\Exception $e) {
+                    $this->dispatchBrowserEvent('pesertaTerdaftar');
+       }
+
+        //    }
+        }
 
 
     }
@@ -84,6 +206,33 @@ class Absensiwire extends Component
         ->get(['id', 'nama_umat'])
         ->toArray();
     }
+
+    public function deletepesertaConfirmation($id) {
+        $data = Pesertakelas::find($id);
+        $this->pesertaKelasId = $id ;
+        // $namakelas = getKelas($data->kelas_id);
+        $this->dispatchBrowserEvent('deletepesertaConfirmation', [
+            'title' => 'Yakin Untuk Hapus Data',
+              'text' => "Nama Peserta : " .  getName($data->datapelita_id),
+             'icon' => 'warning',
+        ]);
+
+    }
+
+
+    public function deletePesertaKelas () {
+        $data = Pesertakelas::find($this->pesertaKelasId);
+        if( $data->daftarkelas_is_used != '1'){
+            $data->delete();
+            $this->dispatchBrowserEvent('deleted');
+        } else {
+            session()->flash('message', 'Data TIDAK di Delete');
+
+        }
+
+    }
+
+
     public function deleteConfirmation ($id) {
         $data = Absensi::find($id);
         // $namakelas = getKelas($data->kelas_id);
@@ -126,7 +275,8 @@ class Absensiwire extends Component
 
         try {
 
-            $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('groupvihara_id', $id)->get();
+            // $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('groupvihara_id', $id)->get();
+            $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('groupvihara_id', $this->selectedGroup)->get();
         } catch (\Exception $e) {
              return $e->getMessage();
 }
@@ -153,25 +303,36 @@ public function updated($fields) {
 
 public function closeMenuTambahDataPeserta () {
     $this->menuTambahData = false;
-    $this->menuAbsensi = false;
+    $this->menuInputAbsensi = false;
+    $this->menuEditAbsensi = false;
+
     $this->menuUtama = true;
 }
 public function tambahPeserta () {
     if( $this->daftarkelas_id!='' && $this->selectedGroup!='') {
         $this->menuTambahData = true;
-        $this->menuAbsensi = false;
+        $this->menuInputAbsensi = false;
+        $this->menuEditAbsensi = false;
         $this->menuUtama = false;
     }
 }
 
 public function tambahAbsensi () {
-    if( $this->daftarkelas_id!='' && $this->selectedGroup!='' && $this->tgl_kelas!='') {
+    if( $this->daftarkelas_id!='' && $this->selectedGroup!='') {
         $this->menuTambahData = false;
-        $this->menuAbsensi = true;
+        $this->menuInputAbsensi = true;
+        $this->menuEditAbsensi = false;
         $this->menuUtama = false;
     }
+}
 
-
+public function editAbsensi () {
+    if( $this->daftarkelas_id!='' && $this->selectedGroup!='') {
+        $this->menuTambahData = false;
+        $this->menuInputAbsensi = false;
+        $this->menuEditAbsensi = true;
+        $this->menuUtama = false;
+    }
 }
 
 
@@ -214,20 +375,43 @@ public function tambahAbsensi () {
         $nama_peserta = DataPelita::all();
 
         if(Auth::user()->role != '3'){
-            $absensi = DB::table('daftarkelas')
-            ->join('absensis', 'daftarkelas.id','=','absensis.daftarkelas_id')
-            ->join('datapelitas', 'absensis.datapelita_id', '=', 'datapelitas.id')
-            ->select('daftarkelas.*','absensis.*', 'datapelitas.nama_umat')
-            ->where('daftarkelas.groupvihara_id',Auth::user()->groupvihara_id)
-            ->paginate(5);
+            // $absensi = DB::table('daftarkelas')
+            // ->join('absensis', 'daftarkelas.id','=','absensis.daftarkelas_id')
+            // ->join('datapelitas', 'absensis.datapelita_id', '=', 'datapelitas.id')
+            // ->select('daftarkelas.*','absensis.*', 'datapelitas.nama_umat')
+            // ->where('daftarkelas.groupvihara_id',Auth::user()->groupvihara_id)
+            // ->paginate(5);
             $this->kelas = Daftarkelas::orderBy('id', 'desc')->where('groupvihara_id', Auth::user()->groupvihara_id)->get();
-        } else {
-            $absensi = Absensi::orderBy('id', 'desc')->paginate(5);
         }
+            // } else {
+            $absensi = Absensi::orderBy('tgl_kelas', 'desc')->where('daftarkelas_id',$this->daftarkelas_id)->where('tgl_kelas', $this->tgl_kelas)->get();
+        // }
         $pesertakelas = Pesertakelas::where('daftarkelas_id',$this->daftarkelas_id)->orderBy('id', 'asc')
-        ->paginate(5);
+        ->get();
+
+        // $absensi = Absensi::where('daftarkelas_id',$this->daftarkelas_id)->where('tgl_kelas', $this->tgl_kelas);
+         $dataAbsensi = Absensi::where('daftarkelas_id',$this->daftarkelas_id)->where('tgl_kelas', $this->tgl_kelas)->get();
+         $this->jumlahpeserta = 0;
+        $tglAbsensi = DB::table('absensis')->orderby('tgl_kelas', 'asc')->where('daftarkelas_id',$this->daftarkelas_id)->distinct()->select('tgl_kelas')->get();
+        $viewTglAbsensi = Absensi::where('daftarkelas_id',$this->daftarkelas_id)->distinct('tgl_kelas')->select('tgl_kelas')->orderBy('tgl_kelas', 'asc')->get();
+        $viewNamaAbsensi = Absensi::where('daftarkelas_id',$this->daftarkelas_id)->distinct()->select('datapelita_id')->orderBy('id', 'asc')->get();
+        $this->jumlahpeserta = Absensi::where('daftarkelas_id',$this->daftarkelas_id)->distinct('datapelita_id')->count();
+        $this->tglTable = [];
+        $this->namaTable = [];
+        foreach($viewTglAbsensi as $tgl){
+            $this->tglTable[] = $tgl->tgl_kelas;
+        }
+        foreach($viewNamaAbsensi as $nama){
+            $this->namaTable[] = $nama->datapelita_id;
+        }
+        // if($this->selectedGroup && $this->daftarkelas_id) {
+        //     dd($this->tglTable,$this->namaTable, count($this->namaTable) );
+        // }
+        $this->jumlahdaftarkelas =\App\Models\Absensi::query()
+                  ->where('daftarkelas_id', $this->daftarkelas_id)->distinct('tgl_kelas')->count('tgl_kelas');
+
         $this->resetPage();
-        return view('livewire.absensiwire', compact(['absensi', 'nama_peserta','pesertakelas']))
+        return view('livewire.absensiwire', compact(['absensi', 'nama_peserta','pesertakelas', 'tglAbsensi', 'dataAbsensi', 'viewTglAbsensi', 'viewNamaAbsensi']))
         ->extends('layouts.main')
         ->section('content');
     }

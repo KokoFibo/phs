@@ -16,6 +16,8 @@
                                   <input @click="peserta=true" autocomplete="off" id="peserta" type="text" placeholder="Nama Peserta" class="w-full text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="peserta">
                                   <div x-show="peserta" @click.away="peserta = false" x-transition class="absolute z-10 overflow-auto h-44">
                                         <input id="peserta" type="text" placeholder="Cari peserta" wire:model="query" class="w-full text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                                        {{-- <input type="hidden" wire:model="datapelita_id"> --}}
+
                                         <ul class="bg-white ">
                                               @if (!empty($nama))
                                               @foreach ($nama as $n)
@@ -30,7 +32,13 @@
                                   <span class="text-red-500">{{ $message }}</span>
                                   @enderror
                                   <div class="flex justify-between">
+                                        @if ($pesertaKelasAdd == true)
                                         <button wire:click="storePeserta" class="mt-3 button button-purple">Tambahkan</button>
+
+                                        @else
+                                        <button wire:click="updatePesertakelas" class="mt-3 button button-blue">Update</button>
+
+                                        @endif
                                         <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-yellow">close</button>
                                   </div>
                             </div>
@@ -41,7 +49,7 @@
 
                       {{-- table --}}
                       <div class="w-2/3 ">
-                            @if (!empty($pesertakelas))
+                            @if ($pesertakelas->count())
                             <table class="w-full table-auto">
                                   <thead class="text-white bg-purple-500 border-b-2 border-gray-200 rounded-xl">
                                         <tr>
@@ -55,11 +63,11 @@
                                   <tbody>
                                         <tr>
                                               <td class="p-3 text-gray-800 border rounded">
-                                                    {{ $pesertakelas->firstItem() + $index }}</td>
+                                                    {{ $loop->iteration }}</td>
                                               <td class="p-3 text-gray-800 border rounded">{{ getName($p->datapelita_id) }}</td>
                                               <td class="p-3 text-gray-800 border rounded">{{ getDaftarKelas($p->daftarkelas_id) }}</td>
                                               {{-- <td class="p-3 text-center text-gray-800 border rounded">
-                                            @if ($p->pandita_is_used == false)
+                                            @if ($p->pesertakelas_is_used == false)
                                             <button class="button-red button " wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
                                               @else
                                               <button class="button button-teal" wire:click="edit({{ $p->id }})">{{ __('Edit') }}</button>
@@ -67,24 +75,24 @@
                                               </td> --}}
                                               <td class="p-3 text-gray-800 border rounded">
                                                     <div class="flex justify-center space-x-1">
-                                                          <a href="#"><button type="button" class="p-1 text-black bg-yellow-300 rounded">
-                                                                      <i class="fa fa-pen-to-square "></i>
-                                                                </button></a>
-                                                          <button class="p-1 text-white bg-red-500 rounded">
+                                                          <button wire:click="editpesertakelas({{ $p->id }})" type="button" class="p-1 text-black bg-yellow-300 rounded">
+                                                                <i class="fa fa-pen-to-square "></i>
+                                                          </button>
+                                                          @if ($p->pesertakelas_is_used == false)
+                                                          <button wire:click="deletepesertaConfirmation({{ $p->id }})" class="p-1 text-white bg-red-500 rounded">
                                                                 <i class="fa fa-trash "></i>
                                                           </button>
+                                                          @endif
                                                     </div>
                                               </td>
                                         </tr>
                                   </tbody>
                                   @endforeach
                             </table>
-                            <div class="mt-3">
-                                  {{ $pesertakelas->links() }}
-                            </div>
+
                             @else
                             <div>
-                                  <h1>No Data Found!</h1>
+                                  <h1>Belum ada peserta di kelas ini</h1>
                             </div>
                             @endif
                       </div>

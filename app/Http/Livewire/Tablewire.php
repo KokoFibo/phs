@@ -74,8 +74,12 @@ public function updatedSelectAll () {
 
 
     }
+    public function cetak () {
+        $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
+        // cara buka view blade
+        return view('datapelitacetak', compact('datapelita'));
+    }
     public function pdfdom () {
-         $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
 
         $pdfContent = PDF::loadView('datapelitapdf', ['datapelita'=>$datapelita])->setPaper('a4', 'landscape')->output();
         return response()->streamDownload(
@@ -83,11 +87,11 @@ public function updatedSelectAll () {
              "pelita-hati.pdf"
         );
 
-        return response()->streamDownload(function () {
-            $pdf = App::make('dompdf.wrapper');
-            $pdf->loadHTML('<h1>Test</h1>');
-            echo $pdf->stream();
-        }, 'test.pdf');
+        // return response()->streamDownload(function () {
+        //     $pdf = App::make('dompdf.wrapper');
+        //     $pdf->loadHTML('<h1>Test</h1>');
+        //     echo $pdf->stream();
+        // }, 'test.pdf');
     }
     public function excel () {
 

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
             $table->date('tgl_kelas');
+            $table->char('absensi');
             $table->foreignId('daftarkelas_id');
             $table->foreignId('datapelita_id');
             $table->timestamps();
