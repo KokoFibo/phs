@@ -29,7 +29,7 @@
                                           @endif
 
                                           <li class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : ''  }}">
-                                                <a class="block dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}<span class="text-red-500">({{ __('Under Construction') }})</span></a>
+                                                <a class="block dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</span></a>
                                           </li>
                                     </ul>
                               </div>
