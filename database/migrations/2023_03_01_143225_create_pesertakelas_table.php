@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('datapelita_id');
             $table->foreignId('daftarkelas_id');
+            $table->unique(['datapelita_id', 'daftarkelas_id']);
+            $table->boolean('pesertakelas_is_used')->default(false);
+
             $table->timestamps();
         });
     }
