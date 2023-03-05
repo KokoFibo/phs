@@ -23,18 +23,15 @@ class Dashboardwire extends Component
     public $selected;
     // dari sini
     public $selectedBranch;
-    public $selectedGroup;
+    public $selectedGroupVihara;
     public $selectedDaftarKelas_id = [];
     public $selectedKelasId;
     public $totalUmat_sp;
     public $daftarKelasIdUpdate = 2,
         $daftarkelas = [];
     public $data, $years;
-    // public $is_absensi = false;
-
-    // $now = Carbon::now();
-    //     $tahun = $now->year;
-    // public $selectedYear = date('Y', strtotime($tgl));
+    public  $selectedDaftarKelasId, $openchart, $dataXjson, $dataYjson, $dataPeserta, $dataYjsonPeserta;
+    public $dataX = [], $dataY = [];
     public $selectedYear;
 
     public function updateAbsensi()
@@ -68,26 +65,22 @@ class Dashboardwire extends Component
 
     public function updatedSelectedBranch()
     {
-        $this->selectedGroup = '';
+        $this->selectedGroupVihara = '';
 
         try {
-            $dataPertama = Daftarkelas::where('groupvihara_id', $this->selectedGroup)->first();
-            // dd($dataPertama->id);
+            $dataPertama = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->first();
             $this->selected = $dataPertama->id;
             $this->selectedYear = date('Y');
             $this->getYears();
-
             $this->totalUmat_sp = DataPelita::where('branch_id', $this->selectedBranch)->count();
-
             $this->isiPilihKelas();
         } catch (\Exception $e) {
-            // return 'Nama Cetya Tidak Ada Dalam Database';
             return $e->getMessage();
         }
     }
     public function isiPilihKelas()
     {
-        $this->daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroup)->get();
+        $this->daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
         $this->selectedDaftarKelas_id = [];
         foreach ($this->daftarkelas as $dk) {
             $this->selectedDaftarKelas_id[] = $dk->id;
@@ -127,10 +120,10 @@ class Dashboardwire extends Component
     public function updatedSelectedYear()
     {
         $this->getYears();
-
         $this->updateAbsensi();
         $this->emit('updatedata', ['data' => $this->dataAbsensi]);
     }
+
     public function getYears()
     {
         $this->years = Absensi::orderBy('tgl_kelas', 'asc')
@@ -139,29 +132,78 @@ class Dashboardwire extends Component
             ->get([DB::raw('YEAR(tgl_kelas) as year')]);
     }
 
-    public function updatedSelectedGroup()
+    public function updatedSelectedGroupVihara()
     {
         $this->selectedBranch = '';
+
     }
 
     public function mount()
     {
-        // $absensi = Absensi::all();
-        // $daftarkelas = DaftarKelas::all();
-        // $kelas = Kelas::all();
-        // if($absensi == null || $daftarkelas == null | $kelas == null){
+        $this->selectedGroupVihara =1;
+        $this->selectedDaftarKelasId =2;
 
-        //     $this->is_absensi = false;
-        // }
-        // else {
-        //     $this->is_absensi = true;
 
-        // }
+        // $this->openchart=false;
+
+        // $dataX = [];
+        // $dataY = [];
+
+        $groupvihara = Groupvihara::all();
+        $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+
+
+        try {
+            $absensiDataX = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)->distinct('tgl_kelas')->select('tgl_kelas')->orderBy('tgl_kelas', 'asc')->get();
+             $absensiDataY = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)->distinct('tgl_kelas')->orderBy('tgl_kelas', 'asc')->get();
+            foreach($absensiDataX as $a) {
+                $this->dataX[] = $a->tgl_kelas;
+            }
+
+            for( $i = 0; $i < count($this->dataX); $i++) {
+                $this->dataY[] = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)
+                    ->where('tgl_kelas', $this->dataX[$i])
+                    ->where('absensi','1')
+                    ->select('absensi')
+                    ->count();
+            }
+            $totalPesertaKelasTerakhir = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)->distinct('tgl_kelas')->select('datapelita_id')->orderBy('tgl_kelas', 'desc')->get();
+            $vtotal = 0;
+            $sd3h = 0;
+            $belumKeduanya = 0;
+
+            foreach($totalPesertaKelasTerakhir as $t){
+                $data = DataPelita::find($t->datapelita_id);
+
+                if($data->tgl_sd3h != null && $data->tgl_vtotal == null){
+                    $sd3h++;
+                } elseif($data->tgl_sd3h != null && $data->tgl_vtotal != null) {
+                    $vtotal++;
+                } else {
+                    $belumKeduanya++;
+                }
+            }
+
+            $this->dataPeserta = [$vtotal, $sd3h, $belumKeduanya];
+
+
+
+
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
+
+
+        $this->dataXjson = json_encode($this->dataX);
+        $this->dataYjson = json_encode($this->dataY);
+        $this->dataYjsonPeserta = json_encode($this->dataPeserta);
+
 
         if (Auth::user()->role != '3') {
-            $this->selectedGroup = Auth::user()->groupvihara_id;
+            $this->selectedGroupVihara = Auth::user()->groupvihara_id;
         } else {
-            $this->selectedGroup = null;
+            // $this->selectedGroupVihara = null;
         }
         $this->selected = Auth::user()->branch_id;
 
@@ -169,20 +211,78 @@ class Dashboardwire extends Component
         $this->selectedYear = date('Y');
         $this->updateAbsensi();
         $this->getYears();
+
+    }
+
+    public function updateChart () {
+        // $this->selectedGroupVihara ='';
+        // $this->selectedDaftarKelasId ='';
+        $dataX = [];
+        $dataY = [];
+        $this->dataXjson = '';
+        $this->dataYjson = '';
+        $this->dataX = [];
+        $this->dataY = [];
+        // $groupvihara = Groupvihara::all();
+        // $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+        try {
+            $absensiDataX = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)->distinct('tgl_kelas')->select('tgl_kelas')->orderBy('tgl_kelas', 'asc')->get();
+             $absensiDataY = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)->distinct('tgl_kelas')->orderBy('tgl_kelas', 'asc')->get();
+            foreach($absensiDataX as $a) {
+                $this->dataX[] = $a->tgl_kelas;
+            }
+
+            for( $i = 0; $i < count($this->dataX); $i++) {
+                $this->dataY[] = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)
+                    ->where('tgl_kelas', $this->dataX[$i])
+                    ->where('absensi','1')
+                    ->select('absensi')
+                    ->count();
+            }
+
+            $totalPesertaKelasTerakhir = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)->distinct('tgl_kelas')->select('datapelita_id')->orderBy('tgl_kelas', 'desc')->get();
+            $vtotal = 0;
+            $sd3h = 0;
+            $belumKeduanya = 0;
+
+            foreach($totalPesertaKelasTerakhir as $t){
+                $data = DataPelita::find($t->datapelita_id);
+
+                if($data->tgl_sd3h != null && $data->tgl_vtotal == null){
+                    $sd3h++;
+                } elseif($data->tgl_sd3h != null && $data->tgl_vtotal != null) {
+                    $vtotal++;
+                } else {
+                    $belumKeduanya++;
+                }
+            }
+
+            $this->dataPeserta = [$vtotal, $sd3h, $belumKeduanya];
+
+        } catch (\Exception $e) {
+             return $e->getMessage();
+        }
+
+        $this->dataXjson = json_encode($this->dataX);
+        $this->dataYjson = json_encode($this->dataY);
+        $this->dataYjsonPeserta = json_encode($this->dataPeserta);
+
+        $this->emit('berhasilUpdate',['dataXjson' => $this->dataXjson ,'dataYjson'=> $this->dataYjson, 'dataYjsonPeserta' => $this->dataYjsonPeserta ]);
     }
 
     public function render()
     {
+
         if (Auth::user()->role != '3') {
-            $this->selectedGroup = Auth::user()->groupvihara_id;
+            $this->selectedGroupVihara = Auth::user()->groupvihara_id;
         }
 
 
         $umatActive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
         ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
         ->where('data_pelitas.status', 'Active')
-        ->when($this->selectedGroup, function ($query) {
-            $query->where('groupviharas.id', $this->selectedGroup);
+        ->when($this->selectedGroupVihara, function ($query) {
+            $query->where('groupviharas.id', $this->selectedGroupVihara);
         })
         ->when($this->selectedBranch, function ($query) {
             $query->where('branch_id', $this->selectedBranch);
@@ -193,8 +293,8 @@ class Dashboardwire extends Component
         $umatInactive = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
         ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
         ->where('data_pelitas.status', 'Inactive')
-        ->when($this->selectedGroup, function ($query) {
-            $query->where('groupviharas.id', $this->selectedGroup);
+        ->when($this->selectedGroupVihara, function ($query) {
+            $query->where('groupviharas.id', $this->selectedGroupVihara);
         })
         ->when($this->selectedBranch, function ($query) {
             $query->where('branch_id', $this->selectedBranch);
@@ -208,8 +308,8 @@ class Dashboardwire extends Component
         $umatYTD = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
             ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
             ->whereYear('tgl_mohonTao', '=', getYear())
-            ->when($this->selectedGroup, function ($query) {
-                $query->where('groupviharas.id', $this->selectedGroup);
+            ->when($this->selectedGroupVihara, function ($query) {
+                $query->where('groupviharas.id', $this->selectedGroupVihara);
             })
             ->when($this->selectedBranch, function ($query) {
                 $query->where('branch_id', $this->selectedBranch);
@@ -219,8 +319,8 @@ class Dashboardwire extends Component
         // Total Cetya
         if (Auth::user()->role != '3') {
             $totalBranch = Branch::where('groupvihara_id', Auth::user()->groupvihara_id)->count();
-        } elseif ($this->selectedGroup != '') {
-            $totalBranch = Branch::where('groupvihara_id', $this->selectedGroup)->count();
+        } elseif ($this->selectedGroupVihara != '') {
+            $totalBranch = Branch::where('groupvihara_id', $this->selectedGroupVihara)->count();
         } else {
             $totalBranch = Branch::all()->count();
         }
@@ -229,8 +329,8 @@ class Dashboardwire extends Component
         $sd3h = Groupvihara::join('branches', 'groupviharas.id', '=', 'branches.groupvihara_id')
             ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
             ->where('tgl_sd3h', '!=', null)
-            ->when($this->selectedGroup, function ($query) {
-                $query->where('groupviharas.id', $this->selectedGroup);
+            ->when($this->selectedGroupVihara, function ($query) {
+                $query->where('groupviharas.id', $this->selectedGroupVihara);
             })
             ->when($this->selectedBranch, function ($query) {
                 $query->where('branch_id', $this->selectedBranch);
@@ -242,8 +342,8 @@ class Dashboardwire extends Component
             ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
             ->select('data_pelitas.*')
             ->where('tgl_vtotal', '!=', null)
-            ->when($this->selectedGroup, function ($query) {
-                $query->where('groupviharas.id', $this->selectedGroup);
+            ->when($this->selectedGroupVihara, function ($query) {
+                $query->where('groupviharas.id', $this->selectedGroupVihara);
             })
             ->when($this->selectedBranch, function ($query) {
                 $query->where('branch_id', $this->selectedBranch);
@@ -256,7 +356,7 @@ class Dashboardwire extends Component
         $groupvihara = Groupvihara::all();
 
         if (Auth::user()->role != '3') {
-            $branch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
+            $branch = Branch::where('groupvihara_id', $this->selectedGroupVihara)->get();
         } else {
             $branch = Branch::all();
         }
@@ -271,9 +371,9 @@ class Dashboardwire extends Component
 
         // }
 
+        $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
 
-
-        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD', 'totalBranch', 'totalUsers', 'sd3h', 'vtotal', 'branch', 'groupvihara']))
+        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD', 'totalBranch', 'totalUsers', 'sd3h', 'vtotal', 'branch', 'groupvihara', 'daftarkelas']))
             ->extends('layouts.main')
             ->section('content');
     }
