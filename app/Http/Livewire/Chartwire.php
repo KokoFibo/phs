@@ -9,7 +9,7 @@ use App\Models\Groupvihara;
 
 class Chartwire extends Component
 {
-    public $selectedGroupVihara, $selectedDaftarKelasId, $openchart, $dataXjson;
+    public $selectedGroupVihara, $selectedDaftarKelasId, $openchart, $dataXjson, $dataYjson;
     public $dataX = [], $dataY = [];
 
     public function mount () {
