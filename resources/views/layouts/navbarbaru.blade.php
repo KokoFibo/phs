@@ -1,7 +1,7 @@
 {{-- @extends('layouts.main')
 @section('content') --}}
 @if (Auth::user()->role != '0')
-<div class="flex items-center justify-between px-5 text-white bg-pink-500 shadow-xl h-14">
+<div class="flex items-center justify-between px-5 text-white bg-pink-500 shadow-xl h-14 w-full">
       <div class="items-center block space-x-10 md:flex">
             <h1 class="text-2xl">{{ __('Vihara Pelita Hati') }}</h1>
             <ul class="flex space-x-5">

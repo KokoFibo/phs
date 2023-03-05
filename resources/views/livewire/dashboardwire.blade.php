@@ -1,7 +1,6 @@
-<div class="bg-purple-100 ">
+<div>
 
       @section('title', 'Dashboard')
-      {{-- first row --}}
 
       @if (Auth::user()->role == 0)
       @include('userinfo')
@@ -40,8 +39,6 @@
                                     @endforeach
                               </select>
                         </div>
-
-
                         {{-- select box end --}}
 
                         <div class="w-[800px] mx-auto mt-5  bg-white rounded-xl shadow-2xl p-5">
@@ -109,4 +106,5 @@
 </script>
 @endpush
 @endif
+{{-- end if dari awal utk role selain 0 --}}
 </div>
