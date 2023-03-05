@@ -1,4 +1,5 @@
 <div>
+    <p>{{ $dataPeserta[0] }}, {{ $dataPeserta[1] }}, {{ $dataPeserta[2] }} </p>
     {{-- {{ dd($dataX, $dataY, $dataXjson, $dataYjson) }} --}}
     {{-- @if ($dataY && $dataX)
 
@@ -98,6 +99,7 @@
     <script>
         var tanggal = JSON.parse(`<?php echo $dataXjson; ?>`);
         var peserta = JSON.parse(`<?php echo $dataYjson; ?>`);
+        var detailPeserta = JSON.parse(`<?php echo $dataYjsonPeserta; ?>`);
         const ctx1 = document.getElementById('myChart1').getContext('2d');
             const myChart1 = new Chart(ctx1, {
                   type: 'pie'
@@ -106,7 +108,7 @@
                         labels: (['Vegetarian Total','Sidang Dharma 3 Hari', 'Belum Keduanya'])
                         , datasets: [{
                               label: '# of Votes'
-                              , data: peserta
+                              , data: detailPeserta
                               , backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)'
                                     , 'rgba(54, 162, 235, 0.2)'
@@ -139,10 +141,12 @@
             Livewire.on('berhasilUpdate', event => {
                 var tanggal = JSON.parse(event.dataXjson);
                 var peserta = JSON.parse(event.dataYjson);
+                var detailPeserta = JSON.parse(event.dataYjsonPeserta);
+
                 console.log(tanggal, peserta);
                   myChart1.data.labels = (['Vegetarian Total','Sidang Dharma 3 Hari', 'Belum Keduanya']);
                   myChart1.data.datasets.forEach((dataset) => {
-                        dataset.data = (peserta);
+                        dataset.data = (detailPeserta);
                   });
                   myChart1.update();
             });
