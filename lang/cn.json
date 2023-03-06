@@ -151,5 +151,12 @@
     "Update New Admin": "更新新管理員",
     "User Setting": "用戶設置",
     "Under Construction": "建設中",
-    "Tanggal Lahir": "出生日期"
+    "Tanggal Lahir": "出生日期",
+    "Tanggal": "日期",
+    "Jumlah Peserta": "班員人數",
+    "Lainnya": "其他",
+    "Persentase Kehadiran": "出勤率",
+    "Orang": "人",
+    "Proses Chart": "打開圖表",
+    "Data Absensi Terakhir": "最後考勤數據"
 }
