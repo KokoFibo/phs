@@ -9,12 +9,12 @@
     @if (Auth::user()->role == 0)
     @include('userinfo')
     @else
-    <div class="py-2 text-center rounded shadow " style=" color: white; background-color:rgb(236,72,153)">
+    <div class="py-2 text-center rounded shadow " style="color: white; background-color:rgb(236,72,153)">
         <div class="row align-items-center">
             <div class="col-xl-1">
 
             </div>
-            <div class="text-center col-xl-9">
+            <div class="text-center col-xl-8">
                 <h2>Vihara Pelita Hati Suci</h2>
                 <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
                 <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
@@ -24,6 +24,15 @@
                 <a href="{{ route('main') }}"><button class="btn btn-warning">Enter</button></a>
             </div>
             <div class="my-2 col-xl-1">
+                @if (app()->getLocale() == 'id')
+                <a class="block dropdown-item" href="{{ url('locale/cn') }}"><i class="fa fa-language fa-2xl"></i></a>
+                @endif
+
+                @if (app()->getLocale() == 'cn')
+                <a class="block dropdown-item" href="{{ url('locale/id') }}"><i class="fa fa-language fa-2xl"></i></a>
+                @endif
+            </div>
+            <div class="my-2 col-xl-1">
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                         style="color: white" class="fa-sharp fa-solid fa-power-off fa-xl"></i></a>
@@ -31,6 +40,7 @@
                     @csrf
                 </form>
             </div>
+
         </div>
     </div>
     @include('frontdashboard')
@@ -45,19 +55,22 @@
             </select>
         </div>
         <div class="col-xl-2">
-            <button wire:click="updateChart" class="shadow btn btn-primary">Proses</button>
+            <button wire:click="updateChart" class="shadow btn btn-primary">{{ __('Proses Chart') }}</button>
         </div>
     </div>
     <div class="p-2 mt-1 row">
         <div class="mb-2 col-xl-3 ">
             <div class="card">
                 <div class="w-auto rounded shadow card-body" style=" background-color: white;">
-                    <p>{{ __('Jumlah Peserta') }} : 20 Orang</p>
-                    <p>{{ __('Sidang Dharma 3 Hari') }} : 3 Orang (15%)</p>
-                    <p>{{ __('Vegetarian Total') }} : 3 Orang (15%)</p>
-                    <p>{{ __('Lainnya') }} : 16 Orang</p>
-                    <p>{{ __('Laki-laki') }} : 16 Orang</p>
-                    <p>{{ __('Perempuan') }} : 16 Orang</p>
+                    <h5>{{ __('Data Absensi Terakhir') }}</h5>
+                    <hr>
+                    <p>{{ __('Tanggal') }} : 06 Mar 2023</p>
+                    <p>{{ __('Jumlah Peserta') }} : 20 {{ __('Orang') }}</p>
+                    <p>{{ __('Sidang Dharma 3 Hari') }} : 3 {{ __('Orang') }} (15%)</p>
+                    <p>{{ __('Vegetarian Total') }} : 3 {{ __('Orang') }} (15%)</p>
+                    <p>{{ __('Lainnya') }} : 16 {{ __('Orang') }}</p>
+                    <p>{{ __('Laki-laki') }} : 16 {{ __('Orang') }}</p>
+                    <p>{{ __('Perempuan') }} : 16 {{ __('Orang') }}</p>
                     <p>{{ __('Persentase Kehadiran') }} : 80%</p>
                 </div>
             </div>
@@ -89,7 +102,7 @@
                   , data: {
                         labels: tanggal
                         , datasets: [{
-                              label: '# Peserta'
+                              label: '# Peserta (班員)'
                               , data: peserta
                               , backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)'
@@ -143,7 +156,7 @@
                   type: 'pie'
                   , data: {
                         // labels: tanggal
-                        labels: (['Vegetarian Total','Sidang Dharma 3 Hari', 'Belum Keduanya'])
+                        labels: (['Vegetarian Total (清口)','Sidang Dharma 3 Hari (三天法會)', 'Belum Keduanya (沒有任何)'])
                         , datasets: [{
                               label: '# Peserta'
                               , data: detailPeserta
