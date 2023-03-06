@@ -16,8 +16,8 @@
             </div>
             <div class="text-center col-xl-9">
                 <h2>Vihara Pelita Hati Suci</h2>
-                {{-- <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
-                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p> --}}
+                <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
+                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
             </div>
 
             <div class="my-2 col-xl-1">
@@ -53,8 +53,8 @@
             <div class="card">
                 <div class="w-auto rounded shadow card-body" style=" background-color: white;">
                     <p>{{ __('Jumlah Peserta') }} : 20 Orang</p>
-                    <p>{{ __('sidang dharma 3 hari') }} : 3 Orang (15%)</p>
-                    <p>{{ __('vegetarian total') }} : 3 Orang (15%)</p>
+                    <p>{{ __('Sidang Dharma 3 Hari') }} : 3 Orang (15%)</p>
+                    <p>{{ __('Vegetarian Total') }} : 3 Orang (15%)</p>
                     <p>{{ __('Lainnya') }} : 16 Orang</p>
                     <p>{{ __('Laki-laki') }} : 16 Orang</p>
                     <p>{{ __('Perempuan') }} : 16 Orang</p>
@@ -64,46 +64,18 @@
 
         </div>
         <div class="mb-2 col-xl-3">
-            {{-- <div class="card"> --}}
-                <div class="w-auto p-1 rounded shadow card-body" style=" background-color: white;">
-                    <canvas id="myChart1"></canvas>
-                </div>
+            <div class="w-auto p-1 rounded shadow card-body" style=" background-color: white;">
+                <canvas id="myChart1"></canvas>
+            </div>
 
-
-                {{--
-            </div> --}}
         </div>
         <div class="mb-2 col-xl-6">
-            {{-- <div class="card"> --}}
-                <div class="w-auto p-1 rounded shadow card-body" style="background-color: white;">
-                    <canvas id="myChart"></canvas>
-                </div>
-
-                {{--
-            </div> --}}
+            <div class="w-auto p-1 rounded shadow card-body" style="background-color: white;">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
 
     </div>
-
-
-    {{-- <div class="flex items-center justify-between w-full gap-5 p-3">
-        <div class="w-1/3 p-2 border-gray-300 shadow-xl border-1 bg-gray-50 rounded-xl">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia, quia!</p>
-        </div>
-
-
-    </div>
-
-    <div style="width:500px">
-        <canvas id="myChart"></canvas>
-    </div>
-    <div style="width:400px">
-        <canvas id="myChart1"></canvas>
-    </div> --}}
-
-
-
-
 
 
     @push('script')
@@ -117,7 +89,7 @@
                   , data: {
                         labels: tanggal
                         , datasets: [{
-                              label: '# of Votes'
+                              label: '# Peserta'
                               , data: peserta
                               , backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)'
@@ -127,7 +99,7 @@
                                     , 'rgba(153, 102, 255, 0.2)'
                                     , 'rgba(255, 159, 64, 0.2)'
                               ]
-                              , borderColor: [
+                              ,   borderColor: [
                                     'rgba(255, 99, 132, 1)'
                                     , 'rgba(54, 162, 235, 1)'
                                     , 'rgba(255, 206, 86, 1)'
@@ -139,6 +111,7 @@
                         }]
                   }
                   , options: {
+                    responsive:true,
                         scales: {
                               y: {
                                     beginAtZero: true
@@ -172,7 +145,7 @@
                         // labels: tanggal
                         labels: (['Vegetarian Total','Sidang Dharma 3 Hari', 'Belum Keduanya'])
                         , datasets: [{
-                              label: '# of Votes'
+                              label: '# Peserta'
                               , data: detailPeserta
                               , backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)'
@@ -194,6 +167,7 @@
                         }]
                   }
                   , options: {
+                        responsive:true,
                         scales: {
                               y: {
                                     beginAtZero: true
