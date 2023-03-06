@@ -1,12 +1,15 @@
 {{-- @extends('layouts.main')
 @section('content') --}}
 @if (Auth::user()->role != '0')
-<div class="flex items-center justify-between px-5 text-white bg-pink-500 shadow-xl h-14">
+<div class="flex items-center justify-between w-full px-5 text-white bg-pink-500 shadow-xl h-14">
       <div class="items-center block space-x-10 md:flex">
             <h1 class="text-2xl">{{ __('Vihara Pelita Hati') }}</h1>
             <ul class="flex space-x-5">
                   <li class="{{ 'dashboard' == request()->path() ? 'active' : ''  }}">
                         <a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+                  </li>
+                  <li class="{{ 'chartwire' == request()->path() ? 'active' : ''  }}">
+                        <a href="{{ route('chart') }}">{{ __('Chartwire') }}</a>
                   </li>
                   <li class="{{ 'main' == request()->path() ? 'active' : ''  }}">
                         <a href="{{ route('main') }}">{{ __('Data Umat') }}</a>

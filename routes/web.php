@@ -8,6 +8,7 @@ use App\Http\Livewire\Data;
 use App\Http\Livewire\Kota;
 use App\Http\Livewire\Testaja;
 use App\Http\Livewire\Chartjswr;
+use App\Http\Livewire\Chartwire;
 use App\Http\Livewire\Tablewire;
 use App\Http\Controllers\TestPdf;
 use App\Http\Livewire\Branchwire;
@@ -117,6 +118,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/setting', Usersettingwire::class)->name('setting');
 Route::get('/test', Testaja::class);
 Route::get('/cetak', [CetakController::class, 'index']);
+Route::get('/chart', Chartwire::class)->name('chart');
 
 
     });
