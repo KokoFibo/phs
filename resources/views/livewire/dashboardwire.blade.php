@@ -11,15 +11,15 @@
     @else
     <div class="py-2 text-center rounded shadow " style=" color: white; background-color:rgb(236,72,153)">
         <div class="row align-items-center">
-            <div class="col-md-1">
+            <div class="col-lg-1">
 
             </div>
-            <div class="text-center col-md-10">
+            <div class="text-center col-lg-10">
                 <h2>Vihara Pelita Hati Suci</h2>
                 <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
                 <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
             </div>
-            <div class="col-md-1">
+            <div class="col-lg-1">
                 <a href="{{ route('main') }}"><button class="btn btn-warning">Enter</button></a>
             </div>
         </div>
@@ -27,7 +27,7 @@
     @include('frontdashboard')
 
     <div class="p-2 mt-5 row ">
-        <div class="mb-2 col-md-3">
+        <div class="mb-2 col-lg-3">
             <select class="shadow form-select" wire:model="selectedDaftarKelasId">
                 <option value="">Pilih Kelas</option>
                 @foreach ($daftarkelas as $d )
@@ -35,12 +35,12 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-md-2">
+        <div class="col-lg-2">
             <button wire:click="updateChart" class="shadow btn btn-primary">Proses</button>
         </div>
     </div>
     <div class="p-2 mt-3 row">
-        <div class="mb-2 col-md-3 ">
+        <div class="mb-2 col-lg-3 ">
             <div class="card">
                 <div class="w-auto rounded shadow card-body " style=" background-color: white;">
                     <p>{{ __('Jumlah Peserta') }} : 20 Orang</p>
@@ -56,7 +56,7 @@
             </div>
 
         </div>
-        <div class="mb-2 col-md-3">
+        <div class="mb-2 col-lg-3">
             {{-- <div class="card"> --}}
                 <div class="w-auto rounded shadow card-body" style=" background-color: white;">
                     <canvas id="myChart1"></canvas>
@@ -65,7 +65,7 @@
                 {{--
             </div> --}}
         </div>
-        <div class="mb-2 col-md-6">
+        <div class="mb-2 col-lg-6">
             {{-- <div class="card"> --}}
                 <div class="w-auto rounded shadow card-body" style="background-color: white;">
                     <canvas id="myChart"></canvas>
