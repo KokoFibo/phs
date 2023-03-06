@@ -47,6 +47,7 @@
         var tanggal = JSON.parse(`<?php echo $dataXjson; ?>`);
         var peserta = JSON.parse(`<?php echo $dataYjson; ?>`);
         const ctx = document.getElementById('myChart').getContext('2d');
+
             const myChart = new Chart(ctx, {
                   type: 'bar'
                   , data: {
@@ -78,7 +79,7 @@
                               y: {
                                     beginAtZero: true
                               }
-                        }
+                        },
                   }
             });
 
@@ -86,13 +87,17 @@
             Livewire.on('berhasilUpdate', event => {
                 var tanggal = JSON.parse(event.dataXjson);
                 var peserta = JSON.parse(event.dataYjson);
-                console.log(tanggal, peserta);
                   myChart.data.labels = (tanggal);
                   myChart.data.datasets.forEach((dataset) => {
                         dataset.data = (peserta);
                   });
                   myChart.update();
             });
+
+
+
+
+
 
     </script>
     {{-- pie Chart --}}

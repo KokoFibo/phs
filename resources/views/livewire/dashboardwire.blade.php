@@ -17,12 +17,17 @@
 
 
     <button wire:click="updateChart" class="button button-blue">Proses</button>
+    <div class="flex items-center justify-between w-full gap-5 p-3">
+        <div class="w-1/3 p-2 border-gray-300 shadow-xl border-1 bg-gray-50 rounded-xl">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia, quia!</p>
+        </div>
 
-    <div style="width:400px">
-        <canvas id="myChart"></canvas>
-    </div>
-    <div style="width:400px">
-        <canvas id="myChart1"></canvas>
+        <div class="w-1/3 p-2 border-gray-300 shadow-xl border-1 bg-gray-50 rounded-xl" style="width:500px">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="w-1/3 p-2 border-gray-300 shadow-xl border-1 bg-gray-50 rounded-xl" style="width:400px">
+            <canvas id="myChart1"></canvas>
+        </div>
     </div>
 
 

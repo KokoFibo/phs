@@ -136,7 +136,7 @@ class Chartwire extends Component
         $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
 
         return view('livewire.chartwire', compact(['groupvihara', 'daftarkelas']))
-        ->extends('layouts.main')
+        ->extends('layouts.polos')
             ->section('content');
     }
 }
