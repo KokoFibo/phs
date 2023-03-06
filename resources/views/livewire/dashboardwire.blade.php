@@ -1,35 +1,97 @@
-<div>
+<div class="container-fluid">
+    <style>
+        body {
+            background-color: rgb(243, 232, 255);
+        }
+    </style>
 
     @section('title', 'Dashboard')
     @if (Auth::user()->role == 0)
     @include('userinfo')
     @else
+    <div class="py-2 text-center rounded shadow " style=" color: white; background-color:rgb(236,72,153)">
+        <div class="row align-items-center">
+            <div class="col-md-1">
+
+            </div>
+            <div class="text-center col-md-10">
+                <h2>Vihara Pelita Hati Suci</h2>
+                <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
+                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
+            </div>
+            <div class="col-md-1">
+                <a href="{{ route('main') }}"><button class="btn btn-warning">Enter</button></a>
+            </div>
+        </div>
+    </div>
     @include('frontdashboard')
 
+    <div class="p-2 mt-5 row ">
+        <div class="mb-2 col-md-3">
+            <select class="shadow form-select" wire:model="selectedDaftarKelasId">
+                <option value="">Pilih Kelas</option>
+                @foreach ($daftarkelas as $d )
+                <option value="{{ $d->id }}">{{ getDaftarKelas($d->kelas_id) }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button wire:click="updateChart" class="shadow btn btn-primary">Proses</button>
+        </div>
+    </div>
+    <div class="p-2 mt-3 row">
+        <div class="mb-2 col-md-3 ">
+            <div class="card">
+                <div class="w-auto rounded shadow card-body " style=" background-color: white;">
+                    <p>{{ __('Jumlah Peserta') }} : 20 Orang</p>
+                    <p>{{ __('sidang dharma 3 hari') }} : 3 Orang (15%)</p>
+                    <p>{{ __('vegetarian total') }} : 3 Orang (15%)</p>
+                    <p>{{ __('Lainnya') }} : 16 Orang</p>
+                    <p>{{ __('Laki-laki') }} : 16 Orang</p>
+                    <p>{{ __('Perempuan') }} : 16 Orang</p>
+                    <p>{{ __('Persentase Kehadiran') }} : 80%</p>
+                </div>
 
-    <select wire:model="selectedDaftarKelasId">
-        <option value="">Pilih Kelas</option>
-        @foreach ($daftarkelas as $d )
-        <option value="{{ $d->id }}">{{ getDaftarKelas($d->kelas_id) }}</option>
-        @endforeach
-    </select>
+
+            </div>
+
+        </div>
+        <div class="mb-2 col-md-3">
+            {{-- <div class="card"> --}}
+                <div class="w-auto rounded shadow card-body" style=" background-color: white;">
+                    <canvas id="myChart1"></canvas>
+                </div>
+
+                {{--
+            </div> --}}
+        </div>
+        <div class="mb-2 col-md-6">
+            {{-- <div class="card"> --}}
+                <div class="w-auto rounded shadow card-body" style="background-color: white;">
+                    <canvas id="myChart"></canvas>
+                </div>
+
+                {{--
+            </div> --}}
+        </div>
+
+    </div>
 
 
-
-    <button wire:click="updateChart" class="button button-blue">Proses</button>
-    <div class="flex items-center justify-between w-full gap-5 p-3">
+    {{-- <div class="flex items-center justify-between w-full gap-5 p-3">
         <div class="w-1/3 p-2 border-gray-300 shadow-xl border-1 bg-gray-50 rounded-xl">
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia, quia!</p>
         </div>
 
-        <div class="w-1/3 p-2 border-gray-300 shadow-xl border-1 bg-gray-50 rounded-xl" style="width:500px">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class="w-1/3 p-2 border-gray-300 shadow-xl border-1 bg-gray-50 rounded-xl" style="width:400px">
-            <canvas id="myChart1"></canvas>
-        </div>
+
     </div>
 
+    <div style="width:500px">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div style="width:400px">
+        <canvas id="myChart1"></canvas>
+    </div> --}}
 
 
 
@@ -149,5 +211,6 @@
     </script>
     @endpush
     @endif
+
     {{-- end if dari awal utk role selain 0 --}}
 </div>

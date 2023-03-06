@@ -135,6 +135,7 @@ class Dashboardwire extends Component
     public function updatedSelectedGroupVihara()
     {
         $this->selectedBranch = '';
+        $this->selectedDaftarKelasId ='';
 
     }
 
@@ -370,11 +371,10 @@ class Dashboardwire extends Component
         //     $datauser->save();
 
         // }
-
         $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
 
         return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD', 'totalBranch', 'totalUsers', 'sd3h', 'vtotal', 'branch', 'groupvihara', 'daftarkelas']))
-            ->extends('layouts.main')
+            ->extends('layouts.main2')
             ->section('content');
     }
 }
