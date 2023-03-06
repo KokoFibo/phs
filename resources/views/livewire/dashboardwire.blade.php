@@ -16,14 +16,14 @@
             </div>
             <div class="text-center col-xl-9">
                 <h2>Vihara Pelita Hati Suci</h2>
-                <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
-                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
+                {{-- <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
+                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p> --}}
             </div>
 
-            <div class="mb-2 col-xl-1">
+            <div class="my-2 col-xl-1">
                 <a href="{{ route('main') }}"><button class="btn btn-warning">Enter</button></a>
             </div>
-            <div class=" col-xl-1">
+            <div class="my-2 col-xl-1">
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                         style="color: white" class="fa-sharp fa-solid fa-power-off fa-xl"></i></a>
@@ -35,7 +35,7 @@
     </div>
     @include('frontdashboard')
 
-    <div class="p-2 mt-5 row ">
+    <div class="p-2 mt-2 row ">
         <div class="mb-2 col-xl-3">
             <select class="shadow form-select" wire:model="selectedDaftarKelasId">
                 <option value="">Pilih Kelas</option>
@@ -48,10 +48,10 @@
             <button wire:click="updateChart" class="shadow btn btn-primary">Proses</button>
         </div>
     </div>
-    <div class="p-2 mt-3 row">
+    <div class="p-2 mt-1 row">
         <div class="mb-2 col-xl-3 ">
             <div class="card">
-                <div class="w-auto rounded shadow card-body " style=" background-color: white;">
+                <div class="w-auto rounded shadow card-body" style=" background-color: white;">
                     <p>{{ __('Jumlah Peserta') }} : 20 Orang</p>
                     <p>{{ __('sidang dharma 3 hari') }} : 3 Orang (15%)</p>
                     <p>{{ __('vegetarian total') }} : 3 Orang (15%)</p>
@@ -60,23 +60,22 @@
                     <p>{{ __('Perempuan') }} : 16 Orang</p>
                     <p>{{ __('Persentase Kehadiran') }} : 80%</p>
                 </div>
-
-
             </div>
 
         </div>
         <div class="mb-2 col-xl-3">
             {{-- <div class="card"> --}}
-                <div class="w-auto rounded shadow card-body" style=" background-color: white;">
+                <div class="w-auto p-1 rounded shadow card-body" style=" background-color: white;">
                     <canvas id="myChart1"></canvas>
                 </div>
+
 
                 {{--
             </div> --}}
         </div>
         <div class="mb-2 col-xl-6">
             {{-- <div class="card"> --}}
-                <div class="w-auto rounded shadow card-body" style="background-color: white;">
+                <div class="w-auto p-1 rounded shadow card-body" style="background-color: white;">
                     <canvas id="myChart"></canvas>
                 </div>
 
