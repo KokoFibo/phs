@@ -1,7 +1,7 @@
 <div>
     <div class="p-2 row align-items-center">
         @if (Auth::user()->role == 3)
-        <div class="col-xl-2">
+        <div class="mb-2 col-xl-2">
             <select wire:model="selectedGroupVihara" class="shadow form-select">
                 <option value="">{{ __('All Groups') }}</option>
                 @foreach ($groupvihara as $g)
@@ -11,7 +11,7 @@
         </div>
         @endif
 
-        <div class="col-xl-2">
+        <div class="mb-2 col-xl-2">
             <select wire:model="selectedBranch" class="shadow form-select">
                 <label>Pilih Kelas</label>
                 @if (Auth::user()->role == '3')
