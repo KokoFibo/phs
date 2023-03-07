@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_branch');
             $table->foreignId('groupvihara_id');
+            $table->unique(['nama_branch', 'groupvihara_id']);
+
             $table->boolean('branch_is_used')->default(false);
 
             $table->timestamps();

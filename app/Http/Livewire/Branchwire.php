@@ -47,14 +47,24 @@ class Branchwire extends Component
 
         $data->groupvihara_id = $this->groupvihara_id;
         $data->nama_branch = $this->nama_branch;
-        $data->save();
+        try {
+            $data->save();
         $this->updateGroupVihara ();
 
-        session()->flash('message', 'Data Branch Sudah di tambah');
-
-
+        // session()->flash('message', 'Data Branch Sudah di tambah');
+        $this->dispatchBrowserEvent('success', [
+            'title' => 'Data sudah di tambah'
+        ]);
         $this->clear_fields();
         $this->is_add=true;
+    } catch (\Exception $e) {
+            // session()->flash('message', 'Data Branch Sudah Ada');
+            $this->dispatchBrowserEvent('error', [
+                'title' => 'Nama Cetya Tidak Boleh Sama'
+            ]);
+             return $e->getMessage();
+}
+
 
         // hiding the Modal after run Add Data
         // $this->dispatchBrowserEvent('close-modal');
@@ -78,28 +88,42 @@ class Branchwire extends Component
         $validatedData = $this->validate();
         session()->flash('message', '');
 
-        $data = new Branch();
+        // $data = new Branch();
         $data = Branch::find($this->current_id);
 
         $data->groupvihara_id = $this->groupvihara_id;
         $data->nama_branch = $this->nama_branch;
-        $data->save();
 
-        // update data group vihara
-
-
-
+        try {
+            $data->save();
 
         $this->updateGroupVihara ();
         $this->is_add=true;
-
-        session()->flash('message', 'Data Branch Sudah di Update');
+        $this->dispatchBrowserEvent('success', [
+            'title' => 'Data sudah di Updated'
+        ]);
 
         $this->clear_fields();
+        } catch (\Exception $e) {
+            $this->dispatchBrowserEvent('error', [
+                'title' => 'Nama Vihara Tidak Boleh sama dalam group'
+            ]);
+             return $e->getMessage();
+}
 
 
-        // hiding the Modal after run Add Data
-        // $this->dispatchBrowserEvent('close-modal');
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
