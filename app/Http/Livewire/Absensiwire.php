@@ -60,7 +60,12 @@ class Absensiwire extends Component
         $absensi->daftarkelas_id = $p->daftarkelas_id;
         $absensi->absensi = "-";
         $absensi->tgl_kelas = $this->tgl_kelas;
+        try {
         $absensi->save();
+
+        } catch (\Exception $e) {
+             return $e->getMessage();
+}
         }
         } else {
             $this->dispatchBrowserEvent('absensiSudahAda', [

@@ -87,10 +87,18 @@ if(!function_exists('getYear')) {
       }
 
       function getDaftarKelas($id) {
-        $kelas_id = Daftarkelas::find($id);
+        if($id != null) {
+            $kelas_id = Daftarkelas::find($id);
+            try {
+                $nama_kelas = Kelas::find($kelas_id->kelas_id);
+                return $nama_kelas->nama_kelas;
+            } catch (\Exception $e) {
+                 return $e->getMessage();
+   }
 
-        $nama_kelas = Kelas::find($kelas_id->kelas_id);
-        return $nama_kelas->nama_kelas;
+
+
+        }
 
       }
 
