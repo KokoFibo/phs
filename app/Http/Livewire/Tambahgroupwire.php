@@ -29,7 +29,8 @@ class Tambahgroupwire extends Component
         // ================
         $data = new Groupvihara();
 
-        $data->nama_group = Str::title($this->nama_group);
+        // $data->nama_group = trim(Str::title($this->nama_group));
+        $data->nama_group = Str::title(trim($this->nama_group));
         $data->save();
         $this->clear_fields();
         // $this->redirect(route('adddata'));

@@ -46,7 +46,7 @@ class Branchwire extends Component
         $data = new Branch();
 
         $data->groupvihara_id = $this->groupvihara_id;
-        $data->nama_branch = $this->nama_branch;
+        $data->nama_branch = trim($this->nama_branch);
         try {
             $data->save();
         $this->updateGroupVihara ();
@@ -92,7 +92,7 @@ class Branchwire extends Component
         $data = Branch::find($this->current_id);
 
         $data->groupvihara_id = $this->groupvihara_id;
-        $data->nama_branch = $this->nama_branch;
+        $data->nama_branch = trim($this->nama_branch);
 
         try {
             $data->save();
