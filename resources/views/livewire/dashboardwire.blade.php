@@ -22,7 +22,7 @@
             </div>
 
             <div class="my-2 col-xl-2 d-flex justify-content-around align-items-center  ">
-                <a href="{{ route('main') }}"><button class="btn btn-warning">Enter</button></a>
+                <a href="{{ route('main') }}"><button class="btn btn-warning">{{ __('Masuk') }}</button></a>
 
                 <div>
                     @if (app()->getLocale() == 'id')
