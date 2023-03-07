@@ -14,32 +14,35 @@
             <div class="col-xl-1">
 
             </div>
-            <div class="text-center col-xl-8">
+            <div class="text-center col-xl-9">
                 <h2>Vihara Pelita Hati Suci</h2>
-                <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
+                {{-- <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
                 <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
-                <p>tglAbsensiTerakhir: {{ $this->tglAbsensiTerakhir }}</p>
+                <p>tglAbsensiTerakhir: {{ $this->tglAbsensiTerakhir }}</p> --}}
             </div>
 
-            <div class="my-2 col-xl-1">
+            <div class="my-2 col-xl-2 d-flex justify-content-around align-items-center  ">
                 <a href="{{ route('main') }}"><button class="btn btn-warning">Enter</button></a>
-            </div>
-            <div class="my-2 col-xl-1">
-                @if (app()->getLocale() == 'id')
-                <a class="block dropdown-item" href="{{ url('locale/cn') }}"><i class="fa fa-language fa-2xl"></i></a>
-                @endif
 
-                @if (app()->getLocale() == 'cn')
-                <a class="block dropdown-item" href="{{ url('locale/id') }}"><i class="fa fa-language fa-2xl"></i></a>
-                @endif
-            </div>
-            <div class="my-2 col-xl-1">
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                        style="color: white" class="fa-sharp fa-solid fa-power-off fa-xl"></i></a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
-                    @csrf
-                </form>
+                <div>
+                    @if (app()->getLocale() == 'id')
+                    <a class="block dropdown-item" href="{{ url('locale/cn') }}"><i
+                            class="fa fa-language fa-2xl"></i></a>
+                    @endif
+
+                    @if (app()->getLocale() == 'cn')
+                    <a class="block dropdown-item" href="{{ url('locale/id') }}"><i
+                            class="fa fa-language fa-2xl"></i></a>
+                    @endif
+                </div>
+                <div>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                            style="color: white" class="fa-sharp fa-solid fa-power-off fa-xl"></i></a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                        @csrf
+                    </form>
+                </div>
             </div>
 
         </div>
