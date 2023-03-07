@@ -27,8 +27,9 @@ class Dashboardwire extends Component
     public $selectedDaftarKelas_id = [];
     public $selectedKelasId;
     public $totalUmat_sp;
-    public $daftarKelasIdUpdate = 2,
-        $daftarkelas = [];
+    public $daftarKelasIdUpdate = 2;
+    public $daftarkelas;
+    // ,
     public $data, $years;
     public  $selectedDaftarKelasId, $openchart, $dataXjson, $dataYjson, $dataPeserta, $dataYjsonPeserta;
     public $dataX = [], $dataY = [];
@@ -110,6 +111,9 @@ class Dashboardwire extends Component
             $this->dataAbsensi = json_encode($this->data);
         }
     }
+    public function updatedSelectedDaftarKelasId () {
+      $this->updateChart();
+    }
     public function updatedSelected()
     {
         $this->getYears();
@@ -136,6 +140,9 @@ class Dashboardwire extends Component
     {
         $this->selectedBranch = '';
         $this->selectedDaftarKelasId ='';
+        // $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+        $this->daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+
 
     }
 
@@ -150,8 +157,8 @@ class Dashboardwire extends Component
         // $dataX = [];
         // $dataY = [];
 
-        $groupvihara = Groupvihara::all();
-        $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+        // $groupvihara = Groupvihara::all();
+        // $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
 
 
         try {
@@ -371,9 +378,9 @@ class Dashboardwire extends Component
         //     $datauser->save();
 
         // }
-        $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+        $this->daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
 
-        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD', 'totalBranch', 'totalUsers', 'sd3h', 'vtotal', 'branch', 'groupvihara', 'daftarkelas']))
+        return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD', 'totalBranch', 'totalUsers', 'sd3h', 'vtotal', 'branch', 'groupvihara']))
             ->extends('layouts.main2')
             ->section('content');
     }

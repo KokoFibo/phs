@@ -48,15 +48,15 @@
     <div class="p-2 mt-2 row ">
         <div class="mb-2 col-xl-3">
             <select class="shadow form-select" wire:model="selectedDaftarKelasId">
-                <option value="">Pilih Kelas</option>
+                <option value="">Pilih Kelas dong</option>
                 @foreach ($daftarkelas as $d )
-                <option value="{{ $d->id }}">{{ getDaftarKelas($d->kelas_id) }}</option>
+                <option value="{{ $d->id }}">{{ getDaftarKelas($d->id) }}</option>
                 @endforeach
             </select>
         </div>
-        <div class="col-xl-2">
+        {{-- <div class="col-xl-2">
             <button wire:click="updateChart" class="shadow btn btn-primary">{{ __('Proses Chart') }}</button>
-        </div>
+        </div> --}}
     </div>
     <div class="p-2 mt-1 row">
         <div class="mb-2 col-xl-3 ">
