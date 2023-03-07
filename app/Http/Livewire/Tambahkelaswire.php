@@ -85,7 +85,7 @@ class Tambahkelaswire extends Component
             'nama_kelas' => 'required|unique:kelas,nama_kelas,'.$this->id_kelas
         ]);
         $nama = Kelas::find($this->id_kelas);
-        $data->nama_kelas = Str::title($this->nama_kelas);
+        $nama->nama_kelas = Str::title($this->nama_kelas);
 
         $nama->save();
         // $this->is_edit=false;
