@@ -9,19 +9,18 @@
     @if (Auth::user()->role == 0)
     @include('userinfo')
     @else
-    <div class="py-2 text-center rounded shadow " style="color: white; background-color:rgb(236,72,153)">
+    @include('layouts.navbardashboard')
+    {{-- <div class="py-2 text-center rounded shadow " style="color: white; background-color:rgb(236,72,153)">
         <div class="row align-items-center">
             <div class="col-xl-1">
 
             </div>
             <div class="text-center col-xl-9">
                 <h2>Vihara Pelita Hati Suci</h2>
-                {{-- <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
-                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
-                <p>tglAbsensiTerakhir: {{ $this->tglAbsensiTerakhir }}</p> --}}
+
             </div>
 
-            <div class="my-2 col-xl-2 d-flex justify-content-around align-items-center  ">
+            <div class="my-2 col-xl-2 d-flex justify-content-around align-items-center ">
                 <a href="{{ route('main') }}"><button class="btn btn-warning">{{ __('Masuk') }}</button></a>
 
                 <div>
@@ -46,7 +45,7 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
     @include('frontdashboard')
 
     <div class="p-2 mt-2 row ">
@@ -61,7 +60,7 @@
         {{-- <div class="col-xl-2">
             <button wire:click="updateChart" class="shadow btn btn-primary">{{ __('Proses Chart') }}</button>
         </div> --}}
-        <div class="col-xl-9 text-center">
+        <div class="text-center col-xl-9">
             <h4 style="color:rgb(236,72,153)">{{ getDaftarKelas($selectedDaftarKelasId) }} - {{
                 getGroupVihara($selectedGroupVihara) }}</h4>
         </div>
