@@ -16,8 +16,9 @@
             </div>
             <div class="text-center col-xl-8">
                 <h2>Vihara Pelita Hati Suci</h2>
-                {{-- <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
-                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p> --}}
+                <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
+                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
+                <p>tglAbsensiTerakhir: {{ $this->tglAbsensiTerakhir }}</p>
             </div>
 
             <div class="my-2 col-xl-1">
@@ -72,28 +73,33 @@
 
                     <ul class="list-group">
                         <li class="list-group-item">
-                            {{ __('Tanggal') }} : 06 Mar 2023
+                            {{ __('Tanggal') }} : {{ $tglAbsensiTerakhir }}
                         </li>
                         <li class="list-group-item">
-                            {{ __('Jumlah Peserta') }} : 20 {{ __('Orang') }}
+                            {{ __('Jumlah Peserta') }} : {{ $jumlahPesertaAbsensiTerakhir }} {{ __('Orang') }}
+                        </li>
+
+                        <li class="list-group-item">
+                            {{ __('Kelas 3 Hari') }} : {{ $Sd3hAbsensiTerakhir }} {{ __('Orang') }} ({{
+                            number_format($Sd3hAbsensiTerakhirPersen, 1) }}%)
                         </li>
                         <li class="list-group-item">
-                            {{ __('Kelas 3 Hari') }} : 3 {{ __('Orang') }} (15%)
+                            {{ __('Vegetarian Total') }} : {{ $VTotalAbsensiTerakhir }} {{ __('Orang') }}
+                            ({{ number_format($VTotalAbsensiTerakhirPersen, 1) }}%)
                         </li>
                         <li class="list-group-item">
-                            {{ __('Vegetarian Total') }} : 3 {{ __('Orang') }} (15%)
+                            {{ __('Lainnya') }} : {{ $LainnyaAbsensiTerakhir }} {{ __('Orang') }}
+                        </li>
+
+                        <li class="list-group-item">
+                            {{ __('Laki-laki') }} : {{ $lakiAbsensiTerakhir}} {{ __('Orang') }}
                         </li>
                         <li class="list-group-item">
-                            {{ __('Lainnya') }} : 16 {{ __('Orang') }}
+                            {{ __('Perempuan') }} : {{ $perempuanAbsensiTerakhir }} {{ __('Orang') }}
                         </li>
                         <li class="list-group-item">
-                            {{ __('Laki-laki') }} : 16 {{ __('Orang') }}
-                        </li>
-                        <li class="list-group-item">
-                            {{ __('Perempuan') }} : 16 {{ __('Orang') }}
-                        </li>
-                        <li class="list-group-item">
-                            {{ __('Persentase Kehadiran') }} : 80%
+                            {{ __('Persentase Kehadiran') }} : {{ number_format($persentaseKehadiranAbsensiTerakhir, 1)
+                            }}%
                         </li>
                     </ul>
                 </div>

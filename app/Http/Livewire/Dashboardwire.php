@@ -112,6 +112,7 @@ class Dashboardwire extends Component
         }
     }
     public function updatedSelectedDaftarKelasId () {
+        // $this->getDataAbsensiTerakhir();
       $this->updateChart();
     }
     public function updatedSelected()
@@ -150,11 +151,84 @@ class Dashboardwire extends Component
 
     }
 
+    public $tglAbsensiTerakhir, $jumlahPesertaAbsensiTerakhir, $Sd3hAbsensiTerakhir, $VTotalAbsensiTerakhir, $LainnyaAbsensiTerakhir;
+    public $Sd3hAbsensiTerakhirPersen, $VTotalAbsensiTerakhirPersen, $lakiAbsensiTerakhir, $perempuanAbsensiTerakhir , $persentaseKehadiranAbsensiTerakhir;
+    public function getDataAbsensiTerakhir () {
+        try {
+            $dataAbsensiTerakhir = Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->distinct('tgl_kelas')->select('tgl_kelas')->orderBy('tgl_kelas', 'desc')->first();
+            $jumlahPesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->distinct('datapelita_id')->select('datapelita_id')->orderBy('tgl_kelas', 'desc')->get();
+            $this->tglAbsensiTerakhir = $dataAbsensiTerakhir->tgl_kelas;
+            $this->jumlahPesertaAbsensiTerakhir =  $jumlahPesertaAbsensi->count();
+            $sd3h = 0;
+            $vtotal = 0;
+            $laki = 0;
+            $perempuan = 0;
+            foreach($jumlahPesertaAbsensi as $d){
+                $checkData = DataPelita::find($d->datapelita_id);
+                if($checkData->tgl_sd3h && $checkData->tgl_vtotal == null) {
+                    $sd3h++;
+                } elseif($checkData->tgl_vtotal) {
+                    $vtotal++;
+                }
+
+                if($checkData->gender == '1') {
+                    $laki++;
+                } else {
+                    $perempuan++;
+                }
+
+
+            }
+            $persentasePesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->where('tgl_kelas', $this->tglAbsensiTerakhir)->select('absensi')->get();
+
+            // $persentasePesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->distinct('absensi')->select('absensi')->orderBy('tgl_kelas', 'desc')->get();
+            $hadir = 0;
+            foreach($persentasePesertaAbsensi as $d) {
+            if($d->absensi == '1' ) {
+                $hadir++;
+            }
+            }
+            $this->Sd3hAbsensiTerakhir = $sd3h;
+            $this->VTotalAbsensiTerakhir = $vtotal;
+            $this->LainnyaAbsensiTerakhir = $this->jumlahPesertaAbsensiTerakhir-($sd3h + $vtotal);
+            $this->Sd3hAbsensiTerakhirPersen = ($this->Sd3hAbsensiTerakhir / $this->jumlahPesertaAbsensiTerakhir) * 100 ;
+            $this->VTotalAbsensiTerakhirPersen =($this->VTotalAbsensiTerakhir / $this->jumlahPesertaAbsensiTerakhir) * 100 ;
+            $this->lakiAbsensiTerakhir = $laki;
+            $this->perempuanAbsensiTerakhir = $perempuan;
+            $this->persentaseKehadiranAbsensiTerakhir = ($hadir/count($persentasePesertaAbsensi)) * 100;
+
+
+
+
+
+
+        } catch (\Exception $e) {
+            $this->tglAbsensiTerakhir = '';
+            $this->jumlahPesertaAbsensiTerakhir = 0;
+            $this->Sd3hAbsensiTerakhir = 0;
+            $this->VTotalAbsensiTerakhir = 0;
+            $this->LainnyaAbsensiTerakhir = 0;
+            $this->Sd3hAbsensiTerakhirPersen = 0 ;
+            $this->VTotalAbsensiTerakhirPersen = 0;
+            $this->lakiAbsensiTerakhir = 0;
+            $this->perempuanAbsensiTerakhir = 0;
+            $this->persentaseKehadiranAbsensiTerakhir = 0;
+
+
+            return $e->getMessage();
+        }
+
+
+
+    }
+
     public function mount()
     {
         $this->selectedGroupVihara = Auth::user()->groupvihara_id;
         $data =  Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->select('id')->first();
         $this->selectedDaftarKelasId = $data->id;
+
+        // $this->getDataAbsensiTerakhir();
 
         // $this->openchart=false;
 
@@ -223,6 +297,8 @@ class Dashboardwire extends Component
         $this->selectedYear = date('Y');
         $this->updateAbsensi();
         $this->getYears();
+
+
 
     }
 
@@ -383,6 +459,9 @@ class Dashboardwire extends Component
 
         // }
         $this->daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+
+        $this->getDataAbsensiTerakhir();
+
 
         return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD', 'totalBranch', 'totalUsers', 'sd3h', 'vtotal', 'branch', 'groupvihara']))
             ->extends('layouts.main2')
