@@ -24,10 +24,8 @@ class Daftarkelaswire extends Component
 
 
     public function close () {
-        return redirect()->route('dashboard');
+        return redirect()->route('main');
     }
-
-
 
     public function checkDuplicate(){
         $data = Daftarkelas::where('kelas_id',$this->kelas_id)->where('groupvihara_id', $this->groupvihara_id)->first();
@@ -54,8 +52,12 @@ class Daftarkelaswire extends Component
             else {
                 $data->groupvihara_id = $this->groupvihara_id;
             }
+            try {
+                $data->save();
 
-            $data->save();
+            } catch (\Exception $e) {
+                 return $e->getMessage();
+   }
             $this->updateKelas();
             $this->clear_fields();
             // session()->flash('message', 'Data Kelas Sudah di Simpan');

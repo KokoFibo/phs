@@ -52,7 +52,7 @@
     <div class="p-2 mt-2 row ">
         <div class="mb-2 col-xl-3">
             <select class="shadow form-select" wire:model="selectedDaftarKelasId">
-                <option value="">Pilih Kelas dong</option>
+                <option value="">Pilih Kelas</option>
                 @foreach ($daftarkelas as $d )
                 <option value="{{ $d->id }}">{{ getDaftarKelas($d->id) }}</option>
                 @endforeach

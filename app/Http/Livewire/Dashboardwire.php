@@ -113,7 +113,12 @@ class Dashboardwire extends Component
     }
     public function updatedSelectedDaftarKelasId () {
         // $this->getDataAbsensiTerakhir();
-      $this->updateChart();
+        try {
+            $this->updateChart();
+
+        } catch (\Exception $e) {
+             return $e->getMessage();
+}
     }
     public function updatedSelected()
     {
