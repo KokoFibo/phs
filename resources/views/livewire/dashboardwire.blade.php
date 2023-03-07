@@ -16,8 +16,8 @@
             </div>
             <div class="text-center col-xl-8">
                 <h2>Vihara Pelita Hati Suci</h2>
-                <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
-                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
+                {{-- <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
+                <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p> --}}
             </div>
 
             <div class="my-2 col-xl-1">
@@ -58,6 +58,8 @@
             <button wire:click="updateChart" class="shadow btn btn-primary">{{ __('Proses Chart') }}</button>
         </div> --}}
     </div>
+
+    {{-- chart start --}}
     <div class="p-2 mt-1 row">
         <div class="mb-2 col-xl-3 ">
             <div class="card">
@@ -205,6 +207,7 @@
 
     </script>
     @endpush
+    {{-- Chart End --}}
     @endif
 
     {{-- end if dari awal utk role selain 0 --}}

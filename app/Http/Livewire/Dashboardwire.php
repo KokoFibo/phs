@@ -29,7 +29,6 @@ class Dashboardwire extends Component
     public $totalUmat_sp;
     public $daftarKelasIdUpdate = 2;
     public $daftarkelas;
-    // ,
     public $data, $years;
     public  $selectedDaftarKelasId, $openchart, $dataXjson, $dataYjson, $dataPeserta, $dataYjsonPeserta;
     public $dataX = [], $dataY = [];
@@ -67,6 +66,7 @@ class Dashboardwire extends Component
     public function updatedSelectedBranch()
     {
         $this->selectedGroupVihara = '';
+
 
         try {
             $dataPertama = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->first();
@@ -139,18 +139,22 @@ class Dashboardwire extends Component
     public function updatedSelectedGroupVihara()
     {
         $this->selectedBranch = '';
-        $this->selectedDaftarKelasId ='';
+        // $this->selectedDaftarKelasId ='';
         // $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+        $data =  Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->select('id')->first();
+        $this->selectedDaftarKelasId = $data->id;
+        $this->updateChart ();
         $this->daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
+
 
 
     }
 
     public function mount()
     {
-        $this->selectedGroupVihara =1;
-        $this->selectedDaftarKelasId =2;
-
+        $this->selectedGroupVihara = Auth::user()->groupvihara_id;
+        $data =  Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->select('id')->first();
+        $this->selectedDaftarKelasId = $data->id;
 
         // $this->openchart=false;
 
