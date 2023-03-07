@@ -142,8 +142,14 @@ class Dashboardwire extends Component
         $this->selectedBranch = '';
         // $this->selectedDaftarKelasId ='';
         // $daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
-        $data =  Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->select('id')->first();
-        $this->selectedDaftarKelasId = $data->id;
+        try {
+            $data =  Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->select('id')->first();
+            $this->selectedDaftarKelasId = $data->id;
+        } catch (\Exception $e) {
+             return $e->getMessage();
+}
+
+
         $this->updateChart ();
         $this->daftarkelas = Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->get();
 
@@ -226,6 +232,7 @@ class Dashboardwire extends Component
     {
         $this->selectedGroupVihara = Auth::user()->groupvihara_id;
         $data =  Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->select('id')->first();
+
         $this->selectedDaftarKelasId = $data->id;
 
         // $this->getDataAbsensiTerakhir();
