@@ -57,6 +57,10 @@
         {{-- <div class="col-xl-2">
             <button wire:click="updateChart" class="shadow btn btn-primary">{{ __('Proses Chart') }}</button>
         </div> --}}
+        <div class="col-xl-9 text-center">
+            <h4 style="color:rgb(236,72,153)">{{ getDaftarKelas($selectedDaftarKelasId) }} - {{
+                getGroupVihara($selectedGroupVihara) }}</h4>
+        </div>
     </div>
 
     {{-- chart start --}}
@@ -64,16 +68,34 @@
         <div class="mb-2 col-xl-3 ">
             <div class="card">
                 <div class="w-auto rounded shadow card-body" style=" background-color: white;">
-                    <h5>{{ __('Data Absensi Terakhir') }}</h5>
-                    <hr>
-                    <p>{{ __('Tanggal') }} : 06 Mar 2023</p>
-                    <p>{{ __('Jumlah Peserta') }} : 20 {{ __('Orang') }}</p>
-                    <p>{{ __('Sidang Dharma 3 Hari') }} : 3 {{ __('Orang') }} (15%)</p>
-                    <p>{{ __('Vegetarian Total') }} : 3 {{ __('Orang') }} (15%)</p>
-                    <p>{{ __('Lainnya') }} : 16 {{ __('Orang') }}</p>
-                    <p>{{ __('Laki-laki') }} : 16 {{ __('Orang') }}</p>
-                    <p>{{ __('Perempuan') }} : 16 {{ __('Orang') }}</p>
-                    <p>{{ __('Persentase Kehadiran') }} : 80%</p>
+                    <h5 class="text-center">{{ __('Data Absensi Terakhir') }}</h5>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            {{ __('Tanggal') }} : 06 Mar 2023
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Jumlah Peserta') }} : 20 {{ __('Orang') }}
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Kelas 3 Hari') }} : 3 {{ __('Orang') }} (15%)
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Vegetarian Total') }} : 3 {{ __('Orang') }} (15%)
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Lainnya') }} : 16 {{ __('Orang') }}
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Laki-laki') }} : 16 {{ __('Orang') }}
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Perempuan') }} : 16 {{ __('Orang') }}
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Persentase Kehadiran') }} : 80%
+                        </li>
+                    </ul>
                 </div>
             </div>
 
