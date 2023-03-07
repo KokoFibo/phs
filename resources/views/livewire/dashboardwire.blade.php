@@ -14,31 +14,35 @@
             <div class="col-xl-1">
 
             </div>
-            <div class="text-center col-xl-8">
+            <div class="text-center col-xl-9">
                 <h2>Vihara Pelita Hati Suci</h2>
-                <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
+                {{-- <p>selectedGroupVihara: {{ $selectedGroupVihara }}</p>
                 <p>selectedDaftarKelasId: {{ $selectedDaftarKelasId }}</p>
+                <p>tglAbsensiTerakhir: {{ $this->tglAbsensiTerakhir }}</p> --}}
             </div>
 
-            <div class="my-2 col-xl-1">
+            <div class="my-2 col-xl-2 d-flex justify-content-around align-items-center  ">
                 <a href="{{ route('main') }}"><button class="btn btn-warning">Enter</button></a>
-            </div>
-            <div class="my-2 col-xl-1">
-                @if (app()->getLocale() == 'id')
-                <a class="block dropdown-item" href="{{ url('locale/cn') }}"><i class="fa fa-language fa-2xl"></i></a>
-                @endif
 
-                @if (app()->getLocale() == 'cn')
-                <a class="block dropdown-item" href="{{ url('locale/id') }}"><i class="fa fa-language fa-2xl"></i></a>
-                @endif
-            </div>
-            <div class="my-2 col-xl-1">
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                        style="color: white" class="fa-sharp fa-solid fa-power-off fa-xl"></i></a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
-                    @csrf
-                </form>
+                <div>
+                    @if (app()->getLocale() == 'id')
+                    <a class="block dropdown-item" href="{{ url('locale/cn') }}"><i
+                            class="fa fa-language fa-2xl"></i></a>
+                    @endif
+
+                    @if (app()->getLocale() == 'cn')
+                    <a class="block dropdown-item" href="{{ url('locale/id') }}"><i
+                            class="fa fa-language fa-2xl"></i></a>
+                    @endif
+                </div>
+                <div>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                            style="color: white" class="fa-sharp fa-solid fa-power-off fa-xl"></i></a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                        @csrf
+                    </form>
+                </div>
             </div>
 
         </div>
@@ -48,30 +52,59 @@
     <div class="p-2 mt-2 row ">
         <div class="mb-2 col-xl-3">
             <select class="shadow form-select" wire:model="selectedDaftarKelasId">
-                <option value="">Pilih Kelas</option>
+                <option value="">Pilih Kelas dong</option>
                 @foreach ($daftarkelas as $d )
-                <option value="{{ $d->id }}">{{ getDaftarKelas($d->kelas_id) }}</option>
+                <option value="{{ $d->id }}">{{ getDaftarKelas($d->id) }}</option>
                 @endforeach
             </select>
         </div>
-        <div class="col-xl-2">
+        {{-- <div class="col-xl-2">
             <button wire:click="updateChart" class="shadow btn btn-primary">{{ __('Proses Chart') }}</button>
+        </div> --}}
+        <div class="col-xl-9 text-center">
+            <h4 style="color:rgb(236,72,153)">{{ getDaftarKelas($selectedDaftarKelasId) }} - {{
+                getGroupVihara($selectedGroupVihara) }}</h4>
         </div>
     </div>
+
+    {{-- chart start --}}
     <div class="p-2 mt-1 row">
         <div class="mb-2 col-xl-3 ">
             <div class="card">
                 <div class="w-auto rounded shadow card-body" style=" background-color: white;">
-                    <h5>{{ __('Data Absensi Terakhir') }}</h5>
-                    <hr>
-                    <p>{{ __('Tanggal') }} : 06 Mar 2023</p>
-                    <p>{{ __('Jumlah Peserta') }} : 20 {{ __('Orang') }}</p>
-                    <p>{{ __('Sidang Dharma 3 Hari') }} : 3 {{ __('Orang') }} (15%)</p>
-                    <p>{{ __('Vegetarian Total') }} : 3 {{ __('Orang') }} (15%)</p>
-                    <p>{{ __('Lainnya') }} : 16 {{ __('Orang') }}</p>
-                    <p>{{ __('Laki-laki') }} : 16 {{ __('Orang') }}</p>
-                    <p>{{ __('Perempuan') }} : 16 {{ __('Orang') }}</p>
-                    <p>{{ __('Persentase Kehadiran') }} : 80%</p>
+                    <h5 class="text-center">{{ __('Data Absensi Terakhir') }}</h5>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            {{ __('Tanggal') }} : {{ $tglAbsensiTerakhir }}
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Jumlah Peserta') }} : {{ $jumlahPesertaAbsensiTerakhir }} {{ __('Orang') }}
+                        </li>
+
+                        <li class="list-group-item">
+                            {{ __('Kelas 3 Hari') }} : {{ $Sd3hAbsensiTerakhir }} {{ __('Orang') }} ({{
+                            number_format($Sd3hAbsensiTerakhirPersen, 1) }}%)
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Vegetarian Total') }} : {{ $VTotalAbsensiTerakhir }} {{ __('Orang') }}
+                            ({{ number_format($VTotalAbsensiTerakhirPersen, 1) }}%)
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Lainnya') }} : {{ $LainnyaAbsensiTerakhir }} {{ __('Orang') }}
+                        </li>
+
+                        <li class="list-group-item">
+                            {{ __('Laki-laki') }} : {{ $lakiAbsensiTerakhir}} {{ __('Orang') }}
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Perempuan') }} : {{ $perempuanAbsensiTerakhir }} {{ __('Orang') }}
+                        </li>
+                        <li class="list-group-item">
+                            {{ __('Persentase Kehadiran') }} : {{ number_format($persentaseKehadiranAbsensiTerakhir, 1)
+                            }}%
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -205,6 +238,7 @@
 
     </script>
     @endpush
+    {{-- Chart End --}}
     @endif
 
     {{-- end if dari awal utk role selain 0 --}}

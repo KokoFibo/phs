@@ -25,7 +25,9 @@
     <select wire:model="selectedDaftarKelasId">
         <option value="">Pilih Kelas</option>
         @foreach ($daftarkelas as $d )
-        <option value="{{ $d->id }}">{{ getDaftarKelas($d->kelas_id) }}</option>
+        {{-- <option value="{{ $d->id }}">{{ getDaftarKelas($d->kelas_id) }}</option> --}}
+        <option value="{{ $d->id }}">{{ getDaftarKelas($d->id) }}</option>
+        {{-- <option value="{{ $d->id }}">{{ $d->kelas_id }}</option> --}}
         @endforeach
     </select>
 
