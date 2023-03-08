@@ -4,20 +4,19 @@ namespace App\Http\Livewire;
 
 use Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Hash;
 
 class Chartwire extends Component
 {
-    public $email;
+    public $pswd;
     public $open;
 
-
-
-    public function checkEmail()
+    public function checkPassword()
     {
-        if ($this->email == Auth::user()->email) {
-            $this->open = 1;
+        if (Hash::check($this->pswd, Auth::user()->password)) {
+                $this->open = 1;
         } else {
-            $this->open = 0;
+                $this->open = 0;
         }
     }
 
