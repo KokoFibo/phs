@@ -1,29 +1,9 @@
 <div>
     <div class="p-2 row align-items-center">
-        @if (Auth::user()->role == 3)
-        <div class="mb-2 col-xl-2">
-            <select wire:model="selectedGroupVihara" class="shadow form-select">
-                <option value="">{{ __('All Groups') }}</option>
-                @foreach ($groupvihara as $g)
-                <option value="{{ $g->id }}">{{ $g->nama_group }}</option>
-                @endforeach
-            </select>
-        </div>
-        @endif
+        {{-- start --}}
 
-        <div class="mb-2 col-xl-2">
-            <select wire:model="selectedBranch" class="shadow form-select">
-                <label>Pilih Kelas</label>
-                @if (Auth::user()->role == '3')
-                <option value="">{{ __('All Vihara') }}</option>
-                @endif
-                @foreach ($branch as $b)
-                <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
-                @endforeach
-            </select>
-
-        </div>
-        <div class="text-center col-xl-8">
+        {{-- end --}}
+        <div class="text-center col">
             @if (Auth::user()->role == '3')
             <h2 style="color: rgb(236,72,153)">{{ getGroupVihara($selectedGroupVihara) }} {{
                 getBranch($selectedBranch) }}</h2>
@@ -79,5 +59,40 @@
                 bordercolor="primary" />
         </div>
     </div>
+    {{-- start --}}
+    <div class="flex row justify-content-evenly">
+        @if (Auth::user()->role == 3)
+        <div class="mb-2 col-xl-3">
+            <select wire:model="selectedGroupVihara" class="shadow form-select">
+                <option value="">{{ __('All Groups') }}</option>
+                @foreach ($groupvihara as $g)
+                <option value="{{ $g->id }}">{{ $g->nama_group }}</option>
+                @endforeach
+            </select>
+        </div>
+        @endif
+
+        <div class="mb-2 col-xl-3">
+            <select wire:model="selectedBranch" class="shadow form-select">
+                <label>Pilih Kelas</label>
+                @if (Auth::user()->role == '3')
+                <option value="">{{ __('All Vihara') }}</option>
+                @endif
+                @foreach ($branch as $b)
+                <option value="{{ $b->id }}">{{ $b->nama_branch }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-2 col-xl-3">
+            <select class="shadow form-select" wire:model="selectedDaftarKelasId">
+                <option value="">Pilih Kelas</option>
+                @foreach ($daftarkelas as $d )
+                <option value="{{ $d->id }}">{{ getDaftarKelas($d->id) }}</option>
+                @endforeach
+            </select>
+        </div>
+        {{-- end --}}
+    </div>
+
 
 </div>
