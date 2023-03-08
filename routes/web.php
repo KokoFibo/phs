@@ -69,6 +69,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('/tambahkelas', Tambahkelaswire::class)->middleware(['manager'])->name('tambahkelas');
+    Route::get('/tambahgroup', Tambahgroupwire::class)->middleware(['manager'])->name('tambahgroup');
+
 
     Route::middleware(['admin'])->group(function () {
         Route::get('locale/{locale}', function($locale){
@@ -88,7 +90,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/branch', Branchwire::class)->name('branchwire');
         Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
         Route::get('/absensi', Absensiwire::class)->name('absensi');
-        Route::get('/tambahgroup', Tambahgroupwire::class)->name('tambahgroup');
         Route::get('/resetumur', function () {
             $data = DataPelita::all();
             foreach($data as $d ){
@@ -115,10 +116,10 @@ Route::middleware(['auth'])->group(function () {
             return redirect(route('main'));
         })->name('resetumur');
 
-Route::get('/setting', Usersettingwire::class)->name('setting');
-Route::get('/test', Testaja::class);
-Route::get('/cetak', [CetakController::class, 'index']);
-Route::get('/chart', Chartwire::class)->name('chart');
+        Route::get('/setting', Usersettingwire::class)->name('setting');
+        Route::get('/test', Testaja::class);
+        Route::get('/cetak', [CetakController::class, 'index']);
+        Route::get('/chart', Chartwire::class)->name('chart');
 
 
     });
