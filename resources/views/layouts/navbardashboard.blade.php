@@ -18,7 +18,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Kelas Pendalaman
+                    Absensi
                 </a>
                 <div style="color: rgb(236, 72, 153); background-color: white" class="dropdown-menu"
                     aria-labelledby="navbarDropdownMenuLink">
@@ -33,7 +33,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Utilities
+                    Group Vihara
                 </a>
                 <div style="color: rgb(236, 72, 153) !important; background-color: white" class="dropdown-menu"
                     aria-labelledby="navbarDropdownMenuLink">

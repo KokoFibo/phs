@@ -16,7 +16,7 @@
                 <div x-data="{ open: false }">
                     <button @click="open = !open"
                         class="{{ 'tambahkelas' == request()->path() || 'daftarkelas' == request()->path() || 'absensi' == request()->path() ? 'active' : ''  }}">{{
-                        __('Kelas Pendalaman') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
+                        __('Absensi') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
                     </button>
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
                         class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded ">
@@ -52,7 +52,7 @@
                 <div x-data="{ open: false }">
                     <button @click="open = !open"
                         class="{{ 'branch' == request()->path() || 'panditawire' == request()->path() || 'datakotawire' == request()->path() ? 'active' : ''  }}">{{
-                        __('Utilities') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
+                        __('Group Vihara') }} <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
 
                     </button>
                     <div x-show="open" x-cloak @click.away="open = false" x-transition

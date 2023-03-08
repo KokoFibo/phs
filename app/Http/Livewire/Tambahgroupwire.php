@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class Tambahgroupwire extends Component
@@ -19,15 +20,15 @@ class Tambahgroupwire extends Component
     public $is_add = 'true';
     use WithPagination;
     protected $listeners = ['delete'];
-    public $email;
+    public $pswd;
     public $open;
 
-    public function checkEmail()
+    public function checkPassword()
     {
-        if ($this->email == Auth::user()->email) {
-            $this->open = 1;
+        if (Hash::check($this->pswd, Auth::user()->password)) {
+                $this->open = 1;
         } else {
-            $this->open = 0;
+                $this->open = 0;
         }
     }
     public function close () {
