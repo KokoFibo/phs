@@ -6,6 +6,7 @@ use App\Models\Kelas;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 
 class Tambahkelaswire extends Component
 {
@@ -16,7 +17,17 @@ class Tambahkelaswire extends Component
     public $is_add = 'true';
     use WithPagination;
     protected $listeners = ['delete'];
+    public $email;
+    public $open;
 
+    public function checkEmail()
+    {
+        if ($this->email == Auth::user()->email) {
+            $this->open = 1;
+        } else {
+            $this->open = 0;
+        }
+    }
     public function close () {
         return redirect()->route('main');
     }

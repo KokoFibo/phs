@@ -27,8 +27,7 @@
                                 <a class="block dropdown-item" href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas')
                                     }}</a>
                             </li>
-                            @endif
-                            @if (Auth::user()->role == '2' || Auth::user()->role == '3')
+
                             <li
                                 class="py-2 my-2 hover:bg-gray-200 {{ 'daftarkelas' == request()->path() ? 'active1' : ''  }}">
                                 <a class="block dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas')
@@ -48,6 +47,8 @@
             </li>
 
             <li>
+                @if (Auth::user()->role == '3')
+
                 <div x-data="{ open: false }">
                     <button @click="open = !open"
                         class="{{ 'branch' == request()->path() || 'panditawire' == request()->path() || 'datakotawire' == request()->path() ? 'active' : ''  }}">{{
@@ -74,6 +75,8 @@
                         </ul>
                     </div>
                 </div>
+                @endif
+
             </li>
             {{-- language --}}
             <li>
@@ -109,10 +112,8 @@
                         </li>
                         @endif
                         <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
-                            {{-- <a class="block" href="{{ route('setting') }}">{{ __('User Setting') }}</a> --}}
-                            <a class="block" href="#">{{ __('User Setting') }} <span class="text-red-500">({{ __('Under
+                            <a class="block" href="#">{{ __('User Setting') }}<span class="text-red-500">({{ __('Under
                                     Construction') }})</span></a>
-
                         </li>
                         <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                             <a class="block" href="{{ route('logout') }}"

@@ -9,6 +9,9 @@
     @if (Auth::user()->role == 0)
     @include('userinfo')
     @else
+
+    <x-spinner />
+
     @include('layouts.navbardashboard')
     {{-- <div class="py-2 text-center rounded shadow " style="color: white; background-color:rgb(236,72,153)">
         <div class="row align-items-center">

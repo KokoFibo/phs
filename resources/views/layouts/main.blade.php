@@ -26,6 +26,7 @@
             display: none;
         }
     </style>
+    @stack('style')
 
 
     @livewireStyles

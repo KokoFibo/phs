@@ -71,8 +71,6 @@ public function updatedSelectAll () {
         //     $this->anton ="anton2";
         //     $this->resetPage();
         // }
-
-
     }
     public function cetak () {
         $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
@@ -80,6 +78,7 @@ public function updatedSelectAll () {
         return view('datapelitacetak', compact('datapelita'));
     }
     public function pdfdom () {
+        $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
 
         $pdfContent = PDF::loadView('datapelitapdf', ['datapelita'=>$datapelita])->setPaper('a4', 'landscape')->output();
         return response()->streamDownload(
@@ -94,16 +93,12 @@ public function updatedSelectAll () {
         // }, 'test.pdf');
     }
     public function excel () {
-
         return (new DataPelitaExport($this->selectedId))->download('Data_pelita.xlsx');
-
     }
 
     public function updatingSearch () {
         $this->resetPage();
     }
-
-
 
     public function resetFilter () {
         $this->perpage = 5;
