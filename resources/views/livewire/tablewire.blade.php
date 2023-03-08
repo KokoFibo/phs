@@ -183,57 +183,64 @@
                 <table>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="alamat" id="alamat" wire:model="" value=""
+                                class="checked:bg-purple-500" />
+
                         </td>
-                        <td class="px-1 py-1 ">ALamat</td>
+                        <td class="px-1 py-1 ">
+                            <label for="alamat">ALamat</label>
+                        </td>
                     </tr>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="kota" wire:model="" value="" class="checked:bg-purple-500" />
                         </td>
-                        <td class="px-1 py-1 ">Kota</td>
+                        <td class="px-1 py-1 "><label for="kota">Kota</label></td>
                     </tr>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="telepon" wire:model="" value="" class="checked:bg-purple-500" />
                         </td>
-                        <td class="px-1 py-1 ">Telepon</td>
+                        <td class="px-1 py-1 "><label for="telepon">Telepon</label></td>
                     </tr>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="handphone" wire:model="" value=""
+                                class="checked:bg-purple-500" />
                         </td>
-                        <td class="px-1 py-1 ">Handphone</td>
+                        <td class="px-1 py-1 "><label for="handphone">Handphone</label></td>
                     </tr>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="email" wire:model="" value="" class="checked:bg-purple-500" />
                         </td>
-                        <td class="px-1 py-1 ">Email</td>
+                        <td class="px-1 py-1 "><label for="email">Email</label></td>
                     </tr>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="kelas" wire:model="" value="" class="checked:bg-purple-500" />
                         </td>
-                        <td class="px-1 py-1 ">Kelas 3 Hari</td>
+                        <td class="px-1 py-1 "><label for="kelas">Kelas 3 Hari</label></td>
                     </tr>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="vegetarian" wire:model="" value=""
+                                class="checked:bg-purple-500" />
                         </td>
-                        <td class="px-1 py-1 ">Veg. Total</td>
+                        <td class="px-1 py-1 "><label for="vegetarian">Veg. Total</label></td>
                     </tr>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="status" wire:model="" value="" class="checked:bg-purple-500" />
                         </td>
-                        <td class="px-1 py-1 ">Status</td>
+                        <td class="px-1 py-1 "><label for="status">Status</label></td>
                     </tr>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="keterangan" wire:model="" value=""
+                                class="checked:bg-purple-500" />
                         </td>
-                        <td class="px-1 py-1 ">Keterangan</td>
+                        <td class="px-1 py-1 "><label for="keterangan">Keterangan</label></td>
                     </tr>
                 </table>
                 {{-- end isi dropdown --}}
