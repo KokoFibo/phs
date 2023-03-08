@@ -74,11 +74,11 @@
 
                                 <td class="p-3 text-gray-800 border rounded">
                                     <div class="flex justify-center space-x-1">
-                                        <button type="button" wire:click="hadir({{ $p->id }},1)"
+                                        <button wire:loading.attr="disabled" wire:click=" hadir({{ $p->id }},1)"
                                             class="p-1 text-white bg-blue-500 rounded">
                                             <i class="text-white fa-solid fa-user-check"></i>
                                         </button>
-                                        <button wire:click="hadir({{ $p->id }},2)"
+                                        <button wire:loading.attr="disabled" wire:click=" hadir({{ $p->id }},2)"
                                             class="p-1 text-white bg-red-500 rounded">
                                             <i class="text-white fa-solid fa-user-xmark"></i>
                                         </button>
