@@ -4,8 +4,8 @@
     {{-- Search Bar --}}
 
     {{-- <div wire:loading>Loading...</div> --}}
-    <div class="items-center justify-between w-full md:flex">
-        <div class="mx-5 md:w-3/5 ">
+    <div class="items-center w-full md:flex">
+        <div class="w-3/4 mx-5 ">
             <div class="items-center md:flex">
 
 
@@ -51,8 +51,7 @@
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
                         class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-white  shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
-                        {{-- class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 min-h-120px rounded-xl w-400px glass
-                        "> --}}
+                        {{-- class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 min-h-120px rounded-xl w-400px glass "> --}}
 
 
                         {{-- <div class="card card-body glass" style="width: 400px; color: purple;"> --}}
@@ -165,80 +164,12 @@
         </div>
 
         {{-- nama cetya --}}
-        <div class="mx-5 mt-3 md:w-1/5 ">
+        <div class="w-1/2 mx-5 mt-3 ">
             {{-- kode_branch --}}
             {{-- <h1 class="text-3xl font-bold text-center text-purple-700">{{ $nama_cetya }} </h1> --}}
             <h1 class="text-3xl font-bold text-center text-purple-700">{{ getGroupVihara($group_id) }} </h1>
         </div>
-        {{-- Tambah Kolom --}}
-        <div x-data="{ open: false }" class="mx-5 mt-3 text-right wd-full md:w-1/5">
-            <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
-                class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded md:w-1/2 hover:bg-purple-700 hover:text-white">
-                {{ __('Tambah Kolom') }}</button>
-            {{-- isi dari dropdown --}}
 
-            <div x-show="open" x-cloak @click.away="open = false" x-transition
-                class="absolute z-10 px-2 py-3 mx-auto text-purple-700 bg-white shadow-xl min-h-120px rounded-xl">
-                {{-- mulai isi dropdown --}}
-                <table>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">ALamat</td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">Kota</td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">Telepon</td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">Handphone</td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">Email</td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">Kelas 3 Hari</td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">Veg. Total</td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">Status</td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" wire:model="" value="" class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 ">Keterangan</td>
-                    </tr>
-                </table>
-                {{-- end isi dropdown --}}
-            </div>
-        </div>
         {{-- End Search Bar --}}
 
 
@@ -248,8 +179,9 @@
     <div class="flex items-center w-full gap-2 px-5 mt-3 md:w-1/2">
         <x-button wire:click="excel" wire:loading.attr="disabled" class="button button-teal">Excel</x-button>
         <x-button wire:click="pdfdom" wire:loading.attr="disabled" class="button button-red">PDF</x-button>
-        <button wire:click="cetak" wire:loading.attr="disabled" class="button button-blue">{{ __('Cetak') }}</button>
-        <p class="text-lg font-semibold text-purple-500">{{ count($selectedId) }} Data Selected</p>
+        <button wire:click="cetak" wire:loading.attr="disabled" class="button button-blue">{{ __('Cetak')
+            }}</button>
+        <p class="text-lg font-semibold text-purple-500">{{ count($selectedId)}} Data Selected</p>
     </div>
     @endif
     {{-- Table --}}
@@ -266,10 +198,9 @@
                         </th>
 
                         {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" "></th> --}}
-                        <th class=" p-3 font-semibold text-center border rounded " ">{{ __('#') }}</th>
+                                    <th class="p-3 font-semibold text-center border rounded " ">{{ __('#') }}</th>
                         {{-- <th class="p-3 font-semibold text-center border rounded cursor-pointer" ">{{ __('id') }}</th> --}}
-                                    <th class=" p-3 font-semibold text-left border rounded
-                            cursor-pointer " wire:click=" sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
+                                    <th class="p-3 font-semibold text-left border rounded cursor-pointer " wire:click=" sortColumnName('nama_umat')">{{ __('NAMA') }}</th>
                         <th class="p-3 font-semibold text-left border rounded cursor-pointer "
                             wire:click=" sortColumnName('nama_alias')">{{ __('ALIAS') }}</th>
                         <th class="p-3 font-semibold text-left border rounded cursor-pointer"
@@ -318,7 +249,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($datapelita1 as $index=> $d)
+                    @foreach ($datapelita1 as $index => $d)
                     <tr class="h-3">
                         <td class="text-center border rounded ">
                             <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
@@ -341,6 +272,7 @@
                         <td class="p-3 font-semibold text-purple-500 border rounded">
                             {{ $d->mandarin }}
                         </td>
+
                         @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
                         <td class="p-3 font-semibold text-teal-500 border rounded">
                             {{ $d->nama_umat }}
@@ -367,7 +299,7 @@
                         </td>
 
                         <td class="p-3 text-gray-800 border rounded">
-                            {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
+                            {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y')}}</td>
                         <td
                             class="p-3    border rounded {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                             {{ check_JK($d->gender, $d->umur_sekarang) }}
@@ -440,39 +372,42 @@
     @push('script')
     <script>
         window.addEventListener('delete_confirmation', function(e) {
-                Swal.fire({
-                    title: e.detail.title,
-                    text: e.detail.text,
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, silakan hapus!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.livewire.emit('delete', e.detail.id)
-                        // Swal.fire(
-                        //     'Deleted!',
-                        //     'Your file has been deleted.',
-                        //     'success'
-                        // )
-                    }
-                })
+                  Swal.fire({
+                        title: e.detail.title
+                        , text: e.detail.text
+                        , icon: 'warning'
+                        , showCancelButton: true
+                        , confirmButtonColor: '#3085d6'
+                        , cancelButtonColor: '#d33'
+                        , confirmButtonText: 'Yes, silakan hapus!'
+                  }).then((result) => {
+                        if (result.isConfirmed) {
+                              window.livewire.emit('delete', e.detail.id)
+                              // Swal.fire(
+                              //     'Deleted!',
+                              //     'Your file has been deleted.',
+                              //     'success'
+                              // )
+                        }
+                  })
             });
             window.addEventListener('deleted', function(e) {
-                Swal.fire(
-                    'Deleted!', 'Data sudah di delete.', 'success'
-                );
+                  Swal.fire(
+                        'Deleted!'
+                        , 'Data sudah di delete.'
+                        , 'success'
+                  );
             });
             window.addEventListener('resetfield', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Filter Sudah di Reset',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
+                  Swal.fire({
+                        position: 'top-end'
+                        , icon: 'success'
+                        , title: 'Filter Sudah di Reset'
+                        , showConfirmButton: false
+                        , timer: 1500
+                  })
             });
+
     </script>
     @endpush
 </div>
