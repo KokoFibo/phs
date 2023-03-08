@@ -177,8 +177,8 @@
     {{-- export Excel $ PDF --}}
     @if ($selectedId != null)
     <div class="flex items-center w-full gap-2 px-5 mt-3 md:w-1/2">
-        <button wire:click="excel" wire:loading.attr="disabled" class="button button-teal">Excel</button>
-        <button wire:click="pdfdom" wire:loading.attr="disabled" class="button button-red">PDF</button>
+        <x-button wire:click="excel" wire:loading.attr="disabled" class="button button-teal">Excel</x-button>
+        <x-button wire:click="pdfdom" wire:loading.attr="disabled" class="button button-red">PDF</x-button>
         <button wire:click="cetak" wire:loading.attr="disabled" class="button button-blue">{{ __('Cetak')
             }}</button>
         <p class="text-lg font-semibold text-purple-500">{{ count($selectedId)}} Data Selected</p>
@@ -228,10 +228,11 @@
                             <div class="flex justify-center space-x-1">
 
                                 <div>
-                                    <a href="/adddata"><button type="button"
-                                            class="p-1 text-white bg-blue-500 rounded ">
+                                    <a href="/adddata">
+                                        <x-button type="button" class="p-1 text-white bg-blue-500 rounded ">
                                             <i class="fa-solid fa-user-plus"></i>
-                                        </button></a>
+                                        </x-button>
+                                    </a>
 
                                 </div>
 
@@ -324,28 +325,30 @@
                             <div class="flex justify-center space-x-1">
 
                                 <div>
-                                    <a href="/viewdata/{{ $d->id }}"><button type="button"
-                                            class="p-1 text-black bg-green-400 rounded">
+                                    <a href="/viewdata/{{ $d->id }}">
+                                        <x-button type="button" class="p-1 text-black bg-green-400 rounded">
                                             <i class="fa fa-eye "></i>
-                                        </button></a>
+                                        </x-button>
+                                    </a>
 
                                 </div>
 
                                 {{-- <div> --}}
                                     <div>
-                                        <a href="/editdata/{{ $d->id }}"><button type="button"
-                                                class="p-1 text-black bg-yellow-300 rounded">
+                                        <a href="/editdata/{{ $d->id }}">
+                                            <x-button type="button" class="p-1 text-black bg-yellow-300 rounded">
                                                 <i class="fa fa-pen-to-square "></i>
-                                            </button></a>
+                                            </x-button>
+                                        </a>
 
                                     </div>
                                     @if (Auth::user()->role != '1')
                                     <div>
 
-                                        <button class="p-1 text-white bg-red-500 rounded"
+                                        <x-button class="p-1 text-white bg-red-500 rounded"
                                             wire:click="deleteConfirmation({{ $d->id }})">
                                             <i class="fa fa-trash "></i>
-                                        </button>
+                                        </x-button>
                                     </div>
                                     @endif
                                     {{--
