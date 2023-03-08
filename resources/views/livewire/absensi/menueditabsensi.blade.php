@@ -1,5 +1,5 @@
 @if ($menuEditAbsensi)
-
+<x-spinner />
 <p>daftarkelas_id: {{ $daftarkelas_id }}, tgl_kelas: {{ $tgl_kelas }}</p>
 
 <div class="w-2/3 p-3 mx-auto items-top justify-evenly">

@@ -4,7 +4,7 @@
     {{-- start menu Utama --}}
     {{-- <p>SelectedGroup: {{ $selectedGroup }}, daftarkelas_id: {{ $daftarkelas_id }}, tgl_kelas: {{ $tgl_kelas }}</p>
     --}}
-
+    <x-spinner />
     <div class="flex justify-between w-1/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
         <h5 class="text-2xl font-semibold ">{{ __('Absensi Kelas') }}</h5>
         <button wire:click="close">
@@ -78,12 +78,12 @@
     </div>
 
     @if ($selectedGroup && $daftarkelas_id)
-    <div class="flex justify-between items-center mt-5">
+    <div class="flex items-center justify-between mt-5">
 
-        <h2 class="text-2xl font-semibold text-purple-500 text-center px-3">{{ getGroupVihara($selectedGroup) }}
+        <h2 class="px-3 text-2xl font-semibold text-center text-purple-500">{{ getGroupVihara($selectedGroup) }}
         </h2>
-        <h2 class="text-3xl font-semibold text-purple-500 text-center">Absensi</h2>
-        <h2 class="text-2xl font-semibold text-purple-500 text-center px-3">{{ getDaftarKelas($daftarkelas_id) }}
+        <h2 class="text-3xl font-semibold text-center text-purple-500">Absensi</h2>
+        <h2 class="px-3 text-2xl font-semibold text-center text-purple-500">{{ getDaftarKelas($daftarkelas_id) }}
         </h2>
     </div>
     <table table class="w-full mt-1">
@@ -116,13 +116,13 @@
                     @if ($hasil)
                     <td class="text-center border rounded ">
                         @if ($hasil->absensi == 1)
-                        <i class="fa-sharp fa-solid fa-check text-blue-500"></i>
+                        <i class="text-blue-500 fa-sharp fa-solid fa-check"></i>
                         @elseif($hasil->absensi == 2)
-                        <i class="fa-sharp fa-solid fa-xmark text-red-500"></i>
+                        <i class="text-red-500 fa-sharp fa-solid fa-xmark"></i>
 
                         @endif
                         @else
-                    <td class="text-center border rounded "><i class="fa-solid fa-minus text-gray-500"></i></td>
+                    <td class="text-center border rounded "><i class="text-gray-500 fa-solid fa-minus"></i></td>
                     @endif
                     @php
                     }
@@ -134,8 +134,8 @@
 
         </tbody>
     </table>
-    <h2 class="text-xl font-semibold text-purple-500 text-center px-3">Jumlah Peserta : {{ $jumlahpeserta }}</h2>
-    <h2 class="text-xl font-semibold text-purple-500 text-center px-3">Jumlah Pertemuan : {{ $jumlahdaftarkelas }} </h2>
+    <h2 class="px-3 text-xl font-semibold text-center text-purple-500">Jumlah Peserta : {{ $jumlahpeserta }}</h2>
+    <h2 class="px-3 text-xl font-semibold text-center text-purple-500">Jumlah Pertemuan : {{ $jumlahdaftarkelas }} </h2>
     @endif
 
 

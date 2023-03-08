@@ -1,5 +1,5 @@
 @if ($menuTambahData)
-
+<x-spinner />
 
 <div class="w-2/3 p-3 mx-auto items-top justify-evenly">
     <div class="">
