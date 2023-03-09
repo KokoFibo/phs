@@ -11,12 +11,12 @@ class Chartwire extends Component
 {
 
 
-    public $a;
+
     public function render()
     {
 
         return view('livewire.chartwire')
-            ->extends('layouts.main')
+            ->extends('layouts.maintest')
             ->section('content');
     }
 }

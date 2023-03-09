@@ -32,6 +32,18 @@ if(!function_exists('check_JK')) {
         }
 }
 
+function checkGender($id) {
+    if($id != '') {
+        $gender = DataPelita::find($id);
+        if ($gender->gender == '1') {
+            return '1';
+        }else {
+            return '2';
+        }
+    }
+
+}
+
 if(!function_exists('getYear')) {
 
 

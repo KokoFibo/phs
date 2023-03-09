@@ -57,7 +57,7 @@
     }
 
     .active {
-        @apply font-semibold border-b-2;
+        @apply font-semibold md:border-b-2;
     }
     .active1 {
         @apply text-lg font-semibold text-pink-500;

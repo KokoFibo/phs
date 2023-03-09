@@ -18,7 +18,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" /> --}}
 
 
     <style>
@@ -34,7 +34,8 @@
 </head>
 
 <body>
-    @include('layouts.navbarbaru')
+    {{-- @include('layouts.navbarbaru') --}}
+    @include('layouts.navbarresponsive')
     @yield('content')
 
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script> --}}
