@@ -167,7 +167,7 @@ class Dashboardwire extends Component
     public function getDataAbsensiTerakhir () {
         try {
             $dataAbsensiTerakhir = Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->distinct('tgl_kelas')->select('tgl_kelas')->orderBy('tgl_kelas', 'desc')->first();
-            $jumlahPesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->distinct('datapelita_id')->select('datapelita_id')->orderBy('tgl_kelas', 'desc')->get();
+            $jumlahPesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId)->where('absensi', '1')->where('tgl_kelas', Absensi::max('tgl_kelas'))->orderBy('tgl_kelas','desc')->get();
             $this->tglAbsensiTerakhir = $dataAbsensiTerakhir->tgl_kelas;
             $this->jumlahPesertaAbsensiTerakhir =  $jumlahPesertaAbsensi->count();
             $sd3h = 0;
