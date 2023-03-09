@@ -108,7 +108,7 @@ class Tambahgroupwire extends Component
     public function render()
     {
         $groupvihara = Groupvihara::orderBy('nama_group', 'asc')->paginate(5);
-        return view('livewire.tambahgroupwire', compact('groupvihara'))->extends('layouts.secondMain')
+        return view('livewire.tambahgroupwire', compact('groupvihara'))->extends('layouts.main')
         ->section('content');
     }
 }

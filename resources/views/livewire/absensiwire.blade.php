@@ -5,11 +5,13 @@
     {{-- <p>SelectedGroup: {{ $selectedGroup }}, daftarkelas_id: {{ $daftarkelas_id }}, tgl_kelas: {{ $tgl_kelas }}</p>
     --}}
     <x-spinner />
-    <div class="flex justify-between w-1/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
-        <h5 class="text-2xl font-semibold ">{{ __('Absensi Kelas') }}</h5>
+    <div class="flex justify-center lg:mx-0">
+        <div class="flex justify-between w-full p-3 mt-3 text-white bg-teal-500 rounded shadow-xl lg:w-1/2 ">
+            <h5 class="text-2xl font-semibold ">{{ __('Absensi Kelas') }}</h5>
         <button wire:click="close">
             <i class="fa fa-circle-xmark fa-2xl"></i>
         </button>
+        </div>
     </div>
     <div class="w-2/3 mx-auto mt-3 text-center ">
         @if (session()->has('message'))
@@ -18,7 +20,7 @@
     </div>
 
     <div class="flex w-full mx-auto items-top justify-evenly">
-        <div class="w-1/3 p-4 mt-3 text-white bg-teal-500 border shadow-xl rounded-xl">
+        <div class="w-full p-4 mx-3 mt-3 text-white bg-teal-500 border shadow-xl lg:w-1/2 rounded-xl">
             <div class="text-xl font-semibold text-center">{{ __('Absensi Kelas') }}</div>
             @if ($is_add == true)
             @if (Auth::user()->role == '3')
@@ -68,73 +70,82 @@
                 @enderror
             </div> --}}
 
-            <div class="flex justify-between mt-3">
-                <button wire:click="tambahPeserta" class="button button-purple">Tambah Peserta Kelas</button>
-                <button wire:click="tambahAbsensi" class="button button-blue">Input Absensi</button>
-                <button wire:click="editAbsensi" class="button button-blue">Edit & Delete Absensi</button>
-                <button wire:click="close" class=" button button-yellow">{{ __('Close') }}</button>
+            <div class="flex flex-col mt-3 text-center lg:flex lg:justify-evenly">
+                <div class="flex justify-between w-full gap-3">
+                    <button wire:click="tambahPeserta" class="w-1/2 mt-2 button button-purple">Tambah Peserta Kelas</button>
+                    <button wire:click="tambahAbsensi" class="w-1/2 mt-2 button button-blue">Input Absensi</button>
+                </div>
+                <div class="flex justify-between w-full gap-3">
+                    <button wire:click="editAbsensi" class="w-1/2 mt-2 button button-blue">Edit & Delete Absensi</button>
+                    <button wire:click="close" class="w-1/2 mt-2 button button-yellow">{{ __('Close') }}</button>
+                </div>
             </div>
         </div>
     </div>
 
     @if ($selectedGroup && $daftarkelas_id)
-    <div class="flex items-center justify-between mt-5">
+    <div class="flex items-center justify-between p-3 mt-5">
 
-        <h2 class="px-3 text-2xl font-semibold text-center text-purple-500">{{ getGroupVihara($selectedGroup) }}
+        <h2 class="text-xl font-semibold text-center text-purple-500 ">{{ getGroupVihara($selectedGroup) }}
         </h2>
-        <h2 class="text-3xl font-semibold text-center text-purple-500">Absensi</h2>
-        <h2 class="px-3 text-2xl font-semibold text-center text-purple-500">{{ getDaftarKelas($daftarkelas_id) }}
+        <h2 class="text-2xl font-semibold text-center text-purple-500">Absensi</h2>
+        <h2 class="text-xl font-semibold text-center text-purple-500">{{ getDaftarKelas($daftarkelas_id) }}
         </h2>
     </div>
-    <table table class="w-full mt-1">
-        <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
+    <div class="mt-1 ">
 
-            <tr>
+        <table class="w-full mt-1 table-auto ">
+            <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
+                <tr>
 
-                <th class="p-3 font-semibold text-center border rounded ">Nama</th>
-                @foreach ($viewTglAbsensi as $h )
-                <th class="p-3 font-semibold text-center border rounded ">{{
-                    \Carbon\Carbon::parse($h->tgl_kelas)->format('d/m')}}</th>
-                @endforeach
+                    <th class="p-3 font-semibold text-center border rounded ">Nama</th>
+                    @foreach ($viewTglAbsensi as $h )
+                    <th class="p-3 font-semibold text-center border rounded ">{{
+                        \Carbon\Carbon::parse($h->tgl_kelas)->format('d/m')}}</th>
+                    @endforeach
 
-            </tr>
+                </tr>
 
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
 
-            @foreach($viewNamaAbsensi as $n)
-            <tr>
-                <td class="text-center border rounded ">{{ getName($n->datapelita_id) }}</td>
-                @php
-                for($i = 0; $i < $jumlahdaftarkelas; $i++){ $hasil=\App\Models\Absensi::query() ->
-                    where('daftarkelas_id', $daftarkelas_id)
-                    ->where('datapelita_id',$n->datapelita_id)
-                    ->where('tgl_kelas',$tglTable[$i])
-                    ->orderBy('tgl_kelas', 'asc')
-                    ->first( );
-                    @endphp
-                    @if ($hasil)
-                    <td class="text-center border rounded ">
-                        @if ($hasil->absensi == 1)
-                        <i class="text-blue-500 fa-sharp fa-solid fa-check"></i>
-                        @elseif($hasil->absensi == 2)
-                        <i class="text-red-500 fa-sharp fa-solid fa-xmark"></i>
-
-                        @endif
+                @foreach($viewNamaAbsensi as $n)
+                <tr>
+                    @if (checkGender($n->datapelita_id)=='1')
+                    <td class="text-center text-blue-500 border rounded ">
                         @else
-                    <td class="text-center border rounded "><i class="text-gray-500 fa-solid fa-minus"></i></td>
-                    @endif
+                    <td class="text-center text-pink-500 border rounded ">
+                        @endif
+                        {{ getName($n->datapelita_id) }}</td>
                     @php
-                    }
-                    @endphp
-            </tr>
+                    for($i = 0; $i < $jumlahdaftarkelas; $i++){ $hasil=\App\Models\Absensi::query() ->
+                        where('daftarkelas_id', $daftarkelas_id)
+                        ->where('datapelita_id',$n->datapelita_id)
+                        ->where('tgl_kelas',$tglTable[$i])
+                        ->orderBy('tgl_kelas', 'asc')
+                        ->first( );
+                        @endphp
+                        @if ($hasil)
+                        <td class="text-center border rounded ">
+                            @if ($hasil->absensi == 1)
+                            <i class="text-blue-500 fa-sharp fa-solid fa-check"></i>
+                            @elseif($hasil->absensi == 2)
+                            <i class="text-red-500 fa-sharp fa-solid fa-xmark"></i>
 
-            @endforeach
+                            @endif
+                            @else
+                        <td class="text-center border rounded "><i class="text-gray-500 fa-solid fa-minus"></i></td>
+                        @endif
+                        @php
+                        }
+                        @endphp
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
-
-        </tbody>
-    </table>
-    <h2 class="px-3 text-xl font-semibold text-center text-purple-500">Jumlah Peserta : {{ $jumlahpeserta }}</h2>
+    <h2 class="px-3 mt-3 text-xl font-semibold text-center text-purple-500">Jumlah Peserta : {{ $jumlahpeserta }}</h2>
     <h2 class="px-3 text-xl font-semibold text-center text-purple-500">Jumlah Pertemuan : {{ $jumlahdaftarkelas }} </h2>
     @endif
 
