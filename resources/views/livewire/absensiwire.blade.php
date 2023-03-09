@@ -73,7 +73,7 @@
             <div class="flex flex-col mt-3 text-center lg:flex lg:justify-evenly">
                 <div class="flex justify-between w-full gap-3">
                     <button wire:click="tambahPeserta" class="w-1/2 mt-2 button button-purple">Tambah Peserta Kelas</button>
-                    <button wire:click="tambahAbsensi" class="w-1/2 mt-2 button button-blue">Input Absensi</button>
+                    <button wire:click="tambahAbsensi" class="w-1/2 mt-2 button button-pink">Input Absensi</button>
                 </div>
                 <div class="flex justify-between w-full gap-3">
                     <button wire:click="editAbsensi" class="w-1/2 mt-2 button button-blue">Edit & Delete Absensi</button>
