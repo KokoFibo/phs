@@ -86,10 +86,10 @@
     @if ($selectedGroup && $daftarkelas_id)
     <div class="flex items-center justify-between p-3 mt-5">
 
-        <h2 class="text-lg font-semibold text-center text-purple-500 md:text-xl ">{{ getGroupVihara($selectedGroup) }}
+        <h2 class="text-lg font-semibold text-center text-purple-500 lg:text-xl ">{{ getGroupVihara($selectedGroup) }}
         </h2>
-        <h2 class="text-lg font-semibold text-center text-purple-500 md:text-2xl">Absensi</h2>
-        <h2 class="text-lg font-semibold text-center text-purple-500 md:text-xl">{{ getDaftarKelas($daftarkelas_id) }}
+        <h2 class="text-lg font-semibold text-center text-purple-500 lg:text-2xl">Absensi</h2>
+        <h2 class="text-lg font-semibold text-center text-purple-500 lg:text-xl">{{ getDaftarKelas($daftarkelas_id) }}
         </h2>
     </div>
     <div class="mt-1 ">
@@ -145,8 +145,8 @@
         </table>
     </div>
 
-    <h2 class="px-3 mt-3 text-lg font-semibold text-center text-purple-500 md:text-xl">Jumlah Peserta : {{ $jumlahpeserta }}</h2>
-    <h2 class="px-3 text-lg font-semibold text-center text-purple-500 md:text-xl">Jumlah Pertemuan : {{ $jumlahdaftarkelas }} </h2>
+    <h2 class="px-3 mt-3 text-lg font-semibold text-center text-purple-500 lg:text-xl">Jumlah Peserta : {{ $jumlahpeserta }}</h2>
+    <h2 class="px-3 text-lg font-semibold text-center text-purple-500 lg:text-xl">Jumlah Pertemuan : {{ $jumlahdaftarkelas }} </h2>
     @endif
 
 

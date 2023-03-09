@@ -1,16 +1,16 @@
 <div>
     @section('title', 'Change Profile')
-    <div class="flex flex-col w-full gap-3 mx-2 mt-3 md:flex md:flex-row md:justify-evenly">
-        <div class="w-full md:w-1/4">
+    <div class="flex flex-col w-full gap-3 mx-2 mt-3 lg:flex lg:flex-row lg:justify-evenly">
+        <div class="w-full lg:w-1/4">
             <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Change Profile') }}</div>
             @include('form_changeprofile')
         </div>
-        <div class="w-full md:w-3/4">
+        <div class="w-full lg:w-3/4">
             <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Profile Data') }}</div>
             <div class="overflow-x-auto">
 
 
-                <table class="table w-full mx-auto mt-5 table-fixed md:table-auto">
+                <table class="table w-full mx-auto mt-5 table-fixed lg:table-auto">
                     <thead>
                         <tr class="text-white bg-purple-500 ">
                             <th class="w-10 h-10 text-center border">#</th>
