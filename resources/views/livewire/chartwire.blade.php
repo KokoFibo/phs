@@ -1,4 +1,4 @@
 <div>
-
-    <x-button wire:model="ok">Hello</x-button>
+    <p>a: {{ $a }}</p>
+    <input type="checkbox" value="bike" wire:model="a">
 </div>

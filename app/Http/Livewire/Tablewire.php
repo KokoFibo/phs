@@ -45,6 +45,35 @@ class Tablewire extends Component
     // protected $listeners = ['resetfilter'];
     public $group_id;
 
+    public $isTambahKolom=0, $kolomAlamat, $kolomKota, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
+    public $kolomSd3h=0, $kolomVTotal=0, $kolomStatus=0, $kolomKeterangan=0;
+
+
+    public function checkIsTambahKolom () {
+        if(
+            $this->kolomAlamat == 1 ||
+            $this->kolomKota == 1 ||
+            $this->kolomTelepon == 1 ||
+            $this->kolomHandphone == 1 ||
+            $this->kolomEmail == 1 ||
+            $this->kolomSd3h == 1 ||
+            $this->kolomVTotal == 1 ||
+            $this->kolomStatus == 1 ||
+            $this->kolomKeterangan == 1
+
+        ){
+            $this->isTambahKolom = 1;
+        }else {
+            $this->isTambahKolom = 0;
+        }
+    }
+
+    public function mount () {
+        $this->default=true;
+    }
+    public function updating () {
+
+    }
 
 public function updatedSelectAll () {
     if ($this->selectAll == true ) {
@@ -197,9 +226,7 @@ public function updatedSelectAll () {
 
         }
     }
-    public function mount () {
-        $this->default=true;
-    }
+
     public function updatedJenKel () {
         $this->default=false;
     }
@@ -509,6 +536,7 @@ public function updatedSelectAll () {
      $this->selectedAll = $datapelita->pluck('id');
     $datapelita1 = $datapelita->paginate($this->perpage);
     $group = Groupvihara::all();
+    $this->checkIsTambahKolom ();
 
         return view('livewire.tablewire', compact(['datapelita1', 'data_branch', 'all_branch', 'namaft', 'dp', 'group']))
         ->extends('layouts.main')
