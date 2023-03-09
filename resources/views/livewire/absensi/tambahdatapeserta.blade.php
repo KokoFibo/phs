@@ -1,14 +1,14 @@
 @if ($menuTambahData)
     <x-spinner />
 
-    <div class="flex flex-col w-full p-3 mx-auto md:w-3/4 items-top ">
+    <div class="flex flex-col w-full p-3 mx-auto lg:w-3/4 items-top ">
         <div
             class="w-full p-4 mt-3 mr-3 text-xl font-semibold text-center text-white bg-teal-500 border shadow-xl rounded-xl">
             {{ __('Peserta Kelas') }}
         </div>
 
-        <div class="flex flex-col w-full gap-3 mt-3 md:flex md:flex-row ">
-            <div class="w-full p-4 text-white bg-teal-500 border shadow-xl md:w-1/3 rounded-xl">
+        <div class="flex flex-col w-full gap-3 mt-3 lg:flex lg:flex-row ">
+            <div class="w-full p-4 text-white bg-teal-500 border shadow-xl lg:w-1/3 rounded-xl">
                 <div class="mt-3 ">
                     <label class="px-2" for="kelas">{{ __('Kelas') }}</label>
                     <input id="kelas" type="text" value="{{ getDaftarKelas($daftarkelas_id) }}" disabled
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <div class="w-full md:w-2/3 ">
+            <div class="w-full lg:w-2/3 ">
                 @if ($pesertakelas->count())
                     <table class="w-full table-auto">
                         <thead class="text-white bg-purple-500 border-b-2 border-gray-200 rounded-xl">

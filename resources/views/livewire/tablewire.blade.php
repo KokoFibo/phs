@@ -4,18 +4,18 @@
     {{-- Search Bar --}}
 
     {{-- <div wire:loading>Loading...</div> --}}
-    <div class="items-center justify-between w-full md:flex">
-        <div class="mx-5 md:w-3/5 ">
-            <div class="items-center md:flex">
+    <div class="items-center justify-between w-full lg:flex">
+        <div class="mx-5 lg:w-3/5 ">
+            <div class="items-center lg:flex">
 
 
                 {{-- Search --}}
-                <div class="w-full mt-3 mr-3 md:w-2/5">
+                <div class="w-full mt-3 mr-3 lg:w-2/5">
                     <input type="search" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded "
                         wire:model="search" placeholder="{{ __('Search...') }}">
                 </div>
                 {{-- Category --}}
-                <div class="w-full mt-3 mr-3 md:w-1/5">
+                <div class="w-full mt-3 mr-3 lg:w-1/5">
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="category">
                         <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
@@ -29,7 +29,7 @@
                     </select>
                 </div>
                 {{-- Rows per Page --}}
-                <div class="w-full mt-3 mr-3 md:w-1/5">
+                <div class="w-full mt-3 mr-3 lg:w-1/5">
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="perpage">
                         <option value="5">{{ __('5 Rows') }}</option>
@@ -40,7 +40,7 @@
                     </select>
                 </div>
                 {{-- Filter Dropdown --}}
-                <div x-data="{ open: false }" class="w-full mt-3 mr-3 md:w-1/5">
+                <div x-data="{ open: false }" class="w-full mt-3 mr-3 lg:w-1/5">
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
                         class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white"><i
                             class="fa fa-filter"></i>
@@ -163,15 +163,15 @@
         </div>
 
         {{-- nama cetya --}}
-        <div class="mx-5 mt-3 md:w-1/5 ">
+        <div class="mx-5 mt-3 lg:w-1/5 ">
             {{-- kode_branch --}}
             {{-- <h1 class="text-3xl font-bold text-center text-purple-700">{{ $nama_cetya }} </h1> --}}
             <h1 class="text-3xl font-bold text-center text-purple-700">{{ getGroupVihara($group_id) }} </h1>
         </div>
         {{-- Tambah Kolom --}}
-        <div x-data="{ open: false }" class="mx-5 mt-3 text-right wd-full md:w-1/5">
+        <div x-data="{ open: false }" class="mx-5 mt-3 text-right wd-full lg:w-1/5">
             <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
-                class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded md:w-1/2 hover:bg-purple-700 hover:text-white">
+                class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded lg:w-1/2 hover:bg-purple-700 hover:text-white">
                 {{ __('Tambah Kolom') }}</button>
 
             <div x-show="open" x-cloak @click.away="open = false" x-transition
@@ -254,7 +254,7 @@
     </div>
     {{-- export Excel $ PDF --}}
     @if ($selectedId != null)
-        <div class="flex items-center w-full gap-2 px-5 mt-3 md:w-1/2">
+        <div class="flex items-center w-full gap-2 px-5 mt-3 lg:w-1/2">
             <x-button wire:click="excel" wire:loading.attr="disabled" class="button button-teal">Excel</x-button>
             <x-button wire:click="pdfdom" wire:loading.attr="disabled" class="button button-red">PDF</x-button>
             <button wire:click="cetak" wire:loading.attr="disabled"
@@ -270,7 +270,7 @@
         @if ($isTambahKolom == 1)
             <table class="w-full rounded-lg shadow table-fixed bg-green-50">
             @else
-                <table class="w-full rounded-lg shadow table-fixed md:table-auto bg-gray-50">
+                <table class="w-full rounded-lg shadow table-fixed lg:table-auto bg-gray-50">
         @endif
         <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
             <tr>

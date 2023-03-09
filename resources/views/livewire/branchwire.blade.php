@@ -1,6 +1,6 @@
 <div>
     @section('title', 'Add Data Vihara')
-    <div class="flex justify-between w-full p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl md:w-3/4 ">
+    <div class="flex justify-between w-full p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl lg:w-3/4 ">
         <h5 class="text-2xl font-semibold">{{ __('Add Data Vihara') }}</h5>
 
         <button wire:click="close">
@@ -14,8 +14,8 @@
         @endif
     </div>
 
-    <div class="flex flex-col w-full p-3 mx-auto md:w-3/4 md:flex md:flex-row items-top justify-evenly">
-        <div class="w-full p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl md:w-1/2 rounded-xl">
+    <div class="flex flex-col w-full p-3 mx-auto lg:w-3/4 lg:flex lg:flex-row items-top justify-evenly">
+        <div class="w-full p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl lg:w-1/2 rounded-xl">
             <div class="text-xl font-semibold text-center">{{ __('Data Vihara') }}</div>
             <div class="w-full mt-3">
                 <label class="block px-2" for="kota">{{ __('Group Vihara') }}</label>
@@ -49,7 +49,7 @@
             @endif
         </div>
         {{-- TABLE --}}
-        <div class="w-full mt-3 md:w-1/2">
+        <div class="w-full mt-3 lg:w-1/2">
             @if (!empty($branch))
                 <table class="w-full table-auto">
                     <thead class="text-white bg-purple-500 border-b-2 border-gray-200 rounded-xl">
