@@ -269,193 +269,108 @@
 
         @if ($isTambahKolom == 1)
             <table class="w-full rounded-lg shadow table-fixed bg-green-50">
-                <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
-                    <tr>
-                        <th class="w-10 px-2 text-center "><input type="checkbox" wire:model="selectAll"
-                                class=" checked:bg-white-500" />
-                        </th>
-
-                        <th class="w-10 p-3 font-semibold text-center ">{{ __('#') }}</th>
-                        <th class="w-40 p-3 font-semibold text-left cursor-pointer "
-                            wire:click=" sortColumnName('nama_umat')">
-                            {{ __('NAMA') }}</th>
-                        <th class="w-40 p-3 font-semibold text-left cursor-pointer "
-                            wire:click=" sortColumnName('nama_alias')">
-                            {{ __('ALIAS') }}</th>
-                        <th class="w-20 p-3 font-semibold text-left cursor-pointer "
-                            wire:click="sortColumnName('mandarin')">
-                            {{ __('中文名') }}</th>
-                        <th class="w-20 p-3 font-semibold text-left cursor-pointer "
-                            wire:click="sortColumnName('umur_sekarang') ">
-                            {{ __('UMUR') }}</th>
-                        <th class="font-semibold text-left cursor-pointer w-28 p-30 "
-                            wire:click="sortColumnName('tgl_mohonTao')">
-                            {{ __('TGL CHIU TAO') }}</th>
-                        <th class="w-20 p-3 font-semibold text-left cursor-pointer"
-                            wire:click="sortColumnName('gender')">
-                            {{ __('GENDER') }}</th>
-                        <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                            wire:click="sortColumnName('pengajak')">
-                            {{ __('PENGAJAK') }}</th>
-                        <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                            wire:click="sortColumnName('penjamin')">
-                            {{ __('PENJAMIN') }}</th>
-                        <th class="w-24 p-3 font-semibold text-left cursor-pointer"
-                            wire:click="sortColumnName('nama_pandita')">
-                            {{ __('PANDITA') }}</th>
-                        {{-- <th class="p-3 font-semibold text-left cursor-pointer"
-                                                        wire:click="sortColumnName('nama_kota')">
-                                                        {{ __('KOTA') }}</th> --}}
-                        <th class="w-20 p-3 font-semibold text-left cursor-pointer"
-                            wire:click="sortColumnName('nama_branch')">
-                            {{ __('CETYA') }}</th>
-                        <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                            wire:click="sortColumnName('nama_group')">
-                            {{ __('GROUP') }}</th>
-
-
-
-                        {{-- Header kolom tambahan  --}}
-                        @if ($kolomAlamat == 1)
-                            <th class="p-3 font-semibold text-left cursor-pointer w-80"
-                                wire:click="sortColumnName('alamat')">
-                                {{ __('ALAMAT') }}</th>
-                        @endif
-                        @if ($kolomKota == 1)
-                            <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('kota')">
-                                {{ __('KOTA') }}</th>
-                        @endif
-                        @if ($kolomTelepon == 1)
-                            <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('telp')">
-                                {{ __('TELEPON') }}</th>
-                        @endif
-                        @if ($kolomHandphone == 1)
-                            <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('hp')">
-                                {{ __('HANDPHONE') }}</th>
-                        @endif
-                        @if ($kolomEmail == 1)
-                            <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('email')">
-                                {{ __('EMAIL') }}</th>
-                        @endif
-                        @if ($kolomSd3h == 1)
-                            <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('sd3h')">
-                                {{ __('KELAS 3 HARI') }}</th>
-                        @endif
-                        @if ($kolomVTotal == 1)
-                            <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('vtotal')">
-                                {{ __('Veg. TOTAL') }}</th>
-                        @endif
-                        @if ($kolomStatus == 1)
-                            <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('status')">
-                                {{ __('STATUS') }}</th>
-                        @endif
-                        @if ($kolomKeterangan == 1)
-                            <th class="w-40 p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('keterangan')">
-                                {{ __('KETERANGAN') }}</th>
-                        @endif
-                        <th class="w-20 p-3 font-semibold ">
-                            <div class="flex justify-center space-x-1">
-                                <div>
-                                    <a href="/adddata">
-                                        <x-button type="button" class="p-1 text-white bg-blue-500 rounded ">
-                                            <i class="fa-solid fa-user-plus"></i>
-                                        </x-button>
-                                    </a>
-                                </div>
-                                {{-- Reset --}}
-                                <div>
-                                    <button type="button" class="p-1 text-white bg-green-500 rounded "
-                                        wire:click="resetFilter">
-                                        <i class="fa fa-arrow-rotate-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
             @else
-                <table class="w-full rounded-lg shadow table-auto bg-gray-50">
-                    <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
-                        <tr>
-
-                            <th class="px-2 text-center "><input type="checkbox" wire:model="selectAll"
-                                    class=" checked:bg-white-500" />
-                            </th>
-
-
-                            <th class="p-3 font-semibold text-center ">{{ __('#') }}</th>
-
-                            <th class="p-3 font-semibold text-left cursor-pointer "
-                                wire:click=" sortColumnName('nama_umat')">
-                                {{ __('NAMA') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer "
-                                wire:click=" sortColumnName('nama_alias')">
-                                {{ __('ALIAS') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer "
-                                wire:click="sortColumnName('mandarin')">
-                                {{ __('中文名') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer "
-                                wire:click="sortColumnName('umur_sekarang') ">
-                                {{ __('UMUR') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer "
-                                wire:click="sortColumnName('tgl_mohonTao')">
-                                {{ __('TGL CHIU TAO') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('gender')">
-                                {{ __('GENDER') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('pengajak')">
-                                {{ __('PENGAJAK') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('penjamin')">
-                                {{ __('PENJAMIN') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('nama_pandita')">
-                                {{ __('PANDITA') }}</th>
-                            {{-- <th class="p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('nama_kota')">
-                                {{ __('KOTA') }}</th> --}}
-                            <th class="p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('nama_branch')">
-                                {{ __('CETYA') }}</th>
-                            <th class="p-3 font-semibold text-left cursor-pointer"
-                                wire:click="sortColumnName('nama_group')">
-                                {{ __('GROUP') }}</th>
-
-
-                            <th class="p-3 font-semibold ">
-                                <div class="flex justify-center space-x-1">
-
-                                    <div>
-                                        <a href="/adddata">
-                                            <x-button type="button" class="p-1 text-white bg-blue-500 rounded ">
-                                                <i class="fa-solid fa-user-plus"></i>
-                                            </x-button>
-                                        </a>
-
-                                    </div>
-
-                                    {{-- Reset --}}
-                                    <div>
-
-                                        <button type="button" class="p-1 text-white bg-green-500 rounded "
-                                            wire:click="resetFilter">
-                                            <i class="fa fa-arrow-rotate-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
+                <table class="w-full rounded-lg shadow table-fixed md:table-auto bg-gray-50">
         @endif
+        <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
+            <tr>
+                <th class="w-10 px-2 text-center "><input type="checkbox" wire:model="selectAll"
+                        class=" checked:bg-white-500" />
+                </th>
+
+                <th class="w-10 p-3 font-semibold text-center ">{{ __('#') }}</th>
+                <th class="w-40 p-3 font-semibold text-left cursor-pointer "
+                    wire:click=" sortColumnName('nama_umat')">
+                    {{ __('NAMA') }}</th>
+                <th class="w-40 p-3 font-semibold text-left cursor-pointer "
+                    wire:click=" sortColumnName('nama_alias')">
+                    {{ __('ALIAS') }}</th>
+                <th class="w-20 p-3 font-semibold text-left cursor-pointer " wire:click="sortColumnName('mandarin')">
+                    {{ __('中文名') }}</th>
+                <th class="w-20 p-3 font-semibold text-left cursor-pointer "
+                    wire:click="sortColumnName('umur_sekarang') ">
+                    {{ __('UMUR') }}</th>
+                <th class="font-semibold text-left cursor-pointer w-28 p-30 "
+                    wire:click="sortColumnName('tgl_mohonTao')">
+                    {{ __('TGL CHIU TAO') }}</th>
+                <th class="w-20 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('gender')">
+                    {{ __('GENDER') }}</th>
+                <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('pengajak')">
+                    {{ __('PENGAJAK') }}</th>
+                <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('penjamin')">
+                    {{ __('PENJAMIN') }}</th>
+                <th class="w-24 p-3 font-semibold text-left cursor-pointer"
+                    wire:click="sortColumnName('nama_pandita')">
+                    {{ __('PANDITA') }}</th>
+                {{-- <th class="p-3 font-semibold text-left cursor-pointer"
+                                                wire:click="sortColumnName('nama_kota')">
+                                                {{ __('KOTA') }}</th> --}}
+                <th class="w-20 p-3 font-semibold text-left cursor-pointer"
+                    wire:click="sortColumnName('nama_branch')">
+                    {{ __('CETYA') }}</th>
+                <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('nama_group')">
+                    {{ __('GROUP') }}</th>
+
+
+
+                {{-- Header kolom tambahan  --}}
+                @if ($kolomAlamat == 1)
+                    <th class="p-3 font-semibold text-left cursor-pointer w-80" wire:click="sortColumnName('alamat')">
+                        {{ __('ALAMAT') }}</th>
+                @endif
+                @if ($kolomKota == 1)
+                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('kota')">
+                        {{ __('KOTA') }}</th>
+                @endif
+                @if ($kolomTelepon == 1)
+                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('telp')">
+                        {{ __('TELEPON') }}</th>
+                @endif
+                @if ($kolomHandphone == 1)
+                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('hp')">
+                        {{ __('HANDPHONE') }}</th>
+                @endif
+                @if ($kolomEmail == 1)
+                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('email')">
+                        {{ __('EMAIL') }}</th>
+                @endif
+                @if ($kolomSd3h == 1)
+                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('sd3h')">
+                        {{ __('KELAS 3 HARI') }}</th>
+                @endif
+                @if ($kolomVTotal == 1)
+                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('vtotal')">
+                        {{ __('Veg. TOTAL') }}</th>
+                @endif
+                @if ($kolomStatus == 1)
+                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('status')">
+                        {{ __('STATUS') }}</th>
+                @endif
+                @if ($kolomKeterangan == 1)
+                    <th class="w-40 p-3 font-semibold text-left cursor-pointer"
+                        wire:click="sortColumnName('keterangan')">
+                        {{ __('KETERANGAN') }}</th>
+                @endif
+                <th class="w-20 p-3 font-semibold ">
+                    <div class="flex justify-center space-x-1">
+                        <div>
+                            <a href="/adddata">
+                                <x-button type="button" class="p-1 text-white bg-blue-500 rounded ">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                </x-button>
+                            </a>
+                        </div>
+                        {{-- Reset --}}
+                        <div>
+                            <button type="button" class="p-1 text-white bg-green-500 rounded "
+                                wire:click="resetFilter">
+                                <i class="fa fa-arrow-rotate-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </thead>
         <tbody>
             @foreach ($datapelita1 as $index => $d)
                 <tr class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
