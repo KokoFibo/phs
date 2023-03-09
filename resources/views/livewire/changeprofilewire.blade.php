@@ -56,6 +56,7 @@
             </div>
         </div>
     </div>
+    <hr class="mt-3">
     {{-- JS utk Sweetalert Delete --}}
     @push('script')
         <script>

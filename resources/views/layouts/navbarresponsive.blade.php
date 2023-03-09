@@ -98,7 +98,7 @@
                         @endif
                     </li>
                     <li>
-                        <div class="flex items-center space-x-10">
+                        <div class="flex items-center hidden space-x-10 lg:contents">
                             <h4 class="block py-2 lg:p-2 hover:text-purple-400">{{ Auth::user()->name }}
                                 ({{ roleCheck(Auth::user()->role) }})</h4>
 
@@ -107,10 +107,13 @@
                     <li>
                         <div x-data="{ open: false }" class="relative items-center">
                             <button @click="open=!open" class="block py-2 lg:p-2 hover:text-purple-400">
-                                <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?rounded=true&length=1&background=random&font-size=.8"
+                                <img class="hidden lg:inline"
+                                    src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?rounded=true&length=1&background=random&font-size=.8"
                                     width="30" />
-
+                                <p class="inline lg:hidden">Profile</p>
                             </button>
+
+
                             <div x-show="open" x-cloak @click.away="open = false" x-transition
                                 class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded lg:right-0 ">
                                 <ul class="w-40 mx-5 text-gray-700 divide-y">
@@ -127,7 +130,7 @@
                                     <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                         <a class="block" href="#">{{ __('User Setting') }}<span
                                                 class="text-red-500">({{ __('Under
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Construction') }})</span></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Construction') }})</span></a>
                                     </li>
                                     <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                         <a class="block" href="{{ route('logout') }}"
