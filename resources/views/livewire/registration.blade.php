@@ -72,6 +72,7 @@
         <div class="mx-3 text-right">
             <button wire:click="close" class="button button-teal">Back</button>
         </div>
+        <hr class="mt-3">
     </div>
 
 </div>

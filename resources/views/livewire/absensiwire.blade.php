@@ -84,23 +84,23 @@
     </div>
 
     @if ($selectedGroup && $daftarkelas_id)
-    <div class="flex items-center justify-between p-3 mt-5">
+    <div class="flex flex-col items-center justify-between p-3 mt-5 lg:flex lg:flex-row">
 
         <h2 class="text-lg font-semibold text-center text-purple-500 lg:text-xl ">{{ getGroupVihara($selectedGroup) }}
         </h2>
-        <h2 class="text-lg font-semibold text-center text-purple-500 lg:text-2xl">Absensi</h2>
         <h2 class="text-lg font-semibold text-center text-purple-500 lg:text-xl">{{ getDaftarKelas($daftarkelas_id) }}
         </h2>
     </div>
-    <div class="mt-1 ">
+    <div class="mt-1 overflow-x-auto ">
 
-        <table class="w-full mt-1 table-auto ">
+        <table class="w-full mt-1 table-fixed lg:table-auto ">
             <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
                 <tr>
 
-                    <th class="p-3 font-semibold text-center border rounded ">Nama</th>
+                    <th class="w-10 p-3 font-semibold text-center border rounded ">#</th>
+                    <th class="w-32 p-3 font-semibold text-center border rounded ">Nama</th>
                     @foreach ($viewTglAbsensi as $h )
-                    <th class="p-3 font-semibold text-center border rounded ">{{
+                    <th class="w-10 p-3 font-semibold text-center border rounded ">{{
                         \Carbon\Carbon::parse($h->tgl_kelas)->format('d/m')}}</th>
                     @endforeach
 
@@ -111,6 +111,7 @@
 
                 @foreach($viewNamaAbsensi as $n)
                 <tr>
+                    <td class="text-center border rounded ">{{ $loop->iteration }}</td>
                     @if (checkGender($n->datapelita_id)=='1')
                     <td class="text-center text-blue-500 border rounded ">
                         @else
@@ -146,7 +147,8 @@
     </div>
 
     <h2 class="px-3 mt-3 text-lg font-semibold text-center text-purple-500 lg:text-xl">Jumlah Peserta : {{ $jumlahpeserta }}</h2>
-    <h2 class="px-3 text-lg font-semibold text-center text-purple-500 lg:text-xl">Jumlah Pertemuan : {{ $jumlahdaftarkelas }} </h2>
+    <h2 class="px-3 mb-5 text-lg font-semibold text-center text-purple-500 lg:text-xl">Jumlah Pertemuan : {{ $jumlahdaftarkelas }} </h2>
+    <hr class="mt-3">
     @endif
 
 
