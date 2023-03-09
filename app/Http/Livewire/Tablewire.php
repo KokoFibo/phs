@@ -45,12 +45,11 @@ class Tablewire extends Component
     // protected $listeners = ['resetfilter'];
     public $group_id;
 
-    public $isTambahKolom=0, $kolomAlamat=0, $kolomKota, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
+    public $isTambahKolom=0, $kolomAlamat, $kolomKota, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
     public $kolomSd3h=0, $kolomVTotal=0, $kolomStatus=0, $kolomKeterangan=0;
-    public $a=0;
+
 
     public function checkIsTambahKolom () {
-        $this->isTambahKolom = 0;
         if(
             $this->kolomAlamat == 1 ||
             $this->kolomKota == 1 ||
@@ -71,6 +70,9 @@ class Tablewire extends Component
 
     public function mount () {
         $this->default=true;
+    }
+    public function updating () {
+
     }
 
 public function updatedSelectAll () {
@@ -534,9 +536,7 @@ public function updatedSelectAll () {
      $this->selectedAll = $datapelita->pluck('id');
     $datapelita1 = $datapelita->paginate($this->perpage);
     $group = Groupvihara::all();
-    $this->isTambahKolom = 0;
     $this->checkIsTambahKolom ();
-    $this->a++;
 
         return view('livewire.tablewire', compact(['datapelita1', 'data_branch', 'all_branch', 'namaft', 'dp', 'group']))
         ->extends('layouts.main')

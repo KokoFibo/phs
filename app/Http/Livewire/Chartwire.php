@@ -11,11 +11,11 @@ class Chartwire extends Component
 {
 
 
-
+    public $a;
     public function render()
     {
-        $datapelita = DataPelita::paginate(5);
-        return view('livewire.chartwire', compact('datapelita'))
+
+        return view('livewire.chartwire')
             ->extends('layouts.main')
             ->section('content');
     }

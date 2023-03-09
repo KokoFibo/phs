@@ -8,8 +8,7 @@
         <div class="mx-5 md:w-3/5 ">
             <div class="items-center md:flex">
 
-                <p>isTambahKolom: {{ $isTambahKolom }}</p>
-                <p>A: {{ $a }}</p>
+
                 {{-- Search --}}
                 <div class="w-full mt-3 mr-3 md:w-2/5">
                     <input type="search" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded "
@@ -174,16 +173,15 @@
             <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
                 class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded md:w-1/2 hover:bg-purple-700 hover:text-white">
                 {{ __('Tambah Kolom') }}</button>
-            {{-- isi dari dropdown --}}
 
             <div x-show="open" x-cloak @click.away="open = false" x-transition
                 class="absolute z-10 px-2 py-3 mx-auto text-purple-700 bg-white shadow-xl min-h-120px rounded-xl">
-                {{-- mulai isi dropdown --}}
+                {{-- mulai isi Tambah Kolom --}}
                 <table>
                     <tr>
                         <td class="px-1 py-1 ">
-                            <input type="checkbox" id="alamat" id="alamat" wire:model="kolomAlamat"
-                                value="1" class="checked:bg-purple-500" />
+                            <input type="checkbox" id="alamat" wire:model="kolomAlamat" value="1"
+                                class="checked:bg-purple-500" />
 
                         </td>
                         <td class="px-1 py-1 ">
@@ -271,24 +269,21 @@
         @if ($isTambahKolom == 1)
             <table class="w-full rounded-lg shadow table-fixed bg-green-50">
                 <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
-                    <tr>
-                        {{-- <th class="p-3 font-semibold text-left">{{ __('#') }}</th> --}}
+                    {{-- <tr>
                         <th class="w-10 px-2 text-center "><input type="checkbox" wire:model="selectAll"
                                 class=" checked:bg-white-500" />
                         </th>
 
-                        {{-- <th class="p-3 font-semibold text-center cursor-pointer" "></th> --}}
-                        <th class="p-3 font-semibold text-center <thead class="text-white bg-purple-500 border-b-2
-                            border-gray-200">
+                        <th class="p-3 font-semibold text-center <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
+                        </th>
                     <tr>
-                        {{-- <th class="p-3 font-semibold text-left">{{ __('#') }}</th> --}}
+                        <th class="p-3 font-semibold text-left">{{ __('#') }}</th>
                         <th class="px-2 text-center "><input type="checkbox" wire:model="selectAll"
                                 class=" checked:bg-white-500" />
                         </th>
 
-                        {{-- <th class="p-3 font-semibold text-center cursor-pointer" "></th> --}}
-                        <th class="p-3 font-semibold text-center <thead class="text-white bg-purple-500 border-b-2
-                            border-gray-200">
+                        <th class="p-3 font-semibold text-center cursor-pointer" "></th>
+                        <th class="p-3 font-semibold text-center <thead class="text-white bg-purple-500 border-b-2 border-gray-200"> --}}
                     <tr>
                         {{-- <th class="p-3 font-semibold text-left">{{ __('#') }}</th> --}}
                         <th class="px-2 text-center "><input type="checkbox" wire:model="selectAll"
