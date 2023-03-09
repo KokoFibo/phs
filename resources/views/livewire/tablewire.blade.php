@@ -44,7 +44,7 @@
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
                         class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white"><i
                             class="fa fa-filter"></i>
-                        {{ __('Filter Search') }}</button>
+                        {{ __('Filter') }}</button>
 
 
                     {{-- isi dari dropdown --}}
