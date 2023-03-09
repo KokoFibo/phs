@@ -25,6 +25,7 @@
                         <option value="data_pelitas.penjamin">{{ __('Penjamin') }}</option>
                         <option value="panditas.nama_pandita">{{ __('Pandita') }}</option>
                         <option value="kotas.nama_kota">{{ __('Kota') }}</option>
+                        <option value="data_pelitas.alamat">{{ __('Alamat') }}</option>
 
                     </select>
                 </div>
@@ -268,7 +269,7 @@
     <div class="w-full p-4 overflow-x-auto ">
 
         @if ($isTambahKolom == 1)
-            <table class="w-full rounded-lg shadow table-fixed bg-green-50">
+            <table class="w-full rounded-lg shadow table-fixed bg-gray-50">
             @else
                 <table class="w-full rounded-lg shadow table-fixed lg:table-auto bg-gray-50">
         @endif

@@ -152,6 +152,8 @@ public function updatedSelectAll () {
         $this->tgl_sd3h = false;
         $this->tgl_vtotal = false;
         $this->dispatchBrowserEvent('resetfield');
+        $this->isTambahKolom=0; $this->kolomAlamat=0; $this->kolomKota=0; $this->kolomTelepon=0; $this->kolomHandphone=0; $this->kolomEmail=0;
+        $this->kolomSd3h=0; $this->kolomVTotal=0; $this->kolomStatus=0; $this->kolomKeterangan=0;
 
     }
     public function hitungUmurSekarang($tgl, $umur) {
