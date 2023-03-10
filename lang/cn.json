@@ -108,7 +108,7 @@
     "Tambah Kelas": "加班",
     "Daftar Kelas": "班的名單",
     "Absensi Kelas": "班員名冊",
-    "Tambah Data Cetya": "添加佛堂資料",
+    "Tambah Data Vihara": "添加佛堂資料",
     "Reset All": "重置全部",
     "Tambah Data Pandita": "添加點傳師數據",
     "Tambah Data Kota": "添加城市數據",
@@ -158,5 +158,12 @@
     "Persentase Kehadiran": "出勤率",
     "Orang": "人",
     "Proses Chart": "打開圖表",
-    "Data Absensi Terakhir": "最後考勤數據"
+    "Data Absensi Terakhir": "最後考勤數據",
+    "Hi": "你好",
+    "Silakan masukkan password anda untuk mengakses menu ini": "請輸入您的密碼以訪問此菜單",
+    "Enter": "請",
+    "Menu Tambah Kelas": "添加研究班",
+    "Menu Tambah Group Vihara": "添加區域集團",
+    "Absensi": "考勤",
+    "Tambah Kolom": "添加列"
 }

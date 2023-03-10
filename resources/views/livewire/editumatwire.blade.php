@@ -116,7 +116,7 @@
                 <div>
                     <label class=" px-2 hidden md:inline ">{{ __('Gender') }}</label>
                 </div>
-                <div class="mt-1 flex md:flex md:flex-col">
+                <div class="flex md:flex md:flex-col">
                     <div>
                         <label class="px-2 md:hidden ">{{ __('Gender ') }} <span
                                 class="text-red-500 md:hidden">*</span>
@@ -263,7 +263,7 @@
             </div>
 
 
-            <div class="flex items-center justify-between w-full mt-9 ">
+            <div class="flex items-center justify-between w-full mt-10 ">
                 <div>
                     <button class=" button button-purple" wire:click="update">{{ __('Update') }}</button>
                 </div>

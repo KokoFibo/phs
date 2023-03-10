@@ -70,8 +70,8 @@
 
 
             <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
-                <button wire:click="setDefault" class="w-full mt-6 md:mt-0 button button-purple">Set as
-                    Default</button>
+                <button wire:click="setDefault"
+                    class="w-full mt-6 md:mt-0 button button-purple">{{ __('Set as Default') }}</button>
 
             </div>
         </div>
