@@ -14,7 +14,7 @@
         </div>
     </div>
     <div
-        class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow md:flex md:flex-row md:justify-center lg:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
+        class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow md:flex md:flex-row md:justify-center md:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
         <div class="w-full px-5 md:w-1/2 ">
 
             <div class="mt-3">
