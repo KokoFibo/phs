@@ -5,7 +5,7 @@
     <div
         class="flex w-full px-5 py-3 mt-2 text-white bg-purple-500 shadow-lg ietms-center lg:w-3/4 lg:mx-auto rounded-xl">
         <div class="w-1/5">
-            <h4 class="text-lg font-semibold lg:text-2xl">{{ __('View Data') }}</h4>
+            <h4 class="text-lg font-semibold lg:text-2xl">{{ __('View Data1') }}</h4>
         </div>
         <div class="w-4/5 text-center">
             <h3 class="text-2xl">
@@ -14,8 +14,8 @@
         </div>
     </div>
     <div
-        class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow sm:flex sm:flex-row sm:justify-center sm:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
-        <div class="w-full px-5 md:w-1/2 ">
+        class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow lg:flex lg:flex-row lg:justify-center lg:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
+        <div class="w-full px-5 lg:w-1/2 ">
 
             <div class="mt-3">
                 <label class="px-2 " for="nama">{{ __('Nama') }}</label>
@@ -68,7 +68,7 @@
             </div>
 
         </div>
-        <div class="w-full px-5 md:w-1/2 ">
+        <div class="w-full px-5 lg:w-1/2 ">
 
             <div class="mt-3">
                 <div>
