@@ -2,7 +2,7 @@
     @section('title', 'Update Data')
 
     <div
-        class="flex items-center justify-between w-full px-5 py-3 mx-3 mt-2 text-white bg-purple-500 shadow-lg lg:w-3/4 lg:mx-auto rounded-xl">
+        class="flex items-center justify-between w-full px-5 py-3  mt-2 text-white bg-purple-500 shadow-lg lg:w-3/4 lg:mx-auto rounded-xl">
         <div>
             <h4 class="text-xl font-semibold lg:text-2xl">{{ __('Update Data') }}</h3>
         </div>
@@ -16,8 +16,8 @@
         </div>
     </div>
     <div
-        class="flex justify-center w-full py-5 pb-3 mx-3 my-2 mt-2 mb-5 shadow lg:w-3/4 lg:mx-auto shadow-purple-300 bg-purple-50 rounded-xl">
-        <div class="w-1/2 px-3">
+        class="flex flex-col md:flex md:flex-row justify-center w-full py-5 pb-3  my-2 mt-2 mb-5 shadow lg:w-3/4 lg:mx-auto shadow-purple-300 bg-purple-50 rounded-xl">
+        <div class="w-full md:w-1/2 px-3">
             <div class="mt-3">
                 <label class="px-2 ">{{ __('Vihara') }}</label>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
@@ -111,19 +111,29 @@
                 @enderror
             </div>
         </div>
-        <div class="w-1/2 px-3">
+        <div class="w-full md:w-1/2 px-3">
             <div class="mt-3">
                 <div>
-                    <label class="px-2 ">{{ __('Gender') }}</label>
+                    <label class=" px-2 hidden md:inline ">{{ __('Gender') }}</label>
                 </div>
-                <div class="mt-1">
-                    <input type="radio" value="1" checked id="laki""
-                        class="rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" wire:model="gender">
-                    <label class="" for="laki">{{ __('Laki-laki') }}</label>
-                    <input type="radio" value="2" checked id="perempuan""
-                        class="ml-2 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                        wire:model="gender">
-                    <label class="" for="perempuan">{{ __('Perempuan') }}</label>
+                <div class="mt-1 flex md:flex md:flex-col">
+                    <div>
+                        <label class="px-2 md:hidden ">{{ __('Gender ') }} <span
+                                class="text-red-500 md:hidden">*</span>
+                            : </label>
+                    </div>
+                    <div>
+
+                        <input type="radio" value="1" checked id="laki""
+                            class="rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                            wire:model="gender">
+                        <label class="" for="laki">{{ __('Laki-laki') }}</label>
+                        <input type="radio" value="2" checked id="perempuan""
+                            class="ml-2 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                            wire:model="gender">
+                        <label class="" for="perempuan">{{ __('Perempuan') }}</label>
+                    </div>
+
                 </div>
                 @error('gender')
                     <span class="text-red-500">{{ $message }}</span>
