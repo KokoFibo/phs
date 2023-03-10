@@ -55,6 +55,12 @@
     .button-orange:hover {
         @apply text-black bg-orange-600;
     }
+    .button-black {
+        @apply text-white bg-black;
+    }
+    .button-black:hover {
+        @apply text-black bg-white;
+    }
 
     .active {
         @apply font-semibold md:border-b-2;

@@ -198,7 +198,8 @@ public function updated($fields) {
 
 
         return view('livewire.addumatwire', compact(['datapandita', 'datakota']))
-        ->extends('layouts.secondMain')
+        // ->extends('layouts.secondMain')
+        ->extends('layouts.main')
         ->section('content');
     }
 }
