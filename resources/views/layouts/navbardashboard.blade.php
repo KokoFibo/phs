@@ -14,35 +14,36 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('dashboard') }}">Dashboard <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }} <span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('main') }}">Data Umat</a>
+                <a class="nav-link" href="{{ route('main') }}">{{ __('Data Umat') }}</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Absensi
+                    {{ __('Absensi') }}
                 </a>
                 <div style="color: rgb(236, 72, 153); background-color: white" class="dropdown-menu"
                     aria-labelledby="navbarDropdownMenuLink">
                     @if (Auth::user()->role == '3')
-                        <a class="dropdown-item" href="{{ route('tambahkelas') }}">Tambah Kelas</a>
-                        <a class="dropdown-item" href="{{ route('daftarkelas') }}">Daftar Kelas</a>
+                        <a class="dropdown-item" href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
+                        <a class="dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
                     @endif
-                    <a class="dropdown-item" href="{{ route('absensi') }}">Absensi Kelas</a>
+                    <a class="dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</a>
                 </div>
             </li>
             @if (Auth::user()->role == '3')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Group Vihara
+                        {{ __('Group Vihara') }}
                     </a>
                     <div style="color: rgb(236, 72, 153) !important; background-color: white" class="dropdown-menu"
                         aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('tambahgroup') }}">Tambah Group Vihara</a>
-                        <a class="dropdown-item" href="{{ route('branchwire') }}">Tambah Data Cetya</a>
+                        <a class="dropdown-item" href="{{ route('tambahgroup') }}">{{ __('Tambah Group Vihara') }}</a>
+                        <a class="dropdown-item" href="{{ route('branchwire') }}">{{ __('Tambah Data Vihara') }} </a>
                     </div>
                 </li>
             @endif
@@ -68,14 +69,14 @@
                         src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?rounded=true&length=1&background=random&font-size=.8"
                         width="30" />
                     <div class="d-inline d-lg-none">
-                        Profile
+                        {{ _('Profile') }}
                     </div>
                 </a>
                 <div style="color: rgb(236, 72, 153); background-color: white"
                     class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ route('changeprofile') }}">Change Profile</a>
+                    <a class="dropdown-item" href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
                     @if (Auth::user()->role == '3' || Auth::user()->role == '2')
-                        <a class="dropdown-item" href="{{ route('registration') }}">Update New Admin</a>
+                        <a class="dropdown-item" href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
                     @endif
                     <a class="dropdown-item" href="#">{{ __('User Setting') }} <span
                             class="text-danger">({{ __('Under Construction') }})</span></a>

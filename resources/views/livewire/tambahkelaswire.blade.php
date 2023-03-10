@@ -2,18 +2,21 @@
     @section('title', 'Tambah Kelas')
 
     @if ($open == 0)
-        <div class="flex items-center justify-center w-full h-full min-h-screen mx-auto lg:w-1/3">
+        <div class="flex  gap-10 flex-col items-center justify-center w-full h-full min-h-screen mx-auto lg:w-1/3">
             <!-- component -->
+            <div>
+                <h4 class="text-purple-500 text-3xl text-center font-semibold">{{ __('Menu Tambah Kelas') }}</h4>
+            </div>
             <div class="flex flex-col items-center justify-center px-8 pt-6 pb-8 mx-3 mb-4 rounded shadow-md bg-pink-50">
-                <h5 class="text-lg text-center">Hi, {{ Auth::user()->name }}</h5>
-                <h5 class="text-lg text-center">Silakan masukkan password anda untuk masuk ke menu ini.</h5>
+                <h5 class="text-lg text-center">{{ __('Hi') }}, {{ Auth::user()->name }}</h5>
+                <h5 class="text-lg text-center">{{ __('Silakan masukkan password anda untuk mengakses menu ini') }}.</h5>
 
                 <div class="w-full mt-6 mb-6">
                     <input
                         class="w-full px-3 py-2 mb-3 border rounded shadow appearance-none border-red text-grey-darker"
                         type="password" wire:model="pswd">
                 </div>
-                <button wire:click="checkPassword" class="w-full button button-purple">Masuk</button>
+                <button wire:click="checkPassword" class="w-full button button-purple">{{ __('Enter') }}</button>
 
             </div>
         </div>
