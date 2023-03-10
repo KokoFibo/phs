@@ -29,47 +29,53 @@
     </div>
 
     <div
-        class="flex items-center w-full py-3 my-2 mb-3 shadow md:mx-auto md:w-3/4 justify-evenly shadow-purple-300 bg-purple-50 rounded-xl">
+        class="flex items-center w-full py-3 my-2 mb-3 shadow justify-evenly md:mx-auto md:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
+        <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly">
 
-        <div class="w-1/4 mx-1 md:mx-4 ">
-            <label class="px-2 ">{{ __('Group') }}</label><span class="text-red-500">*</span>
-            <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                wire:model="selectedGroup">
-                {{-- <option value="">{{ __('Silakan Pilih Group') }}</option> --}}
-                @foreach ($selectGroup as $g)
-                    <option value="{{ $g->id }}">{{ $g->nama_group }}</option>
-                @endforeach
-            </select>
+
+            <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
+                <label class="px-2 ">{{ __('Group') }}</label><span class="text-red-500">*</span>
+                <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                    wire:model="selectedGroup">
+                    {{-- <option value="">{{ __('Silakan Pilih Group') }}</option> --}}
+                    @foreach ($selectGroup as $g)
+                        <option value="{{ $g->id }}">{{ $g->nama_group }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
+                <label class="px-2 ">{{ __('Vihara') }}</label><span class="text-red-500">*</span>
+                <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                    wire:model="selectedBranch">
+                    {{-- <option value="">{{ __('Silakan Pilih Vihara') }}</option> --}}
+                    @foreach ($selectBranch as $g)
+                        <option value="{{ $g->id }}">{{ $g->nama_branch }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly">
+
+            <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
+                <label class="w-full px-2 ">{{ __('Kota') }}</label><span class="text-red-500">*</span>
+                <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                    wire:model="selectedKota">
+                    <option value="">{{ __('Silakan Pilih Kota') }}</option>
+                    @foreach ($selectKota as $g)
+                        <option value="{{ $g->id }}">{{ $g->nama_kota }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
+            <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
+                <button wire:click="setDefault" class="w-full mt-6 md:mt-0 button button-purple">Set as
+                    Default</button>
+
+            </div>
         </div>
 
-        <div class="w-1/4 mx-1 md:mx-4 ">
-            <label class="px-2 ">{{ __('Vihara') }}</label><span class="text-red-500">*</span>
-            <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                wire:model="selectedBranch">
-                {{-- <option value="">{{ __('Silakan Pilih Vihara') }}</option> --}}
-                @foreach ($selectBranch as $g)
-                    <option value="{{ $g->id }}">{{ $g->nama_branch }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div class="w-1/4 mx-1 md:mx-4 ">
-            <label class="px-2 ">{{ __('Kota') }}</label><span class="text-red-500">*</span>
-            <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                wire:model="selectedKota">
-                <option value="">{{ __('Silakan Pilih Kota') }}</option>
-                @foreach ($selectKota as $g)
-                    <option value="{{ $g->id }}">{{ $g->nama_kota }}</option>
-                @endforeach
-            </select>
-        </div>
-
-
-        <div>
-            <button wire:click="setDefault" class="mx-1 md:mx-4 button button-purple">Set as
-                Default</button>
-
-        </div>
     </div>
 
     <div
@@ -116,20 +122,7 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
-            {{-- <div class="mt-3">
-                <label class="px-2 ">{{ __('Kota') }}</label><span class="text-red-500">*</span>
-                <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                    wire:model="kota_id">
-                    <option value="">{{ __('Silakan Pilih Kota') }}</option>
-                    @foreach ($datakota as $kota)
-                    <option value="{{ $kota->id }}">{{ $kota->nama_kota }}</option>
-                    @endforeach
 
-                </select>
-                @error('kota_id')
-                <span class="text-red-500">{{ $message }}</span>
-                @enderror
-            </div> --}}
             <div class="mt-3">
                 <label class="px-2 " for="telepon">{{ __('Telepon') }}</label>
                 <input id="telepon" type="text" placeholder="02112345678" wire:model="telp"
@@ -159,20 +152,28 @@
         </div>
         <div class="w-full px-3 md:w-1/2 ">
 
-            <div class="mt-5">
+            <div class="mt-3 md:mt-5">
                 <div>
-                    <label class="px-2 ">{{ __('Gender') }}</label><span class="text-red-500">*</span>
+                    <label class="hidden px-2 md:inline ">{{ __('Gender') }}</label><span
+                        class="hidden px-2 text-red-500 md:inline">*</span>
                 </div>
-                <div class="mt-1">
-                    <input type="radio" value="1" checked id="laki""
-                        class="rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                        wire:model="gender">
-                    <label class="pr-2" for="laki">{{ __('Laki-laki') }}</label>
+                <div class="flex md:flex md:flex-col">
+                    <div>
+                        <label class="px-2 md:hidden ">{{ __('Gender ') }} <span
+                                class="text-red-500 md:hidden">*</span>
+                            : </label>
+                    </div>
+                    <div>
+                        <input type="radio" value="1" checked id="laki""
+                            class="rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                            wire:model="gender">
+                        <label class="pr-2" for="laki">{{ __('Laki-laki') }}</label>
 
-                    <input type="radio" value="2" checked id="perempuan""
-                        class="rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                        wire:model="gender">
-                    <label for="perempuan">{{ __('Perempuan') }}</label>
+                        <input type="radio" value="2" checked id="perempuan""
+                            class="rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                            wire:model="gender">
+                        <label for="perempuan">{{ __('Perempuan') }}</label>
+                    </div>
                 </div>
                 @error('gender')
                     <span class="text-red-500">{{ $message }}</span>
@@ -305,7 +306,7 @@
                 @enderror
             </div>
 
-            <div class="flex items-center justify-between w-full mt-9">
+            <div class="flex items-center justify-between w-full mt-10">
                 <div>
                     <button class="button button-purple" wire:click="store">{{ __('Save') }}</button>
                 </div>
