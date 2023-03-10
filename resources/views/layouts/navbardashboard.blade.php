@@ -11,7 +11,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('dashboard') }}">Dashboard <span class="sr-only">(current)</span></a>
@@ -46,27 +46,6 @@
                     </div>
                 </li>
             @endif
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Profile
-                </a>
-                <div style="color: rgb(236, 72, 153); background-color: white" class="dropdown-menu"
-                    aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ route('changeprofile') }}">Change Profile</a>
-                    @if (Auth::user()->role == '3' || Auth::user()->role == '2')
-                        <a class="dropdown-item" href="{{ route('registration') }}">Update New Admin</a>
-                    @endif
-                    <a class="dropdown-item" href="#">{{ __('User Setting') }} <span
-                            class="text-danger">({{ __('Under
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Construction') }})</span></a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
             <li class="nav-item active">
 
                 @if (app()->getLocale() == 'id')
@@ -77,8 +56,39 @@
                     <a class="nav-link" href="{{ url('locale/id') }}">{{ __('Indonesia') }} <span
                             class="sr-only">(current)</span></a>
                 @endif
-
+            </li>
             <li class="nav-item active">
+                <a class="nav-link" href="#">{{ Auth::user()->name }} <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="d-none d-lg-inline"
+                        src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?rounded=true&length=1&background=random&font-size=.8"
+                        width="30" />
+                    <div class="d-inline d-lg-none">
+                        Profile
+                    </div>
+                </a>
+                <div style="color: rgb(236, 72, 153); background-color: white"
+                    class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ route('changeprofile') }}">Change Profile</a>
+                    @if (Auth::user()->role == '3' || Auth::user()->role == '2')
+                        <a class="dropdown-item" href="{{ route('registration') }}">Update New Admin</a>
+                    @endif
+                    <a class="dropdown-item" href="#">{{ __('User Setting') }} <span
+                            class="text-danger">({{ __('Under Construction') }})</span></a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+
+
+            <li class="nav-item active d-inline d-lg-none">
                 <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
