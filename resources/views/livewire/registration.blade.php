@@ -58,7 +58,6 @@
         <div class="mx-3 text-right">
             <button wire:click="close" class="button button-teal">Back</button>
         </div>
-        <hr class="mt-3">
     </div>
     <div class="mt-3 justify-evenly">
         @if ($is_edit == true || $is_reset == true)
@@ -75,7 +74,7 @@
             @include('form_registration')
         @endif
     </div>
-
+    <hr class="invisible mt-5">
 </div>
 
 {{-- JS utk Sweetalert Delete --}}
