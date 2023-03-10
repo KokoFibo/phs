@@ -55,6 +55,7 @@
                 {{-- {{ $data->links() }} --}}
             </div>
         </div>
+        <hr class="invisible mt-5">
     </div>
     <hr class="mt-3">
     {{-- JS utk Sweetalert Delete --}}
