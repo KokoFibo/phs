@@ -65,7 +65,8 @@ class Viewumatwire extends Component
         $datakota = Kota::orderBy('nama_kota', 'asc')->get();
 
         return view('livewire.viewumatwire', compact(['datapandita', 'datakota']))
-        ->extends('layouts.secondMain')
+        ->extends('layouts.main')
+        // ->extends('layouts.secondMain')
         ->section('content');
     }
 }

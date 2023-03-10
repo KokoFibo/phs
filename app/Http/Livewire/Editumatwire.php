@@ -168,7 +168,8 @@ public function updated($fields) {
         $datakota = Kota::orderBy('nama_kota', 'asc')->get();
         $databranch = Branch::orderBy('nama_branch', 'asc')->get();
         return view('livewire.editumatwire', compact(['datapandita', 'datakota', 'databranch']))
-        ->extends('layouts.secondMain')
+        // ->extends('layouts.secondMain')
+        ->extends('layouts.main')
         ->section('content');
     }
 }
