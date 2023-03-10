@@ -4,7 +4,7 @@
 
 
 
-    <div class="w-full ml-3">
+    <div class="w-full ">
         <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Data User') }}</div>
         <div class="overflow-x-auto">
             <table class="table w-full mx-auto mt-5 table-fixed md:table-auto">
@@ -60,7 +60,7 @@
         </div>
         <hr class="mt-3">
     </div>
-    <div class="mx-2 mt-3 justify-evenly">
+    <div class="mt-3 justify-evenly">
         @if ($is_edit == true || $is_reset == true)
             <div class="w-full md:w-1/3">
             @else
