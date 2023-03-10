@@ -1,6 +1,6 @@
 <div>
     @section('title', 'Change Profile')
-    <div class="flex flex-col w-full gap-3 mx-2 mt-3 lg:flex lg:flex-row lg:justify-evenly">
+    <div class="flex flex-col w-full gap-3 p-3 mt-3 lg:flex lg:flex-row lg:justify-evenly">
         <div class="w-full lg:w-1/4">
             <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Change Profile') }}</div>
             @include('form_changeprofile')
