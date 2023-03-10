@@ -4,7 +4,7 @@
     @dump($selectedBranch)
     @dump($selectedKota) --}}
     <div
-        class="flex items-center justify-between w-full px-5 py-3 mt-2 text-white bg-purple-500 shadow-lg md:mx-auto md:w-3/4 rounded-xl">
+        class="flex items-center justify-between w-full px-5 py-3 mt-2 text-white bg-purple-500 shadow-lg md:mx-auto lg:w-3/4 rounded-xl">
         <div>
             <h4 class="text-xl font-semibold md:text-2xl">{{ __('Add Data') }}</h3>
         </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div
-        class="flex items-center w-full py-3 my-2 mb-3 shadow justify-evenly md:mx-auto md:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
+        class="flex items-center w-full py-3 my-2 mb-3 shadow justify-evenly md:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
         <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly">
 
 
@@ -79,7 +79,7 @@
     </div>
 
     <div
-        class="flex flex-col w-full py-5 pb-3 my-2 mt-2 mb-5 shadow md:flex md:flex-row md:justify-center md:mx-auto md:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
+        class="flex flex-col w-full py-5 pb-3 my-2 mt-2 mb-5 shadow md:flex md:flex-row md:justify-center md:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
         <div class="w-full px-3 md:w-1/2 ">
             <div class="mt-3">
                 <label class="px-2 " for="nama">{{ __('Nama') }}</label><span class="text-red-500">*</span>
