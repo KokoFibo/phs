@@ -61,9 +61,9 @@
         </div>
     </div>
     {{-- start --}}
-    <div class="flex mx-1 mt-3 row justify-content-between lg:justify-content-evenly">
+    <div class="mx-1 mt-3 flex-column flex-sm-row row justify-content-between lg:justify-content-evenly">
         @if (Auth::user()->role == 3)
-            <div class="mb-2 col-xl-3 col-4">
+            <div class="mb-2 col-12 col-sm-3 col-4">
                 <select wire:model="selectedGroupVihara" class="shadow form-select"
                     style="background-color:rgb(236,72,153); color: white; height:50px">
                     <option value="">{{ __('All Groups') }}</option>
@@ -74,8 +74,8 @@
             </div>
         @endif
 
-        <div class="mb-2 col-xl-3 col-4">
-            <select wire:model="selectedBranch" class="shadow form-select"
+        <div class="mb-2 col-12 col-sm-3 col-4 ">
+            <select wire:model="selectedBranch" class="shadow form-select "
                 style="background-color:rgb(59,130,246); color: white; height:50px">
                 <label>Pilih Kelas</label>
                 @if (Auth::user()->role == '3')
@@ -86,7 +86,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="mb-2 col-xl-3 col-4">
+        <div class="mb-2 col-12 col-sm-3 col-4">
             <select class="shadow form-select" wire:model="selectedDaftarKelasId"
                 style="background-color:rgb(168,85,247); color: white; height:50px">
                 <option value="">Pilih Kelas</option>
