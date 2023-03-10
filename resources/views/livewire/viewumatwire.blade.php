@@ -4,10 +4,10 @@
 
     <div
         class="flex w-full px-5 py-3 mt-2 text-white bg-purple-500 shadow-lg ietms-center lg:w-3/4 lg:mx-auto rounded-xl">
-        <div class="w-1/5">
+        <div class="w-1/4">
             <h4 class="text-lg font-semibold lg:text-2xl">{{ __('View Data') }}</h4>
         </div>
-        <div class="w-4/5 ">
+        <div class="w-3/4 ">
             <h3 class="text-2xl text-center">
                 {{ getBranch($branch_id) }}
             </h3>
