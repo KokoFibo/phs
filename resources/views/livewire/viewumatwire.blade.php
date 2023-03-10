@@ -18,7 +18,7 @@
         <div class="w-full px-5 lg:w-1/2 ">
 
             <div class="mt-3">
-                <label class="px-2 " for="nama">{{ __('Nama') }}</label>
+                <label class="px-2 " for="nama">{{ __('Nama1') }}</label>
                 <input id="nama" type="text" wire:model="nama_umat"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
             </div>
