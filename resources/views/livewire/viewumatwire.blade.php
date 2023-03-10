@@ -5,22 +5,22 @@
     <div
         class="flex w-full px-5 py-3 mt-2 text-white bg-purple-500 shadow-lg ietms-center lg:w-3/4 lg:mx-auto rounded-xl">
         <div class="w-1/5">
-            <h4 class="text-lg font-semibold lg:text-2xl">{{ __('View Data1') }}</h4>
+            <h4 class="text-lg font-semibold lg:text-2xl">{{ __('View Data') }}</h4>
         </div>
-        <div class="w-4/5 text-center">
-            <h3 class="text-2xl">
+        <div class="w-4/5 ">
+            <h3 class="text-2xl text-center">
                 {{ getBranch($branch_id) }}
             </h3>
         </div>
     </div>
     <div
-        class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow lg:flex lg:flex-row lg:justify-center lg:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
-        <div class="w-full px-5 lg:w-1/2 ">
+        class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow md:flex md:flex-row md:justify-center md:mx-auto md:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
+        <div class="w-full px-5 md:w-1/2 ">
 
             <div class="mt-3">
-                <label class="px-2 " for="nama">{{ __('Nama1') }}</label>
+                <label class="px-2 " for="nama">{{ __('Nama') }}</label>
                 <input id="nama" type="text" wire:model="nama_umat"
-                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                    class="w-full rounded-md shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
             </div>
             <div class="mt-3">
                 <label class="px-2 " for="nama">{{ __('Nama Alias') }}</label>
