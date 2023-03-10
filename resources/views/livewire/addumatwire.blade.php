@@ -4,9 +4,9 @@
     @dump($selectedBranch)
     @dump($selectedKota) --}}
     <div
-        class="flex items-center justify-between w-full px-5 py-3 mx-3 mt-2 text-white bg-purple-500 shadow-lg lg:mx-auto lg:w-3/4 rounded-xl">
+        class="flex items-center justify-between w-full px-5 py-3 mt-2 text-white bg-purple-500 shadow-lg md:mx-auto md:w-3/4 rounded-xl">
         <div>
-            <h4 class="text-xl font-semibold lg:text-2xl">{{ __('Add Data') }}</h3>
+            <h4 class="text-xl font-semibold md:text-2xl">{{ __('Add Data') }}</h3>
         </div>
         <div>
             <h3 class="text-2xl">
@@ -29,9 +29,9 @@
     </div>
 
     <div
-        class="flex items-center w-full py-3 mx-3 my-2 mb-3 shadow lg:mx-auto lg:w-3/4 justify-evenly shadow-purple-300 bg-purple-50 rounded-xl">
+        class="flex items-center w-full py-3 my-2 mb-3 shadow md:mx-auto md:w-3/4 justify-evenly shadow-purple-300 bg-purple-50 rounded-xl">
 
-        <div class="w-1/4 mx-1 lg:mx-4 ">
+        <div class="w-1/4 mx-1 md:mx-4 ">
             <label class="px-2 ">{{ __('Group') }}</label><span class="text-red-500">*</span>
             <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                 wire:model="selectedGroup">
@@ -42,7 +42,7 @@
             </select>
         </div>
 
-        <div class="w-1/4 mx-1 lg:mx-4 ">
+        <div class="w-1/4 mx-1 md:mx-4 ">
             <label class="px-2 ">{{ __('Vihara') }}</label><span class="text-red-500">*</span>
             <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                 wire:model="selectedBranch">
@@ -53,7 +53,7 @@
             </select>
         </div>
 
-        <div class="w-1/4 mx-1 lg:mx-4 ">
+        <div class="w-1/4 mx-1 md:mx-4 ">
             <label class="px-2 ">{{ __('Kota') }}</label><span class="text-red-500">*</span>
             <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                 wire:model="selectedKota">
@@ -66,15 +66,15 @@
 
 
         <div>
-            <button wire:click="setDefault" class="mx-1 lg:mx-4 button button-purple">Set as
+            <button wire:click="setDefault" class="mx-1 md:mx-4 button button-purple">Set as
                 Default</button>
 
         </div>
     </div>
 
     <div
-        class="flex justify-center w-full py-5 pb-3 mx-3 my-2 mt-2 mb-5 shadow lg:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
-        <div class="w-1/2 px-3 ">
+        class="flex flex-col w-full py-5 pb-3 my-2 mt-2 mb-5 shadow md:flex md:flex-row md:justify-center md:mx-auto md:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
+        <div class="w-full px-3 md:w-1/2 ">
             <div class="mt-3">
                 <label class="px-2 " for="nama">{{ __('Nama') }}</label><span class="text-red-500">*</span>
                 <input id="nama" type="text" placeholder="{{ __('Nama Lengkap') }}" wire:model="nama_umat"
@@ -157,7 +157,7 @@
 
 
         </div>
-        <div class="w-1/2 px-3 ">
+        <div class="w-full px-3 md:w-1/2 ">
 
             <div class="mt-5">
                 <div>
