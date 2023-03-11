@@ -523,7 +523,7 @@
         </table>
 
     </div>
-    <div class="py-3">
+    <div class="px-3">
         {{ $datapelita1->links() }}
 
     </div>
