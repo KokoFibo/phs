@@ -275,7 +275,7 @@
         @endif
         <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
             <tr>
-                <th class="w-16 text-center "><input type="checkbox" wire:model="selectAll"
+                <th class="w-10 p-3 px-5 text-center "><input type="checkbox" wire:model="selectAll"
                         class=" checked:bg-white-500" />
                 </th>
 
@@ -352,7 +352,7 @@
                         wire:click="sortColumnName('keterangan')">
                         {{ __('KETERANGAN') }}</th>
                 @endif
-                <th class="p-3 font-semibold w-28 ">
+                <th class="w-20 p-3 font-semibold ">
                     <div class="flex justify-center space-x-1">
                         <div>
                             <a href="/adddata">
@@ -478,7 +478,7 @@
                     @endif
 
 
-                    <td class="p-3 text-gray-800 ">
+                    <td class="p-3 px-5 text-gray-800 ">
 
                         <div class="flex justify-center space-x-1">
 
