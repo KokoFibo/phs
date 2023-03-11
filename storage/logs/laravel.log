@@ -4880,3 +4880,55 @@ Did you mean one of these?
 [stacktrace]
 #0 {main}
 "} 
+[2023-03-11 09:32:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:33:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:34:09] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:35:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:36:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:37:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:38:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:39:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:40:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:41:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:42:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:43:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-11 09:44:08] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 

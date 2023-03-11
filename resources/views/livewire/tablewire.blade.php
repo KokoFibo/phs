@@ -266,7 +266,7 @@
     {{-- Table --}}
     {{-- <div class="p-4 "> --}}
     {{-- work --}}
-    <div class="w-full py-4 ">
+    <div class="w-full py-4 overflow-x-auto ">
 
         @if ($isTambahKolom == 1)
             <table class="w-full rounded-lg shadow table-fixed bg-gray-50">
@@ -275,7 +275,7 @@
         @endif
         <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
             <tr>
-                <th class="w-10 px-2 text-center "><input type="checkbox" wire:model="selectAll"
+                <th class="w-16 text-center "><input type="checkbox" wire:model="selectAll"
                         class=" checked:bg-white-500" />
                 </th>
 
@@ -352,7 +352,7 @@
                         wire:click="sortColumnName('keterangan')">
                         {{ __('KETERANGAN') }}</th>
                 @endif
-                <th class="w-20 p-3 font-semibold ">
+                <th class="p-3 font-semibold w-28 ">
                     <div class="flex justify-center space-x-1">
                         <div>
                             <a href="/adddata">
