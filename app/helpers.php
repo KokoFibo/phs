@@ -178,6 +178,8 @@ if(!function_exists('getYear')) {
 
 
 
+
+
       function roleCheck($role) {
         switch($role) {
             case '0': $rolename='User'; break;

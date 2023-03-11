@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 class Changeprofilewire extends Component
 {
     use WithPagination;
-    public  $name, $email, $role, $branch_id, $groupvihara_id, $kota_id, $password_confirmation, $password, $currentId, $curr_pass, $current_id;
+    public  $name, $email, $role, $branch_id, $groupvihara_id, $kota_id, $password_confirmation, $password, $currentId, $curr_pass='', $current_id;
 
 
 
@@ -98,6 +98,7 @@ public function changePassword () {
 
     public function render()
     {
+        $this->curr_pass = '';
          $data = User::where('id', Auth::user()->id)->get();
 
         return view('livewire.changeprofilewire', compact(['data']))
