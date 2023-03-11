@@ -66,6 +66,10 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['supervisor'])->group(function () {
         Route::get('/registration', Registration::class)->name('registration');
         Route::get('/daftarkelas', Daftarkelaswire::class)->name('daftarkelas');
+        Route::get('/branch', Branchwire::class)->name('branchwire');
+        Route::get('/absensi', Absensiwire::class)->name('absensi');
+
+
     });
 
     Route::get('/tambahkelas', Tambahkelaswire::class)->middleware(['manager'])->name('tambahkelas');
@@ -87,9 +91,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/umatview', )->name('umatview');
         Route::get('/panditawire', Panditawire::class)->name('panditawire');
         Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
-        Route::get('/branch', Branchwire::class)->name('branchwire');
         Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
-        Route::get('/absensi', Absensiwire::class)->name('absensi');
         Route::get('/resetumur', function () {
             $data = DataPelita::all();
             foreach($data as $d ){

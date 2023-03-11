@@ -37,14 +37,7 @@
                                 <td class="h-10 text-center text-gray-700 border ">{{ $d->groupvihara->nama_group }}
                                 </td>
                                 <td class="h-10 text-center text-gray-700 border ">{{ $d->branch->nama_branch }}</td>
-                                {{-- <td class="h-10 text-center text-gray-700 border ">
-                                    <div class="text-center">
-                                        <button wire:click="edit({{ $d->id }})"
-                                    class="px-2 py-1 text-sm text-black bg-orange-500 rounded"><i class="fa fa-pen-to-square "></i></button>
-                                    <button wire:click="deleteConfirmation({{ $d->id }})" class="px-2 py-1 text-sm text-white bg-red-500 rounded"><i class="fa fa-trash "></i></button>
-                                    <button wire:click="resetpassword({{ $d->id }})" class="px-2 py-1 text-sm text-white bg-teal-500 rounded"><i class="fa fa-arrow-rotate-right"></i></button>
-            </div>
-            </td> --}}
+
                             </tr>
                             {{-- @endif --}}
                         @endforeach

@@ -182,7 +182,7 @@ class Registration extends Component
     public function render()
     {
         $kota = Kota::orderBy('nama_kota', 'asc')->get();
-        $branch = Branch::orderBy('nama_branch', 'asc')->get();
+        $branch = Branch::where('groupvihara_id', $this->groupvihara_id)->orderBy('nama_branch', 'asc')->get();
         $group = Groupvihara::orderBy('nama_group', 'asc')->get();
 
         $data = DB::table('users')

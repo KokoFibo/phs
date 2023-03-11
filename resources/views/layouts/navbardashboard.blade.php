@@ -20,20 +20,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('main') }}">{{ __('Data Umat') }}</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ __('Absensi') }}
-                </a>
-                <div style="color: rgb(236, 72, 153); background-color: white" class="dropdown-menu"
-                    aria-labelledby="navbarDropdownMenuLink">
-                    @if (Auth::user()->role == '3')
-                        <a class="dropdown-item" href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
-                        <a class="dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
-                    @endif
-                    <a class="dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</a>
-                </div>
-            </li>
+            @if (Auth::user()->role == '3' || Auth::user()->role == '2')
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ __('Absensi') }}
+                    </a>
+                    <div style="color: rgb(236, 72, 153); background-color: white" class="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        @if (Auth::user()->role == '3')
+                            <a class="dropdown-item" href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
+                            <a class="dropdown-item" href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
+                        @endif
+                        <a class="dropdown-item" href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</a>
+                    </div>
+                </li>
+            @endif
+
             @if (Auth::user()->role == '3')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"

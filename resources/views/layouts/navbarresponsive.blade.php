@@ -21,40 +21,44 @@
                         <a class="block py-2 lg:p-2 hover:text-purple-400"
                             href="{{ route('main') }}">{{ __('Data Umat') }}</a>
                     </li>
-                    <li>
-                        <div x-data="{ open: false }">
-                            <button @click="open = !open"
-                                class="block py-2 lg:p-2 hover:text-purple-400
+                    @if (Auth::user()->role == '3' || Auth::user()->role == '2')
+
+                        <li>
+                            <div x-data="{ open: false }">
+                                <button @click="open = !open"
+                                    class="block py-2 lg:p-2 hover:text-purple-400
                                 {{ 'tambahkelas' == request()->path() || 'daftarkelas' == request()->path() || 'absensi' == request()->path() ? 'active' : '' }}">{{ __('Absensi') }}
-                                <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
-                            </button>
-                            <div x-show="open" x-cloak @click.away="open = false" x-transition
-                                class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded ">
-                                <ul class="w-32 mx-5 divide-y">
-                                    @if (Auth::user()->role == '3')
-                                        <li
-                                            class="py-2 my-2  hover:bg-gray-200 {{ 'tambahkelas' == request()->path() ? 'active1' : '' }}">
-                                            <a class="block dropdown-item"
-                                                href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
-                                        </li>
+                                    <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
+                                </button>
+                                <div x-show="open" x-cloak @click.away="open = false" x-transition
+                                    class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 bg-white border rounded ">
+                                    <ul class="w-32 mx-5 divide-y">
+                                        @if (Auth::user()->role == '3')
+                                            <li
+                                                class="py-2 my-2  hover:bg-gray-200 {{ 'tambahkelas' == request()->path() ? 'active1' : '' }}">
+                                                <a class="block dropdown-item"
+                                                    href="{{ route('tambahkelas') }}">{{ __('Tambah Kelas') }}</a>
+                                            </li>
+
+                                            <li
+                                                class="py-2 my-2 hover:bg-gray-200 {{ 'daftarkelas' == request()->path() ? 'active1' : '' }}">
+                                                <a class="block dropdown-item"
+                                                    href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
+                                            </li>
+                                        @endif
 
                                         <li
-                                            class="py-2 my-2 hover:bg-gray-200 {{ 'daftarkelas' == request()->path() ? 'active1' : '' }}">
+                                            class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : '' }}">
                                             <a class="block dropdown-item"
-                                                href="{{ route('daftarkelas') }}">{{ __('Daftar Kelas') }}</a>
+                                                href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</span></a>
                                         </li>
-                                    @endif
+                                    </ul>
+                                </div>
 
-                                    <li
-                                        class="py-2 my-2 hover:bg-gray-200 {{ 'absensi' == request()->path() ? 'active1' : '' }}">
-                                        <a class="block dropdown-item"
-                                            href="{{ route('absensi') }}">{{ __('Absensi Kelas') }}</span></a>
-                                    </li>
-                                </ul>
                             </div>
+                        </li>
+                    @endif
 
-                        </div>
-                    </li>
                     <li>
                         @if (Auth::user()->role == '3')
                             <div x-data="{ open: false }">
@@ -127,7 +131,7 @@
                                     <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                         <a class="block" href="#">{{ __('User Setting') }}<span
                                                 class="text-red-500">({{ __('Under
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Construction') }})</span></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Construction') }})</span></a>
                                     </li>
                                     <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                         <a class="block" href="{{ route('logout') }}"
