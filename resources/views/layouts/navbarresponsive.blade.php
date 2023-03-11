@@ -13,20 +13,22 @@
             <div class="hidden w-full lg:flex lg:items-center lg:w-auto" id="menu">
                 <ul class="pt-4 text-base text-white lg:flex lg:justify-between lg:items-center lg:pt-0">
 
-                    <li class="{{ 'dashboard' == request()->path() ? 'active' : '' }}">
-                        <a class="block py-2 lg:p-4 hover:text-purple-400"
+                    <li
+                        class="{{ 'dashboard' == request()->path() ? 'active' : '' }} text-center text-white hover:bg-gray-100 hover:text-purple-500 hover:lg:bg-pink-500">
+                        <a class="block py-2 lg:p-4 hover:text-purple-500"
                             href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
                     </li>
-                    <li class="{{ 'main' == request()->path() ? 'active' : '' }}">
-                        <a class="block py-2 lg:p-2 hover:text-purple-400"
+                    <li
+                        class="{{ 'main' == request()->path() ? 'active' : '' }} text-center text-white hover:bg-gray-100 hover:text-purple-500 hover:lg:bg-pink-500">
+                        <a class="block py-2 lg:p-2 hover:text-purple-500"
                             href="{{ route('main') }}">{{ __('Data Umat') }}</a>
                     </li>
                     @if (Auth::user()->role == '3' || Auth::user()->role == '2')
 
                         <li>
-                            <div x-data="{ open: false }">
+                            <div x-data="{ open: false }" class="text-center">
                                 <button @click="open = !open"
-                                    class="block py-2 lg:p-2 hover:text-purple-400
+                                    class=" py-2 lg:p-2  text-center text-white hover:bg-gray-100 hover:text-purple-500 hover:lg:bg-pink-500
                                 {{ 'tambahkelas' == request()->path() || 'daftarkelas' == request()->path() || 'absensi' == request()->path() ? 'active' : '' }}">{{ __('Absensi') }}
                                     <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
                                 </button>
@@ -59,11 +61,11 @@
                         </li>
                     @endif
 
-                    <li>
+                    <li class="text-center text-white hover:bg-gray-100 hover:text-purple-500 hover:lg:bg-pink-500">
                         @if (Auth::user()->role == '3')
                             <div x-data="{ open: false }">
                                 <button @click="open = !open"
-                                    class="block py-2 lg:p-2 hover:text-purple-400 {{ 'branch' == request()->path() || 'panditawire' == request()->path() || 'datakotawire' == request()->path() ? 'active' : '' }}">{{ __('Group Vihara') }}
+                                    class=" py-2 lg:p-2 hover:text-purple-400 {{ 'branch' == request()->path() || 'panditawire' == request()->path() || 'datakotawire' == request()->path() ? 'active' : '' }}">{{ __('Group Vihara') }}
                                     <i class="ml-1 fa-sharp fa-solid fa-caret-down"></i>
 
                                 </button>
@@ -88,30 +90,33 @@
                         @endif
 
                     </li>
-                    <li>
+                    <li class="text-center text-white hover:bg-gray-100 ">
                         @if (app()->getLocale() == 'id')
                             {{-- <a class="dropdown-item" href="{{ url('locale/en') }}">{{ __('english') }}</a> --}}
-                            <a class="block py-2 lg:p-2 hover:text-purple-400"
+                            <a class="block py-2 lg:p-2 hover:text-purple-500 hover:lg:bg-pink-500"
                                 href="{{ url('locale/cn') }}">{{ __('中文') }}</a>
                         @endif
 
                         @if (app()->getLocale() == 'cn')
-                            <a class="block py-2 lg:p-2 hover:text-purple-400"
+                            <a class="block py-2 lg:p-2 hover:text-purple-500 hover:lg:bg-pink-500"
                                 href="{{ url('locale/id') }}">{{ __('Indonesia') }}</a>
                         @endif
                     </li>
                     <li>
                         <div class="flex items-center hidden space-x-10 lg:inline">
-                            <h4 class="block py-2 lg:p-2 hover:text-purple-400">{{ Auth::user()->name }}</h4>
+                            <h4 class="block py-2 lg:p-2">{{ Auth::user()->name }}</h4>
                         </div>
                     </li>
-                    <li>
-                        <div x-data="{ open: false }" class="relative items-center">
-                            <button @click="open=!open" class="block py-2 lg:p-2 hover:text-purple-400">
-                                <img class="hidden lg:inline"
+                    <li class="text-center text-white hover:bg-gray-100 hover:text-pink-500 lg:hover:green-500">
+                        <div x-data="{ open: false }" class="relative items-center ">
+                            <button @click="open=!open" class="py-2 lg:p-2 hover:text-purple-500 hover:lg:bg-pink-500 ">
+                                <img class="hidden lg:inline hover:lg:transform hover:lg:scale-125 hover:lg:transition-all"
                                     src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?rounded=true&length=1&background=random&font-size=.8"
                                     width="30" />
-                                <p class="inline lg:hidden">{{ __('Profile') }}</p>
+                                <p class="text-center lg:hidden">{{ __('Profile') }} <i
+                                        class="ml-1 fa-sharp fa-solid fa-caret-down"></i></p>
+
+
                             </button>
 
 
@@ -131,7 +136,7 @@
                                     <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                         <a class="block" href="#">{{ __('User Setting') }}<span
                                                 class="text-red-500">({{ __('Under
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Construction') }})</span></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Construction') }})</span></a>
                                     </li>
                                     <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                         <a class="block" href="{{ route('logout') }}"
@@ -145,6 +150,13 @@
                             </div>
                         </div>
 
+                    </li>
+                    <li class="py-2 my-2 text-center text-white lg:hidden hover:bg-gray-100 hover:text-pink-500">
+                        <a class="block" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                            @csrf
+                        </form>
                     </li>
 
                 </ul>
