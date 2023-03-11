@@ -266,7 +266,7 @@
     {{-- Table --}}
     {{-- <div class="p-4 "> --}}
     {{-- work --}}
-    <div class="w-full py-4 overflow-x-auto ">
+    <div class="w-full py-4 ">
 
         @if ($isTambahKolom == 1)
             <table class="w-full rounded-lg shadow table-fixed bg-gray-50">
