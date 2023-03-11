@@ -14,11 +14,11 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }} <span
-                        class="sr-only">(current)</span></a>
+                <a class="nav-link fw-semibold" style="border-bottom: 2px solid white;"
+                    href="{{ route('dashboard') }}">{{ __('Dashboard') }} <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('main') }}">{{ __('Data Umat') }}</a>
+                <a class="nav-link " href="{{ route('main') }}">{{ __('Data Umat') }}</a>
             </li>
             @if (Auth::user()->role == '3' || Auth::user()->role == '2')
 
@@ -62,7 +62,7 @@
                             class="sr-only">(current)</span></a>
                 @endif
             </li>
-            <li class="nav-item active">
+            <li class="hidden nav-item active d-lg-inline d-none">
                 <a class="nav-link" href="#">{{ Auth::user()->name }} <span class="sr-only">(current)</span></a>
             </li>
 

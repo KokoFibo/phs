@@ -360,14 +360,15 @@
                     <div class="flex justify-center space-x-1">
                         <div>
                             <a href="/adddata">
-                                <x-button type="button" class="p-1 text-white bg-blue-500 rounded ">
+                                <x-button type="button"
+                                    class="p-1 text-white bg-blue-500 rounded hover:bg-blue-700 ">
                                     <i class="fa-solid fa-user-plus"></i>
                                 </x-button>
                             </a>
                         </div>
                         {{-- Reset --}}
                         <div>
-                            <button type="button" class="p-1 text-white bg-green-500 rounded "
+                            <button type="button" class="p-1 text-white bg-green-500 rounded hover:bg-green-700 "
                                 wire:click="resetFilter">
                                 <i class="fa fa-arrow-rotate-right"></i>
                             </button>
@@ -383,7 +384,7 @@
                         class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
                     @else
                     <tr
-                        class="h-3 border-b bg-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
+                        class="h-3 bg-gray-300 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
                 @endif
                 <td class="text-center ">
                     <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
@@ -494,7 +495,8 @@
 
                         <div>
                             <a href="/viewdata/{{ $d->id }}">
-                                <x-button type="button" class="p-1 text-black bg-green-400 rounded">
+                                <x-button type="button"
+                                    class="p-1 text-black bg-green-400 rounded hover:bg-green-600">
                                     <i class="fa fa-eye "></i>
                                 </x-button>
                             </a>
@@ -504,7 +506,8 @@
                         {{-- <div> --}}
                         <div>
                             <a href="/editdata/{{ $d->id }}">
-                                <x-button type="button" class="p-1 text-black bg-yellow-300 rounded">
+                                <x-button type="button"
+                                    class="p-1 text-black bg-yellow-300 rounded hover:bg-yellow-500">
                                     <i class="fa fa-pen-to-square "></i>
                                 </x-button>
                             </a>
@@ -513,7 +516,7 @@
                         @if (Auth::user()->role != '1')
                             <div>
 
-                                <x-button class="p-1 text-white bg-red-500 rounded"
+                                <x-button class="p-1 text-white bg-red-500 rounded hover:bg-red-700"
                                     wire:click="deleteConfirmation({{ $d->id }})">
                                     <i class="fa fa-trash "></i>
                                 </x-button>
