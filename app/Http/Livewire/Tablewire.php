@@ -321,6 +321,8 @@ public function updatedSelectAll () {
         // ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
 
         // $datapelita = DataPelita::query()
+
+
         $datapelita = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
         ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
          ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
@@ -362,6 +364,7 @@ public function updatedSelectAll () {
 
 
     } elseif ($this->default == false && $this->search == ''){
+
         // $datapelita = DB::table('data_pelitas')
         // ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         // ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
@@ -408,6 +411,7 @@ public function updatedSelectAll () {
     }
     // yg ini
     elseif ($this->default == true && $this->search != ''){
+
         // $datapelita = DB::table('data_pelitas')
         // ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         // ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
@@ -454,11 +458,7 @@ public function updatedSelectAll () {
     }
     else {
 
-        // $datapelita = DB::table('data_pelitas')
-        // ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
-        // ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
-        // ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
-        // $datapelita = DataPelita::query()
+
         $datapelita = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
         ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
          ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
@@ -496,24 +496,12 @@ public function updatedSelectAll () {
         ->when($this->tgl_vtotal, function($query){
             $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
-
         ;
-
     }
 
     $data_branch = Branch::find(Auth::user()->branch_id);
-    if(AUth::user()->role != '3') {
-        $all_branch = Branch::orderBy('nama_branch', 'asc')->where('groupvihara_id', $this->group_id)->get();
+    $all_branch = Branch::orderBy('nama_branch', 'asc')->where('groupvihara_id', $this->group_id)->get();
 
-    } else {
-        $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
-
-    }
-
-    // if($this->kode_branch_khusus != null){
-    //     $dataft = Branch::find($this->kode_branch_khusus);
-    //     $namaft = $dataft->nama_branch;
-    // }
     if($this->group_id != null){
         $dataGroup = GroupVihara::find($this->group_id);
         $namaft = $dataGroup->nama_group;
