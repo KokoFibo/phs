@@ -236,9 +236,15 @@ class Dashboardwire extends Component
     public function mount()
     {
         $this->selectedGroupVihara = Auth::user()->groupvihara_id;
-        $data =  Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->select('id')->first();
+        try {
+            $data =  Daftarkelas::where('groupvihara_id', $this->selectedGroupVihara)->select('id')->first();
+            $this->selectedDaftarKelasId = $data->id;
+            // untuk sementara gini dulu deh
+        } catch (\Exception $e) {
+            $this->selectedDaftarKelasId = 1;
+            return $e->getMessage();
+}
 
-        $this->selectedDaftarKelasId = $data->id;
 
         // $this->getDataAbsensiTerakhir();
 
