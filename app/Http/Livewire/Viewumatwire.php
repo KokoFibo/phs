@@ -34,14 +34,28 @@ class Viewumatwire extends Component
           $this->email = $data->email;
           $this->pengajak_id = $data->pengajak_id;
           $this->pengajak = $data->pengajak;
-        //   $this->nama_pengajak = getName($data->pengajak_id);
           $this->penjamin_id = $data->penjamin_id;
           $this->penjamin = $data->penjamin;
-        //   $this->nama_penjamin = getName($data->penjamin_id);
           $this->pandita_id = $data->pandita_id;
           $this->tgl_mohonTao = date('d M Y', strtotime($data->tgl_mohonTao));
-          $this->tgl_sd3h = date('d M Y', strtotime($data->tgl_sd3h));
-          $this->tgl_vtotal = date('d M Y', strtotime($data->tgl_vtotal));
+
+          if($data->tgl_sd3h == null) {
+
+              $this->tgl_sd3h = $data->tgl_sd3h;
+          }else {
+
+              $this->tgl_sd3h = Carbon::parse( $data->tgl_sd3h )->format('d M Y');
+          }
+
+        //   date('d M Y', strtotime($data->tgl_sd3h));
+
+          if($data->tgl_vtotal == null) {
+              $this->tgl_vtotal = $data->tgl_vtotal;
+
+          } else {
+              $this->tgl_vtotal = date('d M Y', strtotime($data->tgl_vtotal));
+
+          }
         $this->status = $data->status;
         $this->keterangan = $data->keterangan;
         $this->last_update = $data->updated_at->diffForHumans();
