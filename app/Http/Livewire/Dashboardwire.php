@@ -461,11 +461,11 @@ class Dashboardwire extends Component
 
         $groupvihara = Groupvihara::all();
 
-        if (Auth::user()->role != '3') {
-            $branch = Branch::where('groupvihara_id', $this->selectedGroupVihara)->get();
-        } else {
-            $branch = Branch::all();
-        }
+        $branch = Branch::where('groupvihara_id', $this->selectedGroupVihara)->get();
+        // if (Auth::user()->role != '3') {
+        // } else {
+        //     $branch = Branch::all();
+        // }
 
             // masih belum beres logicnya utk autocreate usersetting saat register new user
         // $checkUserSetting = Usersetting::where('user_id', Auth::user()->id);
