@@ -551,10 +551,11 @@
         </table>
 
     </div>
-    <div class="px-3">
+    <div class="px-3 mt-3">
         {{ $datapelita1->links() }}
 
     </div>
+    <hr class="invisible mt-3">
     {{--
     </div> --}}
     {{-- End Table --}}
