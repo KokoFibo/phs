@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use App\Models\Kota;
 use App\Models\Kelas;
 use App\Models\Branch;
+use App\Models\Absensi;
 use App\Models\Pandita;
 use App\Models\DataPelita;
 use App\Models\Daftarkelas;
@@ -91,6 +92,28 @@ if(!function_exists('getYear')) {
         }
 
 
+        }
+        function check_is_peserta_terdaftar($datapelita_id , $daftarkelas_id ){
+            $data = Absensi::where('datapelita_id', $datapelita_id)->where('daftarkelas_id', $daftarkelas_id)->first();
+
+            try {
+
+                return $data->id;
+            } catch (\Exception $e) {
+                return null;
+    }
+
+
+        }
+
+        function check_daftarkelas_is_used($id){
+        $data =  Absensi::where('daftarkelas_id', $id)->first();
+        try {
+
+            return $data->daftarkelas_id;
+        } catch (\Exception $e) {
+            return null;
+}
         }
 
       function getKelas($id) {

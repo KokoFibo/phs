@@ -83,18 +83,22 @@
                                     @endif
                                 </td> --}}
                                     <td class="p-3 text-gray-800 border rounded">
-                                        <div class="flex justify-center space-x-1">
+                                        {{ check_is_peserta_terdaftar($p->datapelita_id, $p->daftarkelas_id) }}
+                                        @if (check_is_peserta_terdaftar($p->datapelita_id, $p->daftarkelas_id) == null)
+                                            <button wire:click="deletepesertaConfirmation({{ $p->id }})"
+                                                class="p-1 text-white bg-red-500 rounded">
+                                                <i class="fa fa-trash "></i>
+                                            </button>
+                                        @endif
+                                        {{-- <div class="flex justify-center space-x-1">
                                             <button wire:click="editpesertakelas({{ $p->id }})" type="button"
                                                 class="p-1 text-black bg-yellow-300 rounded">
                                                 <i class="fa fa-pen-to-square "></i>
                                             </button>
                                             @if ($p->pesertakelas_is_used == false)
-                                                <button wire:click="deletepesertaConfirmation({{ $p->id }})"
-                                                    class="p-1 text-white bg-red-500 rounded">
-                                                    <i class="fa fa-trash "></i>
-                                                </button>
+
                                             @endif
-                                        </div>
+                                        </div> --}}
                                     </td>
                                 </tr>
                             </tbody>

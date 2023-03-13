@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Auth;
 use App\Models\Kelas;
 use App\Models\Branch;
+use App\Models\Absensi;
 use Livewire\Component;
 use App\Models\Daftarkelas;
 use App\Models\Groupvihara;
@@ -74,19 +75,38 @@ class Daftarkelaswire extends Component
         $this->clear_fields();
         $this->is_add=true;
         $this->render();
+        $this->close();
+
     }
 
     public function deleteConfirmation ($id) {
-        $data = Daftarkelas::find($id);
-        $namakelas = getKelas($data->kelas_id);
-        $namagroup = getGroupVihara($data->groupvihara_id);
-        $this->dispatchBrowserEvent('delete_confirmation', [
-            'title' => 'Yakin Untuk Hapus Data',
-            //  'text' => "You won't be able to revert this!",
-              'text' => "Data Kelas : " . $namakelas . ", di Cetya : " . $namagroup,
-             'icon' => 'warning',
-             'id' => $id,
-        ]);
+
+        $is_used = check_daftarkelas_is_used($id);
+
+        if($is_used == null) {
+            $data = Daftarkelas::find($id);
+            $namakelas = getKelas($data->kelas_id);
+            $namagroup = getGroupVihara($data->groupvihara_id);
+            $this->dispatchBrowserEvent('delete_confirmation', [
+                'title' => 'Yakin Untuk Hapus Data',
+                //  'text' => "You won't be able to revert this!",
+                  'text' => "Data Kelas : " . $namakelas . ", di Cetya : " . $namagroup,
+                 'icon' => 'warning',
+                 'id' => $id,
+            ]);
+        } else {
+
+            $this->dispatchBrowserEvent('canNotDelete', [
+                // 'title' => 'Yakin Untuk Hapus Data',
+                //   'text' => "Data Kelas : " . $namakelas . ", di Cetya : " . $namagroup,
+                //  'icon' => 'warning',
+                //  'id' => $id,
+            ]);
+
+        }
+
+
+
     }
 
     public function delete ($id) {
@@ -99,13 +119,14 @@ class Daftarkelaswire extends Component
         }
 
      }
-    public function edit ($id) {
-        $this->id_daftarkelas = $id;
-        $data = Daftarkelas::find($id);
-        $this->kelas_id = $data->kelas_id;
-        $this->groupvihara_id = $data->groupvihara_id;
-        $this->is_add=false;
-    }
+    // public function edit ($id) {
+    //     dd('hello');
+    //     $this->id_daftarkelas = $id;
+    //     $data = Daftarkelas::find($id);
+    //     $this->kelas_id = $data->kelas_id;
+    //     $this->groupvihara_id = $data->groupvihara_id;
+    //     $this->is_add=false;
+    // }
 
     public function clear_fields() {
         // $this->reset();
