@@ -16,7 +16,8 @@
             <div class="flex items-center lg:w-4/5 lg:flex">
                 {{-- Category --}}
                 <div class="w-full mt-3 mr-3 lg:w-1/4">
-                    <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
+                    <select
+                        class="w-full px-2 py-1 text-sm text-white bg-pink-500 border border-pink-500 rounded lg:text-base hover:bg-pink-400"
                         wire:model="category">
                         <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
                         <option value="data_pelitas.nama_alias">{{ __('Alias') }}</option>
@@ -31,7 +32,8 @@
                 </div>
                 {{-- Rows per Page --}}
                 <div class="relative w-full mt-3 mr-3 lg:w-1/4">
-                    <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
+                    <select
+                        class="w-full px-2 py-1 text-sm text-white bg-green-500 border border-green-500 rounded lg:text-base hover:bg-green-700"
                         wire:model="perpage">
                         <option value="5">{{ __('5 Rows') }}</option>
                         <option value="10">{{ __('10 Rows') }}</option>
@@ -43,9 +45,9 @@
                 {{--  Filter Dropdown --}}
                 <div x-data="{ open: false }" class="w-full mt-3 mr-3 lg:w-1/4">
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
-                        class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white"><i
-                            class="fa fa-filter"></i>
-                        {{ __('Filter') }} <i class="fa fa-angle-down"></i></i></button>
+                        class="w-full px-2 py-1 text-sm text-white bg-purple-500 border border-purple-700 rounded lg:text-base hover:bg-purple-700 hover:text-white"><i
+                            class="fa fa-filter fa-sm "></i>
+                        {{ __('Filter') }} <i class="fa fa-angle-down "></i></i></button>
 
 
                     {{-- isi dari dropdown --}}
@@ -57,9 +59,12 @@
                         {{-- <div class="card card-body glass" style="width: 400px; color: purple;"> --}}
                         @if (Auth::user()->role == '3')
                             <div class="mt-3">
-                                <label class="p-1 px-3 rounded bg-purple">{{ __('Group') }}</label>
-                                <select wire:model="group_id" class="w-full px-2 py-1 border border-gray-400 rounded">
-                                    <option value="" selected>{{ __('All') }}</option>
+                                <label
+                                    class="p-1 px-3 text-sm rounded bg-purple lg:text-base">{{ __('Group') }}</label>
+                                <select wire:model="group_id"
+                                    class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
+                                    <option value="" selected>{{ __('All') }}
+                                    </option>
                                     @foreach ($group as $a)
                                         <option value="{{ $a->id }}">{{ $a->nama_group }}</option>
                                     @endforeach
@@ -67,8 +72,9 @@
                             </div>
                         @endif
                         <div class="mt-3">
-                            <label class="p-1 px-3 rounded bg-purple">{{ __('Vihara') }} </label>
-                            <select wire:model="kode_branch" class="w-full px-2 py-1 border border-gray-400 rounded">
+                            <label class="p-1 px-3 text-sm rounded lg:text-base bg-purple">{{ __('Vihara') }} </label>
+                            <select wire:model="kode_branch"
+                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
                                 <option value="">{{ __('All') }}</option>
                                 @foreach ($all_branch as $a)
                                     <option value="{{ $a->id }}">{{ $a->nama_branch }}</option>
@@ -76,8 +82,9 @@
                             </select>
                         </div>
                         <div class="mt-3">
-                            <label class="p-1 px-3 rounded bg-purple">{{ __('Gender') }}</label>
-                            <select wire:model="jen_kel" class="w-full px-2 py-1 border border-gray-400 rounded">
+                            <label class="p-1 px-3 text-sm rounded bg-purple lg:text-base">{{ __('Gender') }}</label>
+                            <select wire:model="jen_kel"
+                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
                                 <option value="0">{{ __('All') }}</option>
                                 {{-- <option value="Laki-laki">{{ __('Laki-laki') }}</option>
                                                 <option value="Perempuan">{{ __('Perempuan') }}</option> --}}
@@ -86,8 +93,9 @@
                             </select>
                         </div>
                         <div class="mt-3">
-                            <label class="p-1 px-3 rounded bg-purple">{{ __('Status') }} </label>
-                            <select wire:model="status" class="w-full px-2 py-1 border border-gray-400 rounded">
+                            <label class="p-1 px-3 text-sm rounded bg-purple lg:text-base">{{ __('Status') }} </label>
+                            <select wire:model="status"
+                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
                                 <option value="">{{ __('All') }}</option>
                                 <option value="Active">{{ __('Active Only') }}</option>
                                 <option value="Inactive">{{ __('Inactive Only') }}</option>
@@ -95,15 +103,17 @@
                         </div>
 
                         <div class="mt-3">
-                            <label class="text-center bg-purple">{{ __('Umur') }}</label>
+                            <label class="text-sm text-center bg-purple lg:text-base">{{ __('Umur') }}</label>
                             <div class="flex" style="display: flex">
                                 <div>
-                                    <input type="text" class="w-full px-2 py-1 border border-gray-400 rounded"
+                                    <input type="text"
+                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base"
                                         wire:model="startUmur">
                                 </div>
                                 <p class="px-1">-</p>
                                 <div>
-                                    <input type="text" class="w-full px-2 py-1 border border-gray-400 rounded"
+                                    <input type="text"
+                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base"
                                         wire:model="endUmur">
                                 </div>
                             </div>
@@ -119,13 +129,13 @@
                         <div class="mt-3">
                             <label class="inline-flex items-center">
                                 <input type="checkbox" wire:model="tgl_sd3h" />
-                                <span class="ml-2">{{ __('Sidang Dharma 3 Hari') }}</span>
+                                <span class="ml-2 text-sm lg:text-base">{{ __('Sidang Dharma 3 Hari') }}</span>
                             </label>
                         </div>
                         <div class="mt-3">
                             <label class="inline-flex items-center">
                                 <input type="checkbox" wire:model="tgl_vtotal" />
-                                <span class="ml-2">{{ __('Vegetarian Total') }}</span>
+                                <span class="ml-2 text-sm lg:text-base">{{ __('Vegetarian Total') }}</span>
                             </label>
                         </div>
 
@@ -134,22 +144,26 @@
                         {{-- @if (Auth::user()->role == '3') --}}
 
                         <div class="my-3">
-                            <label class="text-center bg-purple">{{ __('Tanggal Mohon Tao') }}: </label>
+                            <label class="text-sm text-center bg-purple lg:text-base">{{ __('Tanggal Mohon Tao') }}:
+                            </label>
                             <div class="flex" style="display: flex">
                                 <div>
-                                    <input type="date" class="w-full px-2 py-1 border border-gray-400 rounded"
+                                    <input type="date"
+                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base"
                                         wire:model="startDate">
                                 </div>
                                 <div>
                                     <p class="px-1">-</p>
                                 </div>
                                 <div>
-                                    <input type="date" class="w-full px-2 py-1 border border-gray-400 rounded"
+                                    <input type="date"
+                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base"
                                         wire:model="endDate">
                                 </div>
                             </div>
-                            <div class="lg:hidden">
-                                <button @click="open=false" class="button button-black">close</button>
+                            <div class="mt-3 text-right lg:hidden">
+                                <button @click="open=false"
+                                    class="px-2 py-1 text-sm text-black border border-black rounded hover:bg-black hover:text-white lg:text-base">Close</button>
                             </div>
                         </div>
 
@@ -163,13 +177,13 @@
                 {{-- Tambah Kolom --}}
                 <div x-data="{ open: false }" class="relative w-full mt-3 mr-3 lg:w-1/4">
                     <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
-                        class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white">
+                        class="w-full px-2 py-1 text-sm text-white bg-blue-500 border-blue-700 rounded lg:text-base hover:bg-blue-700 hover:text-white">
                         {{ __('Kolom') }} <i class="fa fa-angle-down"></i></button>
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
-                        class="absolute z-10 px-2 py-3 text-purple-700 bg-white shadow-xl rounded-xl">
+                        class="absolute z-10 px-2 py-3 text-purple-700 bg-white shadow-xl -left-5 lg:left-0 rounded-xl">
                         {{-- mulai isi Tambah Kolom --}}
-                        <table>
+                        <table class="text-sm lg:text-base">
                             <tr>
                                 <td class="px-1 py-1 ">
                                     <input type="checkbox" id="alamat" wire:model="kolomAlamat" value="1"
@@ -177,7 +191,7 @@
 
                                 </td>
                                 <td class="px-1 py-1 ">
-                                    <label for="alamat">ALamat</label>
+                                    <label for="alamat">Alamat</label>
                                 </td>
                             </tr>
                             <tr>
@@ -272,9 +286,9 @@
     <div class="w-full py-4 overflow-x-auto ">
 
         @if ($isTambahKolom == 1)
-            <table class="w-full rounded-lg shadow table-fixed bg-gray-50">
+            <table class="w-full text-sm rounded-lg shadow table-fixed bg-gray-50 lg:text-base">
             @else
-                <table class="w-full rounded-lg shadow table-fixed lg:table-auto bg-gray-50">
+                <table class="w-full text-sm rounded-lg shadow table-fixed lg:table-auto bg-gray-50 lg:text-base">
         @endif
         <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
             <tr>
