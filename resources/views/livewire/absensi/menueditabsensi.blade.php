@@ -52,7 +52,7 @@
             {{-- <div class="w-full mt-3 "> --}}
 
             {{-- table --}}
-            <div class="w-full lg:w-2/3 ">
+            <div class="w-full overflow-x-auto lg:w-2/3 ">
                 @if (!empty($absensi))
                     <table class="w-full table-auto">
                         <thead class="text-white bg-purple-500 border-b-2 border-gray-200 rounded-xl">
