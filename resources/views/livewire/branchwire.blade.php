@@ -42,8 +42,7 @@
             </div>
 
             @if ($is_add == true)
-                <button wire:click="store"
-                    class="px-3 py-1 text-teal-600 bg-white rounded hover:text-teal-800">{{ __('Save') }}</button>
+                <button wire:click="store" class="button button-purple">{{ __('Save') }}</button>
             @else
                 <button wire:click="update" class="button button-teal">{{ __('Update') }}</button>
             @endif
