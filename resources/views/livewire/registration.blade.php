@@ -3,9 +3,10 @@
 
 
 
-    @if ($is_edit == false)
+    @if ($is_edit == false && $is_reset == false)
 
         <div class="w-full ">
+
             <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Data User') }}</div>
             <div class="overflow-x-auto">
                 <table class="table w-full mx-auto mt-5 table-fixed md:table-auto">
@@ -24,7 +25,7 @@
                     <tbody>
                         @foreach ($data as $index => $d)
                             @if ((Auth::user()->role == '2' && $d->role != '3') || Auth::user()->role == '3')
-                                <tr>
+                                <tr class="hover:bg-pink-50 dark:hover:bg-pink-600">
                                     <td class="h-10 text-center text-gray-700 border ">
                                         {{ $data->firstItem() + $index }}
                                     </td>
@@ -64,19 +65,20 @@
         <div class="mt-3 justify-evenly">
             @if ($is_edit == true || $is_reset == true)
                 <div class="w-full md:w-1/3">
-                @else
+
                     <div>
-            @endif
-            @if ($is_reset == true)
-                <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Reset Password') }}
-                </div>
-                @include('form_registration')
             @endif
             @if ($is_edit == true)
                 <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Update data') }}
                 </div>
                 @include('form_registration')
             @endif
+            @if ($is_reset == true)
+                <div class="w-full text-2xl font-semibold text-center text-purple-500">{{ __('Reset Password') }}
+                </div>
+                @include('form_registration')
+            @endif
+
         </div>
     @endif
 
