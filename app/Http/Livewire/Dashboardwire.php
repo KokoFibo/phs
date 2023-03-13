@@ -65,7 +65,7 @@ class Dashboardwire extends Component
 
     public function updatedSelectedBranch()
     {
-        $this->selectedGroupVihara = '';
+        // $this->selectedGroupVihara = '';
 
 
         try {
@@ -271,7 +271,7 @@ class Dashboardwire extends Component
                     ->select('absensi')
                     ->count();
             }
-            $totalPesertaKelasTerakhir = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)->distinct('tgl_kelas')->select('datapelita_id')->orderBy('tgl_kelas', 'desc')->get();
+            $totalPesertaKelasTerakhir = Absensi::where('daftarkelas_id',$this->selectedDaftarKelasId)->where('tgl_kelas', Absensi::max('tgl_kelas'))->distinct('tgl_kelas')->select('datapelita_id')->orderBy('tgl_kelas', 'desc')->get();
             $vtotal = 0;
             $sd3h = 0;
             $belumKeduanya = 0;

@@ -45,6 +45,35 @@ class Tablewire extends Component
     // protected $listeners = ['resetfilter'];
     public $group_id;
 
+    public $isTambahKolom=0, $kolomAlamat, $kolomKota, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
+    public $kolomSd3h=0, $kolomVTotal=0, $kolomStatus=0, $kolomKeterangan=0;
+
+
+    public function checkIsTambahKolom () {
+        if(
+            $this->kolomAlamat == 1 ||
+            $this->kolomKota == 1 ||
+            $this->kolomTelepon == 1 ||
+            $this->kolomHandphone == 1 ||
+            $this->kolomEmail == 1 ||
+            $this->kolomSd3h == 1 ||
+            $this->kolomVTotal == 1 ||
+            $this->kolomStatus == 1 ||
+            $this->kolomKeterangan == 1
+
+        ){
+            $this->isTambahKolom = 1;
+        }else {
+            $this->isTambahKolom = 0;
+        }
+    }
+
+    public function mount () {
+        $this->default=true;
+    }
+    public function updating () {
+
+    }
 
 public function updatedSelectAll () {
     if ($this->selectAll == true ) {
@@ -53,8 +82,32 @@ public function updatedSelectAll () {
         $this->selectedId = [];
     }
 }
+
+    public function updatingKodeBranch () {
+        $this->group_id = "";
+        // dd($this->kode_branch);
+        // if ($this->kode_branch != '') {
+        //     $this->anton ="anton1";
+        //     $this->resetPage();
+        // }
+
+
+    }
+
+    public function updatingGroupId () {
+        $this->kode_branch = "";
+        // if ($this->group_id != '') {
+        //     $this->anton ="anton2";
+        //     $this->resetPage();
+        // }
+    }
+    public function cetak () {
+        $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
+        // cara buka view blade
+        return view('datapelitacetak', compact('datapelita'));
+    }
     public function pdfdom () {
-         $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
+        $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
 
         $pdfContent = PDF::loadView('datapelitapdf', ['datapelita'=>$datapelita])->setPaper('a4', 'landscape')->output();
         return response()->streamDownload(
@@ -62,23 +115,19 @@ public function updatedSelectAll () {
              "pelita-hati.pdf"
         );
 
-        return response()->streamDownload(function () {
-            $pdf = App::make('dompdf.wrapper');
-            $pdf->loadHTML('<h1>Test</h1>');
-            echo $pdf->stream();
-        }, 'test.pdf');
+        // return response()->streamDownload(function () {
+        //     $pdf = App::make('dompdf.wrapper');
+        //     $pdf->loadHTML('<h1>Test</h1>');
+        //     echo $pdf->stream();
+        // }, 'test.pdf');
     }
     public function excel () {
-
         return (new DataPelitaExport($this->selectedId))->download('Data_pelita.xlsx');
-
     }
 
     public function updatingSearch () {
         $this->resetPage();
     }
-
-
 
     public function resetFilter () {
         $this->perpage = 5;
@@ -94,6 +143,7 @@ public function updatedSelectAll () {
         $this->status="";
         $this->kode_branch="";
         $this->branch_id="";
+        $this->group_id="";
         $this->resetPage();
         $this->default = true;
         $this->selectedId = [];
@@ -102,6 +152,8 @@ public function updatedSelectAll () {
         $this->tgl_sd3h = false;
         $this->tgl_vtotal = false;
         $this->dispatchBrowserEvent('resetfield');
+        $this->isTambahKolom=0; $this->kolomAlamat=0; $this->kolomKota=0; $this->kolomTelepon=0; $this->kolomHandphone=0; $this->kolomEmail=0;
+        $this->kolomSd3h=0; $this->kolomVTotal=0; $this->kolomStatus=0; $this->kolomKeterangan=0;
 
     }
     public function hitungUmurSekarang($tgl, $umur) {
@@ -176,9 +228,7 @@ public function updatedSelectAll () {
 
         }
     }
-    public function mount () {
-        $this->default=true;
-    }
+
     public function updatedJenKel () {
         $this->default=false;
     }
@@ -234,39 +284,55 @@ public function updatedSelectAll () {
     public function updatedKodeBranch () {
         if($this->kode_branch != '')
         {
-
             $this->default=false;
         }
         else {
             $this->default=true;
-
         }
+    }
+
+    public function dataQuery () {
+
+
     }
 
     public function render()
     {
 
         if (Auth::user()->role == '3'){
-            $this->branch_id = $this->kode_branch;
+            // $this->branch_id = $this->kode_branch;
             $this->kode_branch_khusus = $this->kode_branch;
-    }
-    else {
-        $this->branch_id = Auth::user()->branch_id;
-        $this->kode_branch = $this->branch_id ;
-        $this->kode_branch = Auth::user()->branch_id;
-
+            $this->branch_id = $this->kode_branch;
+        }
+        else {
+        $this->branch_id = $this->kode_branch;
+        // $this->branch_id = Auth::user()->branch_id;
+        // $this->kode_branch = Auth::user()->branch_id;
+        $this->group_id = Auth::user()->groupvihara_id;
         $this->kode_branch_khusus = $this->kode_branch;
     }
 
 
     if($this->default == false || $this->search != '') {
 
-        $datapelita = DB::table('data_pelitas')
-        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        // $datapelita = DB::table('data_pelitas')
+        // ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        // ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        // ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+
+        // $datapelita = DataPelita::query()
+
+
+        $datapelita = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
-        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+        ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
+        ->when($this->group_id, function($query){
+            $query->where('groupviharas.id',$this->group_id);
+        })
         ->when($this->branch_id, function($query){
             $query->where('data_pelitas.branch_id', $this->branch_id );
         })
@@ -298,12 +364,22 @@ public function updatedSelectAll () {
 
 
     } elseif ($this->default == false && $this->search == ''){
-        $datapelita = DB::table('data_pelitas')
-        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+
+        // $datapelita = DB::table('data_pelitas')
+        // ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        // ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        // ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+        // $datapelita = DataPelita::query()
+        $datapelita = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
-        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+        ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
+        ->when($this->group_id, function($query){
+            $query->where('groupviharas.id',$this->group_id);
+        })
         ->when($this->branch_id, function($query){
             $query->where('data_pelitas.branch_id', $this->branch_id );
         })
@@ -335,12 +411,22 @@ public function updatedSelectAll () {
     }
     // yg ini
     elseif ($this->default == true && $this->search != ''){
-        $datapelita = DB::table('data_pelitas')
-        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+
+        // $datapelita = DB::table('data_pelitas')
+        // ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+        // ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+        // ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+        // $datapelita = DataPelita::query()
+        $datapelita = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
-        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+        ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
+        ->when($this->group_id, function($query){
+            $query->where('groupviharas.id',$this->group_id);
+        })
         ->when($this->branch_id, function($query){
             $query->where('data_pelitas.branch_id', $this->branch_id );
         })
@@ -372,12 +458,17 @@ public function updatedSelectAll () {
     }
     else {
 
-        $datapelita = DB::table('data_pelitas')
-        ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+
+        $datapelita = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
+        ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+         ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
-        ->select('data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
+        ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
         ->where($this->category,'like','%'.$this->search.'%')
+        ->when($this->group_id, function($query){
+            $query->where('groupviharas.id',$this->group_id);
+        })
         ->when($this->branch_id, function($query){
             $query->where('data_pelitas.branch_id', $this->branch_id );
         })
@@ -405,17 +496,15 @@ public function updatedSelectAll () {
         ->when($this->tgl_vtotal, function($query){
             $query->where('data_pelitas.tgl_vtotal',  '!=', null );
         })
-
         ;
-
     }
 
     $data_branch = Branch::find(Auth::user()->branch_id);
-    $all_branch = Branch::orderBy('nama_branch', 'asc')->get();
+    $all_branch = Branch::orderBy('nama_branch', 'asc')->where('groupvihara_id', $this->group_id)->get();
 
-    if($this->kode_branch_khusus != null){
-        $dataft = Branch::find($this->kode_branch_khusus);
-        $namaft = $dataft->nama_branch;
+    if($this->group_id != null){
+        $dataGroup = GroupVihara::find($this->group_id);
+        $namaft = $dataGroup->nama_group;
     }
     $namaft = 'Welcome';
 
@@ -437,6 +526,7 @@ public function updatedSelectAll () {
      $this->selectedAll = $datapelita->pluck('id');
     $datapelita1 = $datapelita->paginate($this->perpage);
     $group = Groupvihara::all();
+    $this->checkIsTambahKolom ();
 
         return view('livewire.tablewire', compact(['datapelita1', 'data_branch', 'all_branch', 'namaft', 'dp', 'group']))
         ->extends('layouts.main')

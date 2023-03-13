@@ -64,23 +64,33 @@
                 </div>
 
             </div>
-            <div class="mb-2 col-xl-3">
-                <div class="w-auto p-1 rounded shadow card-body" style=" background-color: white;">
+            <div class="mb-2 mr-3 lg-mt-1 col-xl-3">
+                <h5>Informasi Kelas</h5>
+                <div style=" background-color: white; padding:10px">
                     <canvas id="myChart1"></canvas>
                 </div>
 
             </div>
-            <div class="mb-2 col-xl-6">
-                <div class="w-auto p-1 rounded shadow card-body" style="background-color: white;">
+
+        </div>
+        <div class="p-2 mt-1 row">
+            <h5>Informasi Kehadiran Peserta</h5>
+            <div class="mb-2 col-12 col-xl-6 ">
+                <div style="background-color: white; padding:10px">
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
-
         </div>
+
+        <hr class="hidden mt-5">
 
 
         @push('script')
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.min.js"
+                integrity="sha512-+UYTD5L/bU1sgAfWA0ELK5RlQ811q8wZIocqI7+K0Lhh8yVdIoAMEs96wJAIbgFvzynPm36ZCXtkydxu1cs27w=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script>
                 var tanggal = JSON.parse(`<?php echo $dataXjson; ?>`);
                 var peserta = JSON.parse(`<?php echo $dataYjson; ?>`);
@@ -110,6 +120,10 @@
                                 beginAtZero: true
                             }
                         }
+                    },
+                    plugins: [ChartDataLabels],
+                    options: {
+                        // ...
                     }
                 });
 
@@ -132,7 +146,7 @@
                 var detailPeserta = JSON.parse(`<?php echo $dataYjsonPeserta; ?>`);
                 const ctx1 = document.getElementById('myChart1').getContext('2d');
                 const myChart1 = new Chart(ctx1, {
-                    type: 'pie',
+                    type: 'doughnut',
                     data: {
                         // labels: tanggal
                         labels: (['Vegetarian Total (清口)', 'Sidang Dharma 3 Hari (三天法會)', 'Belum Keduanya (沒有任何)']),
@@ -156,7 +170,12 @@
                             y: {
                                 beginAtZero: true
                             }
-                        }
+                        },
+
+                    },
+                    plugins: [ChartDataLabels],
+                    options: {
+                        // ...
                     }
                 });
 
