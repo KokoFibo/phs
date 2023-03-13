@@ -58,8 +58,7 @@
                 @enderror
             </div>
             @if ($is_add == true)
-                <button wire:click="store"
-                    class="px-3 py-1 text-teal-600 bg-white border-white rounded hover:bg-teal-800 hover:text-white">{{ __('Save') }}</button>
+                <button wire:click="store" class=" button button-purple">{{ __('Save') }}</button>
             @else
                 <button wire:click="update"
                     class="px-3 py-1 text-teal-600 bg-white border-white rounded hover:bg-teal-800 hover:text-white">{{ __('Update') }}</button>

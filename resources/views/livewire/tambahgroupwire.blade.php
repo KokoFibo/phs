@@ -2,10 +2,10 @@
     @section('title', 'Add Group Vihara')
 
     @if ($open == 0)
-        <div class="flex  gap-10 flex-col items-center justify-center w-full h-full min-h-screen mx-auto lg:w-1/3">
+        <div class="flex flex-col items-center justify-center w-full h-full min-h-screen gap-10 mx-auto lg:w-1/3">
             <!-- component -->
             <div>
-                <h4 class="text-purple-500 text-3xl text-center font-semibold">{{ __('Menu Tambah Group Vihara') }}</h4>
+                <h4 class="text-3xl font-semibold text-center text-purple-500">{{ __('Menu Tambah Group Vihara') }}</h4>
             </div>
             <div class="flex flex-col items-center justify-center px-8 pt-6 pb-8 mx-3 mb-4 rounded shadow-md bg-pink-50">
                 <h5 class="text-lg text-center">{{ __('Hi') }}, {{ Auth::user()->name }}</h5>
@@ -49,8 +49,7 @@
                     @enderror
                 </div>
                 @if ($is_add == true)
-                    <button wire:click="store"
-                        class="px-3 py-1 text-teal-600 bg-white rounded hover:text-teal-800">{{ __('Save') }}</button>
+                    <button wire:click="store" class="button button-purple">{{ __('Save') }}</button>
                 @else
                     <button wire:click="update" class="button button-teal">{{ __('Update') }}</button>
                 @endif
