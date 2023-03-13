@@ -202,11 +202,11 @@ class Dashboardwire extends Component
             $this->Sd3hAbsensiTerakhir = $sd3h;
             $this->VTotalAbsensiTerakhir = $vtotal;
             $this->LainnyaAbsensiTerakhir = $this->jumlahPesertaAbsensiTerakhir-($sd3h + $vtotal);
-            $this->Sd3hAbsensiTerakhirPersen = ($this->Sd3hAbsensiTerakhir / $this->jumlahPesertaAbsensiTerakhir) * 100 ;
-            $this->VTotalAbsensiTerakhirPersen =($this->VTotalAbsensiTerakhir / $this->jumlahPesertaAbsensiTerakhir) * 100 ;
+            $this->Sd3hAbsensiTerakhirPersen == 0 ? 0 : ($this->Sd3hAbsensiTerakhir / $this->jumlahPesertaAbsensiTerakhir) * 100 ;
+            $this->VTotalAbsensiTerakhirPersen == 0 ? 0 : ($this->VTotalAbsensiTerakhir / $this->jumlahPesertaAbsensiTerakhir) * 100 ;
             $this->lakiAbsensiTerakhir = $laki;
             $this->perempuanAbsensiTerakhir = $perempuan;
-            $this->persentaseKehadiranAbsensiTerakhir = ($hadir/count($persentasePesertaAbsensi)) * 100;
+            $this->persentaseKehadiranAbsensiTerakhir == 0 ? 0 : ($hadir/count($persentasePesertaAbsensi)) * 100;
 
 
 
