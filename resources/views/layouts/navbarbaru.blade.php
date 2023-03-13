@@ -61,12 +61,11 @@
                                     <li
                                         class="py-2 my-2 hover:bg-gray-200 {{ 'tambahgroup' == request()->path() ? 'active1' : '' }}">
                                         <a class="block"
-                                            href="{{ route('tambahgroup') }}">{{ __('Tambah Group Vihara') }}</a>
+                                            href="{{ route('tambahgroup') }}">{{ __('Group Vihara') }}</a>
                                     </li>
                                     <li
                                         class="py-2 my-2 hover:bg-gray-200 {{ 'branch' == request()->path() ? 'active1' : '' }}">
-                                        <a class="block"
-                                            href="{{ route('branchwire') }}">{{ __('Tambah Data Cetya') }}</a>
+                                        <a class="block" href="{{ route('branchwire') }}">{{ __('Data Vihara') }}</a>
                                     </li>
                                     {{-- reset pakai link aja /resetumur --}}
                                     {{-- <li class="py-2 my-2 hover:bg-gray-200 ">
@@ -116,7 +115,7 @@
                             <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                 <a class="block" href="#">{{ __('User Setting') }}<span
                                         class="text-red-500">({{ __('Under
-                                                                                                                                                                                                                                            Construction') }})</span></a>
+                                                                                                                                                                                                                                                                                                                            Construction') }})</span></a>
                             </li>
                             <li class="py-2 my-2 text-center text-purple-500 hover:bg-gray-100">
                                 <a class="block" href="{{ route('logout') }}"

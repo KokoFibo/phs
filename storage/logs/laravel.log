@@ -15469,3 +15469,699 @@ Did you mean one of these?
 [stacktrace]
 #0 {main}
 "} 
+[2023-03-13 13:46:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:47:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:48:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:49:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:50:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:51:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:52:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:53:32] local.ERROR: Undefined variable $id {"view":{"view":"C:\\Users\\Anton\\Documents\\applications\\phs\\resources\\views\\livewire\\tablewire.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-155354162 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#603</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-155354162\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","view":"<pre class=sf-dump id=sf-dump-432525522 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"12 characters\">layouts.main</span>\"
+</pre><script>Sfdump(\"sf-dump-432525522\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","params":"<pre class=sf-dump id=sf-dump-458188826 data-indent-pad=\"  \">[]
+</pre><script>Sfdump(\"sf-dump-458188826\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","slotOrSection":"<pre class=sf-dump id=sf-dump-1707420175 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"7 characters\">content</span>\"
+</pre><script>Sfdump(\"sf-dump-1707420175\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","manager":"<pre class=sf-dump id=sf-dump-379291822 data-indent-pad=\"  \"><span class=sf-dump-note>Livewire\\LifecycleManager</span> {<a class=sf-dump-ref>#1582</a><samp data-depth=1 class=sf-dump-expanded>
+  +<span class=sf-dump-public title=\"Public property\">request</span>: <span class=sf-dump-note title=\"Livewire\\Request
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Request</span> {<a class=sf-dump-ref href=#sf-dump-379291822-ref21634 title=\"2 occurrences\">#1634</a><samp data-depth=2 id=sf-dump-379291822-ref21634 class=sf-dump-compact>
+    +<span class=sf-dump-public title=\"Public property\">fingerprint</span>: <span class=sf-dump-note>array:5</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"20 characters\">R9I1A0kJ040PVE3B2unj</span>\"
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"9 characters\">tablewire</span>\"
+      \"<span class=sf-dump-key>locale</span>\" => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      \"<span class=sf-dump-key>path</span>\" => \"<span class=sf-dump-str title=\"4 characters\">main</span>\"
+      \"<span class=sf-dump-key>method</span>\" => \"<span class=sf-dump-str title=\"3 characters\">GET</span>\"
+    </samp>]
+    +<span class=sf-dump-public title=\"Public property\">updates</span>: []
+    +<span class=sf-dump-public title=\"Public property\">memo</span>: []
+  </samp>}
+  +<span class=sf-dump-public title=\"Public property\">instance</span>: <span class=sf-dump-note title=\"App\\Http\\Livewire\\Tablewire
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Http\\Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Tablewire</span> {<a class=sf-dump-ref href=#sf-dump-379291822-ref21645 title=\"3 occurrences\">#1645</a><samp data-depth=2 id=sf-dump-379291822-ref21645 class=sf-dump-compact>
+    +<span class=sf-dump-public title=\"Public property\">id</span>: \"<span class=sf-dump-str title=\"20 characters\">R9I1A0kJ040PVE3B2unj</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">queryString</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">computedPropertyCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">shouldSkipRender</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">preRenderedView</span>: <span class=sf-dump-note title=\"Illuminate\\View\\View
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\View</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>View</span> {<a class=sf-dump-ref>#3547</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">factory</span>: <span class=sf-dump-note title=\"Illuminate\\View\\Factory
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\View</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Factory</span> {<a class=sf-dump-ref>#604</a> &#8230;23}
+      #<span class=sf-dump-protected title=\"Protected property\">engine</span>: <span class=sf-dump-note title=\"Livewire\\LivewireViewCompilerEngine
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>LivewireViewCompilerEngine</span> {<a class=sf-dump-ref>#3548</a> &#8230;5}
+      #<span class=sf-dump-protected title=\"Protected property\">view</span>: \"<span class=sf-dump-str title=\"18 characters\">livewire.tablewire</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">data</span>: <span class=sf-dump-note>array:67</span> [ &#8230;67]
+      #<span class=sf-dump-protected title=\"Protected property\">path</span>: \"<span class=sf-dump-str title=\"86 characters\">C:\\Users\\Anton\\Documents\\applications\\phs\\resources\\views/livewire/tablewire.blade.php</span>\"
+    </samp>}
+    #<span class=sf-dump-protected title=\"Protected property\">forStack</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">errorBag</span>: <span class=sf-dump-note title=\"Illuminate\\Support\\MessageBag
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\Support</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>MessageBag</span> {<a class=sf-dump-ref href=#sf-dump-379291822-ref21629 title=\"2 occurrences\">#1629</a><samp data-depth=3 id=sf-dump-379291822-ref21629 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">messages</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">format</span>: \"<span class=sf-dump-str title=\"8 characters\">:message</span>\"
+    </samp>}
+    #<span class=sf-dump-protected title=\"Protected property\">withValidatorCallback</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">eventQueue</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dispatchQueue</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">listeners</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"6 characters\">delete</span>\"
+    </samp>]
+    +<span class=sf-dump-public title=\"Public property\">redirectTo</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">renderedChildren</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">previouslyRenderedChildren</span>: []
+    +<span class=sf-dump-public title=\"Public property\">perpage</span>: <span class=sf-dump-num>5</span>
+    +<span class=sf-dump-public title=\"Public property\">columnName</span>: \"<span class=sf-dump-str title=\"15 characters\">data_pelitas.id</span>\"
+    +<span class=sf-dump-public title=\"Public property\">direction</span>: \"<span class=sf-dump-str title=\"4 characters\">desc</span>\"
+    +<span class=sf-dump-public title=\"Public property\">startUmur</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">endUmur</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">startDate</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">endDate</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">jen_kel</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">search</span>: \"\"
+    +<span class=sf-dump-public title=\"Public property\">branch_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">nama_umat</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">nama_alias</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">mandarin</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">gender</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">umur</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">umur_sekarang</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">alamat</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kota</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">telp</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">hp</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">email</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">pengajak</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">penjamin</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">pandita_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kota_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">tgl_mohonTao</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">tgl_sd3h</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">tgl_vtotal</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">status</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">current_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">delete_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">namaPandita</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">namaKota</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">category</span>: \"<span class=sf-dump-str title=\"22 characters\">data_pelitas.nama_umat</span>\"
+    +<span class=sf-dump-public title=\"Public property\">kode_branch</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kode_branch_view</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kode_branch_khusus</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">nama_cetya</span>: \"<span class=sf-dump-str title=\"3 characters\">&#31435;&#36948;&#22727;</span>\"
+    +<span class=sf-dump-public title=\"Public property\">nama_cetya_view</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">pengajak_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">penjamin_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">default</span>: <span class=sf-dump-const>true</span>
+    +<span class=sf-dump-public title=\"Public property\">selectedId</span>: []
+    +<span class=sf-dump-public title=\"Public property\">selectedAll</span>: <span class=sf-dump-note title=\"Illuminate\\Support\\Collection
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\Support</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Collection</span> {<a class=sf-dump-ref href=#sf-dump-379291822-ref23444 title=\"2 occurrences\">#3444</a><samp data-depth=3 id=sf-dump-379291822-ref23444 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1916</span> [ &#8230;1916]
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+    +<span class=sf-dump-public title=\"Public property\">selectAll</span>: <span class=sf-dump-const>false</span>
+    +<span class=sf-dump-public title=\"Public property\">group_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">isTambahKolom</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomAlamat</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomKota</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomTelepon</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomHandphone</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomEmail</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomSd3h</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomVTotal</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomStatus</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomKeterangan</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">page</span>: <span class=sf-dump-num>1</span>
+    +<span class=sf-dump-public title=\"Public property\">paginators</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>page</span>\" => <span class=sf-dump-num>1</span>
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">numberOfPaginatorsRendered</span>: []
+  </samp>}
+  +<span class=sf-dump-public title=\"Public property\">response</span>: <span class=sf-dump-note title=\"Livewire\\Response
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Response</span> {<a class=sf-dump-ref>#1618</a><samp data-depth=2 class=sf-dump-compact>
+    +<span class=sf-dump-public title=\"Public property\">request</span>: <span class=sf-dump-note title=\"Livewire\\Request
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Request</span> {<a class=sf-dump-ref href=#sf-dump-379291822-ref21634 title=\"2 occurrences\">#1634</a>}
+    +<span class=sf-dump-public title=\"Public property\">fingerprint</span>: <span class=sf-dump-note>array:5</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"20 characters\">R9I1A0kJ040PVE3B2unj</span>\"
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"9 characters\">tablewire</span>\"
+      \"<span class=sf-dump-key>locale</span>\" => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      \"<span class=sf-dump-key>path</span>\" => \"<span class=sf-dump-str title=\"4 characters\">main</span>\"
+      \"<span class=sf-dump-key>method</span>\" => \"<span class=sf-dump-str title=\"3 characters\">GET</span>\"
+    </samp>]
+    +<span class=sf-dump-public title=\"Public property\">effects</span>: []
+    +<span class=sf-dump-public title=\"Public property\">memo</span>: []
+  </samp>}
+</samp>}
+</pre><script>Sfdump(\"sf-dump-379291822\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): Undefined variable $id at C:\\Users\\Anton\\Documents\\applications\\phs\\resources\\views\\livewire\\tablewire.blade.php:268)
+[stacktrace]
+#0 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(266): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\Anton\\\\...', 275)
+#1 C:\\Users\\Anton\\Documents\\applications\\phs\\resources\\views\\livewire\\tablewire.blade.php(268): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\Anton\\\\...', 275)
+#2 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(83): include('C:\\\\Users\\\\Anton\\\\...')
+#3 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(84): App\\Http\\Livewire\\Tablewire->Livewire\\ComponentConcerns\\{closure}()
+#4 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(59): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#5 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(195): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#6 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(178): Illuminate\\View\\View->getContents()
+#7 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(147): Illuminate\\View\\View->renderContents()
+#8 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\Component.php(235): Illuminate\\View\\View->render()
+#9 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\HydrationMiddleware\\RenderView.php(14): Livewire\\Component->output()
+#10 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\LifecycleManager.php(141): Livewire\\HydrationMiddleware\\RenderView::dehydrate(Object(App\\Http\\Livewire\\Tablewire), Object(Livewire\\Response))
+#11 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\Macros\\livewire-view-extends.blade.php(4): Livewire\\LifecycleManager->initialDehydrate()
+#12 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\Anton\\\\...')
+#13 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#14 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\Anton\\\\...', Array)
+#15 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#16 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#17 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#18 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(195): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#19 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(178): Illuminate\\View\\View->getContents()
+#20 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(147): Illuminate\\View\\View->renderContents()
+#21 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#22 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#23 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#24 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#25 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#26 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Admin.php(23): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Admin->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Localization.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Localization->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#41 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#48 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#50 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php(66): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#60 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#61 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#62 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#63 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#64 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#65 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#66 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#67 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#68 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#69 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#70 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#71 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#72 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#73 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#74 C:\\Users\\Anton\\Documents\\applications\\phs\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#75 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\Anton\\\\...')
+#76 {main}
+
+[previous exception] [object] (ErrorException(code: 0): Undefined variable $id at C:\\Users\\Anton\\Documents\\applications\\phs\\storage\\framework\\views\\ad345dd8a7f2f7ae309dae440ff9dd87ab3f58f9.php:275)
+[stacktrace]
+#0 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(266): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\Anton\\\\...', 275)
+#1 C:\\Users\\Anton\\Documents\\applications\\phs\\storage\\framework\\views\\ad345dd8a7f2f7ae309dae440ff9dd87ab3f58f9.php(275): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\Anton\\\\...', 275)
+#2 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(83): include('C:\\\\Users\\\\Anton\\\\...')
+#3 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(84): App\\Http\\Livewire\\Tablewire->Livewire\\ComponentConcerns\\{closure}()
+#4 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(59): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#5 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(195): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#6 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(178): Illuminate\\View\\View->getContents()
+#7 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(147): Illuminate\\View\\View->renderContents()
+#8 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\Component.php(235): Illuminate\\View\\View->render()
+#9 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\HydrationMiddleware\\RenderView.php(14): Livewire\\Component->output()
+#10 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\LifecycleManager.php(141): Livewire\\HydrationMiddleware\\RenderView::dehydrate(Object(App\\Http\\Livewire\\Tablewire), Object(Livewire\\Response))
+#11 C:\\Users\\Anton\\Documents\\applications\\phs\\storage\\framework\\views\\964c7b90acbb7fa8127fda7f9a8250fa0ea4cf5d.php(2): Livewire\\LifecycleManager->initialDehydrate()
+#12 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\Anton\\\\...')
+#13 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#14 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\Anton\\\\...', Array)
+#15 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#16 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#17 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#18 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(195): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#19 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(178): Illuminate\\View\\View->getContents()
+#20 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(147): Illuminate\\View\\View->renderContents()
+#21 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#22 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#23 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#24 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#25 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#26 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Admin.php(23): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Admin->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Localization.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Localization->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#41 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#48 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#50 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php(66): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#60 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#61 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#62 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#63 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#64 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#65 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#66 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#67 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#68 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#69 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#70 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#71 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#72 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#73 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#74 C:\\Users\\Anton\\Documents\\applications\\phs\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#75 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\Anton\\\\...')
+#76 {main}
+"} 
+[2023-03-13 13:53:34] local.ERROR: Undefined variable $id {"view":{"view":"C:\\Users\\Anton\\Documents\\applications\\phs\\resources\\views\\livewire\\tablewire.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-775886533 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#603</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-775886533\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","view":"<pre class=sf-dump id=sf-dump-633913209 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"12 characters\">layouts.main</span>\"
+</pre><script>Sfdump(\"sf-dump-633913209\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","params":"<pre class=sf-dump id=sf-dump-1346637663 data-indent-pad=\"  \">[]
+</pre><script>Sfdump(\"sf-dump-1346637663\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","slotOrSection":"<pre class=sf-dump id=sf-dump-352187755 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"7 characters\">content</span>\"
+</pre><script>Sfdump(\"sf-dump-352187755\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","manager":"<pre class=sf-dump id=sf-dump-413375425 data-indent-pad=\"  \"><span class=sf-dump-note>Livewire\\LifecycleManager</span> {<a class=sf-dump-ref>#1582</a><samp data-depth=1 class=sf-dump-expanded>
+  +<span class=sf-dump-public title=\"Public property\">request</span>: <span class=sf-dump-note title=\"Livewire\\Request
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Request</span> {<a class=sf-dump-ref href=#sf-dump-413375425-ref21634 title=\"2 occurrences\">#1634</a><samp data-depth=2 id=sf-dump-413375425-ref21634 class=sf-dump-compact>
+    +<span class=sf-dump-public title=\"Public property\">fingerprint</span>: <span class=sf-dump-note>array:5</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"20 characters\">OGfx4E98IFni18OVKLv9</span>\"
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"9 characters\">tablewire</span>\"
+      \"<span class=sf-dump-key>locale</span>\" => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      \"<span class=sf-dump-key>path</span>\" => \"<span class=sf-dump-str title=\"4 characters\">main</span>\"
+      \"<span class=sf-dump-key>method</span>\" => \"<span class=sf-dump-str title=\"3 characters\">GET</span>\"
+    </samp>]
+    +<span class=sf-dump-public title=\"Public property\">updates</span>: []
+    +<span class=sf-dump-public title=\"Public property\">memo</span>: []
+  </samp>}
+  +<span class=sf-dump-public title=\"Public property\">instance</span>: <span class=sf-dump-note title=\"App\\Http\\Livewire\\Tablewire
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Http\\Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Tablewire</span> {<a class=sf-dump-ref href=#sf-dump-413375425-ref21645 title=\"3 occurrences\">#1645</a><samp data-depth=2 id=sf-dump-413375425-ref21645 class=sf-dump-compact>
+    +<span class=sf-dump-public title=\"Public property\">id</span>: \"<span class=sf-dump-str title=\"20 characters\">OGfx4E98IFni18OVKLv9</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">queryString</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">computedPropertyCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">shouldSkipRender</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">preRenderedView</span>: <span class=sf-dump-note title=\"Illuminate\\View\\View
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\View</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>View</span> {<a class=sf-dump-ref>#3547</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">factory</span>: <span class=sf-dump-note title=\"Illuminate\\View\\Factory
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\View</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Factory</span> {<a class=sf-dump-ref>#604</a> &#8230;23}
+      #<span class=sf-dump-protected title=\"Protected property\">engine</span>: <span class=sf-dump-note title=\"Livewire\\LivewireViewCompilerEngine
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>LivewireViewCompilerEngine</span> {<a class=sf-dump-ref>#3548</a> &#8230;5}
+      #<span class=sf-dump-protected title=\"Protected property\">view</span>: \"<span class=sf-dump-str title=\"18 characters\">livewire.tablewire</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">data</span>: <span class=sf-dump-note>array:67</span> [ &#8230;67]
+      #<span class=sf-dump-protected title=\"Protected property\">path</span>: \"<span class=sf-dump-str title=\"86 characters\">C:\\Users\\Anton\\Documents\\applications\\phs\\resources\\views/livewire/tablewire.blade.php</span>\"
+    </samp>}
+    #<span class=sf-dump-protected title=\"Protected property\">forStack</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">errorBag</span>: <span class=sf-dump-note title=\"Illuminate\\Support\\MessageBag
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\Support</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>MessageBag</span> {<a class=sf-dump-ref href=#sf-dump-413375425-ref21629 title=\"2 occurrences\">#1629</a><samp data-depth=3 id=sf-dump-413375425-ref21629 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">messages</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">format</span>: \"<span class=sf-dump-str title=\"8 characters\">:message</span>\"
+    </samp>}
+    #<span class=sf-dump-protected title=\"Protected property\">withValidatorCallback</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">eventQueue</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dispatchQueue</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">listeners</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"6 characters\">delete</span>\"
+    </samp>]
+    +<span class=sf-dump-public title=\"Public property\">redirectTo</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">renderedChildren</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">previouslyRenderedChildren</span>: []
+    +<span class=sf-dump-public title=\"Public property\">perpage</span>: <span class=sf-dump-num>5</span>
+    +<span class=sf-dump-public title=\"Public property\">columnName</span>: \"<span class=sf-dump-str title=\"15 characters\">data_pelitas.id</span>\"
+    +<span class=sf-dump-public title=\"Public property\">direction</span>: \"<span class=sf-dump-str title=\"4 characters\">desc</span>\"
+    +<span class=sf-dump-public title=\"Public property\">startUmur</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">endUmur</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">startDate</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">endDate</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">jen_kel</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">search</span>: \"\"
+    +<span class=sf-dump-public title=\"Public property\">branch_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">nama_umat</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">nama_alias</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">mandarin</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">gender</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">umur</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">umur_sekarang</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">alamat</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kota</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">telp</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">hp</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">email</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">pengajak</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">penjamin</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">pandita_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kota_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">tgl_mohonTao</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">tgl_sd3h</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">tgl_vtotal</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">status</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">current_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">delete_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">namaPandita</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">namaKota</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">category</span>: \"<span class=sf-dump-str title=\"22 characters\">data_pelitas.nama_umat</span>\"
+    +<span class=sf-dump-public title=\"Public property\">kode_branch</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kode_branch_view</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kode_branch_khusus</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">nama_cetya</span>: \"<span class=sf-dump-str title=\"3 characters\">&#31435;&#36948;&#22727;</span>\"
+    +<span class=sf-dump-public title=\"Public property\">nama_cetya_view</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">pengajak_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">penjamin_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">default</span>: <span class=sf-dump-const>true</span>
+    +<span class=sf-dump-public title=\"Public property\">selectedId</span>: []
+    +<span class=sf-dump-public title=\"Public property\">selectedAll</span>: <span class=sf-dump-note title=\"Illuminate\\Support\\Collection
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\Support</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Collection</span> {<a class=sf-dump-ref href=#sf-dump-413375425-ref23444 title=\"2 occurrences\">#3444</a><samp data-depth=3 id=sf-dump-413375425-ref23444 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1916</span> [ &#8230;1916]
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+    +<span class=sf-dump-public title=\"Public property\">selectAll</span>: <span class=sf-dump-const>false</span>
+    +<span class=sf-dump-public title=\"Public property\">group_id</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">isTambahKolom</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomAlamat</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomKota</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomTelepon</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomHandphone</span>: <span class=sf-dump-const>null</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomEmail</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomSd3h</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomVTotal</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomStatus</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">kolomKeterangan</span>: <span class=sf-dump-num>0</span>
+    +<span class=sf-dump-public title=\"Public property\">page</span>: <span class=sf-dump-num>1</span>
+    +<span class=sf-dump-public title=\"Public property\">paginators</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>page</span>\" => <span class=sf-dump-num>1</span>
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">numberOfPaginatorsRendered</span>: []
+  </samp>}
+  +<span class=sf-dump-public title=\"Public property\">response</span>: <span class=sf-dump-note title=\"Livewire\\Response
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Response</span> {<a class=sf-dump-ref>#1618</a><samp data-depth=2 class=sf-dump-compact>
+    +<span class=sf-dump-public title=\"Public property\">request</span>: <span class=sf-dump-note title=\"Livewire\\Request
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Livewire</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Request</span> {<a class=sf-dump-ref href=#sf-dump-413375425-ref21634 title=\"2 occurrences\">#1634</a>}
+    +<span class=sf-dump-public title=\"Public property\">fingerprint</span>: <span class=sf-dump-note>array:5</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => \"<span class=sf-dump-str title=\"20 characters\">OGfx4E98IFni18OVKLv9</span>\"
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"9 characters\">tablewire</span>\"
+      \"<span class=sf-dump-key>locale</span>\" => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      \"<span class=sf-dump-key>path</span>\" => \"<span class=sf-dump-str title=\"4 characters\">main</span>\"
+      \"<span class=sf-dump-key>method</span>\" => \"<span class=sf-dump-str title=\"3 characters\">GET</span>\"
+    </samp>]
+    +<span class=sf-dump-public title=\"Public property\">effects</span>: []
+    +<span class=sf-dump-public title=\"Public property\">memo</span>: []
+  </samp>}
+</samp>}
+</pre><script>Sfdump(\"sf-dump-413375425\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): Undefined variable $id at C:\\Users\\Anton\\Documents\\applications\\phs\\resources\\views\\livewire\\tablewire.blade.php:268)
+[stacktrace]
+#0 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(266): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\Anton\\\\...', 275)
+#1 C:\\Users\\Anton\\Documents\\applications\\phs\\resources\\views\\livewire\\tablewire.blade.php(268): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\Anton\\\\...', 275)
+#2 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(83): include('C:\\\\Users\\\\Anton\\\\...')
+#3 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(84): App\\Http\\Livewire\\Tablewire->Livewire\\ComponentConcerns\\{closure}()
+#4 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(59): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#5 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(195): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#6 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(178): Illuminate\\View\\View->getContents()
+#7 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(147): Illuminate\\View\\View->renderContents()
+#8 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\Component.php(235): Illuminate\\View\\View->render()
+#9 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\HydrationMiddleware\\RenderView.php(14): Livewire\\Component->output()
+#10 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\LifecycleManager.php(141): Livewire\\HydrationMiddleware\\RenderView::dehydrate(Object(App\\Http\\Livewire\\Tablewire), Object(Livewire\\Response))
+#11 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\Macros\\livewire-view-extends.blade.php(4): Livewire\\LifecycleManager->initialDehydrate()
+#12 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\Anton\\\\...')
+#13 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#14 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\Anton\\\\...', Array)
+#15 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#16 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#17 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#18 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(195): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#19 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(178): Illuminate\\View\\View->getContents()
+#20 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(147): Illuminate\\View\\View->renderContents()
+#21 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#22 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#23 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#24 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#25 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#26 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Admin.php(23): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Admin->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Localization.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Localization->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#41 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#48 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#50 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php(66): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#60 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#61 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#62 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#63 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#64 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#65 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#66 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#67 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#68 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#69 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#70 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#71 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#72 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#73 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#74 C:\\Users\\Anton\\Documents\\applications\\phs\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#75 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\Anton\\\\...')
+#76 {main}
+
+[previous exception] [object] (ErrorException(code: 0): Undefined variable $id at C:\\Users\\Anton\\Documents\\applications\\phs\\storage\\framework\\views\\ad345dd8a7f2f7ae309dae440ff9dd87ab3f58f9.php:275)
+[stacktrace]
+#0 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(266): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\Anton\\\\...', 275)
+#1 C:\\Users\\Anton\\Documents\\applications\\phs\\storage\\framework\\views\\ad345dd8a7f2f7ae309dae440ff9dd87ab3f58f9.php(275): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\Anton\\\\...', 275)
+#2 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(83): include('C:\\\\Users\\\\Anton\\\\...')
+#3 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(84): App\\Http\\Livewire\\Tablewire->Livewire\\ComponentConcerns\\{closure}()
+#4 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(59): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#5 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(195): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#6 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(178): Illuminate\\View\\View->getContents()
+#7 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(147): Illuminate\\View\\View->renderContents()
+#8 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\Component.php(235): Illuminate\\View\\View->render()
+#9 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\HydrationMiddleware\\RenderView.php(14): Livewire\\Component->output()
+#10 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\LifecycleManager.php(141): Livewire\\HydrationMiddleware\\RenderView::dehydrate(Object(App\\Http\\Livewire\\Tablewire), Object(Livewire\\Response))
+#11 C:\\Users\\Anton\\Documents\\applications\\phs\\storage\\framework\\views\\964c7b90acbb7fa8127fda7f9a8250fa0ea4cf5d.php(2): Livewire\\LifecycleManager->initialDehydrate()
+#12 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\Anton\\\\...')
+#13 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#14 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\Anton\\\\...', Array)
+#15 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#16 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\Anton\\\\...', Array)
+#17 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#18 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(195): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\Anton\\\\...', Array)
+#19 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(178): Illuminate\\View\\View->getContents()
+#20 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(147): Illuminate\\View\\View->renderContents()
+#21 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#22 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#23 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#24 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#25 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#26 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Admin.php(23): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Admin->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\Anton\\Documents\\applications\\phs\\app\\Http\\Middleware\\Localization.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): App\\Http\\Middleware\\Localization->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#41 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#48 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#50 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php(66): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#60 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#61 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#62 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#63 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#64 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#65 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#66 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#67 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#68 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#69 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#70 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#71 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#72 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#73 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#74 C:\\Users\\Anton\\Documents\\applications\\phs\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#75 C:\\Users\\Anton\\Documents\\applications\\phs\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\Anton\\\\...')
+#76 {main}
+"} 
+[2023-03-13 13:53:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:54:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:55:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:56:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:57:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:58:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 13:59:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:00:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:01:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:02:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:03:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:04:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:05:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:06:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:07:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:08:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:09:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:10:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-13 14:11:35] local.ERROR: Cannot redeclare checkGender() (previously declared in C:\Users\Anton\Documents\applications\phs\app\helpers.php:35) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare checkGender() (previously declared in C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35) at C:\\Users\\Anton\\Documents\\applications\\phs\\app\\helpers.php:35)
+[stacktrace]
+#0 {main}
+"} 
