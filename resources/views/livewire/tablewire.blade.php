@@ -173,7 +173,7 @@
         <div x-data="{ open: false }" class="mx-5 mt-3 text-right wd-full lg:w-1/5">
             <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
                 class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded lg:w-1/2 hover:bg-purple-700 hover:text-white">
-                {{ __('Tambah Kolom') }}</button>
+                {{ __('Kolom') }}</button>
 
             <div x-show="open" x-cloak @click.away="open = false" x-transition
                 class="absolute z-10 px-2 py-3 mx-auto text-purple-700 bg-white shadow-xl min-h-120px rounded-xl">

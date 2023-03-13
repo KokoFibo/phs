@@ -266,7 +266,7 @@
     {{-- Table --}}
     {{-- <div class="p-4 "> --}}
     {{-- work --}}
-    <div class="w-full p-4 overflow-x-auto ">
+    <div class="w-full py-4 overflow-x-auto ">
 
         @if ($isTambahKolom == 1)
             <table class="w-full rounded-lg shadow table-fixed bg-gray-50">
@@ -275,95 +275,100 @@
         @endif
         <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
             <tr>
-                <th class="w-10 px-2 text-center "><input type="checkbox" wire:model="selectAll"
+                <th class="w-10 py-3 text-center "><input type="checkbox" wire:model="selectAll"
                         class=" checked:bg-white-500" />
                 </th>
 
-                <th class="w-10 p-3 font-semibold text-center ">{{ __('#') }}</th>
-                <th class="w-40 p-3 font-semibold text-left cursor-pointer "
+                <th class="w-10 py-3 font-semibold text-center ">{{ __('#') }}</th>
+                <th class="w-40 py-3 font-semibold text-left cursor-pointer "
                     wire:click=" sortColumnName('nama_umat')">
                     {{ __('NAMA') }}</th>
-                <th class="w-40 p-3 font-semibold text-left cursor-pointer "
+                <th class="w-40 py-3 font-semibold text-left cursor-pointer "
                     wire:click=" sortColumnName('nama_alias')">
                     {{ __('ALIAS') }}</th>
-                <th class="w-20 p-3 font-semibold text-left cursor-pointer " wire:click="sortColumnName('mandarin')">
+                <th class="w-20 py-3 font-semibold text-left cursor-pointer " wire:click="sortColumnName('mandarin')">
                     {{ __('中文名') }}</th>
-                <th class="w-20 p-3 font-semibold text-left cursor-pointer "
+                <th class="w-20 py-3 font-semibold text-left cursor-pointer "
                     wire:click="sortColumnName('umur_sekarang') ">
                     {{ __('UMUR') }}</th>
-                <th class="font-semibold text-left cursor-pointer w-28 p-30 "
+                <th class="font-semibold text-left cursor-pointer w-28 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao')">
                     {{ __('TGL CHIU TAO') }}</th>
-                <th class="w-20 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('gender')">
+                <th class="w-20 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('gender')">
                     {{ __('GENDER') }}</th>
-                <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('pengajak')">
+                <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('pengajak')">
                     {{ __('PENGAJAK') }}</th>
-                <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('penjamin')">
+                <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('penjamin')">
                     {{ __('PENJAMIN') }}</th>
-                <th class="w-24 p-3 font-semibold text-left cursor-pointer"
+                <th class="w-24 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_pandita')">
                     {{ __('PANDITA') }}</th>
-                {{-- <th class="p-3 font-semibold text-left cursor-pointer"
+                {{-- <th class="py-3 font-semibold text-left cursor-pointer"
                                                 wire:click="sortColumnName('nama_kota')">
                                                 {{ __('KOTA') }}</th> --}}
-                <th class="w-20 p-3 font-semibold text-left cursor-pointer"
+                <th class="w-20 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_branch')">
                     {{ __('CETYA') }}</th>
-                <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('nama_group')">
+                <th class="w-40 py-3 font-semibold text-left cursor-pointer"
+                    wire:click="sortColumnName('nama_group')">
                     {{ __('GROUP') }}</th>
 
 
 
                 {{-- Header kolom tambahan  --}}
                 @if ($kolomAlamat == 1)
-                    <th class="p-3 font-semibold text-left cursor-pointer w-80" wire:click="sortColumnName('alamat')">
+                    <th class="py-3 font-semibold text-left cursor-pointer w-80"
+                        wire:click="sortColumnName('alamat')">
                         {{ __('ALAMAT') }}</th>
                 @endif
                 @if ($kolomKota == 1)
-                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('kota')">
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('kota')">
                         {{ __('KOTA') }}</th>
                 @endif
                 @if ($kolomTelepon == 1)
-                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('telp')">
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('telp')">
                         {{ __('TELEPON') }}</th>
                 @endif
                 @if ($kolomHandphone == 1)
-                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('hp')">
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('hp')">
                         {{ __('HANDPHONE') }}</th>
                 @endif
                 @if ($kolomEmail == 1)
-                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('email')">
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('email')">
                         {{ __('EMAIL') }}</th>
                 @endif
                 @if ($kolomSd3h == 1)
-                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('sd3h')">
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('sd3h')">
                         {{ __('KELAS 3 HARI') }}</th>
                 @endif
                 @if ($kolomVTotal == 1)
-                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('vtotal')">
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer"
+                        wire:click="sortColumnName('vtotal')">
                         {{ __('Veg. TOTAL') }}</th>
                 @endif
                 @if ($kolomStatus == 1)
-                    <th class="w-40 p-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('status')">
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer"
+                        wire:click="sortColumnName('status')">
                         {{ __('STATUS') }}</th>
                 @endif
                 @if ($kolomKeterangan == 1)
-                    <th class="w-40 p-3 font-semibold text-left cursor-pointer"
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer"
                         wire:click="sortColumnName('keterangan')">
                         {{ __('KETERANGAN') }}</th>
                 @endif
-                <th class="w-20 p-3 font-semibold ">
+                <th class="py-3 font-semibold w-28 ">
                     <div class="flex justify-center space-x-1">
                         <div>
                             <a href="/adddata">
-                                <x-button type="button" class="p-1 text-white bg-blue-500 rounded ">
+                                <x-button type="button"
+                                    class="p-1 text-white bg-blue-500 rounded hover:bg-blue-700 ">
                                     <i class="fa-solid fa-user-plus"></i>
                                 </x-button>
                             </a>
                         </div>
                         {{-- Reset --}}
                         <div>
-                            <button type="button" class="p-1 text-white bg-green-500 rounded "
+                            <button type="button" class="p-1 text-white bg-green-500 rounded hover:bg-green-700 "
                                 wire:click="resetFilter">
                                 <i class="fa fa-arrow-rotate-right"></i>
                             </button>
@@ -374,152 +379,160 @@
         </thead>
         <tbody>
             @foreach ($datapelita1 as $index => $d)
-                <tr class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
-                    <td class="text-center ">
-                        <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
-                            class="checked:bg-purple-500" />
-                    </td>
-
-                    <td class="p-3 text-gray-800 ">
-                        {{ $datapelita1->firstItem() + $index }}
-                    </td>
-
-                    @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
-                        <td class="p-3 font-semibold text-purple-500 ">
-                            {{ $d->nama_umat }}
-                        </td>
-                        <td class="p-3 font-semibold text-purple-500 ">
-                            {{ $d->nama_alias }}
-                        </td>
-                        <td class="p-3 font-semibold text-purple-500 ">
-                            {{ $d->mandarin }}
-                        </td>
-                    @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
-                        <td class="p-3 font-semibold text-teal-500 ">
-                            {{ $d->nama_umat }}
-                        </td>
-                        <td class="p-3 font-semibold text-teal-500 ">
-                            {{ $d->nama_alias }}
-                        </td>
-                        <td class="p-3 font-semibold text-teal-500 ">
-                            {{ $d->mandarin }}
-                        </td>
+                @if ($d->status == 'Active')
+                    <tr
+                        class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
                     @else
-                        <td class="p-3 text-gray-800 ">
-                            {{ $d->nama_umat }}
-                        </td>
-                        <td class="p-3 text-gray-800 ">
-                            {{ $d->nama_alias }}
-                        </td>
-                        <td class="p-3 text-gray-800 ">
-                            {{ $d->mandarin }}
-                        </td>
-                    @endif
-                    <td class="p-3 text-center text-gray-800 ">
-                        {{ $d->umur_sekarang }}
-                    </td>
+                    <tr
+                        class="h-3 bg-gray-300 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
+                @endif
+                <td class="text-center ">
+                    <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
+                        class="checked:bg-purple-500" />
+                </td>
 
-                    <td class="p-3 text-gray-800 ">
-                        {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
-                    <td
-                        class="p-3     {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
-                        {{ check_JK($d->gender, $d->umur_sekarang) }}
-                    </td>
-                    {{-- <td class="p-3 text-gray-800 ">{{ $d->pengajak_id }} --}}
-                    <td class="p-3 text-gray-800 ">
-                        {{ $d->pengajak }}
-                    </td>
-                    <td class="p-3 text-gray-800 ">{{ $d->penjamin }}</td>
+                <td class="py-3 text-gray-800 ">
+                    {{ $datapelita1->firstItem() + $index }}
+                </td>
 
-                    <td class="p-3 text-gray-800 ">
-                        {{ $d->nama_pandita }}
+                @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
+                    <td class="py-3 font-semibold text-purple-500 ">
+                        {{ $d->nama_umat }}
                     </td>
-                    {{-- <td class="p-3 text-gray-800 ">{{ $d->nama_kota }}
+                    <td class="py-3 font-semibold text-purple-500 ">
+                        {{ $d->nama_alias }}
+                    </td>
+                    <td class="py-3 font-semibold text-purple-500 ">
+                        {{ $d->mandarin }}
+                    </td>
+                @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
+                    <td class="py-3 font-semibold text-teal-500 ">
+                        {{ $d->nama_umat }}
+                    </td>
+                    <td class="py-3 font-semibold text-teal-500 ">
+                        {{ $d->nama_alias }}
+                    </td>
+                    <td class="py-3 font-semibold text-teal-500 ">
+                        {{ $d->mandarin }}
+                    </td>
+                @else
+                    <td class="py-3 text-gray-800 ">
+                        {{ $d->nama_umat }}
+                    </td>
+                    <td class="py-3 text-gray-800 ">
+                        {{ $d->nama_alias }}
+                    </td>
+                    <td class="py-3 text-gray-800 ">
+                        {{ $d->mandarin }}
+                    </td>
+                @endif
+                <td class="py-3 text-center text-gray-800 ">
+                    {{ $d->umur_sekarang }}
+                </td>
+
+                <td class="py-3 text-gray-800 ">
+                    {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
+                <td
+                    class="py-3     {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
+                    {{ check_JK($d->gender, $d->umur_sekarang) }}
+                </td>
+                {{-- <td class="py-3 text-gray-800 ">{{ $d->pengajak_id }} --}}
+                <td class="py-3 text-gray-800 ">
+                    {{ $d->pengajak }}
+                </td>
+                <td class="py-3 text-gray-800 ">{{ $d->penjamin }}</td>
+
+                <td class="py-3 text-gray-800 ">
+                    {{ $d->nama_pandita }}
+                </td>
+                {{-- <td class="py-3 text-gray-800 ">{{ $d->nama_kota }}
                                     </td> --}}
-                    <td class="p-3 text-gray-800 ">{{ $d->nama_branch }}
+                <td class="py-3 text-gray-800 ">{{ $d->nama_branch }}
+                </td>
+                <td class="py-3 text-gray-800 ">{{ $d->nama_group }}
+                </td>
+                @if ($kolomAlamat == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->alamat }}
                     </td>
-                    <td class="p-3 text-gray-800 ">{{ $d->nama_group }}
+                @endif
+                @if ($kolomKota == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->nama_kota }}
                     </td>
-                    @if ($kolomAlamat == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->alamat }}
-                        </td>
-                    @endif
-                    @if ($kolomKota == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->nama_kota }}
-                        </td>
-                    @endif
-                    @if ($kolomTelepon == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->telp }}
-                        </td>
-                    @endif
-                    @if ($kolomHandphone == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->hp }}
-                        </td>
-                    @endif
-                    @if ($kolomEmail == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->email }}
-                        </td>
-                    @endif
-                    @if ($kolomSd3h == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->tgl_sd3h }}
-                        </td>
-                    @endif
-                    @if ($kolomVTotal == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->tgl_vtotal }}
-                        </td>
-                    @endif
-                    @if ($kolomStatus == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->status }}
-                        </td>
-                    @endif
-                    @if ($kolomKeterangan == 1)
-                        <td class="p-3 text-gray-800 ">{{ $d->keterangan }}
-                        </td>
-                    @endif
+                @endif
+                @if ($kolomTelepon == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->telp }}
+                    </td>
+                @endif
+                @if ($kolomHandphone == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->hp }}
+                    </td>
+                @endif
+                @if ($kolomEmail == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->email }}
+                    </td>
+                @endif
+                @if ($kolomSd3h == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->tgl_sd3h }}
+                    </td>
+                @endif
+                @if ($kolomVTotal == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->tgl_vtotal }}
+                    </td>
+                @endif
+                @if ($kolomStatus == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->status }}
+                    </td>
+                @endif
+                @if ($kolomKeterangan == 1)
+                    <td class="py-3 text-gray-800 ">{{ $d->keterangan }}
+                    </td>
+                @endif
 
 
-                    <td class="p-3 text-gray-800 ">
+                <td class="py-3 text-gray-800 ">
 
-                        <div class="flex justify-center space-x-1">
+                    <div class="flex justify-center space-x-1">
 
-                            <div>
-                                <a href="/viewdata/{{ $d->id }}">
-                                    <x-button type="button" class="p-1 text-black bg-green-400 rounded">
-                                        <i class="fa fa-eye "></i>
-                                    </x-button>
-                                </a>
+                        <div>
+                            <a href="/viewdata/{{ $d->id }}">
+                                <x-button type="button"
+                                    class="p-1 text-black bg-green-400 rounded hover:bg-green-600">
+                                    <i class="fa fa-eye "></i>
+                                </x-button>
+                            </a>
 
-                            </div>
-
-                            {{-- <div> --}}
-                            <div>
-                                <a href="/editdata/{{ $d->id }}">
-                                    <x-button type="button" class="p-1 text-black bg-yellow-300 rounded">
-                                        <i class="fa fa-pen-to-square "></i>
-                                    </x-button>
-                                </a>
-
-                            </div>
-                            @if (Auth::user()->role != '1')
-                                <div>
-
-                                    <x-button class="p-1 text-white bg-red-500 rounded"
-                                        wire:click="deleteConfirmation({{ $d->id }})">
-                                        <i class="fa fa-trash "></i>
-                                    </x-button>
-                                </div>
-                            @endif
-                            {{--
-                                    </div> --}}
                         </div>
-                    </td>
+
+                        {{-- <div> --}}
+                        <div>
+                            <a href="/editdata/{{ $d->id }}">
+                                <x-button type="button"
+                                    class="p-1 text-black bg-yellow-300 rounded hover:bg-yellow-500">
+                                    <i class="fa fa-pen-to-square "></i>
+                                </x-button>
+                            </a>
+
+                        </div>
+                        @if (Auth::user()->role != '1')
+                            <div>
+
+                                <x-button class="p-1 text-white bg-red-500 rounded hover:bg-red-700"
+                                    wire:click="deleteConfirmation({{ $d->id }})">
+                                    <i class="fa fa-trash "></i>
+                                </x-button>
+                            </div>
+                        @endif
+                        {{--
+                                    </div> --}}
+                    </div>
+                </td>
                 </tr>
             @endforeach
         </tbody>
         </table>
 
     </div>
-    <div class="p-3">
+    <div class="px-3">
         {{ $datapelita1->links() }}
 
     </div>
