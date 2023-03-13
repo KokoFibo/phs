@@ -84,22 +84,11 @@ public function updatedSelectAll () {
 }
 
     public function updatingKodeBranch () {
-        $this->group_id = "";
-        // dd($this->kode_branch);
-        // if ($this->kode_branch != '') {
-        //     $this->anton ="anton1";
-        //     $this->resetPage();
-        // }
-
-
+        // $this->group_id = "";
     }
 
     public function updatingGroupId () {
         $this->kode_branch = "";
-        // if ($this->group_id != '') {
-        //     $this->anton ="anton2";
-        //     $this->resetPage();
-        // }
     }
     public function cetak () {
         $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
@@ -289,11 +278,6 @@ public function updatedSelectAll () {
         else {
             $this->default=true;
         }
-    }
-
-    public function dataQuery () {
-
-
     }
 
     public function render()

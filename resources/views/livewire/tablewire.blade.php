@@ -3,19 +3,19 @@
     <x-spinner />
     {{-- Search Bar --}}
 
-    {{-- <div wire:loading>Loading...</div> --}}
+    {{-- <div wire:loading>Loading...</div> xa --}}
     <div class="items-center justify-between w-full lg:flex">
-        <div class="mx-5 lg:w-3/5 ">
-            <div class="items-center lg:flex">
+        <div class="items-center mx-5 lg:w-3/4 lg:flex">
 
 
-                {{-- Search --}}
-                <div class="w-full mt-3 mr-3 lg:w-2/5">
-                    <input type="search" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded "
-                        wire:model="search" placeholder="{{ __('Search...') }}">
-                </div>
+            {{-- Search --}}
+            <div class="w-full mt-3 mr-3 lg:w-1/5">
+                <input type="search" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded "
+                    wire:model="search" placeholder="{{ __('Search...') }}">
+            </div>
+            <div class="flex items-center lg:w-4/5 lg:flex">
                 {{-- Category --}}
-                <div class="w-full mt-3 mr-3 lg:w-1/5">
+                <div class="w-full mt-3 mr-3 lg:w-1/4">
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="category">
                         <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
@@ -30,7 +30,7 @@
                     </select>
                 </div>
                 {{-- Rows per Page --}}
-                <div class="w-full mt-3 mr-3 lg:w-1/5">
+                <div class="relative w-full mt-3 mr-3 lg:w-1/4">
                     <select class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded"
                         wire:model="perpage">
                         <option value="5">{{ __('5 Rows') }}</option>
@@ -40,19 +40,18 @@
                         <option value="25">{{ __('25 Rows') }}</option>
                     </select>
                 </div>
-                {{-- Filter Dropdown --}}
-                <div x-data="{ open: false }" class="w-full mt-3 mr-3 lg:w-1/5">
+                {{--  Filter Dropdown --}}
+                <div x-data="{ open: false }" class="w-full mt-3 mr-3 lg:w-1/4">
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
                         class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white"><i
                             class="fa fa-filter"></i>
-                        {{ __('Filter') }}</button>
+                        {{ __('Filter') }} <i class="fa fa-angle-down"></i></i></button>
 
 
                     {{-- isi dari dropdown --}}
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
-                        class="min-h-120px mx-auto absolute z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-white  shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
-                        {{-- class="absolute z-10 px-3 pb-3 mx-auto text-purple-700 min-h-120px rounded-xl w-400px glass "> --}}
+                        class=" absolute left-5 lg:left-1/3 z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-white  shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
 
 
                         {{-- <div class="card card-body glass" style="width: 400px; color: purple;"> --}}
@@ -149,6 +148,9 @@
                                         wire:model="endDate">
                                 </div>
                             </div>
+                            <div class="lg:hidden">
+                                <button @click="open=false" class="button button-black">close</button>
+                            </div>
                         </div>
 
 
@@ -158,96 +160,97 @@
                     </div>
                     {{-- end isi dropdown --}}
                 </div>
+                {{-- Tambah Kolom --}}
+                <div x-data="{ open: false }" class="relative w-full mt-3 mr-3 lg:w-1/4">
+                    <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
+                        class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded hover:bg-purple-700 hover:text-white">
+                        {{ __('Kolom') }} <i class="fa fa-angle-down"></i></button>
 
+                    <div x-show="open" x-cloak @click.away="open = false" x-transition
+                        class="absolute z-10 px-2 py-3 text-purple-700 bg-white shadow-xl rounded-xl">
+                        {{-- mulai isi Tambah Kolom --}}
+                        <table>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="alamat" wire:model="kolomAlamat" value="1"
+                                        class="checked:bg-purple-500" />
+
+                                </td>
+                                <td class="px-1 py-1 ">
+                                    <label for="alamat">ALamat</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="kota" wire:model="kolomKota" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 "><label for="kota">Kota</label></td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="telepon" wire:model="kolomTelepon" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 "><label for="telepon">Telepon</label></td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="handphone" wire:model="kolomHandphone" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 "><label for="handphone">Handphone</label></td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="email" wire:model="kolomEmail" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 "><label for="email">Email</label></td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="kelas" wire:model="kolomSd3h" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 "><label for="kelas">Kelas 3 Hari</label></td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="vegetarian" wire:model="kolomVTotal" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 "><label for="vegetarian">Veg. Total</label></td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="status" wire:model="kolomStatus" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 "><label for="status">Status</label></td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="keterangan" wire:model="kolomKeterangan"
+                                        value="1" class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 "><label for="keterangan">Keterangan</label></td>
+                            </tr>
+                        </table>
+                        {{-- end isi dropdown --}}
+                    </div>
+                </div>
 
             </div>
         </div>
+
+
 
         {{-- nama cetya --}}
         <div class="mx-5 mt-3 lg:w-1/5 ">
             {{-- kode_branch --}}
             {{-- <h1 class="text-3xl font-bold text-center text-purple-700">{{ $nama_cetya }} </h1> --}}
             <h1 class="text-3xl font-bold text-center text-purple-700">{{ getGroupVihara($group_id) }} </h1>
-        </div>
-        {{-- Tambah Kolom --}}
-        <div x-data="{ open: false }" class="mx-5 mt-3 text-right wd-full lg:w-1/5">
-            <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
-                class="w-full px-2 py-1 text-purple-700 border border-purple-700 rounded lg:w-1/2 hover:bg-purple-700 hover:text-white">
-                {{ __('Kolom') }}</button>
-
-            <div x-show="open" x-cloak @click.away="open = false" x-transition
-                class="absolute z-10 px-2 py-3 mx-auto text-purple-700 bg-white shadow-xl min-h-120px rounded-xl">
-                {{-- mulai isi Tambah Kolom --}}
-                <table>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="alamat" wire:model="kolomAlamat" value="1"
-                                class="checked:bg-purple-500" />
-
-                        </td>
-                        <td class="px-1 py-1 ">
-                            <label for="alamat">ALamat</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="kota" wire:model="kolomKota" value="1"
-                                class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 "><label for="kota">Kota</label></td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="telepon" wire:model="kolomTelepon" value="1"
-                                class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 "><label for="telepon">Telepon</label></td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="handphone" wire:model="kolomHandphone" value="1"
-                                class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 "><label for="handphone">Handphone</label></td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="email" wire:model="kolomEmail" value="1"
-                                class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 "><label for="email">Email</label></td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="kelas" wire:model="kolomSd3h" value="1"
-                                class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 "><label for="kelas">Kelas 3 Hari</label></td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="vegetarian" wire:model="kolomVTotal" value="1"
-                                class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 "><label for="vegetarian">Veg. Total</label></td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="status" wire:model="kolomStatus" value="1"
-                                class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 "><label for="status">Status</label></td>
-                    </tr>
-                    <tr>
-                        <td class="px-1 py-1 ">
-                            <input type="checkbox" id="keterangan" wire:model="kolomKeterangan" value="1"
-                                class="checked:bg-purple-500" />
-                        </td>
-                        <td class="px-1 py-1 "><label for="keterangan">Keterangan</label></td>
-                    </tr>
-                </table>
-                {{-- end isi dropdown --}}
-            </div>
         </div>
         {{-- End Search Bar --}}
 
