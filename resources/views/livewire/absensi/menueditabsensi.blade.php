@@ -35,10 +35,16 @@
                 <div class="flex justify-between">
                     {{-- <button wire:click="editAbsensiByTgl" class="mt-3 button button-purple"><i
                             class="fa-regular fa-eye"></i>Tampilkan</button> --}}
-                    <button wire:click="deleteAbsensiByTglConfirmation" class="mt-3 button button-red"><i
-                            class="fa-regular fa-eye"></i>Delete</button>
-                    <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-yellow">Save &
-                        Close</button>
+                    @if ($selectedTglEdit != null)
+                        <button wire:click="deleteAbsensiByTglConfirmation" class="mt-3 button button-red"><i
+                                class="fa-regular fa-eye"></i>Delete</button>
+                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-yellow">Save &
+                            Close</button>
+                    @else
+                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-yellow">Close</button>
+                    @endif
+
+
                 </div>
             </div>
 
