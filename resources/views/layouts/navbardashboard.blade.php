@@ -46,8 +46,8 @@
                     </a>
                     <div style="color: rgb(236, 72, 153) !important; background-color: white" class="dropdown-menu"
                         aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('tambahgroup') }}">{{ __('Tambah Group Vihara') }}</a>
-                        <a class="dropdown-item" href="{{ route('branchwire') }}">{{ __('Tambah Data Vihara') }} </a>
+                        <a class="dropdown-item" href="{{ route('tambahgroup') }}">{{ __('Group Vihara') }}</a>
+                        <a class="dropdown-item" href="{{ route('branchwire') }}">{{ __('Data Vihara') }} </a>
                     </div>
                 </li>
             @endif
