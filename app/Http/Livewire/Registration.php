@@ -86,8 +86,10 @@ class Registration extends Component
 
     public function resetpassword($id)
     {
+
         $this->is_reset = true;
         $this->is_edit = false;
+
         $this->currentId = $id;
         $data = User::find($id);
         $this->name = $data->name;
