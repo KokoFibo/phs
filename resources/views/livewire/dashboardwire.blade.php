@@ -17,11 +17,14 @@
 
         <div class="p-2 mt-2 row ">
             <div class="text-center col">
-                <h4 style="color:rgb(236,72,153)">{{ getDaftarKelas($selectedDaftarKelasId) }} -
-                    {{ getGroupVihara($selectedGroupVihara) }}</h4>
+                @if ($selectedGroupVihara != null)
+                    <h4 style="color:rgb(236,72,153)">{{ getDaftarKelas($selectedDaftarKelasId) }} -
+                        {{ getGroupVihara($selectedGroupVihara) }}</h4>
+                @else
+                    <h4 style="color:rgb(236,72,153)">-</h4>
+                @endif
             </div>
         </div>
-
         {{-- chart start --}}
         <div class="p-2 mt-1 row">
             <div class="mb-2 col-xl-3 ">
@@ -69,9 +72,7 @@
                 <div style=" background-color: white; padding:10px">
                     <canvas id="myChart1"></canvas>
                 </div>
-
             </div>
-
         </div>
         <div class="p-2 mt-1 row">
             <h5>Informasi Kehadiran Peserta</h5>

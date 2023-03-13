@@ -5,8 +5,12 @@
         {{-- end --}}
         <div class="text-center ">
             @if (Auth::user()->role == '3')
-                <h2 style="color: rgb(236,72,153)">{{ getGroupVihara($selectedGroupVihara) }}
-                    {{ getBranch($selectedBranch) }}</h2>
+                @if ($selectedGroupVihara != null || $selectedBranch != null)
+                    <h2 style="color: rgb(236,72,153)">{{ getGroupVihara($selectedGroupVihara) }}
+                        {{ getBranch($selectedBranch) }}</h2>
+                @else
+                    <h2 style="color: rgb(236,72,153)">Vihara Pelita Hati</h2>
+                @endif
             @elseif ($selectedBranch == '')
                 <h2 style="color: rgb(236,72,153)">{{ getGroupVihara($selectedGroupVihara) }}</h2>
             @else
