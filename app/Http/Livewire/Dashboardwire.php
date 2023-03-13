@@ -65,7 +65,7 @@ class Dashboardwire extends Component
 
     public function updatedSelectedBranch()
     {
-        $this->selectedGroupVihara = '';
+        // $this->selectedGroupVihara = '';
 
 
         try {
