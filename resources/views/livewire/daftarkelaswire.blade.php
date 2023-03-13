@@ -64,7 +64,7 @@
                 <button wire:click="update"
                     class="px-3 py-1 text-teal-600 bg-white border-white rounded hover:bg-teal-800 hover:text-white">{{ __('Update') }}</button>
             @endif
-            <button wire:click="cancel" class="button button-yellow">{{ __('Cancel') }}</button>
+            <button wire:click="cancel" class="button button-yellow">{{ __('Close') }}</button>
         </div>
         <div class="w-full mt-3 lg:w-1/2">
             @if (!empty($daftarkelas))
@@ -87,13 +87,10 @@
                                 </td>
                                 <td class="p-3 text-gray-800 border rounded">{{ getKelas($p->kelas_id) }}</td>
                                 <td class="p-3 text-center text-gray-800 border rounded">
-                                    @if ($p->daftarkelas_is_used == false)
+                                    @if (check_daftarkelas_is_used($p->id) == null)
                                         <button class="button-red button "
                                             wire:click="deleteConfirmation({{ $p->id }})"><i
                                                 class="fa fa-trash "></i></button>
-                                    @else
-                                        <button class="button button-teal" wire:click="edit({{ $p->id }})"><i
-                                                class="fa fa-pen-to-square "></i></button>
                                     @endif
                                 </td>
                             </tr>
@@ -164,6 +161,15 @@
                     title: 'Data Duplikat',
                     text: 'Kelas ini sudah terdaftar pada Vihara',
                     footer: 'Data Ini Tidak Di Simpan'
+                })
+            });
+
+            window.addEventListener('canNotDelete', function(e) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tidak Boleh Di Delete',
+                    text: 'Data Kelas ini sudah terdaftar di Absensi',
+                    footer: 'Data Ini Tidak Di Delete'
                 })
             });
         </script>

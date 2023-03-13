@@ -86,18 +86,16 @@ class Absensiwire extends Component
         $absensi = Absensi::find($id);
         $daftarkelasid = $absensi->daftarkelas_id;
         $datapelitaid = $absensi->datapelita_id;
-
-
         $absensi->absensi = $kodeAbsen;
         $absensi->save();
 
         // update data kota_is_Used
-        $dataID = Pesertakelas::where('datapelita_id',$datapelitaid)->where('daftarkelas_id', $daftarkelasid )->first();
-        $data = Pesertakelas::find($dataID->id);
-        $data->pesertakelas_is_used = true;
-        $data->save();
+        // $dataID = Pesertakelas::where('datapelita_id',$datapelitaid)->where('daftarkelas_id', $daftarkelasid )->first();
+        // $data = Pesertakelas::find($dataID->id);
+        // $data->pesertakelas_is_used = true;
+        // $data->save();
 
-        $this->resetPage();
+        // $this->resetPage();
 
 
 
