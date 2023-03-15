@@ -17,7 +17,7 @@
 
                 <button id="dropdown-button" data-dropdown-toggle="dropdown"
                     class="z-10 inline-flex items-center flex-shrink-0 py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
-                    type="button">{{ $nama_kategori }} <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor"
+                    type="button">{{ __($nama_kategori) }} <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor"
                         viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
                             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -25,36 +25,35 @@
                     </svg>
                 </button>
                 <div id="dropdown"
-                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                    class=" z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class=" py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                         <li>
                             <button type="button" wire:click="getCategory('All categories')"
-                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">All
-                                categories</button>
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('All categories') }}</button>
                         </li>
                         <li>
                             <button type="button" wire:click="getCategory('Nama')"
-                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nama</button>
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Nama') }}</button>
                         </li>
                         <li>
                             <button type="button" wire:click="getCategory('Pengajak')"
-                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pengajak</button>
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Pengajak') }}</button>
                         </li>
                         <li>
                             <button type="button" wire:click="getCategory('Penjamin')"
-                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penjamin</button>
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Penjamin') }}</button>
                         </li>
                         <li>
                             <button type="button" wire:click="getCategory('Pandita')"
-                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pandita</button>
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Pandita') }}</button>
                         </li>
                         <li>
                             <button type="button" wire:click="getCategory('Kota')"
-                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kota</button>
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Kota') }}</button>
                         </li>
                         <li>
                             <button type="button" wire:click="getCategory('Alamat')"
-                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Alamat</button>
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Alamat') }}</button>
                         </li>
                     </ul>
                 </div>
