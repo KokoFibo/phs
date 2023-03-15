@@ -1,18 +1,20 @@
 <div>
     @push('style')
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+        {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" /> --}}
     @endpush
     <x-spinner />
     {{-- Search Bar --}}
 
     {{-- <div wire:loading>Loading...</div> xa --}}
-    <div class="items-center justify-between w-full lg:flex">
-        <div class="items-center mx-5 lg:w-3/4 lg:flex">
-            {{-- search aax --}}
+    <div class="items-center justify-between w-full  lg:flex">
+        <div class="items-center  lg:w-3/4 lg:flex ">
+            {{-- search  --}}
 
-            <div class="flex w-full mt-3 mr-3 lg:w-2/5">
+            <div class="flex w-full mt-3 px-2 lg:w-2/5">
                 {{-- <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
                     Email</label> --}}
+
+
                 <button id="dropdown-button" data-dropdown-toggle="dropdown"
                     class="z-10 inline-flex items-center flex-shrink-0 py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
                     type="button">{{ $nama_kategori }} <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor"
@@ -70,36 +72,17 @@
                         <span class="sr-only">Search</span>
                     </button>
                 </div>
+
             </div>
 
 
-            {{-- End Search --}}
 
 
-            {{-- Search --}}
-            {{-- <div class="w-full mt-3 mr-3 lg:w-1/5">
-                <input type="search" class="w-full px-4 py-1 text-purple-700 border border-purple-700 rounded "
-                    wire:model="search" placeholder="{{ __('Search...') }}">
-            </div> --}}
-            <div class="flex items-center lg:w-4/5 lg:flex">
-                {{-- Category --}}
-                {{-- <div class="w-full mt-3 mr-3 lg:w-1/4">
-                    <select
-                        class="w-full px-2 py-1 text-sm text-white bg-pink-500 border border-pink-500 rounded lg:text-base hover:bg-pink-400"
-                        wire:model="category">
-                        <option value="data_pelitas.nama_umat" selected>{{ __('Nama') }}</option>
-                        <option value="data_pelitas.nama_alias">{{ __('Alias') }}</option>
-                        <option value="data_pelitas.mandarin">{{ __('中文') }}</option>
-                        <option value="data_pelitas.pengajak">{{ __('Pengajak') }}</option>
-                        <option value="data_pelitas.penjamin">{{ __('Penjamin') }}</option>
-                        <option value="panditas.nama_pandita">{{ __('Pandita') }}</option>
-                        <option value="kotas.nama_kota">{{ __('Kota') }}</option>
-                        <option value="data_pelitas.alamat">{{ __('Alamat') }}</option>
 
-                    </select>
-                </div> --}}
+            <div class="w-full flex justify-between items-center px-2 lg:w-3/5 gap-2">
+
                 {{-- Rows per Page --}}
-                <div class="relative w-full mt-3 mr-3 lg:w-1/4">
+                <div class="relative w-full mt-3  lg:w-1/4 ">
                     <select
                         class="w-full px-2 py-1 text-sm text-white bg-green-500 border border-green-500 rounded lg:text-base hover:bg-green-700"
                         wire:model="perpage">
@@ -111,7 +94,7 @@
                     </select>
                 </div>
                 {{--  Filter Dropdown --}}
-                <div x-data="{ open: false }" class="w-full mt-3 mr-3 lg:w-1/4">
+                <div x-data="{ open: false }" class="w-full mt-3  lg:w-1/4">
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
                         class="w-full px-2 py-1 text-sm text-white bg-purple-500 border border-purple-700 rounded lg:text-base hover:bg-purple-700 hover:text-white">
                         <span class="hidden lg:inline"><i class=" fa fa-filter fa-sm"></i></span>
@@ -243,9 +226,9 @@
                     {{-- end isi dropdown --}}
                 </div>
                 {{-- Tambah Kolom --}}
-                <div x-data="{ open: false }" class="relative w-full mt-3 mr-3 lg:w-1/4">
+                <div x-data="{ open: false }" class="relative w-full mt-3  lg:w-1/4">
                     <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
-                        class="w-full px-2 py-1 text-sm text-white bg-blue-500 border-blue-700 rounded lg:text-base hover:bg-blue-700 hover:text-white">
+                        class="w-full px-2 py-1 text-sm text-white bg-blue-500 border border-500 rounded lg:text-base hover:bg-blue-700 hover:text-white">
                         {{ __('Kolom') }} <i class="fa fa-angle-down"></i></button>
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
@@ -322,6 +305,19 @@
                         {{-- end isi dropdown --}}
                     </div>
                 </div>
+                {{-- kolom aas --}}
+                <div class="relative w-full mt-3  lg:w-1/4">
+                    {{-- Reset --}}
+                    <div>
+                        <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
+                            wire:click="resetFilter"
+                            class="w-full px-2 py-1 text-sm text-white border bg-pink-500 border-pink-500 rounded lg:text-base hover:bg-pink-700 hover:text-white">
+                            {{ __('Reset') }} <i class="fa fa-arrow-rotate-right"></i>
+
+                        </button>
+
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -337,8 +333,6 @@
             </h1>
         </div>
         {{-- End Search Bar --}}
-
-
     </div>
     {{-- export Excel $ PDF --}}
     @if ($selectedId != null)
@@ -391,17 +385,12 @@
                 <th class="w-24 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_pandita')">
                     {{ __('PANDITA') }}</th>
-                {{-- <th class="py-3 font-semibold text-left cursor-pointer"
-                                                wire:click="sortColumnName('nama_kota')">
-                                                {{ __('KOTA') }}</th> --}}
                 <th class="w-20 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_branch')">
                     {{ __('CETYA') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_group')">
                     {{ __('GROUP') }}</th>
-
-
 
                 {{-- Header kolom tambahan  --}}
                 @if ($kolomAlamat == 1)
@@ -445,22 +434,16 @@
                         {{ __('KETERANGAN') }}</th>
                 @endif
                 <th class="py-3 font-semibold w-28 ">
-                    <div class="flex justify-center space-x-1">
+                    <div class="aad flex justify-center space-x-1">
                         <div>
                             <a href="/adddata">
                                 <x-button type="button"
-                                    class="p-1 text-white bg-blue-500 rounded hover:bg-blue-700 ">
+                                    class="p-1 px-5 text-white bg-teal-500 rounded hover:bg-teal-700 ">
                                     <i class="fa-solid fa-user-plus"></i>
                                 </x-button>
                             </a>
                         </div>
-                        {{-- Reset --}}
-                        <div>
-                            <button type="button" class="p-1 text-white bg-green-500 rounded hover:bg-green-700 "
-                                wire:click="resetFilter">
-                                <i class="fa fa-arrow-rotate-right"></i>
-                            </button>
-                        </div>
+
                     </div>
                 </th>
             </tr>
@@ -584,7 +567,7 @@
                         <div>
                             <a href="/viewdata/{{ $d->id }}">
                                 <x-button type="button"
-                                    class="p-1 text-black bg-green-400 rounded hover:bg-green-600">
+                                    class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700">
                                     <i class="fa fa-eye "></i>
                                 </x-button>
                             </a>
@@ -595,7 +578,7 @@
                         <div>
                             <a href="/editdata/{{ $d->id }}">
                                 <x-button type="button"
-                                    class="p-1 text-black bg-yellow-300 rounded hover:bg-yellow-500">
+                                    class="p-1 text-white bg-orange-500 rounded hover:bg-orange-700">
                                     <i class="fa fa-pen-to-square "></i>
                                 </x-button>
                             </a>
@@ -620,8 +603,8 @@
         </table>
 
     </div>
-    <div class="px-3 mt-3">
-        {{ $datapelita1->links() }}
+    <div class="px-3 mt-3 text-sm">
+        {{ $datapelita1->onEachSide(1)->links() }}
 
     </div>
     <hr class="invisible mt-3">
