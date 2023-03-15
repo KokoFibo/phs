@@ -81,7 +81,7 @@
         <div class="mb-2 col-12 col-sm-3 col-4 ">
             <select wire:model="selectedBranch" class="shadow form-select "
                 style="background-color:rgb(59,130,246); color: white; height:50px">
-                <label>Pilih Kelas</label>
+                <label>{{ __('Pilih Kelas') }}</label>
                 @if (Auth::user()->role == '3')
                     <option value="">{{ __('All Vihara') }}</option>
                 @endif
@@ -93,7 +93,7 @@
         <div class="mb-2 col-12 col-sm-3 col-4">
             <select class="shadow form-select" wire:model="selectedDaftarKelasId"
                 style="background-color:rgb(168,85,247); color: white; height:50px; ">
-                <option value="">Pilih Kelas</option>
+                <option value="">{{ __('Pilih Kelas') }}</option>
                 @foreach ($daftarkelas as $d)
                     <option value="{{ $d->id }}">{{ getDaftarKelas($d->id) }}</option>
                 @endforeach

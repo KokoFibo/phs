@@ -93,7 +93,7 @@
     "Close": "關閉",
     "Register New Admin": "註冊新管理員",
     "Registration": "註冊新管理員",
-    "Reset": "重設密碼",
+    "Reset": "重設",
     "Data User": "用戶數據",
     "Main": "主選單",
     "5 Rows": "每頁五列",
@@ -165,5 +165,9 @@
     "Menu Tambah Kelas": "添加研究班",
     "Menu Tambah Group Vihara": "添加區域集團",
     "Absensi": "考勤",
-    "Kolom": "添加列"
+    "Kolom": "添加列",
+    "All categories": "所有類別",
+    "Informasi Kelas": "班級信息",
+    "Informasi Kehadiran Peserta": "參會人員信息",
+    "Pilih Kelas": "選擇班級"
 }

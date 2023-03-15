@@ -68,14 +68,14 @@
 
             </div>
             <div class="mb-2 mr-3 lg-mt-1 col-xl-3">
-                <h5>Informasi Kelas</h5>
+                <h5>{{ __('Informasi Kelas') }}</h5>
                 <div style=" background-color: white; padding:10px">
                     <canvas id="myChart1"></canvas>
                 </div>
             </div>
         </div>
         <div class="p-2 mt-1 row">
-            <h5>Informasi Kehadiran Peserta</h5>
+            <h5>{{ __('Informasi Kehadiran Peserta') }}</h5>
             <div class="mb-2 col-12 col-xl-6 ">
                 <div style="background-color: white; padding:10px">
                     <canvas id="myChart"></canvas>
