@@ -34,7 +34,7 @@ class Tablewire extends Component
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $status;
     public $current_id, $delete_id;
     public $namaPandita, $namaKota;
-    public $category="data_pelitas.nama_umat", $nama_kategori;
+    public $category="data_pelitas.nama_umat";
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
     public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
     public $default;
@@ -67,44 +67,9 @@ class Tablewire extends Component
             $this->isTambahKolom = 0;
         }
     }
-    public function getCategory ($nama_kategori) {
-
-
-            $this->nama_kategori = $nama_kategori;
-
-
-        switch($nama_kategori) {
-            case 'All categories':
-                $this->category = "All categories";
-                break;
-            case 'Nama':
-                $this->category = "Nama";
-                break;
-            case 'Pengajak':
-                $this->category = "data_pelitas.pengajak";
-                break;
-            case 'Penjamin':
-                $this->category = "data_pelitas.penjamin";
-                break;
-            case 'Pandita':
-                $this->category = "panditas.nama_pandita";
-                break;
-            case 'Kota':
-                $this->category = "kotas.nama_kota";
-                break;
-            case 'Alamat':
-            $this->category = "data_pelitas.alamat";
-            break;
-        }
-
-
-
-    }
 
     public function mount () {
         $this->default=true;
-        $this->nama_kategori = "All categories";
-        $this->category = "All categories";
     }
     public function updating () {
 
@@ -178,10 +143,6 @@ public function updatedSelectAll () {
         $this->dispatchBrowserEvent('resetfield');
         $this->isTambahKolom=0; $this->kolomAlamat=0; $this->kolomKota=0; $this->kolomTelepon=0; $this->kolomHandphone=0; $this->kolomEmail=0;
         $this->kolomSd3h=0; $this->kolomVTotal=0; $this->kolomStatus=0; $this->kolomKeterangan=0;
-        $this->nama_kategori = "All categories";
-
-        $this->category = "All categories";
-
 
     }
     public function hitungUmurSekarang($tgl, $umur) {
@@ -352,32 +313,7 @@ public function updatedSelectAll () {
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
-
-        // ->where($this->category,'like','%'.trim($this->search).'%')
-        ->when($this->category, function($query){
-            if($this->category == 'Nama') {
-                $query->where('data_pelitas.nama_umat','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.nama_alias','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.mandarin','like','%'.trim($this->search).'%');
-            } elseif($this->category == 'All categories') {
-                $query->where('data_pelitas.nama_umat','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.nama_alias','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.mandarin','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.pengajak','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.penjamin','like','%'.trim($this->search).'%')
-                ->orWhere('panditas.nama_pandita','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.alamat','like','%'.trim($this->search).'%')
-                ->orWhere('kotas.nama_kota','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.telp','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.hp','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.email','like','%'.trim($this->search).'%');
-
-            }
-            else {
-                $query->where($this->category,'like','%'.trim($this->search).'%');
-            }
-        })
-
+        ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->group_id, function($query){
             $query->where('groupviharas.id',$this->group_id);
         })
@@ -424,33 +360,7 @@ public function updatedSelectAll () {
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
-
-        // ->where($this->category,'like','%'.trim($this->search).'%')
-        ->when($this->category, function($query){
-            if($this->category == 'Nama') {
-                $query->where('data_pelitas.nama_umat','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.nama_alias','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.mandarin','like','%'.trim($this->search).'%');
-            } elseif($this->category == 'All categories') {
-                $query->where('data_pelitas.nama_umat','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.nama_alias','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.mandarin','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.pengajak','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.penjamin','like','%'.trim($this->search).'%')
-                ->orWhere('panditas.nama_pandita','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.alamat','like','%'.trim($this->search).'%')
-                ->orWhere('kotas.nama_kota','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.telp','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.hp','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.email','like','%'.trim($this->search).'%');
-
-            }
-            else {
-                $query->where($this->category,'like','%'.trim($this->search).'%');
-            }
-        })
-
-
+        ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->group_id, function($query){
             $query->where('groupviharas.id',$this->group_id);
         })
@@ -497,32 +407,7 @@ public function updatedSelectAll () {
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
-
-        // ->where($this->category,'like','%'.trim($this->search).'%')
-        ->when($this->category, function($query){
-            if($this->category == 'Nama') {
-                $query->where('data_pelitas.nama_umat','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.nama_alias','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.mandarin','like','%'.trim($this->search).'%');
-            } elseif($this->category == 'All categories') {
-                $query->where('data_pelitas.nama_umat','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.nama_alias','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.mandarin','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.pengajak','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.penjamin','like','%'.trim($this->search).'%')
-                ->orWhere('panditas.nama_pandita','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.alamat','like','%'.trim($this->search).'%')
-                ->orWhere('kotas.nama_kota','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.telp','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.hp','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.email','like','%'.trim($this->search).'%');
-
-            }
-            else {
-                $query->where($this->category,'like','%'.trim($this->search).'%');
-            }
-        })
-
+        ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->group_id, function($query){
             $query->where('groupviharas.id',$this->group_id);
         })
@@ -564,32 +449,7 @@ public function updatedSelectAll () {
         ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
         ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
         ->orderBy($this->columnName, $this->direction)
-
-        // ->where($this->category,'like','%'.trim($this->search).'%')
-        ->when($this->category, function($query){
-            if($this->category == 'Nama') {
-                $query->where('data_pelitas.nama_umat','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.nama_alias','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.mandarin','like','%'.trim($this->search).'%');
-            } elseif($this->category == 'All categories') {
-                $query->where('data_pelitas.nama_umat','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.nama_alias','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.mandarin','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.pengajak','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.penjamin','like','%'.trim($this->search).'%')
-                ->orWhere('panditas.nama_pandita','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.alamat','like','%'.trim($this->search).'%')
-                ->orWhere('kotas.nama_kota','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.telp','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.hp','like','%'.trim($this->search).'%')
-                ->orWhere('data_pelitas.email','like','%'.trim($this->search).'%');
-
-            }
-            else {
-                $query->where($this->category,'like','%'.trim($this->search).'%');
-            }
-        })
-
+        ->where($this->category,'like','%'.$this->search.'%')
         ->when($this->group_id, function($query){
             $query->where('groupviharas.id',$this->group_id);
         })
