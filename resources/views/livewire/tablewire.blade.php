@@ -96,7 +96,7 @@
                 {{--  Filter Dropdown --}}
                 <div x-data="{ open: false }" class="w-full mt-3  lg:w-1/4">
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
-                        class="w-full px-2 py-1 text-sm text-white bg-purple-500 border border-purple-700 rounded lg:text-base hover:bg-purple-700 hover:text-white">
+                        class="w-full px-2 py-1 text-sm text-white bg-purple-500 border border-purple-500 rounded lg:text-base hover:bg-purple-700 hover:text-white">
                         <span class="hidden lg:inline"><i class=" fa fa-filter fa-sm"></i></span>
                         {{ __('Filter') }} <i class=" fa fa-angle-down"></i></i></button>
 
