@@ -34,7 +34,7 @@
 
 
             <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
-                <label class="px-2 ">{{ __('Group') }}</label><span class="text-red-500">*</span>
+                <label class="px-2 dark:text-white">{{ __('Group') }}</label><span class="text-red-500">*</span>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="selectedGroup">
                     {{-- <option value="">{{ __('Silakan Pilih Group') }}</option> --}}
@@ -45,7 +45,7 @@
             </div>
 
             <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
-                <label class="px-2 ">{{ __('Vihara') }}</label><span class="text-red-500">*</span>
+                <label class="px-2 dark:text-white ">{{ __('Vihara') }}</label><span class="text-red-500">*</span>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="selectedBranch">
                     {{-- <option value="">{{ __('Silakan Pilih Vihara') }}</option> --}}
@@ -58,7 +58,8 @@
         <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly dark:text-gray-900">
 
             <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
-                <label class="w-full px-2 ">{{ __('Kota') }}</label><span class="text-red-500">*</span>
+                <label class="w-full px-2 dark:text-white ">{{ __('Kota') }}</label><span
+                    class="text-red-500">*</span>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="selectedKota">
                     <option value="">{{ __('Silakan Pilih Kota') }}</option>
