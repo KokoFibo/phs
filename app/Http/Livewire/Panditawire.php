@@ -18,6 +18,9 @@ class Panditawire extends Component
 
 
 
+    public function cancel () {
+        $this->is_add = 'true';
+    }
     public function close () {
         return redirect()->route('adddata');
     }
@@ -94,7 +97,7 @@ class Panditawire extends Component
     {
         $pandita = Pandita::orderBy('nama_pandita', 'asc')->paginate(5);
         return view('livewire.panditawire', compact('pandita'))
-        ->extends('layouts.secondMain')
+        ->extends('layouts.main')
         ->section('content');
     }
 }

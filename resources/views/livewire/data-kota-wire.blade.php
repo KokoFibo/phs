@@ -2,20 +2,20 @@
     @section('title', 'Add Data Kota')
 
 
-    <div class="flex justify-between w-2/3 p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl ">
+    <div class="flex justify-between w-full p-3 mx-auto mt-3 text-white bg-teal-500 rounded shadow-xl lg:w-2/3 ">
         <h5 class="text-2xl font-semibold">{{ __('Add Data Kota') }}</h5>
 
         <button wire:click="close">
             <i class="fa fa-circle-xmark fa-2xl"></i>
         </button>
     </div>
-    <div class="w-2/3 mx-auto mt-3 text-center ">
+    <div class="w-full mt-3 text-center lg:w-2/3 ">
         @if (session()->has('message'))
             <div class="w-full py-2 text-xl text-white bg-teal-500 rounded-xl">{{ session('message') }}</div>
         @endif
     </div>
-    <div class="flex w-2/3 p-3 mx-auto items-top justify-evenly">
-        <div class="w-1/2 p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl rounded-xl">
+    <div class="flex flex-col justify-between w-full gap-2 p-3 lg:mx-auto lg:flex lg:flex-row lg:w-2/3 items-top ">
+        <div class="w-full p-4 mt-3 text-white bg-teal-500 border shadow-xl lg:w-1/2 rounded-xl">
             <div class="text-xl font-semibold text-center">{{ __('Data Kota') }}</div>
 
             <div class="w-full mt-3">
@@ -27,13 +27,19 @@
                 @enderror
             </div>
             @if ($is_add == true)
-                <button wire:click="store"
-                    class="px-3 py-1 text-teal-600 bg-white rounded hover:text-teal-800">{{ __('Save') }}</button>
+                <div class="flex justify-between">
+                    <button wire:click="store" class="button button-purple">{{ __('Save') }}</button>
+                    <button wire:click="close" class="button button-black">{{ __('Close') }}</button>
+                </div>
             @else
-                <button wire:click="update" class="button button-teal">{{ __('Update') }}</button>
+                <div class="flex justify-between">
+                    <button wire:click="update" class="button button-purple">{{ __('Update') }}</button>
+                    <button wire:click="cancel" class="button button-black">{{ __('Cancel') }}</button>
+                </div>
             @endif
         </div>
-        <div class="w-1/2 mt-3">
+
+        <div class="w-full mt-3 lg:w-1/2">
             @if (!empty($kota))
                 <table class="w-full table-auto">
                     <thead class="text-white bg-purple-500 border-b-2 border-gray-200 rounded-xl">
