@@ -69,18 +69,19 @@
                         @foreach ($dataAbsensi as $p)
                             <tbody>
                                 <tr>
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ $loop->iteration }}</td>
-                                    <td class="p-3 text-gray-800 border rounded">{{ getName($p->datapelita_id) }}
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
+                                        {{ getName($p->datapelita_id) }}
                                     </td>
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ getGroupVihara($selectedGroup) }}</td>
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ getDaftarKelas($p->daftarkelas_id) }}
                                     </td>
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ \Carbon\Carbon::parse($p->tgl_kelas)->format('d M Y') }}</td>
-                                    <td class="p-3 text-center text-gray-800 border rounded">
+                                    <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
                                         @if ($p->absensi == '1')
                                             <i class="text-blue-500 fa-solid fa-user-check"></i>
                                         @elseif ($p->absensi == '2')
@@ -90,7 +91,7 @@
                                         @endif
                                     </td>
 
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         <div class="flex justify-center space-x-1">
                                             <button wire:loading.attr="disabled"
                                                 wire:click="hadir({{ $p->id }},1)"

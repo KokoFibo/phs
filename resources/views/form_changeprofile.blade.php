@@ -5,7 +5,7 @@
 <div class="p-3 mt-1 text-gray-700 shadow-lg rounded-xl">
 
     <div class="mb-3">
-        <label class="block mb-2">{{ __('Nama') }}</label>
+        <label class="block mb-2 dark:text-white">{{ __('Nama') }}</label>
         <input wire:model="name" type="text" class="w-full mb-2 rounded-lg">
         @error('name')
             <div class="invalid-feedback">
@@ -18,7 +18,7 @@
     <hr>
 
     <div class="mt-3 mb-3">
-        <label class="block mb-2">{{ __('Email') }}</label>
+        <label class="block mb-2 dark:text-white">{{ __('Email') }}</label>
         <input wire:model="email" type="text" class="w-full mb-2 rounded-lg">
         @error('email')
             <span class="text-sm text-red-500">{{ $message }}</span>
@@ -29,15 +29,15 @@
     <hr>
 
     <div class="mt-3 mb-3 ">
-        <label class="block mb-2">{{ __('Current Password') }}</label>
+        <label class="block mb-2 dark:text-white">{{ __('Current Password') }}</label>
         <input wire:model="curr_pass" type="password" class="w-full mb-2 rounded-lg">
 
         @error('curr_pass')
             <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
     </div>
-    <div x-data="{ showPassword: false }" class="mb-3 relative">
-        <label class="block mb-2 ">{{ __('New Password') }}</label>
+    <div x-data="{ showPassword: false }" class="relative mb-3">
+        <label class="block mb-2 dark:text-white">{{ __('New Password') }}</label>
         <input wire:model="password" :type="showPassword ? 'text' : 'password'" class="w-full mb-2 rounded-lg">
         <svg @click="showPassword = !showPassword" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             fill="gray" class="absolute translate-y-1 bi bi-eye top-1/2 right-3" viewBox="0 0 16 16">
@@ -50,8 +50,8 @@
         @enderror
     </div>
 
-    <div x-data="{ showPassword: false }" class="mb-3 relative">
-        <label class="block mb-2 ">{{ __('Confirm Password') }}</label>
+    <div x-data="{ showPassword: false }" class="relative mb-3">
+        <label class="block mb-2 dark:text-white">{{ __('Confirm Password') }}</label>
         <input wire:model="password_confirmation" :type="showPassword ? 'text' : 'password'"
             class="w-full mb-2 rounded-lg">
         <svg @click="showPassword = !showPassword" xmlns="http://www.w3.org/2000/svg" width="16" height="16"

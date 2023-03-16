@@ -79,13 +79,15 @@
                     @foreach ($daftarkelas as $index => $p)
                         <tbody>
                             <tr>
-                                <td class="p-3 text-gray-800 border rounded">
+                                <td class="p-3 text-gray-800 border rounded dark:text-white">
                                     {{ $daftarkelas->firstItem() + $index }}</td>
-                                {{-- <td class="p-3 text-gray-800 border rounded">{{ $p->nama_kelas }}</td> --}}
-                                <td class="p-3 text-gray-800 border rounded">{{ getGroupVihara($p->groupvihara_id) }}
+                                {{-- <td class="p-3 text-gray-800 border rounded dark:text-white">{{ $p->nama_kelas }}</td> --}}
+                                <td class="p-3 text-gray-800 border rounded dark:text-white">
+                                    {{ getGroupVihara($p->groupvihara_id) }}
                                 </td>
-                                <td class="p-3 text-gray-800 border rounded">{{ getKelas($p->kelas_id) }}</td>
-                                <td class="p-3 text-center text-gray-800 border rounded">
+                                <td class="p-3 text-gray-800 border rounded dark:text-white">
+                                    {{ getKelas($p->kelas_id) }}</td>
+                                <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
                                     @if (check_daftarkelas_is_used($p->id) == null)
                                         <button class="button-red button "
                                             wire:click="deleteConfirmation({{ $p->id }})"><i

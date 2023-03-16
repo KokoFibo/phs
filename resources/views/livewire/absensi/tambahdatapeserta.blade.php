@@ -66,14 +66,15 @@
                         @foreach ($pesertakelas as $index => $p)
                             <tbody>
                                 <tr>
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ $loop->iteration }}</td>
-                                    <td class="p-3 text-gray-800 border rounded">{{ getName($p->datapelita_id) }}
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
+                                        {{ getName($p->datapelita_id) }}
                                     </td>
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ getDaftarKelas($p->daftarkelas_id) }}
                                     </td>
-                                    {{-- <td class="p-3 text-center text-gray-800 border rounded">
+                                    {{-- <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
                                     @if ($p->pesertakelas_is_used == false)
                                     <button class="button-red button " wire:click="deleteConfirmation({{ $p->id }})">{{
                                         __('Delete') }}</button>
@@ -82,7 +83,7 @@
                                         }}</button>
                                     @endif
                                 </td> --}}
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ check_is_peserta_terdaftar($p->datapelita_id, $p->daftarkelas_id) }}
                                         @if (check_is_peserta_terdaftar($p->datapelita_id, $p->daftarkelas_id) == null)
                                             <button wire:click="deletepesertaConfirmation({{ $p->id }})"

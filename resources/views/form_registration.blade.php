@@ -5,7 +5,7 @@
 
 
         <div class="">
-            <label for="name" class="block mb-2">{{ __('Nama') }}</label>
+            <label for="name" class="block mb-2 dark:text-white">{{ __('Nama') }}</label>
             <input wire:model="name" {{ $is_reset == true ? 'disabled' : '' }} type="text"
                 class="w-full mb-4 rounded-lg" id="name" placeholder="{{ __('Full Name') }}" name="name"
                 value="{{ old('name') }}">
@@ -16,7 +16,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="email" class="block mb-2">{{ __('Email') }}</label>
+            <label for="email" class="block mb-2 dark:text-white">{{ __('Email') }}</label>
             <input wire:model="email" {{ $is_reset == true ? 'disabled' : '' }} type="text"
                 class="w-full mb-2 rounded-lg" id="email" placeholder="user@gmail.com" name="email"
                 value="{{ old('email') }}">
@@ -27,7 +27,7 @@
         {{-- ------------------------------------------------------------------------ --}}
         {{-- Role --}}
         <div>
-            <label for="email" class="block mb-2">{{ __('Role') }}</label>
+            <label for="email" class="block mb-2 dark:text-white">{{ __('Role') }}</label>
             <select class="w-full mb-4 rounded-lg" wire:model="role" {{ $is_reset == true ? 'disabled' : '' }}>
                 <option value="">{{ __('Silakan Pilih Role') }}</option>
                 <option value="0">{{ __('User') }}</option>
@@ -44,7 +44,7 @@
         </div>
         {{-- Kota --}}
         <div class="mb-3">
-            <label for="email" class="block mb-2">{{ __('Kota') }}</label>
+            <label for="email" class="block mb-2 dark:text-white">{{ __('Kota') }}</label>
             <select class="w-full mb-2 rounded-lg" wire:model="kota_id" {{ $is_reset == true ? 'disabled' : '' }}>
                 <option value="" selected>{{ __('Silakan Pilih Kota') }}</option>
                 @foreach ($kota as $k)
@@ -58,7 +58,7 @@
         </div>
         {{-- Group --}}
         <div class="mb-3">
-            <label for="group" class="block mb-2">{{ __('Group') }}</label>
+            <label for="group" class="block mb-2 dark:text-white">{{ __('Group') }}</label>
             <select class="w-full mb-2 rounded-lg" wire:model="groupvihara_id"
                 {{ $is_reset == true ? 'disabled' : '' }}>
                 <option value="" selected>{{ __('Silakan Pilih Group') }}</option>
@@ -75,7 +75,7 @@
 
         {{-- Branch --}}
         <div class="mb-3">
-            <label for="email" class="block mb-2">{{ __('Branch') }}</label>
+            <label for="email" class="block mb-2 dark:text-white">{{ __('Branch') }}</label>
             <select class="w-full mb-2 rounded-lg" wire:model="branch_id" {{ $is_reset == true ? 'disabled' : '' }}>
                 <option value="" selected>{{ __('Silakan Pilih Branch') }}</option>
 
@@ -93,16 +93,16 @@
 
     @if ($is_reset == true)
         <div class="mb-3">
-            <label for="Name" class="block mb-2">{{ __('Name') }}</label>
+            <label for="Name" class="block mb-2 dark:text-white">{{ __('Name') }}</label>
             <input wire:model="name" type="text" disabled class="w-full mb-2 rounded-lg" id="Name">
         </div>
         <div class="mb-3">
-            <label for="email" class="block mb-2">{{ __('email') }}</label>
+            <label for="email" class="block mb-2 dark:text-white">{{ __('email') }}</label>
             <input wire:model="email" type="text" disabled class="w-full mb-2 rounded-lg" id="email">
         </div>
 
         <div x-data="{ showPassword: false }" class="relative mb-3">
-            <label for="password" class="block mb-2">{{ __('Password') }}</label>
+            <label for="password" class="block mb-2 dark:text-white">{{ __('Password') }}</label>
             <input wire:model="password" :type="showPassword ? 'text' : 'password'" class="w-full mb-2 rounded-lg"
                 id="password" placeholder="{{ __('Password') }}" name="password">
             <svg @click="showPassword = !showPassword" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -117,7 +117,7 @@
         @enderror
 
         <div x-data="{ showPassword: false }" class="relative mb-3">
-            <label class="block mb-2">{{ __('Confirm Password') }}</label>
+            <label class="block mb-2 dark:text-white">{{ __('Confirm Password') }}</label>
             <input wire:model="password_confirmation" :type="showPassword ? 'text' : 'password'"
                 class="w-full mb-4 rounded-lg" placeholder="{{ __('Confirm Password') }}">
             <svg @click="showPassword = !showPassword" xmlns="http://www.w3.org/2000/svg" width="16" height="16"

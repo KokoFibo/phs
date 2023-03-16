@@ -26,16 +26,22 @@
                         @foreach ($data as $index => $d)
                             @if ((Auth::user()->role == '2' && $d->role != '3') || Auth::user()->role == '3')
                                 <tr class="hover:bg-pink-50 dark:hover:bg-pink-600">
-                                    <td class="h-10 text-center text-gray-700 border ">
+                                    <td class="h-10 text-center text-gray-700 border dark:text-white ">
                                         {{ $data->firstItem() + $index }}
                                     </td>
-                                    <td class="h-10 text-center text-gray-700 border ">{{ $d->name }}</td>
-                                    <td class="h-10 text-center text-gray-700 border ">{{ $d->email }}</td>
-                                    <td class="h-10 text-center text-gray-700 border ">{{ roleCheck($d->role) }}</td>
-                                    <td class="h-10 text-center text-gray-700 border ">{{ $d->nama_kota }}</td>
-                                    <td class="h-10 text-center text-gray-700 border ">{{ $d->nama_group }}</td>
-                                    <td class="h-10 text-center text-gray-700 border ">{{ $d->nama_branch }}</td>
-                                    <td class="h-10 text-center text-gray-700 border ">
+                                    <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                        {{ $d->name }}</td>
+                                    <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                        {{ $d->email }}</td>
+                                    <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                        {{ roleCheck($d->role) }}</td>
+                                    <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                        {{ $d->nama_kota }}</td>
+                                    <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                        {{ $d->nama_group }}</td>
+                                    <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                        {{ $d->nama_branch }}</td>
+                                    <td class="h-10 text-center text-gray-700 border dark:text-white ">
                                         <div class="flex gap-1 justify-evenly">
                                             <button wire:click="edit({{ $d->id }})"
                                                 class="px-2 py-1 text-sm text-black bg-orange-500 rounded"><i

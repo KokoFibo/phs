@@ -7,16 +7,18 @@
             <div>
                 <h4 class="text-3xl font-semibold text-center text-purple-500">{{ __('Menu Tambah Group Vihara') }}</h4>
             </div>
-            <div class="flex flex-col items-center justify-center px-8 pt-6 pb-8 mx-3 mb-4 rounded shadow-md bg-pink-50">
+            <div
+                class="flex flex-col items-center justify-center px-8 pt-6 pb-8 mx-3 mb-4 rounded shadow-md dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-pink-50">
                 <h5 class="text-lg text-center">{{ __('Hi') }}, {{ Auth::user()->name }}</h5>
                 <h5 class="text-lg text-center">{{ __('Silakan masukkan password anda untuk mengakses menu ini') }}.</h5>
 
                 <div class="w-full mt-6 mb-6">
                     <input
-                        class="w-full px-3 py-2 mb-3 border rounded shadow appearance-none border-red text-grey-darker"
+                        class="w-full px-3 py-2 mb-3 border rounded shadow appearance-none dark:text-gray-900 border-red text-grey-darker"
                         type="password" wire:model="pswd">
                 </div>
-                <button wire:click="checkPassword" class="w-full button button-purple">{{ __('Enter') }}</button>
+                <button wire:click="checkPassword"
+                    class="w-full button button-purple dark:text-gray-900">{{ __('Enter') }}</button>
 
             </div>
         </div>
@@ -56,7 +58,7 @@
             </div>
             <div class="w-full mt-3 lg:w-1/2">
                 @if (!empty($groupvihara))
-                    <table class="w-full table-auto">
+                    <table class="w-full table-auto ">
                         <thead class="text-white bg-purple-500 border-b-2 border-gray-200 rounded-xl">
                             <tr>
                                 <th class="p-3 font-semibold text-center">#</th>
@@ -67,10 +69,11 @@
                         @foreach ($groupvihara as $index => $p)
                             <tbody>
                                 <tr>
-                                    <td class="p-3 text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white ">
                                         {{ $groupvihara->firstItem() + $index }}</td>
-                                    <td class="p-3 text-gray-800 border rounded">{{ $p->nama_group }}</td>
-                                    <td class="p-3 text-center text-gray-800 border rounded">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">{{ $p->nama_group }}
+                                    </td>
+                                    <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
                                         @if ($p->group_is_used == false)
                                             <button class="button-red button "
                                                 wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>

@@ -27,16 +27,22 @@
                         @foreach ($data as $d)
                             {{-- @if ((Auth::user()->role == '2' && $d->role != '3') || Auth::user()->role == '3') --}}
                             <tr>
-                                <td class="h-10 text-center text-gray-700 border ">
+                                <td class="h-10 text-center text-gray-700 border dark:text-white ">
                                     1
                                 </td>
-                                <td class="h-10 text-center text-gray-700 border ">{{ $d->name }}</td>
-                                <td class="h-10 text-center text-gray-700 border ">{{ $d->email }}</td>
-                                <td class="h-10 text-center text-gray-700 border ">{{ roleCheck($d->role) }}</td>
-                                <td class="h-10 text-center text-gray-700 border ">{{ $d->kota->nama_kota }}</td>
-                                <td class="h-10 text-center text-gray-700 border ">{{ $d->groupvihara->nama_group }}
+                                <td class="h-10 text-center text-gray-700 border dark:text-white ">{{ $d->name }}
                                 </td>
-                                <td class="h-10 text-center text-gray-700 border ">{{ $d->branch->nama_branch }}</td>
+                                <td class="h-10 text-center text-gray-700 border dark:text-white ">{{ $d->email }}
+                                </td>
+                                <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                    {{ roleCheck($d->role) }}</td>
+                                <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                    {{ $d->kota->nama_kota }}</td>
+                                <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                    {{ $d->groupvihara->nama_group }}
+                                </td>
+                                <td class="h-10 text-center text-gray-700 border dark:text-white ">
+                                    {{ $d->branch->nama_branch }}</td>
 
                             </tr>
                             {{-- @endif --}}

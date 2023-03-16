@@ -13,7 +13,7 @@
                 {{ getBranch($kode_branch) }}
             </h3>
         </div>
-        <div class="flex gap-1">
+        <div class="flex gap-1 ">
 
             <div>
                 <a href="/panditawire"><button class="button button-yellow">{{ __('Add Data Pandita') }}</button>
@@ -29,8 +29,8 @@
     </div>
 
     <div
-        class="flex items-center w-full py-3 my-2 mb-3 shadow justify-evenly md:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
-        <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly">
+        class="flex items-center w-full py-3 my-2 mb-3 shadow justify-evenly md:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+        <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly dark:text-gray-900 ">
 
 
             <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
@@ -55,7 +55,7 @@
                 </select>
             </div>
         </div>
-        <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly">
+        <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly dark:text-gray-900">
 
             <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
                 <label class="w-full px-2 ">{{ __('Kota') }}</label><span class="text-red-500">*</span>
@@ -80,9 +80,10 @@
 
     <div
         class="flex flex-col w-full py-5 pb-3 my-2 mt-2 mb-5 shadow md:flex md:flex-row md:justify-center md:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
-        <div class="w-full px-3 md:w-1/2 ">
+        <div class="w-full px-3 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-900 ">
             <div class="mt-3">
-                <label class="px-2 " for="nama">{{ __('Nama') }}</label><span class="text-red-500">*</span>
+                <label class="px-2 dark:text-white " for="nama">{{ __('Nama') }}</label><span
+                    class="text-red-500">*</span>
                 <input id="nama" type="text" placeholder="{{ __('Nama Lengkap') }}" wire:model="nama_umat"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('nama_umat')
@@ -90,7 +91,7 @@
                 @enderror
             </div>
             <div class="mt-3">
-                <label class="px-2 " for="nama">{{ __('Alias') }}</label>
+                <label class="px-2 dark:text-white " for="nama">{{ __('Alias') }}</label>
                 <input id="nama" type="text" placeholder="{{ __('Nama Alias') }}" wire:model="nama_alias"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('nama_alias')
@@ -98,7 +99,7 @@
                 @enderror
             </div>
             <div class="mt-3">
-                <label class="px-2 " for="mandarin">{{ __('中文名') }}</label>
+                <label class="px-2 dark:text-white " for="mandarin">{{ __('中文名') }}</label>
                 <input id="mandarin" type="text" placeholder="{{ __('中文名') }}" wire:model="mandarin"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('mandarin')
@@ -106,7 +107,7 @@
                 @enderror
             </div>
             <div class="mt-3">
-                <label class="px-2 " for="tgl_lahir">{{ __('Tanggal Lahir') }}</label><span
+                <label class="px-2 dark:text-white " for="tgl_lahir">{{ __('Tanggal Lahir') }}</label><span
                     class="text-red-500">*</span>
                 <input type="date" wire:model="tgl_lahir"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
@@ -115,7 +116,8 @@
                 @enderror
             </div>
             <div class="mt-3">
-                <label class="px-2 " for="alamat">{{ __('Alamat') }}</label><span class="text-red-500">*</span>
+                <label class="px-2 dark:text-white " for="alamat">{{ __('Alamat') }}</label><span
+                    class="text-red-500">*</span>
                 <input id="alamat" type="text" placeholder="{{ __('Alamat Rumah') }}" wire:model="alamat"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('alamat')
@@ -124,7 +126,7 @@
             </div>
 
             <div class="mt-3">
-                <label class="px-2 " for="telepon">{{ __('Telepon') }}</label>
+                <label class="px-2 dark:text-white " for="telepon">{{ __('Telepon') }}</label>
                 <input id="telepon" type="text" placeholder="02112345678" wire:model="telp"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('telp')
@@ -132,7 +134,7 @@
                 @enderror
             </div>
             <div class="mt-3">
-                <label class="px-2 " for="handphone">{{ __('Handphone') }}</label>
+                <label class="px-2 dark:text-white " for="handphone">{{ __('Handphone') }}</label>
                 <input id="handphone" type="text" placeholder="082112345678" wire:model="hp"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('hp')
@@ -140,7 +142,7 @@
                 @enderror
             </div>
             <div class="mt-3">
-                <label class="px-2 " for="email">{{ __('Email') }}</label>
+                <label class="px-2 dark:text-white " for="email">{{ __('Email') }}</label>
                 <input id="email" type="text" placeholder="name@example.com" wire:model="email"
                     class="w-full mb-5 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('email')
@@ -150,16 +152,16 @@
 
 
         </div>
-        <div class="w-full px-3 md:w-1/2 ">
+        <div class="w-full px-3 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-900">
 
             <div class="mt-3 md:mt-5">
                 <div>
-                    <label class="hidden px-2 md:inline ">{{ __('Gender') }}</label><span
+                    <label class="hidden px-2 dark:text-white md:inline">{{ __('Gender') }}</label><span
                         class="hidden px-2 text-red-500 md:inline">*</span>
                 </div>
                 <div class="flex md:flex md:flex-col">
                     <div>
-                        <label class="px-2 md:hidden ">{{ __('Gender ') }} <span
+                        <label class="px-2 dark:text-white md:hidden">{{ __('Gender ') }} <span
                                 class="text-red-500 md:hidden">*</span>
                             : </label>
                     </div>
@@ -167,12 +169,12 @@
                         <input type="radio" value="1" checked id="laki""
                             class="rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                             wire:model="gender">
-                        <label class="pr-2" for="laki">{{ __('Laki-laki') }}</label>
+                        <label class="pr-2 dark:text-white" for="laki">{{ __('Laki-laki') }}</label>
 
                         <input type="radio" value="2" checked id="perempuan""
                             class="rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                             wire:model="gender">
-                        <label for="perempuan">{{ __('Perempuan') }}</label>
+                        <label class="dark:text-white" for="perempuan">{{ __('Perempuan') }}</label>
                     </div>
                 </div>
                 @error('gender')
@@ -180,7 +182,7 @@
                 @enderror
             </div>
             <div class="mt-5">
-                <label class="px-2 " for="tgl">{{ __('Tanggal Mohon Tao') }}</label><span
+                <label class="px-2 dark:text-white" for="tgl">{{ __('Tanggal Mohon Tao') }}</label><span
                     class="text-red-500">*</span>
                 <input id="datepicker" type="date" wire:model="tgl_mohonTao"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
@@ -189,7 +191,7 @@
                 @enderror
             </div>
             {{-- <div class="relative mt-3" x-data="{ pengajak: false }">
-                <label class="px-2 " for="pengajak">{{ __('Pengajak') }}</label><span class="text-red-500">*</span>
+                <label class="px-2 dark:text-white" for="pengajak">{{ __('Pengajak') }}</label><span class="text-red-500">*</span>
                 <input @click="pengajak=true" id="pengajak" autocomplete="off" type="text"
                     placeholder="Masukkan data Pengajak"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
@@ -216,7 +218,7 @@
                 @enderror
             </div> --}}
             <div class="mt-3">
-                <label class="px-2 " for="pengajak">{{ __('Nama Pengajak') }}</label><span
+                <label class="px-2 dark:text-white" for="pengajak">{{ __('Nama Pengajak') }}</label><span
                     class="text-red-500">*</span>
                 <input id="pengajak" type="text" placeholder="{{ __('Nama Pengajak') }}" wire:model="pengajak"
                     autocomplete="on"
@@ -227,7 +229,7 @@
             </div>
 
             {{-- <div class="relative mt-3" x-data="{ penjamin: false }">
-                <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label><span class="text-red-500">*</span>
+                <label class="px-2 dark:text-white" for="penjamin">{{ __('Penjamin') }}</label><span class="text-red-500">*</span>
                 <input @click="penjamin=true" autocomplete="off" id="penjamin" type="text"
                     placeholder="Masukkan data penjamin"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
@@ -255,7 +257,7 @@
             </div> --}}
 
             <div class="mt-3">
-                <label class="px-2 " for="penjamin">{{ __('Nama Penjamin') }}</label><span
+                <label class="px-2 dark:text-white" for="penjamin">{{ __('Nama Penjamin') }}</label><span
                     class="text-red-500">*</span>
                 <input id="penjamin" type="text" placeholder="{{ __('Nama Penjamin') }}" wire:model="penjamin"
                     autocomplete="on"
@@ -266,12 +268,13 @@
             </div>
 
             {{-- <div class="mt-3">
-                <label class="px-2 " for="penjamin">{{ __('Penjamin') }}</label>
+                <label class="px-2 dark:text-white" for="penjamin">{{ __('Penjamin') }}</label>
                 <input id="penjamin" type="text" placeholder="Masukkan data Penjamin"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
             </div> --}}
             <div class="mt-3">
-                <label class="px-2 " for="pandita">{{ __('Pandita') }}</label><span class="text-red-500">*</span>
+                <label class="px-2 dark:text-white" for="pandita">{{ __('Pandita') }}</label><span
+                    class="text-red-500">*</span>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="pandita_id">
                     <option value="">{{ __('Data Pandita') }}</option>
@@ -287,7 +290,7 @@
             </div>
 
             <div class="mt-3">
-                <label class="px-2 " for="tgl">{{ __('Kelas Dharma 3 Hari') }}</label>
+                <label class="px-2 dark:text-white" for="tgl">{{ __('Kelas Dharma 3 Hari') }}</label>
 
                 <input id="datepicker" type="date" wire:model="tgl_sd3h"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
@@ -298,7 +301,7 @@
             </div>
 
             <div class="mt-3">
-                <label class="px-2 " for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
+                <label class="px-2 dark:text-white" for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
                 <input id="datepicker" type="date" wire:model="tgl_vtotal"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('tgl_vtotal')
@@ -308,11 +311,11 @@
 
             <div class="flex items-center justify-between w-full mt-10">
                 <div>
-                    <button class="button button-purple" wire:click="store">{{ __('Save') }}</button>
+                    <button class="button button-teal" wire:click="store">{{ __('Save') }}</button>
                 </div>
                 <div>
-                    <a href="{{ route('main') }}"><button class="button button-black"><i
-                                class="fa fa-circle-arrow-left"></i>
+                    <a href="{{ route('main') }}"><button class="dark:bg-purple-500 button button-black"><i
+                                class="fa fa-circle-arrow-left "></i>
                             {{ __('Back') }}</button></a>
                     {{-- <button class="button button-orange">{{ __('Back') }}</button> --}}
                 </div>

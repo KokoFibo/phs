@@ -15,7 +15,7 @@
     </div>
     <div
         class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow md:flex md:flex-row md:justify-center md:mx-auto md:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl">
-        <div class="w-full px-5 md:w-1/2 ">
+        <div class="w-full px-5 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-white ">
 
             <div class="mt-3">
                 <label class="px-2 " for="nama">{{ __('Nama') }}</label>
@@ -68,7 +68,7 @@
             </div>
 
         </div>
-        <div class="w-full px-5 md:w-1/2 ">
+        <div class="w-full px-5 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-white ">
 
             <div class="mt-3">
                 <div>
@@ -127,8 +127,8 @@
             <div class="flex items-center justify-between w-full mt-9">
                 <h5 class="text-sm">Last Update : {{ $last_update }}</h5>
                 <div>
-                    <a href="{{ route('main') }}"><button type="button" class="button button-black"><i
-                                class="fa fa-circle-arrow-left"></i>
+                    <a href="{{ route('main') }}"><button type="button"
+                            class="button button-black dark:bg-purple-500"><i class="fa fa-circle-arrow-left"></i>
                             {{ __('Back') }}</button></a>
                 </div>
             </div>
