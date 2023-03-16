@@ -12,7 +12,7 @@
                 {{ $message }}
             </div>
         @enderror
-        <button wire:click="updatename()" class=" button button-teal">{{ __('Update Name') }}</button>
+        <button wire:click="updatename()" class=" button button-purple">{{ __('Update Name') }}</button>
     </div>
 
     <hr>
@@ -23,7 +23,7 @@
         @error('email')
             <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
-        <button wire:click="updateemail()" class=" button button-teal">{{ __('Update Email') }}</button>
+        <button wire:click="updateemail()" class=" button button-purple">{{ __('Update Email') }}</button>
     </div>
 
     <hr>
@@ -68,11 +68,11 @@
     {{-- @endif --}}
     <div class="flex justify-between">
         <div>
-            <button class="button button-teal" wire:click="changePassword">{{ __('Change Password') }}</button>
+            <button class="button button-purple" wire:click="changePassword">{{ __('Change Password') }}</button>
 
         </div>
         <div class="mb-3 ">
-            <button wire:click="close" class="button button-orange">{{ __('Close') }}</button>
+            <button wire:click="close" class="button button-black">{{ __('Close') }}</button>
         </div>
     </div>
 

@@ -51,9 +51,15 @@
                     @enderror
                 </div>
                 @if ($is_add == true)
-                    <button wire:click="store" class="button button-purple">{{ __('Save') }}</button>
+                    <div class="flex justify-between">
+                        <button wire:click="store" class="button button-purple">{{ __('Save') }}</button>
+                        <button wire:click="close" class="button button-black">{{ __('Back') }}</button>
+                    </div>
                 @else
-                    <button wire:click="update" class="button button-teal">{{ __('Update') }}</button>
+                    <div class="flex justify-between">
+                        <button wire:click="update" class="button button-purple">{{ __('Update') }}</button>
+                        <button wire:click="cancel" class="button button-black">{{ __('Cancel') }}</button>
+                    </div>
                 @endif
             </div>
             <div class="w-full mt-3 lg:w-1/2">
@@ -75,11 +81,13 @@
                                     </td>
                                     <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
                                         @if ($p->group_is_used == false)
-                                            <button class="button-red button "
-                                                wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
+                                            <button class="px-2 py-1 text-sm text-white bg-red-500 rounded"
+                                                wire:click="deleteConfirmation({{ $p->id }})"><i
+                                                    class="fa fa-trash "></i></button>
                                         @else
-                                            <button class="button button-teal"
-                                                wire:click="edit({{ $p->id }})">{{ __('Rename') }}</button>
+                                            <button class="px-2 py-1 text-sm text-white bg-orange-500 rounded"
+                                                wire:click="edit({{ $p->id }})"><i
+                                                    class="fa fa-pen-to-square "></i></button>
                                         @endif
                                     </td>
                                 </tr>
@@ -96,35 +104,35 @@
                 @endif
             </div>
         </div>
-
-        @push('script')
-            <script>
-                window.addEventListener('delete_confirmation', function(e) {
-                    Swal.fire({
-                        title: e.detail.title,
-                        text: e.detail.text,
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, silakan hapus!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.livewire.emit('delete', e.detail.id)
-                            // Swal.fire(
-                            //     'Deleted!',
-                            //     'Your file has been deleted.',
-                            //     'success'
-                            // )
-                        }
-                    })
-                });
-                window.addEventListener('deleted', function(e) {
-                    Swal.fire(
-                        'Deleted!', 'Data sudah di delete.', 'success'
-                    );
-                });
-            </script>
-        @endpush
     @endif
+
+    @push('script')
+        <script>
+            window.addEventListener('delete_confirmation1', function(e) {
+                Swal.fire({
+                    title: e.detail.title,
+                    text: e.detail.text,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, silakan hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('delete', e.detail.id)
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your file has been deleted.',
+                        //     'success'
+                        // )
+                    }
+                })
+            });
+            window.addEventListener('deleted', function(e) {
+                Swal.fire(
+                    'Deleted!', 'Data sudah di delete.', 'success'
+                );
+            });
+        </script>
+    @endpush
 </div>

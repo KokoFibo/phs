@@ -136,19 +136,19 @@
             <div>
                 @if ($is_reset == true)
                     <div class="mb-3 ">
-                        <button class="button button-blue" wire:click="storepassword">{{ __('Reset') }}</button>
+                        <button class="button button-purple" wire:click="storepassword">{{ __('Reset') }}</button>
                     </div>
                 @endif
                 @if ($is_edit == true)
                     <div class="mb-3 ">
-                        <button class="button button-blue" wire:click="update">{{ __('Update') }}</button>
+                        <button class="button button-purple" wire:click="update">{{ __('Update') }}</button>
                     </div>
                 @endif
 
 
             </div>
             <div class="mb-3 ">
-                <button wire:click="cancel" class="button button-orange">{{ __('Cancel') }}</button>
+                <button wire:click="cancel" class="button button-black">{{ __('Cancel') }}</button>
             </div>
         </div>
     @endif

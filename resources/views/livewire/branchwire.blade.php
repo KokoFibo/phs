@@ -8,11 +8,11 @@
         </button>
     </div>
 
-    <div class="w-3/4 mx-auto mt-3 text-center ">
+    {{-- <div class="w-3/4 mx-auto mt-3 text-center ">
         @if (session()->has('message'))
             <div class="w-full py-2 text-xl text-red-500 bg-teal-500 rounded-xl">{{ session('message') }}</div>
         @endif
-    </div>
+    </div> --}}
 
     <div class="flex flex-col w-full p-3 mx-auto lg:w-3/4 lg:flex lg:flex-row items-top justify-evenly">
         <div class="w-full p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl lg:w-1/2 rounded-xl">
@@ -42,9 +42,15 @@
             </div>
 
             @if ($is_add == true)
-                <button wire:click="store" class="button button-purple">{{ __('Save') }}</button>
+                <div class="flex justify-between ">
+                    <button wire:click="store" class="button button-purple">{{ __('Save') }}</button>
+                    <button wire:click="close" class="button button-black">{{ __('Back') }}</button>
+                </div>
             @else
-                <button wire:click="update" class="button button-teal">{{ __('Update') }}</button>
+                <div class="flex justify-between ">
+                    <button wire:click="update" class="button button-purple">{{ __('Update') }}</button>
+                    <button wire:click="cancel" class="button button-black">{{ __('Cancel') }}</button>
+                </div>
             @endif
         </div>
         {{-- TABLE --}}
@@ -69,11 +75,13 @@
                                     {{ $b->groupvihara->nama_group }}</td>
                                 <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
                                     @if ($b->branch_is_used == false)
-                                        <button class="button-red button "
-                                            wire:click="delete_confirmation({{ $b->id }})">{{ __('Delete') }}</button>
+                                        <button class="px-2 py-1 text-sm text-white bg-red-500 rounded"
+                                            wire:click="delete_confirmation({{ $b->id }})"><i
+                                                class="fa fa-trash "></i></button>
                                     @else
-                                        <button class="button button-teal"
-                                            wire:click="edit({{ $b->id }})">{{ __('Edit') }}</button>
+                                        <button class="px-2 py-1 text-sm text-white bg-orange-500 rounded"
+                                            wire:click="edit({{ $b->id }})"><i
+                                                class="fa fa-pen-to-square "></i></button>
                                     @endif
                                 </td>
                             </tr>

@@ -58,12 +58,16 @@
                 @enderror
             </div>
             @if ($is_add == true)
-                <button wire:click="store" class=" button button-purple">{{ __('Save') }}</button>
+                <div class="flex justify-between px-3">
+                    <button wire:click="store" class="button button-purple">{{ __('Save') }}</button>
+                    <button wire:click="close" class="button button-black">{{ __('Back') }}</button>
+                </div>
             @else
-                <button wire:click="update"
-                    class="px-3 py-1 text-teal-600 bg-white border-white rounded hover:bg-teal-800 hover:text-white">{{ __('Update') }}</button>
+                <div class="flex justify-between px-3">
+                    <button wire:click="update" class="button button-purple">{{ __('Update') }}</button>
+                    <button wire:click="cancel" class="button button-black">{{ __('Cancel') }}</button>
+                </div>
             @endif
-            <button wire:click="cancel" class="button button-yellow">{{ __('Close') }}</button>
         </div>
         <div class="w-full mt-3 lg:w-1/2">
             @if (!empty($daftarkelas))

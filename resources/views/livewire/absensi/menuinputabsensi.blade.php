@@ -24,7 +24,7 @@
                     <div class="flex justify-between gap-3">
                         <button wire:click="createAbsensi({{ $daftarkelas_id }})" class="mt-3 button button-purple"><i
                                 class="fa-regular fa-eye"></i> Tampilkan Data peserta</button>
-                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-yellow">Save &
+                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-black">Save &
                             Close</button>
                     </div>
                 </div>

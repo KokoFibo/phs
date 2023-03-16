@@ -38,10 +38,10 @@
                     @if ($selectedTglEdit != null)
                         <button wire:click="deleteAbsensiByTglConfirmation" class="mt-3 button button-red"><i
                                 class="fa-regular fa-eye"></i>Delete</button>
-                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-yellow">Save &
+                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-black">Save &
                             Close</button>
                     @else
-                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-yellow">Close</button>
+                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-black">Close</button>
                     @endif
 
 

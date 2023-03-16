@@ -21,6 +21,8 @@ class Tambahkelaswire extends Component
     public $pswd;
     public $open;
 
+
+
     public function checkPassword()
     {
         if (Hash::check($this->pswd, Auth::user()->password)) {
