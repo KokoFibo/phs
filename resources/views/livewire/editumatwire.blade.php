@@ -16,7 +16,7 @@
         </div>
     </div>
     <div
-        class="flex flex-col justify-center w-full py-5 pb-3 my-2 mt-2 mb-5 shadow md:flex md:flex-row lg:w-3/4 lg:mx-auto shadow-purple-300 bg-purple-50 rounded-xl">
+        class="flex flex-col justify-center w-full py-5 pb-3 my-2 mt-2 mb-5 shadow dark:bg-gray-800 md:flex md:flex-row lg:w-3/4 lg:mx-auto shadow-purple-300 bg-purple-50 rounded-xl">
         <div class="w-full px-3 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-800">
             <div class="mt-3">
                 <label class="px-2 dark:text-white ">{{ __('Vihara') }}</label>
