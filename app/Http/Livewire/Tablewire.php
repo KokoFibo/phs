@@ -74,7 +74,7 @@ class Tablewire extends Component
 
 
         switch($nama_kategori) {
-            case '	中文名':
+            case '中文名':
                 $this->category = "data_pelitas.mandarin";
                 break;
             case 'Alias':
