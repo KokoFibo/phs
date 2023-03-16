@@ -127,11 +127,7 @@ public function updatedSelectAll () {
     public function updatingGroupId () {
         $this->kode_branch = "";
     }
-    public function cetak () {
-        $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
-        // cara buka view blade
-        return view('datapelitacetak', compact('datapelita'));
-    }
+
     public function pdfdom () {
         $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
 

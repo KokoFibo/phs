@@ -232,7 +232,7 @@
                 {{-- Tambah Kolom --}}
                 <div x-data="{ open: false }" class="relative w-full mt-3 lg:w-1/4">
                     <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
-                        class="w-full px-2 py-1 text-sm text-white bg-blue-500 border rounded border-500 lg:text-base hover:bg-blue-700 hover:text-white">
+                        class="w-full px-2 py-1 text-sm text-white bg-blue-500 border border-blue-500 rounded lg:text-base hover:bg-blue-700 hover:text-white">
                         {{ __('Kolom') }} <i class="fa fa-angle-down"></i></button>
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
@@ -343,8 +343,15 @@
         <div class="flex items-center w-full gap-2 px-5 mt-3 lg:w-1/2">
             <x-button wire:click="excel" wire:loading.attr="disabled" class="button button-teal">Excel</x-button>
             <x-button wire:click="pdfdom" wire:loading.attr="disabled" class="button button-red">PDF</x-button>
-            <button wire:click="cetak" wire:loading.attr="disabled"
-                class="button button-blue">{{ __('Cetak') }}</button>
+            <form action="/cetak/" method="POST">
+
+                @csrf
+                @foreach ($selectedId as $s)
+                    <input type="hidden" name="IdPilihan[]" value="{{ $s }}">
+                @endforeach
+                <button type=submit class="button button-blue">{{ __('Cetak') }}</button>
+            </form>
+
             <p class="text-lg font-semibold text-purple-500">{{ count($selectedId) }} Data Selected</p>
         </div>
     @endif

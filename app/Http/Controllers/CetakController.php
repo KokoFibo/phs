@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class CetakController extends Controller
 {
-    public function index () {
-
-        $datapelita = DataPelita::where('id', 4)->get();
-        return view ('datapelitapdf', compact('datapelita'));
+    public function index (Request $request) {
+           $datapelita = DataPelita::whereIn('id',$request->IdPilihan )->orderBy('nama_umat', 'asc')->get();
+        return view ('datapelitacetak', compact('datapelita'));
     }
 }
+
+
