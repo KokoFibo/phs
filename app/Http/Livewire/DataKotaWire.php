@@ -22,6 +22,9 @@ class DataKotaWire extends Component
 
         $this->resetPage();
     }
+    public function cancel () {
+        $this->is_add = true;
+    }
 
     public function close () {
         return redirect()->route('adddata');
@@ -101,7 +104,7 @@ class DataKotaWire extends Component
     {
         $kota = Kota::orderBy('id', 'desc')->paginate(5);
         return view('livewire.data-kota-wire', compact('kota'))
-        ->extends('layouts.secondMain')
+        ->extends('layouts.main')
         ->section('content');
 
     }
