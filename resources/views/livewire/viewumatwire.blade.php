@@ -124,7 +124,7 @@
             </div>
 
             <div class="flex items-center justify-between w-full mt-9">
-                <h5 class="text-sm">Last Update : {{ $last_update }}</h5>
+                <h5 class="text-sm dark:text-white">Last Update : {{ $last_update }}</h5>
                 <div>
                     <a href="{{ route('main') }}"><button type="button"
                             class="button button-black dark:bg-purple-500"><i class="fa fa-circle-arrow-left"></i>
