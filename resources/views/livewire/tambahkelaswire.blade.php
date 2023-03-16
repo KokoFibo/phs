@@ -7,13 +7,14 @@
             <div>
                 <h4 class="text-3xl font-semibold text-center text-purple-500">{{ __('Menu Tambah Kelas') }}</h4>
             </div>
-            <div class="flex flex-col items-center justify-center px-8 pt-6 pb-8 mx-3 mb-4 rounded shadow-md bg-pink-50">
+            <div
+                class="flex flex-col items-center justify-center px-8 pt-6 pb-8 mx-3 mb-4 border rounded shadow-md dark:bg-gray-800 dark:border-gray-800 dark:text-white bg-pink-50">
                 <h5 class="text-lg text-center">{{ __('Hi') }}, {{ Auth::user()->name }}</h5>
                 <h5 class="text-lg text-center">{{ __('Silakan masukkan password anda untuk mengakses menu ini') }}.</h5>
 
                 <div class="w-full mt-6 mb-6">
                     <input
-                        class="w-full px-3 py-2 mb-3 border rounded shadow appearance-none border-red text-grey-darker"
+                        class="w-full px-3 py-2 mb-3 border rounded shadow appearance-none dark:text-gray-900 border-red text-grey-darker"
                         type="password" wire:model="pswd">
                 </div>
                 <button wire:click="checkPassword" class="w-full button button-purple">{{ __('Enter') }}</button>
@@ -68,10 +69,11 @@
                         @foreach ($kelas as $index => $p)
                             <tbody>
                                 <tr>
-                                    <td class="p-3 text-gray-800 border rounded text">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white text">
                                         {{ $kelas->firstItem() + $index }}</td>
-                                    <td class="p-3 text-gray-800 border rounded text">{{ $p->nama_kelas }}</td>
-                                    <td class="p-3 text-center text-gray-800 border rounded text">
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white text">
+                                        {{ $p->nama_kelas }}</td>
+                                    <td class="p-3 text-center text-gray-800 border rounded dark:text-white text">
                                         @if ($p->kelas_is_used == false)
                                             <button class="button-red button "
                                                 wire:click="deleteConfirmation({{ $p->id }})"><i

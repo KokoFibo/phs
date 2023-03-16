@@ -62,11 +62,12 @@
                     @foreach ($branch as $index => $b)
                         <tbody>
                             <tr>
-                                <td class="p-3 text-gray-800 border rounded">
+                                <td class="p-3 text-gray-800 border rounded dark:text-white">
                                     {{ $branch->firstItem() + $index }}</td>
-                                <td class="p-3 text-gray-800 border rounded">{{ $b->nama_branch }}</td>
-                                <td class="p-3 text-gray-800 border rounded">{{ $b->groupvihara->nama_group }}</td>
-                                <td class="p-3 text-center text-gray-800 border rounded">
+                                <td class="p-3 text-gray-800 border rounded dark:text-white">{{ $b->nama_branch }}</td>
+                                <td class="p-3 text-gray-800 border rounded dark:text-white">
+                                    {{ $b->groupvihara->nama_group }}</td>
+                                <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
                                     @if ($b->branch_is_used == false)
                                         <button class="button-red button "
                                             wire:click="delete_confirmation({{ $b->id }})">{{ __('Delete') }}</button>

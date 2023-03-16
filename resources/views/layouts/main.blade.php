@@ -33,7 +33,7 @@
 
 </head>
 
-<body>
+<body class="dark:bg-gray-800 dark:border-gray-700 dark:text-white">
     {{-- @include('layouts.navbarbaru') --}}
     @include('layouts.navbarresponsive')
     @yield('content')

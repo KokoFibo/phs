@@ -4,13 +4,12 @@
     @endpush
     <x-spinner />
     {{-- Search Bar --}}
-
     {{-- <div wire:loading>Loading...</div> xa --}}
-    <div class="items-center justify-between w-full  lg:flex">
-        <div class="items-center  lg:w-3/4 lg:flex ">
+    <div class="items-center justify-between w-full lg:flex">
+        <div class="items-center lg:w-3/4 lg:flex ">
             {{-- search  --}}
 
-            <div class="flex w-full mt-3 px-2 lg:w-2/5">
+            <div class="flex w-full px-2 mt-3 lg:w-2/5">
                 {{-- <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
                     Email</label> --}}
 
@@ -25,15 +24,20 @@
                     </svg>
                 </button>
                 <div id="dropdown"
-                    class=" z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                    <ul class=" py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                        <li>
-                            <button type="button" wire:click="getCategory('All categories')"
-                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('All categories') }}</button>
-                        </li>
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+
                         <li>
                             <button type="button" wire:click="getCategory('Nama')"
                                 class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Nama') }}</button>
+                        </li>
+                        <li>
+                            <button type="button" wire:click="getCategory('Alias')"
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Alias') }}</button>
+                        </li>
+                        <li>
+                            <button type="button" wire:click="getCategory('中文名')"
+                                class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('中文名') }}</button>
                         </li>
                         <li>
                             <button type="button" wire:click="getCategory('Pengajak')"
@@ -78,10 +82,10 @@
 
 
 
-            <div class="w-full flex justify-between items-center px-2 lg:w-3/5 gap-2">
+            <div class="flex items-center justify-between w-full gap-2 px-2 lg:w-3/5">
 
                 {{-- Rows per Page --}}
-                <div class="relative w-full mt-3  lg:w-1/4 ">
+                <div class="relative w-full mt-3 lg:w-1/4 ">
                     <select
                         class="w-full px-2 py-1 text-sm text-white bg-green-500 border border-green-500 rounded lg:text-base hover:bg-green-700"
                         wire:model="perpage">
@@ -93,7 +97,7 @@
                     </select>
                 </div>
                 {{--  Filter Dropdown --}}
-                <div x-data="{ open: false }" class="w-full mt-3  lg:w-1/4">
+                <div x-data="{ open: false }" class="w-full mt-3 lg:w-1/4">
                     <button @click="open = !open" :class="open ? 'bg-purple-500 ' : ''"
                         class="w-full px-2 py-1 text-sm text-white bg-purple-500 border border-purple-500 rounded lg:text-base hover:bg-purple-700 hover:text-white">
                         <span class="hidden lg:inline"><i class=" fa fa-filter fa-sm"></i></span>
@@ -103,7 +107,7 @@
                     {{-- isi dari dropdown --}}
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
-                        class=" absolute left-5 lg:left-1/3 z-10 px-3 pb-3 rounded-xl w-400px text-purple-700 bg-white  shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
+                        class=" absolute left-5 lg:left-1/3 z-10 px-3 pb-3 rounded-xl w-400px dark:bg-gray-800 dark:border-gray-700 dark:text-white text-purple-700 bg-white  shadow-xl backdrop-blur-sm border border-[#ffffff/.3] ">
 
 
                         {{-- <div class="card card-body glass" style="width: 400px; color: purple;"> --}}
@@ -143,7 +147,8 @@
                             </select>
                         </div>
                         <div class="mt-3">
-                            <label class="p-1 px-3 text-sm rounded bg-purple lg:text-base">{{ __('Status') }} </label>
+                            <label class="p-1 px-3 text-sm rounded bg-purple lg:text-base">{{ __('Status') }}
+                            </label>
                             <select wire:model="status"
                                 class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
                                 <option value="">{{ __('All') }}</option>
@@ -225,15 +230,15 @@
                     {{-- end isi dropdown --}}
                 </div>
                 {{-- Tambah Kolom --}}
-                <div x-data="{ open: false }" class="relative w-full mt-3  lg:w-1/4">
+                <div x-data="{ open: false }" class="relative w-full mt-3 lg:w-1/4">
                     <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
-                        class="w-full px-2 py-1 text-sm text-white bg-blue-500 border border-500 rounded lg:text-base hover:bg-blue-700 hover:text-white">
+                        class="w-full px-2 py-1 text-sm text-white bg-blue-500 border rounded border-500 lg:text-base hover:bg-blue-700 hover:text-white">
                         {{ __('Kolom') }} <i class="fa fa-angle-down"></i></button>
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
                         class="absolute z-10 px-2 py-3 text-purple-700 bg-white shadow-xl -left-5 lg:left-0 rounded-xl">
                         {{-- mulai isi Tambah Kolom --}}
-                        <table class="text-sm lg:text-base">
+                        <table class="text-sm lg:text-base dark:bg-gray-800 dark:border-gray-700 dark:text-white">
                             <tr>
                                 <td class="px-1 py-1 ">
                                     <input type="checkbox" id="alamat" wire:model="kolomAlamat" value="1"
@@ -305,12 +310,12 @@
                     </div>
                 </div>
                 {{-- kolom aas --}}
-                <div class="relative w-full mt-3  lg:w-1/4">
+                <div class="relative w-full mt-3 lg:w-1/4">
                     {{-- Reset --}}
                     <div>
                         <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
                             wire:click="resetFilter"
-                            class="w-full px-2 py-1 text-sm text-white border bg-pink-500 border-pink-500 rounded lg:text-base hover:bg-pink-700 hover:text-white">
+                            class="w-full px-2 py-1 text-sm text-white bg-pink-500 border border-pink-500 rounded lg:text-base hover:bg-pink-700 hover:text-white">
                             {{ __('Reset') }} <i class="fa fa-arrow-rotate-right"></i>
 
                         </button>
@@ -353,7 +358,7 @@
             @else
                 <table class="w-full text-sm rounded-lg shadow table-fixed lg:table-auto bg-gray-50 lg:text-base">
         @endif
-        <thead class="text-white bg-purple-500 border-b-2 border-gray-200">
+        <thead class="text-white bg-purple-500 border-b-2 border-gray-200 ">
             <tr>
 
                 <th class="w-10 py-3 text-center "><input type="checkbox" wire:model="selectAll"
@@ -433,7 +438,7 @@
                         {{ __('KETERANGAN') }}</th>
                 @endif
                 <th class="py-3 font-semibold w-28 ">
-                    <div class="aad flex justify-center space-x-1">
+                    <div class="flex justify-center space-x-1 aad">
                         <div>
                             <a href="/adddata">
                                 <x-button type="button"
@@ -451,17 +456,17 @@
             @foreach ($datapelita1 as $index => $d)
                 @if ($d->status == 'Active')
                     <tr
-                        class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
+                        class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:bg-pink-50 dark:hover:bg-pink-600">
                     @else
                     <tr
-                        class="h-3 bg-gray-300 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-pink-600">
+                        class="h-3 bg-gray-300 border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:bg-pink-50 dark:hover:bg-pink-600">
                 @endif
                 <td class="text-center ">
                     <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
                         class="checked:bg-purple-500" />
                 </td>
 
-                <td class="py-3 text-gray-800 ">
+                <td class="py-3 ">
                     {{ $datapelita1->firstItem() + $index }}
                 </td>
 
@@ -486,80 +491,80 @@
                         {{ $d->mandarin }}
                     </td>
                 @else
-                    <td class="py-3 text-gray-800 ">
+                    <td class="py-3 ">
                         {{ $d->nama_umat }}
                     </td>
-                    <td class="py-3 text-gray-800 ">
+                    <td class="py-3 ">
                         {{ $d->nama_alias }}
                     </td>
-                    <td class="py-3 text-gray-800 ">
+                    <td class="py-3 ">
                         {{ $d->mandarin }}
                     </td>
                 @endif
-                <td class="py-3 text-center text-gray-800 ">
+                <td class="py-3 text-center ">
                     {{ $d->umur_sekarang }}
                 </td>
 
-                <td class="py-3 text-gray-800 ">
+                <td class="py-3 ">
                     {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
                 <td
                     class="py-3     {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                     {{ check_JK($d->gender, $d->umur_sekarang) }}
                 </td>
-                {{-- <td class="py-3 text-gray-800 ">{{ $d->pengajak_id }} --}}
-                <td class="py-3 text-gray-800 ">
+                {{-- <td class="py-3 ">{{ $d->pengajak_id }} --}}
+                <td class="py-3 ">
                     {{ $d->pengajak }}
                 </td>
-                <td class="py-3 text-gray-800 ">{{ $d->penjamin }}</td>
+                <td class="py-3 ">{{ $d->penjamin }}</td>
 
-                <td class="py-3 text-gray-800 ">
+                <td class="py-3 ">
                     {{ $d->nama_pandita }}
                 </td>
-                {{-- <td class="py-3 text-gray-800 ">{{ $d->nama_kota }}
+                {{-- <td class="py-3 ">{{ $d->nama_kota }}
                                     </td> --}}
-                <td class="py-3 text-gray-800 ">{{ $d->nama_branch }}
+                <td class="py-3 ">{{ $d->nama_branch }}
                 </td>
-                <td class="py-3 text-gray-800 ">{{ $d->nama_group }}
+                <td class="py-3 ">{{ $d->nama_group }}
                 </td>
                 @if ($kolomAlamat == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->alamat }}
+                    <td class="py-3 ">{{ $d->alamat }}
                     </td>
                 @endif
                 @if ($kolomKota == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->nama_kota }}
+                    <td class="py-3 ">{{ $d->nama_kota }}
                     </td>
                 @endif
                 @if ($kolomTelepon == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->telp }}
+                    <td class="py-3 ">{{ $d->telp }}
                     </td>
                 @endif
                 @if ($kolomHandphone == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->hp }}
+                    <td class="py-3 ">{{ $d->hp }}
                     </td>
                 @endif
                 @if ($kolomEmail == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->email }}
+                    <td class="py-3 ">{{ $d->email }}
                     </td>
                 @endif
                 @if ($kolomSd3h == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->tgl_sd3h }}
+                    <td class="py-3 ">{{ $d->tgl_sd3h }}
                     </td>
                 @endif
                 @if ($kolomVTotal == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->tgl_vtotal }}
+                    <td class="py-3 ">{{ $d->tgl_vtotal }}
                     </td>
                 @endif
                 @if ($kolomStatus == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->status }}
+                    <td class="py-3 ">{{ $d->status }}
                     </td>
                 @endif
                 @if ($kolomKeterangan == 1)
-                    <td class="py-3 text-gray-800 ">{{ $d->keterangan }}
+                    <td class="py-3 ">{{ $d->keterangan }}
                     </td>
                 @endif
 
 
-                <td class="py-3 text-gray-800 ">
+                <td class="py-3 ">
 
                     <div class="flex justify-center space-x-1">
 
@@ -602,11 +607,11 @@
         </table>
 
     </div>
-    <div class="px-3 mt-3 text-sm">
+    <div class="px-3 mt-3 text-sm dark:text-white">
         {{ $datapelita1->onEachSide(1)->links() }}
 
     </div>
-    <hr class="invisible mt-3">
+    <hr class="invisible mt-3 ">
     {{--
     </div> --}}
     {{-- End Table --}}
