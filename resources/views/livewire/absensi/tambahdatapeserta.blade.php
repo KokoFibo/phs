@@ -41,13 +41,19 @@
                     @error('datapelita_id')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
-                    <div class="flex justify-between">
+                    <div>
                         @if ($pesertaKelasAdd == true)
-                            <button wire:click="storePeserta" class="mt-3 button button-purple">Tambahkan</button>
+                            <div class="flex justify-between ">
+                                <button wire:click="storePeserta" class="mt-3 button button-purple">Tambahkan</button>
+                                <button wire:click="closeMenuTambahDataPeserta"
+                                    class="mt-3 button button-black">Close</button>
+                            </div>
                         @else
-                            <button wire:click="updatePesertakelas" class="mt-3 button button-blue">Update</button>
+                            <div class="flex justify-between ">
+                                <button wire:click="updatePesertakelas" class="mt-3 button button-blue">Update</button>
+                                <button wire:click="cancel" class="mt-3 button button-black">Cancel</button>
+                            </div>
                         @endif
-                        <button wire:click="closeMenuTambahDataPeserta" class="mt-3 button button-yellow">Close</button>
                     </div>
                 </div>
             </div>

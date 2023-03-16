@@ -17,11 +17,15 @@ class Tambahgroupwire extends Component
     public $id_group;
     public $nama_lama;
     // public $is_edit = 'false';
-    public $is_add = 'true';
+    public $is_add = true;
     use WithPagination;
     protected $listeners = ['delete'];
     public $pswd;
     public $open;
+
+    public function cancel () {
+        $this->is_add = true;
+    }
 
     public function checkPassword()
     {
@@ -47,16 +51,15 @@ class Tambahgroupwire extends Component
         $data->save();
         $this->clear_fields();
         // $this->redirect(route('adddata'));
-        session()->flash('message', 'Data Group Vihara Sudah di Simpan');
+        // session()->flash('message', 'Data Group Vihara Sudah di Simpan');
 
     }
 
     public function deleteConfirmation ($id) {
         $data = Groupvihara::find($id);
         $nama = $data->nama_group;
-        $this->dispatchBrowserEvent('delete_confirmation', [
+        $this->dispatchBrowserEvent('delete_confirmation1', [
             'title' => 'Yakin Untuk Hapus Data',
-            //  'text' => "You won't be able to revert this!",
               'text' => "Data group : " . $nama,
              'icon' => 'warning',
              'id' => $id,

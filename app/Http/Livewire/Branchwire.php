@@ -18,7 +18,9 @@ class Branchwire extends Component
     protected $listeners = ['delete_branch'];
 
 
-
+    public function cancel () {
+        $this->is_add = true;
+    }
     public function rules () {
 
         return [

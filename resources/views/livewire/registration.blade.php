@@ -44,7 +44,7 @@
                                     <td class="h-10 text-center text-gray-700 border dark:text-white ">
                                         <div class="flex gap-1 justify-evenly">
                                             <button wire:click="edit({{ $d->id }})"
-                                                class="px-2 py-1 text-sm text-black bg-orange-500 rounded"><i
+                                                class="px-2 py-1 text-sm text-white bg-orange-500 rounded"><i
                                                     class="fa fa-pen-to-square "></i></button>
                                             <button wire:click="deleteConfirmation({{ $d->id }})"
                                                 class="px-2 py-1 text-sm text-white bg-red-500 rounded"><i
@@ -64,7 +64,7 @@
                 {{ $data->links() }}
             </div>
             <div class="mx-3 text-right">
-                <button wire:click="close" class="button button-teal">Back</button>
+                <button wire:click="close" class="button button-black">Back</button>
             </div>
         </div>
     @else
