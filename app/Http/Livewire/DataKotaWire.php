@@ -16,7 +16,8 @@ class DataKotaWire extends Component
     public $nama_kota;
     use WithPagination;
     public $is_add = true;
-    protected $listeners = ['delete_kota', 'render'];
+    protected $listeners = ['delete' , 'render'];
+
 
     public function mount  () {
 
@@ -42,7 +43,10 @@ class DataKotaWire extends Component
         $data_kota->nama_kota = Str::title($this->nama_kota);
         $data_kota->save();
         $this->clear_fields();
-        session()->flash('message', 'Data Kota Sudah di Simpan');
+        // session()->flash('message', 'Data Kota Sudah di Simpan');
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Kota Sudah di Simpan']);
+
+
     }
 
 
@@ -62,21 +66,13 @@ class DataKotaWire extends Component
 
         $data->save();
         $this->clear_fields();
-        session()->flash('message', 'Data Kota Sudah di Update');
+        // session()->flash('message', 'Data Kota Sudah di Update');
         $this->is_add = true;
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Kota Sudah di Update']);
+
     }
 
-    public function delete_confirmation_kota ($id) {
-        $data = Kota::find($id);
-        $nama = $data->nama_kota;
-        $this->dispatchBrowserEvent('delete_confirmation_aja', [
-            'title' => 'Yakin Untuk Hapus Data kota',
-            //  'text' => "You won't be able to revert this!",
-              'text' => "Data Kota : " . $nama,
-             'icon' => 'warning',
-             'id' => $id,
-        ]);
-    }
+
 
     public function deleteConfirmation ($id) {
         $data = Kota::find($id);
@@ -89,14 +85,18 @@ class DataKotaWire extends Component
              'id' => $id,
         ]);
     }
-    public function delete_kota ($id) {
+
+
+    public function delete ($id) {
         $data = Kota::find($id);
         if($data->kota_is_used != '1'){
 
             $data->delete();
-            $this->dispatchBrowserEvent('deleted');
+            // $this->dispatchBrowserEvent('deleted');
+            $this->dispatchBrowserEvent('deleted', ['title' => 'Data sudah di hapus']);
         }else {
-            session()->flash('message', 'Data Tidak di Delete');
+            $this->dispatchBrowserEvent('error', ['message' => 'Data ini tidak dihapus']);
+            // session()->flash('message', 'Data Tidak di Delete');
         }
     }
 

@@ -101,7 +101,7 @@
     </div>
 </div>
 
-@push('script')
+{{-- @push('script')
     <script>
         window.addEventListener('success', function(e) {
             Swal.fire({
@@ -150,4 +150,4 @@
             );
         });
     </script>
-@endpush
+@endpush --}}

@@ -62,7 +62,7 @@ class Daftarkelaswire extends Component
             $this->updateKelas();
             $this->clear_fields();
             // session()->flash('message', 'Data Kelas Sudah di Simpan');
-            $this->dispatchBrowserEvent('saved');
+            $this->dispatchBrowserEvent('success', ['message' => 'saved']);
 
         } else {
             //  session()->flash('message', 'Data Sudah Ada');
@@ -146,7 +146,9 @@ class Daftarkelaswire extends Component
         $this->clear_fields();
         $this->is_add=true;
         // session()->flash('message', 'Data Kelas Sudah di Update');
-        $this->dispatchBrowserEvent('updated');
+
+        $this->dispatchBrowserEvent('success', ['message' => 'updated']);
+
         } else {
             $this->dispatchBrowserEvent('duplicate');
         }

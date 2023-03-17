@@ -323,26 +323,23 @@
             </div>
         </div>
     </div>
-    @push('script')
-        <script>
-            window.addEventListener('stored', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: e.detail.title,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
+    <script>
+        $(document).ready(function() {
+            toastr.options = {
+                "progressBar": true,
+                "positionClass": "toast-top-right"
+            }
+
+            window.addEventListener('success', event => {
+                toastr.success(event.detail.message);
             });
-            window.addEventListener('setDefault', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: e.detail.title,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
+            window.addEventListener('warning', event => {
+                toastr.warning(event.detail.message);
             });
-        </script>
-    @endpush
+            window.addEventListener('error', event => {
+                toastr.error(event.detail.message);
+            });
+        });
+    </script>
+
 </div>

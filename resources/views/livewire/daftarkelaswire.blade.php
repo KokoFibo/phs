@@ -115,50 +115,50 @@
 
     @push('script')
         <script>
-            window.addEventListener('delete_confirmation', function(e) {
-                Swal.fire({
-                    title: e.detail.title,
-                    text: e.detail.text,
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, silakan hapus!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.livewire.emit('delete', e.detail.id)
-                        // Swal.fire(
-                        //     'Deleted!',
-                        //     'Your file has been deleted.',
-                        //     'success'
-                        // )
-                    }
-                })
-            });
-            window.addEventListener('deleted', function(e) {
-                Swal.fire(
-                    'Deleted!', 'Data sudah di delete.', 'success'
-                );
-            });
-            window.addEventListener('updated', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Data sudah di update',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            });
+            // window.addEventListener('delete_confirmation', function(e) {
+            //     Swal.fire({
+            //         title: e.detail.title,
+            //         text: e.detail.text,
+            //         icon: 'warning',
+            //         showCancelButton: true,
+            //         confirmButtonColor: '#3085d6',
+            //         cancelButtonColor: '#d33',
+            //         confirmButtonText: 'Yes, silakan hapus!'
+            //     }).then((result) => {
+            //         if (result.isConfirmed) {
+            //             window.livewire.emit('delete', e.detail.id)
+            //             // Swal.fire(
+            //             //     'Deleted!',
+            //             //     'Your file has been deleted.',
+            //             //     'success'
+            //             // )
+            //         }
+            //     })
+            // });
+            // window.addEventListener('deleted', function(e) {
+            //     Swal.fire(
+            //         'Deleted!', 'Data sudah di delete.', 'success'
+            //     );
+            // });
+            // window.addEventListener('updated', function(e) {
+            //     Swal.fire({
+            //         position: 'top-end',
+            //         icon: 'success',
+            //         title: 'Data sudah di update',
+            //         showConfirmButton: false,
+            //         timer: 1500
+            //     })
+            // });
 
-            window.addEventListener('saved', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Data sudah di Simpan',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            });
+            // window.addEventListener('saved', function(e) {
+            //     Swal.fire({
+            //         position: 'top-end',
+            //         icon: 'success',
+            //         title: 'Data sudah di Simpan',
+            //         showConfirmButton: false,
+            //         timer: 1500
+            //     })
+            // });
 
             window.addEventListener('duplicate', function(e) {
                 Swal.fire({

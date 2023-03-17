@@ -32,11 +32,11 @@
                 <i class="fa fa-circle-xmark fa-2xl"></i>
             </button>
         </div>
-        <div class="w-full mx-auto mt-3 text-center lg:w-2/3 ">
+        {{-- <div class="w-full mx-auto mt-3 text-center lg:w-2/3 ">
             @if (session()->has('message'))
                 <div class="w-full py-2 text-xl text-white bg-teal-500 rounded-xl">{{ session('message') }}</div>
             @endif
-        </div>
+        </div> --}}
         <div class="flex flex-col w-full p-3 mx-auto lg:flex lg:flex-row lg:w-2/3 items-top justify-evenly">
             <div class="w-full p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl lg:w-1/2 rounded-xl">
                 <div class="text-xl font-semibold text-center">{{ __('Nama Kelas') }}</div>
@@ -105,34 +105,5 @@
         </div>
     @endif
 
-    @push('script')
-        <script>
-            window.addEventListener('delete_confirmation', function(e) {
-                Swal.fire({
-                    title: e.detail.title,
-                    text: e.detail.text,
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, silakan hapus!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.livewire.emit('delete', e.detail.id)
-                        // Swal.fire(
-                        //     'Deleted!',
-                        //     'Your file has been deleted.',
-                        //     'success'
-                        // )
-                    }
-                })
-            });
-            window.addEventListener('deleted', function(e) {
-                Swal.fire(
-                    'Deleted!', 'Data sudah di delete.', 'success'
-                );
-            });
-        </script>
-    @endpush
-    {{-- @endif --}}
+
 </div>

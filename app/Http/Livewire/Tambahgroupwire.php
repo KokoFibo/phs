@@ -52,13 +52,15 @@ class Tambahgroupwire extends Component
         $this->clear_fields();
         // $this->redirect(route('adddata'));
         // session()->flash('message', 'Data Group Vihara Sudah di Simpan');
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Group Vihara Sudah di Simpan']);
+
 
     }
 
     public function deleteConfirmation ($id) {
         $data = Groupvihara::find($id);
         $nama = $data->nama_group;
-        $this->dispatchBrowserEvent('delete_confirmation1', [
+        $this->dispatchBrowserEvent('delete_confirmation', [
             'title' => 'Yakin Untuk Hapus Data',
               'text' => "Data group : " . $nama,
              'icon' => 'warning',
@@ -104,7 +106,9 @@ class Tambahgroupwire extends Component
         // $this->is_edit=false;
         $this->clear_fields();
         $this->is_add=true;
-        session()->flash('message', 'Data Group Vihara Sudah di Update');
+        // session()->flash('message', 'Data Group Vihara Sudah di Update');
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Group Vihara Sudah di Update']);
+
 
     }
 

@@ -66,6 +66,7 @@
                                 <th class="p-3 font-semibold text-center">#</th>
                                 <th class="p-3 font-semibold text-center">{{ __('Nama Peserta') }}</th>
                                 <th class="p-3 font-semibold text-center">{{ __('Nama Kelas') }}</th>
+                                <th class="p-3 font-semibold text-center">{{ __('ID') }}</th>
                                 <th class="p-3 font-semibold text-center"></th>
                             </tr>
                         </thead>
@@ -80,15 +81,10 @@
                                     <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ getDaftarKelas($p->daftarkelas_id) }}
                                     </td>
-                                    {{-- <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
-                                    @if ($p->pesertakelas_is_used == false)
-                                    <button class="button-red button " wire:click="deleteConfirmation({{ $p->id }})">{{
-                                        __('Delete') }}</button>
-                                    @else
-                                    <button class="button button-teal" wire:click="edit({{ $p->id }})">{{ __('Edit')
-                                        }}</button>
-                                    @endif
-                                </td> --}}
+                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
+                                        {{ $p->id }}
+                                    </td>
+
                                     <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ check_is_peserta_terdaftar($p->datapelita_id, $p->daftarkelas_id) }}
                                         @if (check_is_peserta_terdaftar($p->datapelita_id, $p->daftarkelas_id) == null)
@@ -97,15 +93,7 @@
                                                 <i class="fa fa-trash "></i>
                                             </button>
                                         @endif
-                                        {{-- <div class="flex justify-center space-x-1">
-                                            <button wire:click="editpesertakelas({{ $p->id }})" type="button"
-                                                class="p-1 text-black bg-yellow-300 rounded">
-                                                <i class="fa fa-pen-to-square "></i>
-                                            </button>
-                                            @if ($p->pesertakelas_is_used == false)
 
-                                            @endif
-                                        </div> --}}
                                     </td>
                                 </tr>
                             </tbody>

@@ -32,11 +32,11 @@
                 <i class="fa fa-circle-xmark fa-2xl"></i>
             </button>
         </div>
-        <div class="w-full mx-auto mt-3 text-center lg:w-2/3 ">
+        {{-- <div class="w-full mx-auto mt-3 text-center lg:w-2/3 ">
             @if (session()->has('message'))
                 <div class="w-full py-2 text-xl text-white bg-teal-500 rounded-xl">{{ session('message') }}</div>
             @endif
-        </div>
+        </div> --}}
         <div class="flex flex-col w-full p-3 mx-auto lg:flex lg:flex-row lg:w-2/3 items-top justify-evenly">
             <div class="w-full p-4 mt-3 mr-3 text-white bg-teal-500 border shadow-xl lg:w-1/2 rounded-xl">
                 <div class="text-xl font-semibold text-center">{{ __('Data Group Vihara') }}</div>
@@ -106,7 +106,7 @@
         </div>
     @endif
 
-    @push('script')
+    {{-- @push('script')
         <script>
             window.addEventListener('delete_confirmation1', function(e) {
                 Swal.fire({
@@ -134,5 +134,5 @@
                 );
             });
         </script>
-    @endpush
+    @endpush --}}
 </div>

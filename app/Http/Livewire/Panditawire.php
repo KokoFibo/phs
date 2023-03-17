@@ -36,7 +36,9 @@ class Panditawire extends Component
         $data->save();
         $this->clear_fields();
         // $this->redirect(route('adddata'));
-        session()->flash('message', 'Data Pandita Sudah di Simpan');
+        // session()->flash('message', 'Data Pandita Sudah di Simpan');
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Pandita Sudah di Simpan']);
+
 
     }
 
@@ -90,7 +92,9 @@ class Panditawire extends Component
         // $this->is_edit=false;
         $this->clear_fields();
         $this->is_add=true;
-        session()->flash('message', 'Data Pandita Sudah di Update');
+        // session()->flash('message', 'Data Pandita Sudah di Update');
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Pandita Sudah di Update']);
+
 
     }
     public function render()

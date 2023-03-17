@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Validator;
 class Absensiwire extends Component
 {
     use WithPagination;
-    public $groupvihara_id, $kelas_id, $kelas, $daftarkelas_id, $tgl_kelas,  $group, $id_absensi, $nama_cetya, $nama_kelas ;
+    public $groupvihara_id, $kelas_id, $kelas, $daftarkelas_id, $tgl_kelas,  $group, $id_absensi, $nama_cetya, $nama_kelas;
     public $selectedGroup = null;
     public $selectedKelas = null;
     public $is_add = true;
@@ -121,7 +121,8 @@ class Absensiwire extends Component
         $this->pesertaKelasAdd = true;
         // $this->cancel();
         // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
-        $this->dispatchBrowserEvent('updated');
+        $this->dispatchBrowserEvent('success', ['message' => 'updated']);
+
     }
 
 
@@ -141,7 +142,8 @@ class Absensiwire extends Component
         $data->save();
         $this->cancel();
         // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
-        $this->dispatchBrowserEvent('updated');
+        $this->dispatchBrowserEvent('success', ['message' => 'updated']);
+
     }
 
     public function mount() {
@@ -193,9 +195,12 @@ class Absensiwire extends Component
                 $data_peserta->daftarkelas_id = $this->daftarkelas_id;
                 try {
                     $data_peserta->save();
+                    $this->dispatchBrowserEvent('success', ['message' => 'Saved']);
 
                 } catch (\Exception $e) {
-                    $this->dispatchBrowserEvent('pesertaTerdaftar');
+                    // $this->dispatchBrowserEvent('pesertaTerdaftar');
+                    $this->dispatchBrowserEvent('error', ['message' => 'Peserta Sudah Terdaftar']);
+
        }
 
         //    }
@@ -214,7 +219,7 @@ class Absensiwire extends Component
         $data = Pesertakelas::find($id);
         $this->pesertaKelasId = $id ;
         // $namakelas = getKelas($data->kelas_id);
-        $this->dispatchBrowserEvent('deletepesertaConfirmation', [
+        $this->dispatchBrowserEvent('delete_confirmation', [
             'title' => 'Yakin Untuk Hapus Data',
               'text' => "Nama Peserta : " .  getName($data->datapelita_id),
              'icon' => 'warning',
@@ -229,7 +234,7 @@ class Absensiwire extends Component
             $data->delete();
             $this->dispatchBrowserEvent('deleted');
         } else {
-            session()->flash('message', 'Data TIDAK di Delete');
+            $this->dispatchBrowserEvent('error', ['message' => 'Data TIDAK di Delete']);
 
         }
 
@@ -249,8 +254,10 @@ class Absensiwire extends Component
     }
 
     public function delete ($id) {
+        dd($id);
         $data = Absensi::find($id);
-        if( $data->daftarkelas_is_used != '1'){
+
+        if( $data->daftarkelas_is_used == '0'){
             $data->delete();
             $this->dispatchBrowserEvent('deleted');
         } else {
@@ -352,7 +359,8 @@ public function editAbsensi () {
             $this->updateDaftarKelas();
             $this->clear_fields();
             // session()->flash('message', 'Absensi Kelas Sudah di Simpan');
-            $this->dispatchBrowserEvent('saved');
+            $this->dispatchBrowserEvent('success', ['message' => 'saved']);
+
         } catch (\Exception $e) {
             return $e->getMessage();
         }
