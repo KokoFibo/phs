@@ -42,9 +42,9 @@
         </tbody>
     </table>
     <a href="/main"><button>Back</button></a>
-    {{-- <script>
+    <script>
         window.print();
-    </script> --}}
+    </script>
 </body>
 <style>
     /* @font-face {
