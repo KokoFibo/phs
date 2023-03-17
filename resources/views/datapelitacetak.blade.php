@@ -14,9 +14,13 @@
             <tr>
                 <th>#</th>
                 <th>Nama</th>
+                <th>Mandarin</th>
+                <th>Umur</th>
                 <th>Telepon</th>
                 <th>Handphone</th>
                 <th>Alamat</th>
+                <th>Pengajak</th>
+                <th>Penjamin</th>
                 {{-- <th>Pengajak</th> --}}
             </tr>
         </thead>
@@ -25,14 +29,19 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $d->nama_umat }}</td>
+                    <td>{{ $d->mandarin }}</td>
+                    <td style="text-align:right">{{ $d->umur_sekarang }}</td>
                     <td>{{ $d->telp }}</td>
                     <td>{{ $d->hp }}</td>
                     <td>{{ $d->alamat }}</td>
+                    <td>{{ $d->pengajak }}</td>
+                    <td>{{ $d->penjamin }}</td>
                     {{-- <td>{{ $d->pengajak }}</td> --}}
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="/main"><button>Back</button></a>
     <script>
         window.print();
     </script>
