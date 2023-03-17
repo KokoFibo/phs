@@ -52,6 +52,8 @@
         $(document).ready(function() {
             toastr.options = {
                 "progressBar": true,
+                "timeOut": "1500",
+                "progressBar": true,
                 "positionClass": "toast-bottom-right"
             }
             window.addEventListener('success', event => {
