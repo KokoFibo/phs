@@ -236,14 +236,13 @@
                         {{ __('Kolom') }} <i class="fa fa-angle-down"></i></button>
 
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
-                        class="absolute z-10 px-2 py-3 text-purple-700 bg-white shadow-xl -left-5 lg:left-0 rounded-xl">
+                        class="absolute z-10 px-2 py-3 text-purple-700 bg-white shadow-xl dark:bg-gray-800 -left-5 lg:left-0 rounded-xl">
                         {{-- mulai isi Tambah Kolom --}}
                         <table class="text-sm lg:text-base dark:bg-gray-800 dark:border-gray-700 dark:text-white">
                             <tr>
                                 <td class="px-1 py-1 ">
                                     <input type="checkbox" id="alamat" wire:model="kolomAlamat" value="1"
                                         class="checked:bg-purple-500" />
-
                                 </td>
                                 <td class="px-1 py-1 ">
                                     <label for="alamat">Alamat</label>
