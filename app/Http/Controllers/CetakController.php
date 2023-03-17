@@ -9,7 +9,8 @@ class CetakController extends Controller
 {
     public function index (Request $request) {
            $datapelita = DataPelita::whereIn('id',$request->IdPilihan )->orderBy('nama_umat', 'asc')->get();
-        return view ('datapelitacetak', compact('datapelita'));
+        return view ('datapelitapdf', compact('datapelita'));
+        // return view ('datapelitacetak', compact('datapelita'));
     }
 }
 
