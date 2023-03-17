@@ -15,7 +15,9 @@ class Branchwire extends Component
     public $is_add = true;
 
     use WithPagination;
-    protected $listeners = ['delete_branch'];
+    // protected $listeners = ['delete_branch'];
+    protected $listeners = ['delete'];
+
 
 
     public function cancel () {
@@ -54,9 +56,8 @@ class Branchwire extends Component
         $this->updateGroupVihara ();
 
         // session()->flash('message', 'Data Branch Sudah di tambah');
-        $this->dispatchBrowserEvent('success', [
-            'title' => 'Data sudah di tambah'
-        ]);
+
+        $this->dispatchBrowserEvent('success', ['message' => 'Data sudah di tambah']);
         $this->clear_fields();
         $this->is_add=true;
     } catch (\Exception $e) {
@@ -99,11 +100,12 @@ class Branchwire extends Component
         try {
             $data->save();
 
+
         $this->updateGroupVihara ();
         $this->is_add=true;
-        $this->dispatchBrowserEvent('success', [
-            'title' => 'Data sudah di Updated'
-        ]);
+
+        $this->dispatchBrowserEvent('success', ['message' => 'Data sudah di Updated']);
+
 
         $this->clear_fields();
         } catch (\Exception $e) {
@@ -136,7 +138,7 @@ class Branchwire extends Component
     public function delete_confirmation ($id) {
         $data = Branch::find($id);
         $nama_cetya = $data->nama_branch;
-        $this->dispatchBrowserEvent('delete_confirmation_branch', [
+        $this->dispatchBrowserEvent('delete_confirmation', [
             'title' => 'Yakin Untuk Hapus Data kota',
             //  'text' => "You won't be able to revert this!",
               'text' => "Data Cetya : " . $nama_cetya,
@@ -145,7 +147,7 @@ class Branchwire extends Component
         ]);
     }
 
-    public function delete_branch ($id) {
+    public function delete ($id) {
         $data = Branch::find($id);
         if($data->branch_is_used != '1'){
 

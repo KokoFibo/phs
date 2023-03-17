@@ -48,7 +48,7 @@ class Addumatwire extends Component
         'umur_sekarang' => 'nullable',
         'alamat' => 'required',
         // 'kota_id' => 'required',
-        'telp' => 'nullable|min_digits:9|max_digits:13',
+        'telp' => 'nullable',
         'hp' => 'nullable|min_digits:9|max_digits:13',
         'email' => 'nullable|email',
         // 'pengajak_id' => 'required',
@@ -71,21 +71,12 @@ public function setDefault () {
     $data->branch_id = $this->selectedBranch;
     $data->kota_id = $this->selectedKota;
     $data->save();
-    $this->dispatchBrowserEvent('setDefault', [
-        'title' => 'Set to default'
-    ]);
-
-
-
-
+    $this->dispatchBrowserEvent('success', ['message' => 'Set to default']);
 }
 
 public function updated($fields) {
         $this->validateOnly($fields);
 }
-
-
-
     // public function getDataPengajak ($nama, $id) {
     //     $this->pengajak = $nama;
     //     $this->pengajak_id = $id;
@@ -157,10 +148,8 @@ public function updated($fields) {
 
         $data_umat->save();
 
-        session()->flash('message', 'Data Umat Sudah di tambah');
-        $this->dispatchBrowserEvent('stored', [
-            'title' => 'Data Added'
-        ]);
+        // session()->flash('message', 'Data Umat Sudah di tambah');
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Added']);
 
         $this->clear_fields();
 

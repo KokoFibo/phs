@@ -92,7 +92,7 @@
 </div>
 
 {{-- JS utk Sweetalert Delete --}}
-@push('script')
+{{-- @push('script')
     <script>
         window.addEventListener('delete_confirmation', function(e) {
             Swal.fire({
@@ -139,5 +139,5 @@
             })
         });
     </script>
-@endpush
+@endpush --}}
 </div>

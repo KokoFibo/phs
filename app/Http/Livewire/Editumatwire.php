@@ -27,7 +27,7 @@ class Editumatwire extends Component
         'tgl_mohonTao' => 'required|date|before_or_equal:tgl_mohonTao',
         'alamat' => 'required',
         'kota_id' => 'required',
-        'telp' => 'nullable|min_digits:9|max_digits:13|numeric',
+        'telp' => 'nullable',
         'hp' => 'nullable|min_digits:9|max_digits:13|numeric',
         'email' => 'nullable|email',
         'pengajak' => 'required',
@@ -133,9 +133,10 @@ public function updated($fields) {
          $data_branch->branch_is_used = true;
          $data_branch->save();
 
+         $this->dispatchBrowserEvent('success', ['message' => 'Data Umat Sudah di Update']);
 
-        session()->flash('message', 'Data Umat Sudah di update');
-    $this->dispatchBrowserEvent('updated');
+        // session()->flash('message', 'Data Umat Sudah di update');
+
         $this->clear_fields();
         $this->redirect(route("main"));
     }

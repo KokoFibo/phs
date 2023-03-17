@@ -323,26 +323,6 @@
             </div>
         </div>
     </div>
-    @push('script')
-        <script>
-            window.addEventListener('stored', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: e.detail.title,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            });
-            window.addEventListener('setDefault', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: e.detail.title,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            });
-        </script>
-    @endpush
+
+
 </div>

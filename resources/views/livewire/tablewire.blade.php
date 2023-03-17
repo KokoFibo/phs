@@ -116,7 +116,7 @@
                                 <label
                                     class="p-1 px-3 text-sm rounded bg-purple lg:text-base">{{ __('Group') }}</label>
                                 <select wire:model="group_id"
-                                    class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
+                                    class="w-full px-2 py-1 text-sm border border-gray-400 rounded dark:text-gray-800 lg:text-base">
                                     <option value="" selected>{{ __('All') }}
                                     </option>
                                     @foreach ($group as $a)
@@ -128,7 +128,7 @@
                         <div class="mt-3">
                             <label class="p-1 px-3 text-sm rounded lg:text-base bg-purple">{{ __('Vihara') }} </label>
                             <select wire:model="kode_branch"
-                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
+                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded dark:text-gray-800 lg:text-base">
                                 <option value="">{{ __('All') }}</option>
                                 @foreach ($all_branch as $a)
                                     <option value="{{ $a->id }}">{{ $a->nama_branch }}</option>
@@ -138,7 +138,7 @@
                         <div class="mt-3">
                             <label class="p-1 px-3 text-sm rounded bg-purple lg:text-base">{{ __('Gender') }}</label>
                             <select wire:model="jen_kel"
-                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
+                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded dark:text-gray-800 lg:text-base">
                                 <option value="0">{{ __('All') }}</option>
                                 {{-- <option value="Laki-laki">{{ __('Laki-laki') }}</option>
                                                 <option value="Perempuan">{{ __('Perempuan') }}</option> --}}
@@ -150,7 +150,7 @@
                             <label class="p-1 px-3 text-sm rounded bg-purple lg:text-base">{{ __('Status') }}
                             </label>
                             <select wire:model="status"
-                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base">
+                                class="w-full px-2 py-1 text-sm border border-gray-400 rounded dark:text-gray-800 lg:text-base">
                                 <option value="">{{ __('All') }}</option>
                                 <option value="Active">{{ __('Active Only') }}</option>
                                 <option value="Inactive">{{ __('Inactive Only') }}</option>
@@ -162,13 +162,13 @@
                             <div class="flex" style="display: flex">
                                 <div>
                                     <input type="text"
-                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base"
+                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded dark:text-gray-800 lg:text-base"
                                         wire:model="startUmur">
                                 </div>
                                 <p class="px-1">-</p>
                                 <div>
                                     <input type="text"
-                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base"
+                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded dark:text-gray-800 lg:text-base"
                                         wire:model="endUmur">
                                 </div>
                             </div>
@@ -204,7 +204,7 @@
                             <div class="flex" style="display: flex">
                                 <div>
                                     <input type="date"
-                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base"
+                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded dark:text-gray-800 lg:text-base"
                                         wire:model="startDate">
                                 </div>
                                 <div>
@@ -212,7 +212,7 @@
                                 </div>
                                 <div>
                                     <input type="date"
-                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded lg:text-base"
+                                        class="w-full px-2 py-1 text-sm border border-gray-400 rounded dark:text-gray-800 lg:text-base"
                                         wire:model="endDate">
                                 </div>
                             </div>

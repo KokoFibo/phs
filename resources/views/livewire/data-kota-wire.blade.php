@@ -9,11 +9,11 @@
             <i class="fa fa-circle-xmark fa-2xl"></i>
         </button>
     </div>
-    <div class="w-full mt-3 text-center lg:w-2/3 ">
+    {{-- <div class="w-full mt-3 text-center lg:w-2/3 ">
         @if (session()->has('message'))
             <div class="w-full py-2 text-xl text-white bg-teal-500 rounded-xl">{{ session('message') }}</div>
         @endif
-    </div>
+    </div> --}}
     <div class="flex flex-col justify-between w-full gap-2 p-3 lg:mx-auto lg:flex lg:flex-row lg:w-2/3 items-top ">
         <div class="w-full p-4 mt-3 text-white bg-teal-500 border shadow-xl lg:w-1/2 rounded-xl">
             <div class="text-xl font-semibold text-center">{{ __('Data Kota') }}</div>
@@ -57,11 +57,13 @@
                                 <td class="p-3 text-gray-800 border rounded dark:text-white">{{ $p->nama_kota }}</td>
                                 <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
                                     @if ($p->kota_is_used == false)
-                                        <button class="button-red button "
-                                            wire:click="deleteConfirmation({{ $p->id }})">{{ __('Delete') }}</button>
+                                        <button class="px-2 py-1 text-sm text-white bg-red-500 rounded"
+                                            wire:click="deleteConfirmation({{ $p->id }})"><i
+                                                class="fa fa-trash "></i></button>
                                     @else
-                                        <button class="button button-teal"
-                                            wire:click="edit({{ $p->id }})">{{ __('Edit') }}</button>
+                                        <button class="px-2 py-1 text-sm text-white bg-orange-500 rounded"
+                                            wire:click="edit({{ $p->id }})"><i
+                                                class="fa fa-pen-to-square "></i></button>
                                     @endif
                                 </td>
                             </tr>
@@ -79,7 +81,7 @@
         </div>
     </div>
 
-    @push('script')
+    {{-- @push('script')
         <script>
             window.addEventListener('delete_confirmation', function(e) {
                 Swal.fire({
@@ -107,6 +109,6 @@
                 );
             });
         </script>
-    @endpush
+    @endpush --}}
 
 </div>
