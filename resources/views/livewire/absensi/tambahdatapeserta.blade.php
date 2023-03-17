@@ -1,12 +1,10 @@
 @if ($menuTambahData)
     <x-spinner />
-
     <div class="flex flex-col w-full p-3 mx-auto lg:w-3/4 items-top ">
         <div
             class="w-full p-4 mt-3 mr-3 text-xl font-semibold text-center text-white bg-teal-500 border shadow-xl rounded-xl">
             {{ __('Peserta Kelas') }}
         </div>
-
         <div class="flex flex-col w-full gap-3 mt-3 lg:flex lg:flex-row ">
             <div class="w-full p-4 text-white bg-teal-500 border shadow-xl lg:w-1/3 rounded-xl">
                 <div class="mt-3 ">
@@ -25,7 +23,6 @@
                         <input id="peserta" type="text" placeholder="Cari peserta" wire:model="query"
                             class="w-full text-gray-700 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                         {{-- <input type="hidden" wire:model="datapelita_id"> --}}
-
                         <ul class="bg-white ">
                             @if (!empty($nama))
                                 @foreach ($nama as $n)
@@ -57,7 +54,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="w-full overflow-x-auto lg:w-2/3 ">
                 @if ($pesertakelas->count())
                     <table class="w-full table-auto">
@@ -66,7 +62,6 @@
                                 <th class="p-3 font-semibold text-center">#</th>
                                 <th class="p-3 font-semibold text-center">{{ __('Nama Peserta') }}</th>
                                 <th class="p-3 font-semibold text-center">{{ __('Nama Kelas') }}</th>
-                                <th class="p-3 font-semibold text-center">{{ __('ID') }}</th>
                                 <th class="p-3 font-semibold text-center"></th>
                             </tr>
                         </thead>
@@ -81,10 +76,15 @@
                                     <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ getDaftarKelas($p->daftarkelas_id) }}
                                     </td>
-                                    <td class="p-3 text-gray-800 border rounded dark:text-white">
-                                        {{ $p->id }}
-                                    </td>
-
+                                    {{-- <td class="p-3 text-center text-gray-800 border rounded dark:text-white">
+                                    @if ($p->pesertakelas_is_used == false)
+                                    <button class="button-red button " wire:click="deleteConfirmation({{ $p->id }})">{{
+                                        __('Delete') }}</button>
+                                    @else
+                                    <button class="button button-teal" wire:click="edit({{ $p->id }})">{{ __('Edit')
+                                        }}</button>
+                                    @endif
+                                </td> --}}
                                     <td class="p-3 text-gray-800 border rounded dark:text-white">
                                         {{ check_is_peserta_terdaftar($p->datapelita_id, $p->daftarkelas_id) }}
                                         @if (check_is_peserta_terdaftar($p->datapelita_id, $p->daftarkelas_id) == null)
@@ -93,7 +93,14 @@
                                                 <i class="fa fa-trash "></i>
                                             </button>
                                         @endif
-
+                                        {{-- <div class="flex justify-center space-x-1">
+                                            <button wire:click="editpesertakelas({{ $p->id }})" type="button"
+                                                class="p-1 text-black bg-yellow-300 rounded">
+                                                <i class="fa fa-pen-to-square "></i>
+                                            </button>
+                                            @if ($p->pesertakelas_is_used == false)
+                                            @endif
+                                        </div> --}}
                                     </td>
                                 </tr>
                             </tbody>

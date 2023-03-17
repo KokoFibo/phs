@@ -65,7 +65,8 @@ class Registration extends Component
         $branch = Branch::find($this->branch_id);
         $branch->branch_is_used = '1';
         $branch->save();
-        session()->flash('message', 'Data Registered Successfully');
+        // session()->flash('message', 'Data Registered Successfully');
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Saved']);
         $this->clear_fields();
     }
 
@@ -109,7 +110,9 @@ class Registration extends Component
         $this->clear_fields();
         $this->is_reset = false;
         $this->is_edit = false;
-        $this->dispatchBrowserEvent('passwordChanged');
+        // $this->dispatchBrowserEvent('passwordChanged');
+        $this->dispatchBrowserEvent('success', ['message' => 'Password sudah di update']);
+
     }
 
     public function update()
@@ -142,7 +145,8 @@ class Registration extends Component
         $group->group_is_used = '1';
         $group->save();
 
-        $this->dispatchBrowserEvent('updated');
+        // $this->dispatchBrowserEvent('updated');
+        $this->dispatchBrowserEvent('success', ['message' => 'User Data sudah di update']);
 
         $this->clear_fields();
         $this->is_edit = false;

@@ -51,7 +51,9 @@ public function mount () {
         // $data->name = $this->name;
         // $data->save();
         // $this->clear_fields();
-        $this->dispatchBrowserEvent('nameUpdated');
+        // $this->dispatchBrowserEvent('nameUpdated');
+        $this->dispatchBrowserEvent('success', ['message' => 'Name sudah di update']);
+
     }
     public function updateemail () {
 
@@ -66,7 +68,9 @@ public function mount () {
         // $data->save();
         // $this->clear_fields();
 
-        $this->dispatchBrowserEvent('emailUpdated');
+        // $this->dispatchBrowserEvent('emailUpdated');
+        $this->dispatchBrowserEvent('success', ['message' => 'Email sudah di update']);
+
     }
 
 
@@ -89,7 +93,9 @@ public function changePassword () {
     // $data->password = Hash::make($this->password);
     // $data->save();
 
-    $this->dispatchBrowserEvent('passwordChanged');
+    // $this->dispatchBrowserEvent('passwordChanged');
+    $this->dispatchBrowserEvent('success', ['message' => 'Password sudah di update']);
+
 
 
 
@@ -98,7 +104,7 @@ public function changePassword () {
 
     public function render()
     {
-        $this->curr_pass = '';
+        // $this->curr_pass = '';
          $data = User::where('id', Auth::user()->id)->get();
 
         return view('livewire.changeprofilewire', compact(['data']))

@@ -148,7 +148,7 @@ public function updated($fields) {
 
         $data_umat->save();
 
-        session()->flash('message', 'Data Umat Sudah di tambah');
+        // session()->flash('message', 'Data Umat Sudah di tambah');
         $this->dispatchBrowserEvent('success', ['message' => 'Data Added']);
 
         $this->clear_fields();
