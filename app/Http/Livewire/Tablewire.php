@@ -3,13 +3,14 @@
 namespace App\Http\Livewire;
 
 use Auth;
+use Mpdf\Mpdf;
 use Carbon\Carbon;
 use App\Models\Kota;
 use Livewire\Request;
-use App\Models\Branch;
 // use Barryvdh\DomPDF\PDF;
-use App\Models\Pandita;
+use App\Models\Branch;
 // use Maatwebsite\Excel\Excel;
+use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
 use App\Models\Groupvihara;
@@ -128,21 +129,7 @@ public function updatedSelectAll () {
         $this->kode_branch = "";
     }
 
-    public function pdfdom () {
-        $datapelita = DataPelita::whereIn('id',$this->selectedId)->orderBy('nama_umat', 'asc')->get();
 
-        $pdfContent = PDF::loadView('datapelitapdf', ['datapelita'=>$datapelita])->setPaper('a4', 'landscape')->output();
-        return response()->streamDownload(
-             fn () => print($pdfContent),
-             "pelita-hati.pdf"
-        );
-
-        // return response()->streamDownload(function () {
-        //     $pdf = App::make('dompdf.wrapper');
-        //     $pdf->loadHTML('<h1>Test</h1>');
-        //     echo $pdf->stream();
-        // }, 'test.pdf');
-    }
     public function excel () {
         return (new DataPelitaExport($this->selectedId))->download('Data_pelita.xlsx');
     }
