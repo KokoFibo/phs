@@ -121,6 +121,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/setting', Usersettingwire::class)->name('setting');
         Route::get('/test', Testaja::class);
         Route::post('/cetak', [CetakController::class, 'index']);
+        Route::get('/tampil', [CetakController::class, 'tampil']);
         Route::post('/pdf', [CetakController::class, 'pdf']);
         Route::get('/chart', Chartwire::class)->name('chart');
 

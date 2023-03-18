@@ -16,14 +16,19 @@ class CetakController extends Controller
 
     public function pdf (Request $request) {
         $datapelita = DataPelita::whereIn('id',$request->IdPilihan )->orderBy('nama_umat', 'asc')->get();
-        $html = view ('datapelitapdf', compact('datapelita'));
         $mpdf = new Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
         $mpdf->autoScriptToLang = true;
         $mpdf-> autoLangToFont = true;
+        // Harus di OB clean agar tampil di mobile
         ob_get_clean();
+        $html = view ('datapelitapdf', compact('datapelita'));
         $mpdf->WriteHTML($html);
         $mpdf->Output('datapelita.pdf', \Mpdf\Output\Destination::DOWNLOAD);
 
+    }
+    public function tampil (Request $request) {
+        $datapelita = DataPelita::orderBy('nama_umat', 'asc')->limit(20)->get();
+        return view ('datapelitapdf', compact('datapelita'));
     }
 }
 
