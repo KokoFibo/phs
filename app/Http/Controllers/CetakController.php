@@ -20,6 +20,7 @@ class CetakController extends Controller
         $mpdf = new Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
         $mpdf->autoScriptToLang = true;
         $mpdf-> autoLangToFont = true;
+        ob_get_clean();
         $mpdf->WriteHTML($html);
         $mpdf->Output('datapelita.pdf', \Mpdf\Output\Destination::DOWNLOAD);
 
