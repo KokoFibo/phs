@@ -40,6 +40,7 @@ class DataPelitaExport implements FromQuery, WithMapping, WithHeadings, ShouldAu
             $datapelita->tgl_sd3h,
             $datapelita->tgl_vtotal,
             $datapelita->status,
+            $datapelita->keterangan,
         ];
     }
 
@@ -63,6 +64,7 @@ class DataPelitaExport implements FromQuery, WithMapping, WithHeadings, ShouldAu
             'Tgl SD3H',
             'Tanggal Veg. Total',
             'Status',
+            'Keterangan',
 
         ];
     }

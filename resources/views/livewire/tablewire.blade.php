@@ -341,7 +341,16 @@
     @if ($selectedId != null)
         <div class="flex items-center w-full gap-2 px-5 mt-3 lg:w-1/2">
             <x-button wire:click="excel" wire:loading.attr="disabled" class="button button-teal">Excel</x-button>
-            <x-button wire:click="pdfdom" wire:loading.attr="disabled" class="button button-red">PDF</x-button>
+            {{-- PDF --}}
+            <form action="/pdf" method="POST">
+
+                @csrf
+                @foreach ($selectedId as $s)
+                    <input type="hidden" name="IdPilihan[]" value="{{ $s }}">
+                @endforeach
+                <button type=submit class="button button-red">{{ __('PDF') }}</button>
+            </form>
+            {{-- Cetak --}}
             <form action="/cetak" method="POST">
 
                 @csrf
