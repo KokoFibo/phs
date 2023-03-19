@@ -18,7 +18,7 @@ class Chartwire extends Component
 
 
         return view('livewire.chartwire')
-            ->extends('layouts.maintest')
+            ->extends('layouts.main')
             ->section('content');
     }
 }

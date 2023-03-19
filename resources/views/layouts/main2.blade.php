@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ url('favicon-32x32.png') }}">
-
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    @stack('style')
 
     <title>{{ config('app.name') }} |
         @yield('title')

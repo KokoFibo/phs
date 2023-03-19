@@ -79,7 +79,7 @@
         @endif
 
         <div class="mb-2 col-12 col-sm-3 col-4 ">
-            <select wire:model="selectedBranch" class="shadow form-select "
+            <select wire:model="selectedBranch" class="shadow form-select"
                 style="background-color:rgb(59,130,246); color: white; height:50px">
                 <label>{{ __('Pilih Kelas') }}</label>
                 @if (Auth::user()->role == '3')
