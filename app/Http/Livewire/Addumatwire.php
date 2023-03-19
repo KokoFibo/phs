@@ -32,6 +32,8 @@ class Addumatwire extends Component
         $this->selectKota = Kota::all();
         $query = "";
         $nama = [];
+        $this->tgl_mohonTao=Carbon::now()->format('Y-m-d');
+
     }
     public function updatedSelectedGroup () {
 
@@ -177,6 +179,8 @@ public function updated($fields) {
         $this->tgl_mohonTao='';
         $this->tgl_sd3h='';
         $this->tgl_vtotal='';
+        $this->tgl_mohonTao=Carbon::now()->format('Y-m-d');
+
     }
 
 

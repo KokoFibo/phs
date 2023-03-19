@@ -185,7 +185,7 @@
             <div class="mt-5">
                 <label class="px-2 dark:text-white" for="tgl">{{ __('Tanggal Mohon Tao') }}</label><span
                     class="text-red-500">*</span>
-                <input id="datepicker" type="date" wire:model="tgl_mohonTao"
+                <input type="date" wire:model="tgl_mohonTao"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                 @error('tgl_mohonTao')
                     <span class="text-red-500">{{ $message }}</span>
