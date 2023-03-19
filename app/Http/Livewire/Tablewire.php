@@ -34,20 +34,56 @@ class Tablewire extends Component
     public $alamat, $kota, $telp, $hp, $email;
     public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $status;
     public $current_id, $delete_id;
-    public $namaPandita, $namaKota;
+    public $namaPandita, $namaKota, $last_update;
     public $category="data_pelitas.nama_umat", $nama_kategori;
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
     public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
     public $default;
     public $selectedId = [];
+    // default
     public $selectedAll = [];
     public $selectAll = false;
     protected $listeners = ['delete'];
     // protected $listeners = ['resetfilter'];
     public $group_id;
+    public $dataview_nama_umat, $nomorid;
 
     public $isTambahKolom=0, $kolomAlamat, $kolomKota, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
     public $kolomSd3h=0, $kolomVTotal=0, $kolomStatus=0, $kolomKeterangan=0;
+
+    public function viewdata ($id) {
+        if ($id != null) {
+            $this->resetPage();
+            $dataview = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
+            ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
+             ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
+            ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
+            ->where('data_pelitas.id',$id )->first();
+            $this->nama_umat = $dataview->nama_umat;
+            $this->nama_alias = $dataview->nama_alias;
+            $this->mandarin = $dataview->mandarin;
+            $this->gender = $dataview->gender;
+            $this->alamat = $dataview->alamat;
+            $this->kota_id = $dataview->kota_id;
+            $this->telp = $dataview->telp;
+            $this->hp = $dataview->hp;
+            $this->email = $dataview->email;
+            $this->pengajak = $dataview->pengajak;
+            $this->penjamin = $dataview->penjamin;
+            $this->pandita_id = $dataview->pandita_id;
+            $this->tgl_mohonTao = $dataview->tgl_mohonTao;
+            $this->tgl_sd3h = $dataview->tgl_sd3h;
+            $this->tgl_vtotal = $dataview->tgl_vtotal;
+            $this->status = $dataview->status;
+            $this->keterangan = $dataview->keterangan;
+            $this->tgl_lahir =  date('d M Y', strtotime($dataview->tgl_lahir));
+            $this->nomorid = $id;
+            if($dataview->updated_at != null) {
+                $this->last_update = $dataview->updated_at->diffForHumans();
+            }
+            $this->umur_sekarang = hitungUmurSekarang($dataview->tgl_lahir).' Tahun / '.$this->tgl_lahir;
+        }
+    }
 
 
     public function checkIsTambahKolom () {
@@ -160,7 +196,6 @@ public function updatedSelectAll () {
         $this->selectAll = false;
         $this->tgl_sd3h = false;
         $this->tgl_vtotal = false;
-        // $this->dispatchBrowserEvent('resetfield');
         $this->isTambahKolom=0; $this->kolomAlamat=0; $this->kolomKota=0; $this->kolomTelepon=0; $this->kolomHandphone=0; $this->kolomEmail=0;
         $this->kolomSd3h=0; $this->kolomVTotal=0; $this->kolomStatus=0; $this->kolomKeterangan=0;
         $this->nama_kategori = "Nama";
@@ -204,95 +239,95 @@ public function updatedSelectAll () {
         return $this->direction === 'asc' ? 'desc' : 'asc';
     }
 
-    public function view ($id) {
+    // public function view ($id) {
 
-        $this->current_id = $id;
-        $data = DataPelita::find($id);
+    //     $this->current_id = $id;
+    //     $data = DataPelita::find($id);
 
-        if ($data) {
-            $this->branch_id = $data->branch_id;
-            $this->kode_branch_view = $this->branch_id;
-            $this->nama_umat = $data->nama_umat;
-            $this->nama_alias = $data->nama_alias;
-            $this->mandarin = $data->mandarin;
-            $this->gender = $data->gender;
-            $this->umur = $data->umur;
-            $this->umur_sekarang = $data->umur_sekarang;
-            $this->alamat = $data->alamat;
-            $this->kota_id = $data->kota_id;
-            $this->telp = $data->telp;
-            $this->hp = $data->hp;
-            $this->email = $data->email;
-            $this->pengajak = $data->pengajak;
-            $this->pengajak_id = $data->pengajak_id;
-            $this->penjamin = $data->penjamin;
-            $this->penjamin_id = $data->penjamin_id;
-            $this->pandita_id = $data->pandita_id;
-            $np = Pandita::find($this->pandita_id);
-            $this->namaPandita = $np->nama_pandita;
-            $nk = Kota::find($this->kota_id);
-            $this->namaKota = $nk->nama_kota;
+    //     if ($data) {
+    //         $this->branch_id = $data->branch_id;
+    //         $this->kode_branch_view = $this->branch_id;
+    //         $this->nama_umat = $data->nama_umat;
+    //         $this->nama_alias = $data->nama_alias;
+    //         $this->mandarin = $data->mandarin;
+    //         $this->gender = $data->gender;
+    //         $this->umur = $data->umur;
+    //         $this->umur_sekarang = $data->umur_sekarang;
+    //         $this->alamat = $data->alamat;
+    //         $this->kota_id = $data->kota_id;
+    //         $this->telp = $data->telp;
+    //         $this->hp = $data->hp;
+    //         $this->email = $data->email;
+    //         $this->pengajak = $data->pengajak;
+    //         $this->pengajak_id = $data->pengajak_id;
+    //         $this->penjamin = $data->penjamin;
+    //         $this->penjamin_id = $data->penjamin_id;
+    //         $this->pandita_id = $data->pandita_id;
+    //         $np = Pandita::find($this->pandita_id);
+    //         $this->namaPandita = $np->nama_pandita;
+    //         $nk = Kota::find($this->kota_id);
+    //         $this->namaKota = $nk->nama_kota;
 
-            $this->tgl_mohonTao = $data->tgl_mohonTao;
-            $this->status = $data->status;
-            $this->tgl_sd3h = empty($data->tgl_sd3h) ? '-' : $data->tgl_sd3h;
-            $this->tgl_vtotal = empty($data->tgl_vtotal) ? '-' : $data->tgl_vtotal;
+    //         $this->tgl_mohonTao = $data->tgl_mohonTao;
+    //         $this->status = $data->status;
+    //         $this->tgl_sd3h = empty($data->tgl_sd3h) ? '-' : $data->tgl_sd3h;
+    //         $this->tgl_vtotal = empty($data->tgl_vtotal) ? '-' : $data->tgl_vtotal;
 
-        }
-    }
+    //     }
+    // }
 
-    public function updatedJenKel () {
-        $this->default=false;
-    }
+    // public function updatedJenKel () {
+    //     $this->default=false;
+    // }
 
-    public function updatedStatus () {
-        $this->default=false;
-    }
+    // public function updatedStatus () {
+    //     $this->default=false;
+    // }
 
-    public function updatedStartUmur () {
-        if($this->startUmur != '')
-        {
+    // public function updatedStartUmur () {
+    //     if($this->startUmur != '')
+    //     {
 
-            $this->default=false;
-        }
-        else {
-            $this->default=true;
+    //         $this->default=false;
+    //     }
+    //     else {
+    //         $this->default=true;
 
-        }
-    }
-    public function updatedEndUmur () {
-        if($this->endUmur != '')
-        {
+    //     }
+    // }
+    // public function updatedEndUmur () {
+    //     if($this->endUmur != '')
+    //     {
 
-            $this->default=false;
-        }
-        else {
-            $this->default=true;
+    //         $this->default=false;
+    //     }
+    //     else {
+    //         $this->default=true;
 
-        }
-    }
-    public function updatedStartDate () {
-        if($this->startDate != '')
-        {
+    //     }
+    // }
+    // public function updatedStartDate () {
+    //     if($this->startDate != '')
+    //     {
 
-            $this->default=false;
-        }
-        else {
-            $this->default=true;
+    //         $this->default=false;
+    //     }
+    //     else {
+    //         $this->default=true;
 
-        }
-    }
-    public function updatedEndDate () {
-        if($this->endDate != '')
-        {
+    //     }
+    // }
+    // public function updatedEndDate () {
+    //     if($this->endDate != '')
+    //     {
 
-            $this->default=false;
-        }
-        else {
-            $this->default=true;
+    //         $this->default=false;
+    //     }
+    //     else {
+    //         $this->default=true;
 
-        }
-    }
+    //     }
+    // }
     public function updatedKodeBranch () {
         if($this->kode_branch != '')
         {
@@ -388,10 +423,13 @@ public function updatedSelectAll () {
         $this->nama_cetya_view = $datacetya->nama_branch;
     }
 
+
+
      $this->selectedAll = $datapelita->pluck('id');
     $datapelita1 = $datapelita->paginate($this->perpage);
     $group = Groupvihara::all();
     $this->checkIsTambahKolom ();
+
 
         return view('livewire.tablewire', compact(['datapelita1', 'data_branch', 'all_branch', 'namaft', 'dp', 'group']))
         ->extends('layouts.main')

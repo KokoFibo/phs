@@ -146,13 +146,24 @@ if(!function_exists('getYear')) {
       }
 
       function getNamaKota($id){
-        $kota_id = Kota::find($id);
-        return $kota_id->nama_kota;
+        try {
+
+            $kota_id = Kota::find($id);
+            return $kota_id->nama_kota;
+        }catch (\Exception $e) {
+            return 'Tidak ada Data Absensi Dalam Database';
+            //   return $e->getMessage();
+          }
       }
 
       function getNamaPandita($id){
+        try {
         $pandita_id = Pandita::find($id);
         return $pandita_id->nama_pandita;
+        }catch (\Exception $e) {
+        return 'Tidak ada Data Absensi Dalam Database';
+            //   return $e->getMessage();
+          }
       }
 
       function getNamaKelas($id) {
