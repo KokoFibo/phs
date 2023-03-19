@@ -69,7 +69,9 @@
             </div>
             <div class="mb-2 mr-3 lg-mt-1 col-xl-3">
                 <h5>{{ __('Informasi Kelas') }}</h5>
-                <div style=" background-color: white; padding:10px">
+                <div
+                    style=" background-color: white; padding:10px; border-radius: 20px;
+                border: solid 3px rgb(236,72,153);">
                     <canvas id="myChart1"></canvas>
                 </div>
             </div>
@@ -77,7 +79,9 @@
         <div class="p-2 mt-1 row">
             <h5>{{ __('Informasi Kehadiran Peserta') }}</h5>
             <div class="mb-2 col-12 col-xl-6 ">
-                <div style="background-color: white; padding:10px">
+                <div
+                    style="background-color: white; padding:10px; border-radius: 20px;
+                border: solid 3px rgb(236,72,153);">
                     <canvas id="myChart"></canvas>
                 </div>
             </div>

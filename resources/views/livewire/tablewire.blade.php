@@ -1,10 +1,14 @@
-<div>
+<div x-data="{ open: false }">
     @push('style')
         {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" /> --}}
     @endpush
+    @include('viewdatamodal')
+
     <x-spinner />
+
     {{-- Search Bar --}}
     {{-- <div wire:loading>Loading...</div> xa --}}
+
     <div class="items-center justify-between w-full lg:flex">
         <div class="items-center lg:w-3/4 lg:flex ">
             {{-- search  --}}
@@ -16,8 +20,8 @@
 
                 <button id="dropdown-button" data-dropdown-toggle="dropdown"
                     class="z-10 inline-flex items-center flex-shrink-0 py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
-                    type="button">{{ __($nama_kategori) }} <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor"
-                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    type="button">{{ __($nama_kategori) }} <svg aria-hidden="true" class="w-4 h-4 ml-1"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
                             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                             clip-rule="evenodd"></path>
@@ -238,6 +242,7 @@
                     <div x-show="open" x-cloak @click.away="open = false" x-transition
                         class="absolute z-10 px-2 py-3 text-purple-700 bg-white shadow-xl dark:bg-gray-800 -left-5 lg:left-0 rounded-xl">
                         {{-- mulai isi Tambah Kolom --}}
+
                         <table class="text-sm lg:text-base dark:bg-gray-800 dark:border-gray-700 dark:text-white">
                             <tr>
                                 <td class="px-1 py-1 ">
@@ -473,10 +478,10 @@
                     <tr
                         class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:bg-pink-50 dark:hover:bg-pink-600">
                     @else
-                    <tr
+                    <tr @click="open=true" wire:click="viewdata({{ $d->id }})"
                         class="h-3 bg-gray-300 border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:bg-pink-50 dark:hover:bg-pink-600">
                 @endif
-                <td class="text-center ">
+                <td class="text-center">
                     <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
                         class="checked:bg-purple-500" />
                 </td>
@@ -506,90 +511,110 @@
                         {{ $d->mandarin }}
                     </td>
                 @else
-                    <td class="py-3 ">
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ $d->nama_umat }}
                     </td>
-                    <td class="py-3 ">
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ $d->nama_alias }}
                     </td>
-                    <td class="py-3 ">
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ $d->mandarin }}
                     </td>
                 @endif
-                <td class="py-3 text-center ">
+                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 text-center ">
                     {{ $d->umur_sekarang }}
                 </td>
 
-                <td class="py-3 ">
+                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                     {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
-                <td
+                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})"
                     class="py-3     {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                     {{ check_JK($d->gender, $d->umur_sekarang) }}
                 </td>
-                {{-- <td class="py-3 ">{{ $d->pengajak_id }} --}}
-                <td class="py-3 ">
+                {{-- <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">{{ $d->pengajak_id }} --}}
+                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                     {{ $d->pengajak }}
                 </td>
-                <td class="py-3 ">{{ $d->penjamin }}</td>
+                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                    {{ $d->penjamin }}</td>
 
-                <td class="py-3 ">
+                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                     {{ $d->nama_pandita }}
                 </td>
-                {{-- <td class="py-3 ">{{ $d->nama_kota }}
-                                    </td> --}}
-                <td class="py-3 ">{{ $d->nama_branch }}
+
+                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                    {{ $d->nama_branch }}
                 </td>
-                <td class="py-3 ">{{ $d->nama_group }}
+                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                    {{ $d->nama_group }}
                 </td>
                 @if ($kolomAlamat == 1)
-                    <td class="py-3 ">{{ $d->alamat }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->alamat }}
                     </td>
                 @endif
                 @if ($kolomKota == 1)
-                    <td class="py-3 ">{{ $d->nama_kota }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->nama_kota }}
                     </td>
                 @endif
                 @if ($kolomTelepon == 1)
-                    <td class="py-3 ">{{ $d->telp }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->telp }}
                     </td>
                 @endif
                 @if ($kolomHandphone == 1)
-                    <td class="py-3 ">{{ $d->hp }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->hp }}
                     </td>
                 @endif
                 @if ($kolomEmail == 1)
-                    <td class="py-3 ">{{ $d->email }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->email }}
                     </td>
                 @endif
                 @if ($kolomSd3h == 1)
-                    <td class="py-3 ">{{ $d->tgl_sd3h }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->tgl_sd3h }}
                     </td>
                 @endif
                 @if ($kolomVTotal == 1)
-                    <td class="py-3 ">{{ $d->tgl_vtotal }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->tgl_vtotal }}
                     </td>
                 @endif
                 @if ($kolomStatus == 1)
-                    <td class="py-3 ">{{ $d->status }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->status }}
                     </td>
                 @endif
                 @if ($kolomKeterangan == 1)
-                    <td class="py-3 ">{{ $d->keterangan }}
+                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->keterangan }}
                     </td>
                 @endif
 
 
-                <td class="py-3 ">
+                <td>
 
                     <div class="flex justify-center space-x-1">
-
+                        {{-- viewdata --}}
                         <div>
-                            <a href="/viewdata/{{ $d->id }}">
+                            {{-- <a href="/viewdata/{{ $d->id }}">
                                 <x-button type="button"
                                     class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700">
                                     <i class="fa fa-eye "></i>
                                 </x-button>
-                            </a>
+                            </a> --}}
+                            {{-- <button wire:click="viewdata({{ $d->id }})" data-modal-target="defaultModal"
+                                @click="open=true" data-modal-toggle="defaultModal" type="button"
+                                class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700" type="button">
+                                <i class="fa fa-eye "></i>
+                            </button> --}}
+                            <button wire:click="viewdata({{ $d->id }})" @click="open=true" type="button"
+                                class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700" type="button">
+                                <i class="fa fa-eye "></i>
+                            </button>
 
                         </div>
 
@@ -634,42 +659,43 @@
     {{-- JS utk Sweetalert Delete --}}
     @push('script')
         <script>
-            window.addEventListener('delete_confirmation', function(e) {
-                Swal.fire({
-                    title: e.detail.title,
-                    text: e.detail.text,
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, silakan hapus!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.livewire.emit('delete', e.detail.id)
-                        // Swal.fire(
-                        //     'Deleted!',
-                        //     'Your file has been deleted.',
-                        //     'success'
-                        // )
-                    }
-                })
-            });
-            window.addEventListener('deleted', function(e) {
-                Swal.fire(
-                    'Deleted!', 'Data sudah di delete.', 'success'
-                );
-            });
-            window.addEventListener('resetfield', function(e) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Filter Sudah di Reset',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            });
+            //     window.addEventListener('delete_confirmation', function(e) {
+            //         Swal.fire({
+            //             title: e.detail.title,
+            //             text: e.detail.text,
+            //             icon: 'warning',
+            //             showCancelButton: true,
+            //             confirmButtonColor: '#3085d6',
+            //             cancelButtonColor: '#d33',
+            //             confirmButtonText: 'Yes, silakan hapus!'
+            //         }).then((result) => {
+            //             if (result.isConfirmed) {
+            //                 window.livewire.emit('delete', e.detail.id)
+            //                 // Swal.fire(
+            //                 //     'Deleted!',
+            //                 //     'Your file has been deleted.',
+            //                 //     'success'
+            //                 // )
+            //             }
+            //         })
+            //     });
+            //     window.addEventListener('deleted', function(e) {
+            //         Swal.fire(
+            //             'Deleted!', 'Data sudah di delete.', 'success'
+            //         );
+            //     });
+            //     window.addEventListener('resetfield', function(e) {
+            //         Swal.fire({
+            //             position: 'top-end',
+            //             icon: 'success',
+            //             title: 'Filter Sudah di Reset',
+            //             showConfirmButton: false,
+            //             timer: 1500
+            //         })
+            //     });
+            //
         </script>
         {{-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> --}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script> --}}
     @endpush
 </div>

@@ -92,37 +92,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/panditawire', Panditawire::class)->name('panditawire');
         Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
         Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
-        Route::get('/resetumur', function () {
-            $data = DataPelita::all();
-            foreach($data as $d ){
-                // $now = Carbon::now();
-                // $tahun = $now->year;
-                // $year = date('Y', strtotime($d->tgl_mohonTao));
-                // $selisih = $tahun - $year;
-                $is_save = false;
-                if($d->umur_sekarang != hitungUmurSekarang($d->tgl_lahir)) {
-                    $is_save = true;
-                }
-                $d->umur_sekarang = hitungUmurSekarang($d->tgl_lahir);
-
-                // $d->pengajak = getName($d->pengajak_id);
-                // $d->penjamin = getName($d->penjamin_id);
-
-                if($is_save) {
-                    $d->save();
-                    $is_save = false;
-                }
-            }
-
-            // session()->flash('message', 'Seluruh Data Umur dan gender Umat Sudah di Reset');
-            return redirect(route('main'));
-        })->name('resetumur');
 
         Route::get('/setting', Usersettingwire::class)->name('setting');
         Route::get('/test', Testaja::class);
         Route::post('/cetak', [CetakController::class, 'index']);
         Route::get('/tampil', [CetakController::class, 'tampil']);
         Route::post('/pdf', [CetakController::class, 'pdf']);
+        Route::get('/resetumur', [CetakController::class, 'resetumur']);
+        Route::get('/updatedAt', [CetakController::class, 'updatedAt']);
         Route::get('/chart', Chartwire::class)->name('chart');
 
 

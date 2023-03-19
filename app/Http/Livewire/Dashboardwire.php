@@ -483,6 +483,7 @@ class Dashboardwire extends Component
 
         return view('livewire.dashboardwire', compact(['totalUmat', 'umatActive', 'umatInactive', 'umatYTD', 'totalBranch', 'totalUsers', 'sd3h', 'vtotal', 'branch', 'groupvihara']))
             ->extends('layouts.main2')
+            // ->extends('layouts.main')
             ->section('content');
     }
 }
