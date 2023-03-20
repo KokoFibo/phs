@@ -4,7 +4,7 @@
   </button> --}}
 
 <!-- Main modal -->
-<div x-cloak x-show="open" @click="open = false"
+<div x-cloak x-show="openModal" @click="openModal = false"
     class="dark:bg-gray-800 bg-black/70 fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto  md:inset-0 h-[calc(100%-1rem)] md:h-full">
     {{-- <div class="relative w-full h-full max-w-2xl "> --}}
     <div class="relative w-full h-full mx-auto md:w-3/4">
@@ -21,7 +21,7 @@
                         {{ getBranch($branch_id) }}
                     </h3>
                 </div>
-                <button type="button" @click="open=false"
+                <button type="button" @click="openModal=false"
                     class="text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-lg p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                     data-modal-hide="defaultModal">
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -122,7 +122,7 @@
 
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="tgl">{{ __('Kelas Dharma 3 Hari') }}</label>
-                        <input id="tgl" type="text" wire:model="tgl_sd3h"
+                        <input id="tgl" type="text" wire:model="tgl_sd3h1"
                             class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
 
                     </div>
@@ -130,13 +130,13 @@
                     <div class="mt-3">
                         <label class="px-2 dark:text-white "
                             for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
-                        <input id="tgl" type="text" wire:model="tgl_vtotal"
+                        <input id="tgl" type="text" wire:model="tgl_vtotal1"
                             class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
 
                     </div>
                     <div class="mt-3">
-                        <label class="px-2 dark:text-white " for="nama">{{ __('Status') }}</label>
-                        <input id="tgl" type="text" wire:model="status"
+                        <label class="px-2 dark:text-white ">{{ __('Status') }}</label>
+                        <input type="text" wire:model="status1"
                             class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
                     </div>
                     <div class="mt-3">
@@ -150,7 +150,7 @@
                             <h5 class="text-sm dark:text-white">Last Update : {{ $last_update }}</h5>
                         @endif
                         <div>
-                            <button type="button" @click="open=false"
+                            <button type="button" @click="openModal=false"
                                 class="button button-black dark:bg-purple-500"><i class="fa fa-circle-arrow-left"></i>
                                 {{ __('Close') }}</button>
                         </div>

@@ -32,7 +32,7 @@ class Tablewire extends Component
     public $branch_id;
     public $nama_umat, $nama_alias, $mandarin, $gender, $umur, $umur_sekarang;
     public $alamat, $kota, $telp, $hp, $email;
-    public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $status;
+    public $pengajak, $penjamin, $pandita_id, $kota_id, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $status, $status1, $tgl_sd3h1, $tgl_vtotal1;
     public $current_id, $delete_id;
     public $namaPandita, $namaKota, $last_update;
     public $category="data_pelitas.nama_umat", $nama_kategori;
@@ -48,12 +48,11 @@ class Tablewire extends Component
     public $group_id;
     public $dataview_nama_umat, $nomorid;
 
-    public $isTambahKolom=0, $kolomAlamat, $kolomKota, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
+    public $isTambahKolom=0, $kolomAlamat, $kolomKota, $kolomPandita, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
     public $kolomSd3h=0, $kolomVTotal=0, $kolomStatus=0, $kolomKeterangan=0;
 
     public function viewdata ($id) {
         if ($id != null) {
-            $this->resetPage();
             $dataview = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
             ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
              ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
@@ -71,10 +70,22 @@ class Tablewire extends Component
             $this->pengajak = $dataview->pengajak;
             $this->penjamin = $dataview->penjamin;
             $this->pandita_id = $dataview->pandita_id;
-            $this->tgl_mohonTao = $dataview->tgl_mohonTao;
-            $this->tgl_sd3h = $dataview->tgl_sd3h;
-            $this->tgl_vtotal = $dataview->tgl_vtotal;
-            $this->status = $dataview->status;
+            $this->tgl_mohonTao = date('d M Y', strtotime($dataview->tgl_mohonTao));
+            if($dataview->tgl_sd3h != null) {
+                $this->tgl_sd3h1 = date('d M Y', strtotime($dataview->tgl_sd3h));
+
+            } else {
+                $this->tgl_sd3h1 = $dataview->tgl_sd3h;
+
+            }
+            if($dataview->tgl_vtotal != null) {
+
+                $this->tgl_vtotal1 = date('d M Y', strtotime($dataview->tgl_vtotal));
+            }else {
+                $this->tgl_vtotal1 = $dataview->tgl_vtotal;
+
+            }
+            $this->status1 = $dataview->status;
             $this->keterangan = $dataview->keterangan;
             $this->tgl_lahir =  date('d M Y', strtotime($dataview->tgl_lahir));
             $this->nomorid = $id;
@@ -90,6 +101,7 @@ class Tablewire extends Component
         if(
             $this->kolomAlamat == 1 ||
             $this->kolomKota == 1 ||
+            $this->kolomPandita == 1 ||
             $this->kolomTelepon == 1 ||
             $this->kolomHandphone == 1 ||
             $this->kolomEmail == 1 ||
@@ -196,7 +208,9 @@ public function updatedSelectAll () {
         $this->selectAll = false;
         $this->tgl_sd3h = false;
         $this->tgl_vtotal = false;
-        $this->isTambahKolom=0; $this->kolomAlamat=0; $this->kolomKota=0; $this->kolomTelepon=0; $this->kolomHandphone=0; $this->kolomEmail=0;
+
+
+        $this->isTambahKolom=0; $this->kolomAlamat=0; $this->kolomKota=0; $this->kolomPandita=0; $this->kolomTelepon=0; $this->kolomHandphone=0; $this->kolomEmail=0;
         $this->kolomSd3h=0; $this->kolomVTotal=0; $this->kolomStatus=0; $this->kolomKeterangan=0;
         $this->nama_kategori = "Nama";
 
