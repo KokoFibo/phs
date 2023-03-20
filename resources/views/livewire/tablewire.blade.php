@@ -9,7 +9,7 @@
     {{-- Search Bar --}}
     {{-- <div wire:loading>Loading...</div> xa --}}
 
-    <div class="items-center justify-between w-full lg:flex">
+    <div class="items-center justify-between px-3 w-full lg:flex">
         <div class="items-center lg:w-3/4 lg:flex ">
             {{-- search  --}}
 
