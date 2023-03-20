@@ -1,4 +1,4 @@
-<div x-data="{ open: false }">
+<div x-data="{ openModal: false }">
     @push('style')
         {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" /> --}}
     @endpush
@@ -317,8 +317,7 @@
                 <div class="relative w-full mt-3 lg:w-1/4">
                     {{-- Reset --}}
                     <div>
-                        <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
-                            wire:click="resetFilter"
+                        <button wire:click="resetFilter"
                             class="w-full px-2 py-1 text-sm text-white bg-pink-500 border border-pink-500 rounded lg:text-base hover:bg-pink-700 hover:text-white">
                             {{ __('Reset') }} <i class="fa fa-arrow-rotate-right"></i>
 
@@ -399,7 +398,7 @@
                     {{ __('UMUR') }}</th>
                 <th class="font-semibold text-left cursor-pointer w-28 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao')">
-                    {{ __('TGL CHIU TAO') }}</th>
+                    {{ __('MOHON TAO') }}</th>
                 <th class="w-20 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('gender')">
                     {{ __('GENDER') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('pengajak')">
@@ -474,173 +473,181 @@
         </thead>
         <tbody>
             @foreach ($datapelita1 as $index => $d)
-                @if ($d->status == 'Active')
-                    <tr
-                        class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:bg-pink-50 dark:hover:bg-pink-600">
+                {{-- @if ($d->status == 'Active') --}}
+                <tr
+                    class="h-3 border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:bg-pink-50 dark:hover:bg-pink-600">
+                    {{-- @else --}}
+                    {{-- <tr @click="open=true" wire:click="viewdata({{ $d->id }})" --}}
+                    {{-- class="h-3 bg-gray-300 border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:bg-pink-50 dark:hover:bg-pink-600"> --}}
+                    {{-- @endif --}}
+                    <td class="text-center">
+                        <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
+                            class="checked:bg-purple-500" />
+                    </td>
+
+                    <td class="py-3 ">
+                        {{ $datapelita1->firstItem() + $index }}
+                    </td>
+
+                    @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                            class="py-3 font-semibold text-purple-500 ">
+                            {{ $d->nama_umat }}
+                        </td>
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                            class="py-3 font-semibold text-purple-500 ">
+                            {{ $d->nama_alias }}
+                        </td>
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                            class="py-3 font-semibold text-purple-500 ">
+                            {{ $d->mandarin }}
+                        </td>
+                    @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                            class="py-3 font-semibold text-teal-500 ">
+                            {{ $d->nama_umat }}
+                        </td>
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                            class="py-3 font-semibold text-teal-500 ">
+                            {{ $d->nama_alias }}
+                        </td>
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                            class="py-3 font-semibold text-teal-500 ">
+                            {{ $d->mandarin }}
+                        </td>
                     @else
-                    <tr @click="open=true" wire:click="viewdata({{ $d->id }})"
-                        class="h-3 bg-gray-300 border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:bg-pink-50 dark:hover:bg-pink-600">
-                @endif
-                <td class="text-center">
-                    <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
-                        class="checked:bg-purple-500" />
-                </td>
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->nama_umat }}
+                        </td>
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->nama_alias }}
+                        </td>
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->mandarin }}
+                        </td>
+                    @endif
+                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                        class="py-3 text-center ">
+                        {{ $d->umur_sekarang }}
+                    </td>
 
-                <td class="py-3 ">
-                    {{ $datapelita1->firstItem() + $index }}
-                </td>
+                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
+                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                        class="py-3     {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
+                        {{ check_JK($d->gender, $d->umur_sekarang) }}
+                    </td>
+                    {{-- <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"   class="py-3 ">{{ $d->pengajak_id }} --}}
+                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->pengajak }}
+                    </td>
+                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->penjamin }}</td>
 
-                @if ($d->tgl_sd3h != '' && $d->tgl_vtotal == '')
-                    <td class="py-3 font-semibold text-purple-500 ">
-                        {{ $d->nama_umat }}
+                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->nama_pandita }}
                     </td>
-                    <td class="py-3 font-semibold text-purple-500 ">
-                        {{ $d->nama_alias }}
-                    </td>
-                    <td class="py-3 font-semibold text-purple-500 ">
-                        {{ $d->mandarin }}
-                    </td>
-                @elseif($d->tgl_sd3h != '' && $d->tgl_vtotal != '')
-                    <td class="py-3 font-semibold text-teal-500 ">
-                        {{ $d->nama_umat }}
-                    </td>
-                    <td class="py-3 font-semibold text-teal-500 ">
-                        {{ $d->nama_alias }}
-                    </td>
-                    <td class="py-3 font-semibold text-teal-500 ">
-                        {{ $d->mandarin }}
-                    </td>
-                @else
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->nama_umat }}
-                    </td>
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->nama_alias }}
-                    </td>
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->mandarin }}
-                    </td>
-                @endif
-                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 text-center ">
-                    {{ $d->umur_sekarang }}
-                </td>
 
-                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
-                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})"
-                    class="py-3     {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
-                    {{ check_JK($d->gender, $d->umur_sekarang) }}
-                </td>
-                {{-- <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">{{ $d->pengajak_id }} --}}
-                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ $d->pengajak }}
-                </td>
-                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ $d->penjamin }}</td>
-
-                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ $d->nama_pandita }}
-                </td>
-
-                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ $d->nama_branch }}
-                </td>
-                <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ $d->nama_group }}
-                </td>
-                @if ($kolomAlamat == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->alamat }}
+                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->nama_branch }}
                     </td>
-                @endif
-                @if ($kolomKota == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->nama_kota }}
+                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                        {{ $d->nama_group }}
                     </td>
-                @endif
-                @if ($kolomTelepon == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->telp }}
-                    </td>
-                @endif
-                @if ($kolomHandphone == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->hp }}
-                    </td>
-                @endif
-                @if ($kolomEmail == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->email }}
-                    </td>
-                @endif
-                @if ($kolomSd3h == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->tgl_sd3h }}
-                    </td>
-                @endif
-                @if ($kolomVTotal == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->tgl_vtotal }}
-                    </td>
-                @endif
-                @if ($kolomStatus == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->status }}
-                    </td>
-                @endif
-                @if ($kolomKeterangan == 1)
-                    <td @dblclick="open=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->keterangan }}
-                    </td>
-                @endif
+                    @if ($kolomAlamat == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->alamat }}
+                        </td>
+                    @endif
+                    @if ($kolomKota == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->nama_kota }}
+                        </td>
+                    @endif
+                    @if ($kolomTelepon == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->telp }}
+                        </td>
+                    @endif
+                    @if ($kolomHandphone == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->hp }}
+                        </td>
+                    @endif
+                    @if ($kolomEmail == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->email }}
+                        </td>
+                    @endif
+                    @if ($kolomSd3h == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->tgl_sd3h }}
+                        </td>
+                    @endif
+                    @if ($kolomVTotal == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->tgl_vtotal }}
+                        </td>
+                    @endif
+                    @if ($kolomStatus == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->status }}
+                        </td>
+                    @endif
+                    @if ($kolomKeterangan == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->keterangan }}
+                        </td>
+                    @endif
 
 
-                <td>
+                    <td>
 
-                    <div class="flex justify-center space-x-1">
-                        {{-- viewdata --}}
-                        <div>
-                            {{-- <a href="/viewdata/{{ $d->id }}">
+                        <div class="flex justify-center space-x-1">
+                            {{-- viewdata --}}
+                            <div>
+                                {{-- <a href="/viewdata/{{ $d->id }}">
                                 <x-button type="button"
                                     class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700">
                                     <i class="fa fa-eye "></i>
                                 </x-button>
                             </a> --}}
-                            {{-- <button wire:click="viewdata({{ $d->id }})" data-modal-target="defaultModal"
+                                {{-- <button wire:click="viewdata({{ $d->id }})" data-modal-target="defaultModal"
                                 @click="open=true" data-modal-toggle="defaultModal" type="button"
                                 class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700" type="button">
                                 <i class="fa fa-eye "></i>
                             </button> --}}
-                            <button wire:click="viewdata({{ $d->id }})" @click="open=true" type="button"
-                                class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700" type="button">
-                                <i class="fa fa-eye "></i>
-                            </button>
+                                <button wire:click="viewdata({{ $d->id }})" @click="openModal=true"
+                                    type="button"
+                                    class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700 text-xl">
+                                    <i class="fa fa-eye "></i>
+                                </button>
 
-                        </div>
-
-                        {{-- <div> --}}
-                        <div>
-                            <a href="/editdata/{{ $d->id }}">
-                                <x-button type="button"
-                                    class="p-1 text-white bg-orange-500 rounded hover:bg-orange-700">
-                                    <i class="fa fa-pen-to-square "></i>
-                                </x-button>
-                            </a>
-
-                        </div>
-                        @if (Auth::user()->role != '1')
-                            <div>
-
-                                <x-button class="p-1 text-white bg-red-500 rounded hover:bg-red-700"
-                                    wire:click="deleteConfirmation({{ $d->id }})">
-                                    <i class="fa fa-trash "></i>
-                                </x-button>
                             </div>
-                        @endif
-                        {{--
+
+                            {{-- <div> --}}
+                            <div>
+                                <a href="/editdata/{{ $d->id }}">
+                                    <x-button type="button"
+                                        class="p-1 text-white bg-orange-500 rounded hover:bg-orange-700 text-xl">
+                                        <i class="fa fa-pen-to-square "></i>
+                                    </x-button>
+                                </a>
+
+                            </div>
+                            @if (Auth::user()->role != '1')
+                                <div>
+
+                                    <x-button class="p-1 text-white bg-red-500 rounded hover:bg-red-700 text-xl"
+                                        wire:click="deleteConfirmation({{ $d->id }})">
+                                        <i class="fa fa-trash "></i>
+                                    </x-button>
+                                </div>
+                            @endif
+                            {{--
                                     </div> --}}
-                    </div>
-                </td>
+                        </div>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
