@@ -48,12 +48,11 @@ class Tablewire extends Component
     public $group_id;
     public $dataview_nama_umat, $nomorid;
 
-    public $isTambahKolom=0, $kolomAlamat, $kolomKota, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
+    public $isTambahKolom=0, $kolomAlamat, $kolomKota, $kolomPandita, $kolomTelepon, $kolomHandphone, $kolomEmail=0;
     public $kolomSd3h=0, $kolomVTotal=0, $kolomStatus=0, $kolomKeterangan=0;
 
     public function viewdata ($id) {
         if ($id != null) {
-            // $this->resetPage();
             $dataview = Groupvihara::join('branches','groupviharas.id','=','branches.groupvihara_id')
             ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
              ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
@@ -102,6 +101,7 @@ class Tablewire extends Component
         if(
             $this->kolomAlamat == 1 ||
             $this->kolomKota == 1 ||
+            $this->kolomPandita == 1 ||
             $this->kolomTelepon == 1 ||
             $this->kolomHandphone == 1 ||
             $this->kolomEmail == 1 ||
@@ -208,7 +208,9 @@ public function updatedSelectAll () {
         $this->selectAll = false;
         $this->tgl_sd3h = false;
         $this->tgl_vtotal = false;
-        $this->isTambahKolom=0; $this->kolomAlamat=0; $this->kolomKota=0; $this->kolomTelepon=0; $this->kolomHandphone=0; $this->kolomEmail=0;
+
+
+        $this->isTambahKolom=0; $this->kolomAlamat=0; $this->kolomKota=0; $this->kolomPandita=0; $this->kolomTelepon=0; $this->kolomHandphone=0; $this->kolomEmail=0;
         $this->kolomSd3h=0; $this->kolomVTotal=0; $this->kolomStatus=0; $this->kolomKeterangan=0;
         $this->nama_kategori = "Nama";
 

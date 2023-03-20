@@ -51,6 +51,7 @@
                             <button type="button" wire:click="getCategory('Penjamin')"
                                 class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Penjamin') }}</button>
                         </li>
+
                         <li>
                             <button type="button" wire:click="getCategory('Pandita')"
                                 class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Pandita') }}</button>
@@ -246,9 +247,20 @@
                         <table class="text-sm lg:text-base dark:bg-gray-800 dark:border-gray-700 dark:text-white">
                             <tr>
                                 <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="pandita" wire:model="kolomPandita" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+
+                                <td class="px-1 py-1 ">
+                                    <label for="pandita">Pandita</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-1 py-1 ">
                                     <input type="checkbox" id="alamat" wire:model="kolomAlamat" value="1"
                                         class="checked:bg-purple-500" />
                                 </td>
+
                                 <td class="px-1 py-1 ">
                                     <label for="alamat">Alamat</label>
                                 </td>
@@ -380,7 +392,7 @@
         <thead class="text-white bg-purple-500 border-b-2 border-gray-200 ">
             <tr>
 
-                <th class="w-10 py-3 text-center "><input type="checkbox" wire:model="selectAll"
+                <th class="w-20 py-3 text-center   "><input type="checkbox" wire:model="selectAll"
                         class=" checked:bg-white-500" />
                 </th>
 
@@ -405,9 +417,12 @@
                     {{ __('PENGAJAK') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('penjamin')">
                     {{ __('PENJAMIN') }}</th>
-                <th class="w-24 py-3 font-semibold text-left cursor-pointer"
-                    wire:click="sortColumnName('nama_pandita')">
-                    {{ __('PANDITA') }}</th>
+
+                @if ($kolomPandita == 1)
+                    <th class="w-24 py-3 font-semibold text-left cursor-pointer"
+                        wire:click="sortColumnName('nama_pandita')">
+                        {{ __('PANDITA') }}</th>
+                @endif
                 <th class="w-20 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_branch')">
                     {{ __('CETYA') }}</th>
@@ -456,7 +471,7 @@
                         wire:click="sortColumnName('keterangan')">
                         {{ __('KETERANGAN') }}</th>
                 @endif
-                <th class="py-3 font-semibold w-28 ">
+                <th class="py-3 font-semibold w-36 ">
                     <div class="flex justify-center space-x-1 aad">
                         <div>
                             <a href="/adddata">
@@ -544,9 +559,11 @@
                     <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ $d->penjamin }}</td>
 
-                    <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                        {{ $d->nama_pandita }}
-                    </td>
+                    @if ($kolomPandita == 1)
+                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                            {{ $d->nama_pandita }}
+                        </td>
+                    @endif
 
                     <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ $d->nama_branch }}
@@ -554,6 +571,7 @@
                     <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ $d->nama_group }}
                     </td>
+
                     @if ($kolomAlamat == 1)
                         <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                             {{ $d->alamat }}
