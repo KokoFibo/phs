@@ -392,8 +392,8 @@
         <thead class="text-white bg-purple-500 border-b-2 border-gray-200 ">
             <tr>
 
-                <th class="w-20 py-3 text-center   "><input type="checkbox" wire:model="selectAll"
-                        class=" checked:bg-white-500" />
+                <th class="w-16 py-3 text-center   "><input type="checkbox" wire:model="selectAll"
+                        class=" checked:bg-white-500 w-5 h-5" />
                 </th>
 
                 <th class="w-10 py-3 font-semibold text-center ">{{ __('#') }}</th>
@@ -497,7 +497,7 @@
                     {{-- @endif --}}
                     <td class="text-center">
                         <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
-                            class="checked:bg-purple-500" />
+                            class="checked:bg-purple-500 w-5 h-5" />
                     </td>
 
                     <td class="py-3 ">
@@ -621,7 +621,7 @@
 
                     <td>
 
-                        <div class="flex justify-center space-x-1">
+                        <div class="flex justify-center gap-3">
                             {{-- viewdata --}}
                             <div>
                                 {{-- <a href="/viewdata/{{ $d->id }}">
