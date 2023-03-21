@@ -635,11 +635,11 @@
                                 class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700" type="button">
                                 <i class="fa fa-eye "></i>
                             </button> --}}
-                                <button wire:click="viewdata({{ $d->id }})" @click="openModal=true"
+                                {{-- <button wire:click="viewdata({{ $d->id }})" @click="openModal=true"
                                     type="button"
                                     class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700 text-xl">
                                     <i class="fa fa-eye "></i>
-                                </button>
+                                </button> --}}
 
                             </div>
 
