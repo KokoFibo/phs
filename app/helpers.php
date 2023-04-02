@@ -36,11 +36,15 @@ if(!function_exists('check_JK')) {
 function checkGender($id) {
     if($id != '') {
         $gender = DataPelita::find($id);
+        try {
         if ($gender->gender == '1') {
             return '1';
         }else {
             return '2';
         }
+      } catch (\Exception $e) {
+        return $e->getMessage();
+}
     }
 
 }
