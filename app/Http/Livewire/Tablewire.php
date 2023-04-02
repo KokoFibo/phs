@@ -10,6 +10,7 @@ use Livewire\Request;
 // use Barryvdh\DomPDF\PDF;
 use App\Models\Branch;
 // use Maatwebsite\Excel\Excel;
+use App\Models\Absensi;
 use App\Models\Pandita;
 use Livewire\Component;
 use App\Models\DataPelita;
@@ -226,15 +227,22 @@ public function updatedSelectAll () {
     }
 
     public function deleteConfirmation ($id) {
-        $data = DataPelita::find($id);
-        $nama = $data->nama_umat;
-        $this->dispatchBrowserEvent('delete_confirmation', [
-            'title' => 'Yakin Untuk Hapus Data',
-            //  'text' => "You won't be able to revert this!",
-              'text' => "Data : " . $nama,
-             'icon' => 'warning',
-             'id' => $id,
-        ]);
+        $canDelete = Absensi::where('datapelita_id', $id)->first();
+        if(empty($canDelete) ) {
+            $data = DataPelita::find($id);
+            $nama = $data->nama_umat;
+            $this->dispatchBrowserEvent('delete_confirmation', [
+                'title' => 'Yakin Untuk Hapus Data',
+                //  'text' => "You won't be able to revert this!",
+                'text' => "Data : " . $nama,
+                'icon' => 'warning',
+                'id' => $id,
+            ]);
+        } else {
+        $this->dispatchBrowserEvent('error', ['message' => 'Data ini Tidak Bisa Didelete']);
+
+
+        }
     }
 
     public function delete ($id) {
@@ -436,8 +444,6 @@ public function updatedSelectAll () {
         $datacetya = Branch::find($this->kode_branch_view);
         $this->nama_cetya_view = $datacetya->nama_branch;
     }
-
-
 
      $this->selectedAll = $datapelita->pluck('id');
     $datapelita1 = $datapelita->paginate($this->perpage);
