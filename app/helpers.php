@@ -83,8 +83,13 @@ if(!function_exists('getYear')) {
         }
 
       function getName($id) {
-        $data = DataPelita::find($id);
-        return $data->nama_umat;
+        try {
+          $data = DataPelita::find($id);
+          return $data->nama_umat;
+
+        } catch (\Exception $e) {
+             return $e->getMessage();
+}
       }
 
       function getGroupVihara($id) {
