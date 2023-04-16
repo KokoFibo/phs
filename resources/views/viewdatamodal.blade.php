@@ -5,9 +5,9 @@
 
 <!-- Main modal -->
 <div x-cloak x-show="openModal" @click="openModal = false"
-    class="dark:bg-gray-800 bg-black/70 fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto  md:inset-0 h-[calc(100%-1rem)] md:h-full">
+    class="dark:bg-gray-800 bg-black/70 fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto  md:inset-0 h-[calc(100%-1rem)] lg:h-full">
     {{-- <div class="relative w-full h-full max-w-2xl "> --}}
-    <div class="relative w-full h-full mx-auto md:w-3/4">
+    <div class="relative w-full h-full mx-auto lg:w-3/4">
 
         <!-- Modal body -->
         <div class="p-6 space-y-6">
@@ -35,7 +35,7 @@
             </div>
             <div
                 class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow dark:bg-gray-800 md:flex md:flex-row md:justify-center md:mx-auto shadow-purple-300 bg-purple-50 rounded-xl">
-                <div class="w-full px-5 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-black ">
+                <div class="w-full px-5 lg:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-black ">
 
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="nama">{{ __('Nama') }}</label>
@@ -88,7 +88,7 @@
                     </div>
 
                 </div>
-                <div class="w-full px-5 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-black ">
+                <div class="w-full px-5 lg:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-black ">
 
                     <div class="mt-3">
                         <div>
