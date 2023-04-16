@@ -10,13 +10,13 @@
     <div class="relative w-full h-full mx-auto lg:w-3/4">
 
         <!-- Modal body -->
-        <div class="p-6 space-y-6">
+        <div class="p-3 space-y-6">
             {{-- isi mulai disini  --}}
             <div class="flex items-center w-full px-5 py-3 mt-2 bg-purple-500 shadow-lg lg:mx-auto rounded-xl">
-                <div class="w-1/4">
-                    <h4 class="text-lg font-semibold text-white lg:text-2xl">{{ __('View Data') }}</h4>
+                <div class="w-full lg:w-1/4">
+                    <h4 class="text-lg font-semibold text-white lg:text-2xl">{{ __('Views Data') }}</h4>
                 </div>
-                <div class="w-1/2 ">
+                <div class="w-full lg:w-1/2 ">
                     <h3 class="text-2xl text-center text-white">
                         {{ getBranch($branch_id) }}
                     </h3>
@@ -34,7 +34,7 @@
                 </button>
             </div>
             <div
-                class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow dark:bg-gray-800 md:flex md:flex-row md:justify-center md:mx-auto shadow-purple-300 bg-purple-50 rounded-xl">
+                class="flex flex-col w-full py-5 my-2 mt-2 mb-5 shadow dark:bg-gray-800 lg:flex-row lg:mx-auto shadow-purple-300 bg-purple-50 rounded-xl">
                 <div class="w-full px-5 lg:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-black ">
 
                     <div class="mt-3">
