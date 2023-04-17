@@ -34,6 +34,7 @@ class Dashboardwire extends Component
     public $dataX = [], $dataY = [];
     public $selectedYear;
 
+
     public function updateAbsensi()
     {
         if ($this->selectedYear == null) {
@@ -112,7 +113,7 @@ class Dashboardwire extends Component
         }
     }
     public function updatedSelectedDaftarKelasId () {
-        // $this->getDataAbsensiTerakhir();
+        $this->getDataAbsensiTerakhir();
         try {
             $this->updateChart();
 
@@ -164,16 +165,23 @@ class Dashboardwire extends Component
 
     public $tglAbsensiTerakhir, $jumlahPesertaAbsensiTerakhir, $Sd3hAbsensiTerakhir, $VTotalAbsensiTerakhir, $LainnyaAbsensiTerakhir;
     public $Sd3hAbsensiTerakhirPersen, $VTotalAbsensiTerakhirPersen, $lakiAbsensiTerakhir, $perempuanAbsensiTerakhir , $persentaseKehadiranAbsensiTerakhir;
+    public $totalPeserta;
     public function getDataAbsensiTerakhir () {
         try {
             $dataAbsensiTerakhir = Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->distinct('tgl_kelas')->select('tgl_kelas')->orderBy('tgl_kelas', 'desc')->first();
-            $jumlahPesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId)->where('absensi', '1')->where('tgl_kelas', Absensi::max('tgl_kelas'))->orderBy('tgl_kelas','desc')->get();
+            $tgl_terakhir = Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId)->orderBy('tgl_kelas', 'desc')->first();
+            $jumlahPesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId)
+            ->where('absensi', '1')
+            ->where('tgl_kelas', $tgl_terakhir->tgl_kelas)
+            ->get();
+            // 123
             $this->tglAbsensiTerakhir = $dataAbsensiTerakhir->tgl_kelas;
             $this->jumlahPesertaAbsensiTerakhir =  $jumlahPesertaAbsensi->count();
             $sd3h = 0;
             $vtotal = 0;
             $laki = 0;
             $perempuan = 0;
+            // dump($jumlahPesertaAbsensi);
             foreach($jumlahPesertaAbsensi as $d){
                 $checkData = DataPelita::find($d->datapelita_id);
                 if($checkData->tgl_sd3h && $checkData->tgl_vtotal == null) {
@@ -187,18 +195,18 @@ class Dashboardwire extends Component
                 } else {
                     $perempuan++;
                 }
-
-
             }
+
             $persentasePesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->where('tgl_kelas', $this->tglAbsensiTerakhir)->select('absensi')->get();
 
             // $persentasePesertaAbsensi =Absensi::where('daftarkelas_id', $this->selectedDaftarKelasId )->distinct('absensi')->select('absensi')->orderBy('tgl_kelas', 'desc')->get();
             $hadir = 0;
             foreach($persentasePesertaAbsensi as $d) {
-            if($d->absensi == '1' ) {
-                $hadir++;
+                if($d->absensi == '1' ) {
+                    $hadir++;
+                }
             }
-            }
+            $this->totalPeserta = count($persentasePesertaAbsensi);
             $this->Sd3hAbsensiTerakhir = $sd3h;
             $this->VTotalAbsensiTerakhir = $vtotal;
             $this->LainnyaAbsensiTerakhir = $this->jumlahPesertaAbsensiTerakhir-($sd3h + $vtotal);
@@ -206,13 +214,8 @@ class Dashboardwire extends Component
             $this->VTotalAbsensiTerakhirPersen == 0 ? 0 : ($this->VTotalAbsensiTerakhir / $this->jumlahPesertaAbsensiTerakhir) * 100 ;
             $this->lakiAbsensiTerakhir = $laki;
             $this->perempuanAbsensiTerakhir = $perempuan;
-            $this->persentaseKehadiranAbsensiTerakhir == 0 ? 0 : ($hadir/count($persentasePesertaAbsensi)) * 100;
-
-
-
-
-
-
+            // $this->persentaseKehadiranAbsensiTerakhir == 0 ? 0 : ($hadir/count($persentasePesertaAbsensi)) * 100;
+            $this->persentaseKehadiranAbsensiTerakhir = ($hadir/count($persentasePesertaAbsensi)) * 100;
         } catch (\Exception $e) {
             $this->tglAbsensiTerakhir = '';
             $this->jumlahPesertaAbsensiTerakhir = 0;
@@ -224,8 +227,6 @@ class Dashboardwire extends Component
             $this->lakiAbsensiTerakhir = 0;
             $this->perempuanAbsensiTerakhir = 0;
             $this->persentaseKehadiranAbsensiTerakhir = 0;
-
-
             return $e->getMessage();
         }
 

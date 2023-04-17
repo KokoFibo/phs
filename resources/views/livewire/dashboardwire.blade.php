@@ -14,7 +14,6 @@
         @include('layouts.navbardashboard')
 
         @include('frontdashboard')
-
         <div class="p-2 mt-2 row ">
             <div class="text-center col">
                 @if ($selectedGroupVihara != null)
@@ -34,10 +33,14 @@
 
                         <ul class="list-group">
                             <li class="list-group-item">
-                                {{ __('Tanggal') }} : {{ $tglAbsensiTerakhir }}
+                                {{ __('Tanggal') }} : {{ tanggal($tglAbsensiTerakhir) }}
                             </li>
                             <li class="list-group-item">
-                                {{ __('Jumlah Peserta') }} : {{ $jumlahPesertaAbsensiTerakhir }} {{ __('Orang') }}
+                                {{ __('Total Peserta') }} : {{ $totalPeserta }} {{ __('Orang') }}
+                            </li>
+                            <li class="list-group-item">
+                                {{ __('Peserta yang Hadir') }} : {{ $jumlahPesertaAbsensiTerakhir }}
+                                {{ __('Orang') }}
                             </li>
 
                             <li class="list-group-item">
