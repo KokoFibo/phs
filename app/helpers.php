@@ -204,6 +204,9 @@ if(!function_exists('getYear')) {
       function tgl($tgl) {
         return date('d-m-Y', strtotime($tgl));
       }
+      function tanggal($tgl){
+        return date('d M Y', strtotime($tgl));
+    }
 
       function getNamaCetya($id) {
 
