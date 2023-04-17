@@ -81,6 +81,21 @@ if(!function_exists('getYear')) {
                 return '';
             }
         }
+        function showId($id){
+            if($id != null) {
+                if($id < 10) {
+                    return '0000'.$id;
+                } elseif ($id>=10 && $id<100) {
+                    return '000'.$id;
+                } elseif ($id>=100 && $id < 1000) {
+                    return '00'.$id;
+                }elseif ($id>=1000 && $id < 10000) {
+                    return '0'.$id;
+                } else {
+                    return $id;
+                }
+            }
+        }
 
       function getName($id) {
         try {

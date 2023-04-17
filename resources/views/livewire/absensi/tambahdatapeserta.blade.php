@@ -29,7 +29,8 @@
                                     <li class="px-4 py-1 text-purple-500 border ">
                                         <button class="hover:bg-gray-300"
                                             wire:click="getDataPeserta( '{{ $n['nama_umat'] }}', '{{ $n['id'] }}' )"
-                                            @click="peserta=false">{{ $n['nama_umat'] }}</button>
+                                            @click="peserta=false">{{ $n['nama_umat'] }} - {{ showId($n['id']) }}
+                                        </button>
                                     </li>
                                 @endforeach
                             @endif

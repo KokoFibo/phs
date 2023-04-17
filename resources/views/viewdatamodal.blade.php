@@ -38,53 +38,60 @@
                 <div class="w-full px-5 lg:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-black ">
 
                     <div class="mt-3">
+                        <label class="px-2 dark:text-white " for="id">{{ __('ID') }}</label>
+                        <div id="id" type="text"
+                            class="w-full rounded-md shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                            {{ showId($nomorid) }}
+                        </div>
+                    </div>
+                    <div class="mt-3">
                         <label class="px-2 dark:text-white " for="nama">{{ __('Nama') }}</label>
                         <input id="nama" type="text" wire:model="nama_umat"
-                            class="w-full rounded-md shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-md shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="nama">{{ __('Nama Alias') }}</label>
                         <input id="nama_alias" type="text" wire:model="nama_alias"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="mandarin">{{ __('中文名') }}</label>
                         <input id="mandarin" type="text" wire:model="mandarin"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="umur">{{ __('Umur / Tanggal Lahir') }}</label>
                         <input id="umur" type="text" wire:model="umur_sekarang"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
 
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="alamat">{{ __('Alamat') }}</label>
                         <input id="alamat" type="text" wire:model="alamat"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
 
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white ">{{ __('Kota') }}</label>
                         <input id="alamat" type="text" value="{{ getNamaKota($kota_id) }}"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
 
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="telepon">{{ __('Telepon') }}</label>
                         <input id="telepon" type="text" wire:model="telp"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
 
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="handphone">{{ __('Handphone') }}</label>
                         <input id="handphone" type="text" wire:model="hp"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="email">{{ __('Email') }}</label>
                         <input id="email" type="text" wire:model="email"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
 
                 </div>
@@ -101,29 +108,29 @@
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="tgl">{{ __('Tanggal Mohon Tao') }}</label>
                         <input id="tgl" type="text" wire:model="tgl_mohonTao"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="pengajak">{{ __('Pengajak') }}</label>
                         <input id="tgl" type="text" wire:model="pengajak"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="penjamin">{{ __('Penjamin') }}</label>
                         <input id="tgl" type="text" wire:model="penjamin"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
                     <div class="mt-3">
 
                         <label class="px-2 dark:text-white " for="pandita">{{ __('Pandita') }}</label>
                         <input id="tgl" type="text" value="{{ getNamaPandita($pandita_id) }}"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
 
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="tgl">{{ __('Kelas Dharma 3 Hari') }}</label>
                         <input id="tgl" type="text" wire:model="tgl_sd3h1"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
 
                     </div>
 
@@ -131,18 +138,18 @@
                         <label class="px-2 dark:text-white "
                             for="tgl">{{ __('Tanggal Vegetarian Total') }}</label>
                         <input id="tgl" type="text" wire:model="tgl_vtotal1"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
 
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white ">{{ __('Status') }}</label>
                         <input type="text" wire:model="status1"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="nama">{{ __('Keterangan') }}</label>
                         <input id="tgl" type="text" wire:model="keterangan"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
+                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     </div>
 
                     <div class="flex items-center justify-between w-full mt-9">
