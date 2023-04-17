@@ -59,6 +59,7 @@ class Tablewire extends Component
              ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
             ->join('panditas', 'data_pelitas.pandita_id' , '=','panditas.id' )
             ->where('data_pelitas.id',$id )->first();
+            // $this->id = $dataview->id;
             $this->nama_umat = $dataview->nama_umat;
             $this->nama_alias = $dataview->nama_alias;
             $this->mandarin = $dataview->mandarin;
