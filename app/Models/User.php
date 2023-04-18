@@ -24,7 +24,8 @@ class User extends Authenticatable
         'role',
         'branch_id',
         'kota_id',
-        'groupvihara_id'
+        'groupvihara_id',
+        'pandita_id',
     ];
 
     public function branch()

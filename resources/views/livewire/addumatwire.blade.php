@@ -72,16 +72,14 @@
                 <label class="px-2 dark:text-white" for="pandita">{{ __('Pandita') }}</label><span
                     class="text-red-500">*</span>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                    wire:model="pandita_id">
+                    wire:model="selectedPandita">
                     <option value="">{{ __('Data Pandita') }}</option>
-                    @foreach ($datapandita as $pandita)
+                    @foreach ($selectPandita as $pandita)
                         <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
                     @endforeach
 
                 </select>
-                @error('pandita_id')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
+
 
             </div>
         </div>

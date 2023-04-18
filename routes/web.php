@@ -82,12 +82,12 @@ Route::middleware(['auth'])->group(function () {
             return redirect()->back();
         });
         Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
-        Route::get('/main1', Data::class)->name('main');
+        Route::get('/main1', Data::class)->name('main1');
         Route::get('/main', Tablewire::class)->name('main');
         // Route::get('/adddata/{kode_branch}', Addumatwire::class)->name('adddata');
         Route::get('/adddata', Addumatwire::class)->name('adddata');
         Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
-        Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('editdata');
+        Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('viewdata');
         Route::get('/umatview', )->name('umatview');
         Route::get('/panditawire', Panditawire::class)->name('panditawire');
         Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
