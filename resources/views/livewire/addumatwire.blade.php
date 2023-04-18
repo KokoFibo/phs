@@ -158,15 +158,8 @@
         </div>
         <div class="w-full px-3 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-900">
 
-            <div class="mt-3">
-                <label class="px-2 dark:text-white " for="email">{{ __('Email') }}</label>
-                <input id="email" type="text" placeholder="name@example.com" wire:model="email"
-                    class="w-full mb-5 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                @error('email')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="mt-3 md:mt-5">
+
+            <div class="mt-5">
                 <div>
                     <label class="hidden px-2 dark:text-white md:inline">{{ __('Gender') }}</label><span
                         class="hidden px-2 text-red-500 md:inline">*</span>
@@ -194,6 +187,14 @@
                 @enderror
             </div>
             <div class="mt-5">
+                <label class="px-2 dark:text-white " for="email">{{ __('Email') }}</label>
+                <input id="email" type="text" placeholder="name@example.com" wire:model="email"
+                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                @error('email')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="mt-3">
                 <label class="px-2 dark:text-white" for="tgl">{{ __('Tanggal Mohon Tao') }}</label><span
                     class="text-red-500">*</span>
                 <input type="date" wire:model="tgl_mohonTao"
