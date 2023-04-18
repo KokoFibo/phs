@@ -17,16 +17,22 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->integer('rows')->default(10);
+            $table->integer('kota_id')->nullable();
+            $table->integer('branch_id')->nullable();
+            $table->integer('groupvihara_id')->nullable();
+            $table->integer('pandita_id')->nullable();
+
             $table->boolean('id_umat')->default(false);
-            $table->boolean('branch_id')->default(false);
+            $table->boolean('branch')->default(false);
             $table->boolean('nama_umat')->default(true);
             $table->boolean('nama_alias')->default(true);
             $table->boolean('mandarin')->default(true);
             $table->boolean('gender')->default(true);
+            $table->boolean('group')->default(true);
             $table->boolean('tgl_lahir')->default(false);
             $table->boolean('umur_sekarang')->default(true);
             $table->boolean('alamat')->default(false);
-            $table->boolean('kota_id')->default(true);
+            $table->boolean('kota')->default(true);
             $table->boolean('telp')->default(false);
             $table->boolean('hp')->default(false);
             $table->boolean('email')->default(false);

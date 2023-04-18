@@ -19,17 +19,19 @@ class Addumatwire extends Component
     public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status="Active", $branch_id;
     public $umur_sekarang;
-    public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota;
+    public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota, $selectPandita, $selectedPandita;
 
     public function mount () {
         $this->selectedGroup = Auth::user()->groupvihara_id;
         $this->selectedBranch = Auth::user()->branch_id;
         $this->selectedKota = Auth::user()->kota_id;
+        $this->selectedPandita = Auth::user()->pandita_id;
 
         $this->selectGroup = Groupvihara::all();
         // $this->selectBranch = Branch::all();
         $this->selectBranch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
         $this->selectKota = Kota::all();
+        $this->selectPandita = Pandita::all();
         $query = "";
         $nama = [];
         $this->tgl_mohonTao=Carbon::now()->format('Y-m-d');
@@ -57,7 +59,7 @@ class Addumatwire extends Component
         'pengajak' => 'required',
         // 'penjamin_id' => 'required',
         'penjamin' => 'required',
-        'pandita_id' => 'required',
+        // 'pandita_id' => 'required',
         'tgl_mohonTao' => 'nullable|date|before:tomorrow',
         'tgl_sd3h' => 'nullable|date|after_or_equal:tgl_mohonTao|before:tomorrow',
         'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_sd3h|before:tomorrow|prohibited_if:tgl_sd3h,=,null',
@@ -72,6 +74,7 @@ public function setDefault () {
     $data->groupvihara_id = $this->selectedGroup;
     $data->branch_id = $this->selectedBranch;
     $data->kota_id = $this->selectedKota;
+    $data->pandita_id = $this->selectedPandita;
     $data->save();
     $this->dispatchBrowserEvent('success', ['message' => 'Set to default']);
 }
@@ -79,20 +82,7 @@ public function setDefault () {
 public function updated($fields) {
         $this->validateOnly($fields);
 }
-    // public function getDataPengajak ($nama, $id) {
-    //     $this->pengajak = $nama;
-    //     $this->pengajak_id = $id;
-    // }
-    // public function getDataPenjamin ($nama, $id) {
-    //     $this->penjamin = $nama;
-    //     $this->penjamin_id = $id;
-    // }
 
-    // public function updatedQuery () {
-    //     $this->nama = DataPelita::where('nama_umat', 'like', '%'. $this->query .'%')
-    //     ->get(['id', 'nama_umat'])
-    //     ->toArray();
-    // }
 
 
 
@@ -107,6 +97,7 @@ public function updated($fields) {
 
         $data_umat->branch_id = $this->selectedBranch;
         $data_umat->kota_id = $this->selectedKota;
+        $data_umat->pandita_id = $this->selectedPandita;
 
         $data_umat->nama_umat = Str::title($this->nama_umat);
         $data_umat->nama_alias = Str::title($this->nama_alias);
@@ -123,7 +114,7 @@ public function updated($fields) {
         $data_umat->pengajak = Str::title($this->pengajak);
         // $data_umat->penjamin_id = $this->penjamin_id;
         $data_umat->penjamin = Str::title($this->penjamin);
-        $data_umat->pandita_id = $this->pandita_id;
+        // $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = empty($this->tgl_mohonTao) ?  Carbon::parse(Carbon::now()) : $this->tgl_mohonTao;
         $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
         $data_umat->tgl_vtotal = empty($this->tgl_vtotal) ?  null : $this->tgl_vtotal;
@@ -138,7 +129,7 @@ public function updated($fields) {
 
 
         // update data Pandita_is_Used
-        $data_pandita = Pandita::find($this->pandita_id);
+        $data_pandita = Pandita::find($this->selectedPandita);
         $data_pandita->pandita_is_used = true;
         $data_pandita->save();
 
@@ -191,7 +182,6 @@ public function updated($fields) {
 
 
         return view('livewire.addumatwire', compact(['datapandita', 'datakota']))
-        // ->extends('layouts.secondMain')
         ->extends('layouts.main')
         ->section('content');
     }

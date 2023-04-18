@@ -25,10 +25,12 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Anton Manager',
                 'email' => 'anton3@anton.com',
                 'password' => Hash::make('Anton888'),
-                'role' => '3',
-                'kota_id' => '1',
-                'branch_id' => '1',
-                'groupvihara_id' => '1',
+                'role' => 3,
+                'kota_id' => 1 ,
+                'branch_id' => 1,
+                'groupvihara_id' => 1,
+                'pandita_id' => 1,
+
             ],
         );
         DB::table('users')->insert(
@@ -36,10 +38,11 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Anton Supervisor',
                 'email' => 'anton2@anton.com',
                 'password' => Hash::make('Anton888'),
-                'role' => '2',
-                'kota_id' => '1',
-                'branch_id' => '1',
-                'groupvihara_id' => '1',
+                'role' => 3,
+                'kota_id' => 1 ,
+                'branch_id' => 1,
+                'groupvihara_id' => 1,
+                'pandita_id' => 1,
             ],
         );
         DB::table('users')->insert(
@@ -47,10 +50,12 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Anton Admin',
                 'email' => 'anton1@anton.com',
                 'password' => Hash::make('Anton888'),
-                'role' => '1',
-                'kota_id' => '1',
-                'branch_id' => '1',
-                'groupvihara_id' => '1',
+                'role' => 3,
+                'kota_id' => 1 ,
+                'branch_id' => 1,
+                'groupvihara_id' => 1,
+                'pandita_id' => 1,
+
             ],
         );
         DB::table('panditas')->insert(

@@ -29,11 +29,10 @@
     </div>
 
     <div
-        class="flex items-center w-full py-3 my-2 mb-3 shadow justify-evenly md:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:text-white">
-        <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly dark:text-gray-900 ">
+        class="flex flex-col items-center w-full py-3 my-2 mb-3 shadow lg:flex-row justify-evenly lg:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:text-white">
 
-
-            <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
+        <div class="flex items-center w-full px-2 lg:w-2/5 lg:flex lg:flex-row justify-evenly dark:text-gray-900 ">
+            <div class="w-full mx-1 lg:w-1/2 lg:mx-4 ">
                 <label class="px-2 dark:text-white">{{ __('Group') }}</label><span class="text-red-500">*</span>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="selectedGroup">
@@ -44,7 +43,7 @@
                 </select>
             </div>
 
-            <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
+            <div class="w-full mx-1 lg:w-1/2 lg:mx-4 ">
                 <label class="px-2 dark:text-white ">{{ __('Vihara') }}</label><span class="text-red-500">*</span>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
                     wire:model="selectedBranch">
@@ -55,9 +54,9 @@
                 </select>
             </div>
         </div>
-        <div class="flex flex-col items-center w-1/2 px-2 md:flex md:flex-row justify-evenly dark:text-gray-900">
+        <div class="flex items-center w-full px-2 lg:w-2/5 lg:flex lg:flex-row justify-evenly dark:text-gray-900">
 
-            <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
+            <div class="w-full mx-1 lg:w-1/2 lg:mx-4 ">
                 <label class="w-full px-2 dark:text-white ">{{ __('Kota') }}</label><span
                     class="text-red-500">*</span>
                 <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
@@ -69,14 +68,25 @@
                 </select>
             </div>
 
+            <div class="w-full mx-1 lg:w-1/2 lg:mx-4 ">
+                <label class="px-2 dark:text-white" for="pandita">{{ __('Pandita') }}</label><span
+                    class="text-red-500">*</span>
+                <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                    wire:model="selectedPandita">
+                    <option value="">{{ __('Data Pandita') }}</option>
+                    @foreach ($selectPandita as $pandita)
+                        <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
+                    @endforeach
 
-            <div class="w-full mx-1 md:w-1/2 md:mx-4 ">
-                <button wire:click="setDefault"
-                    class="w-full mt-6 md:mt-0 button button-purple">{{ __('Set as Default') }}</button>
+                </select>
+
 
             </div>
         </div>
-
+        <div
+            class="flex flex-col items-center w-full px-2 mt-3 lg:w-1/5 lg:flex lg:flex-row justify-evenly dark:text-gray-900 ">
+            <button wire:click="setDefault" class="w-full button button-purple">{{ __('Set as Default') }}</button>
+        </div>
     </div>
 
     <div
@@ -142,20 +152,14 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="mt-3">
-                <label class="px-2 dark:text-white " for="email">{{ __('Email') }}</label>
-                <input id="email" type="text" placeholder="name@example.com" wire:model="email"
-                    class="w-full mb-5 rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                @error('email')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
+
 
 
         </div>
         <div class="w-full px-3 md:w-1/2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-900">
 
-            <div class="mt-3 md:mt-5">
+
+            <div class="mt-5">
                 <div>
                     <label class="hidden px-2 dark:text-white md:inline">{{ __('Gender') }}</label><span
                         class="hidden px-2 text-red-500 md:inline">*</span>
@@ -183,6 +187,14 @@
                 @enderror
             </div>
             <div class="mt-5">
+                <label class="px-2 dark:text-white " for="email">{{ __('Email') }}</label>
+                <input id="email" type="text" placeholder="name@example.com" wire:model="email"
+                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                @error('email')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="mt-3">
                 <label class="px-2 dark:text-white" for="tgl">{{ __('Tanggal Mohon Tao') }}</label><span
                     class="text-red-500">*</span>
                 <input type="date" wire:model="tgl_mohonTao"
@@ -273,22 +285,7 @@
                 <input id="penjamin" type="text" placeholder="Masukkan data Penjamin"
                     class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
             </div> --}}
-            <div class="mt-3">
-                <label class="px-2 dark:text-white" for="pandita">{{ __('Pandita') }}</label><span
-                    class="text-red-500">*</span>
-                <select class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                    wire:model="pandita_id">
-                    <option value="">{{ __('Data Pandita') }}</option>
-                    @foreach ($datapandita as $pandita)
-                        <option value="{{ $pandita->id }}">{{ $pandita->nama_pandita }}</option>
-                    @endforeach
 
-                </select>
-                @error('pandita_id')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
-
-            </div>
 
             <div class="mt-3">
                 <label class="px-2 dark:text-white" for="tgl">{{ __('Kelas Dharma 3 Hari') }}</label>

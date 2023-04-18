@@ -13,5 +13,9 @@ class Pandita extends Model
     {
         return $this->hasMany(Datapelita::class);
     }
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 
 }
