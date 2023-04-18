@@ -23,6 +23,8 @@ return new class extends Migration
             $table->integer('kota_id')->nullable();
             $table->integer('branch_id')->nullable();
             $table->integer('groupvihara_id')->nullable();
+            $table->integer('pandita_id')->nullable();
+
 
 
             $table->rememberToken();

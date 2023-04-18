@@ -93,7 +93,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
         Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
 
-        Route::get('/setting', Usersettingwire::class)->name('setting');
+        // Route::get('/setting', Usersettingwire::class)->name('setting');
         Route::get('/test', Testaja::class);
         Route::post('/cetak', [CetakController::class, 'index']);
         Route::get('/tampil', [CetakController::class, 'tampil']);

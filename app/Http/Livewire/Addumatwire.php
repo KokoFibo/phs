@@ -19,7 +19,7 @@ class Addumatwire extends Component
     public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
     public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status="Active", $branch_id;
     public $umur_sekarang;
-    public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota;
+    public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota, $selectPandita, $selectedPandita;
 
     public function mount () {
         $this->selectedGroup = Auth::user()->groupvihara_id;
@@ -79,20 +79,7 @@ public function setDefault () {
 public function updated($fields) {
         $this->validateOnly($fields);
 }
-    // public function getDataPengajak ($nama, $id) {
-    //     $this->pengajak = $nama;
-    //     $this->pengajak_id = $id;
-    // }
-    // public function getDataPenjamin ($nama, $id) {
-    //     $this->penjamin = $nama;
-    //     $this->penjamin_id = $id;
-    // }
 
-    // public function updatedQuery () {
-    //     $this->nama = DataPelita::where('nama_umat', 'like', '%'. $this->query .'%')
-    //     ->get(['id', 'nama_umat'])
-    //     ->toArray();
-    // }
 
 
 
@@ -191,7 +178,6 @@ public function updated($fields) {
 
 
         return view('livewire.addumatwire', compact(['datapandita', 'datakota']))
-        // ->extends('layouts.secondMain')
         ->extends('layouts.main')
         ->section('content');
     }
