@@ -52,7 +52,8 @@
                         <tbody>
                             <tr>
                                 <td class="p-3 text-gray-800 border rounded dark:text-white">
-                                    {{ $pandita->firstItem() + $index }}</td>
+                                    {{ $pandita->firstItem() + $index }}
+                                </td>
                                 <td class="p-3 text-gray-800 border rounded dark:text-white">{{ $p->nama_pandita }}
                                 </td>
                                 <td class="p-3 text-center text-gray-800 border rounded dark:text-white">

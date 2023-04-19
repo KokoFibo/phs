@@ -168,6 +168,7 @@ class Branchwire extends Component
         $branch = Branch::orderBy('nama_branch', 'asc')
         ->paginate(5);
 
+
         return view('livewire.branchwire', compact(['groupvihara', 'branch']))
         ->extends('layouts.main')
         ->section('content');
