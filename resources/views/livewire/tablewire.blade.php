@@ -9,7 +9,7 @@
     {{-- Search Bar --}}
     {{-- <div wire:loading>Loading...</div> xa --}}
 
-    <div class="items-center justify-between px-3 w-full lg:flex">
+    <div class="items-center justify-between w-full px-3 lg:flex">
         <div class="items-center lg:w-3/4 lg:flex ">
             {{-- search  --}}
 
@@ -247,6 +247,16 @@
                         <table class="text-sm lg:text-base dark:bg-gray-800 dark:border-gray-700 dark:text-white">
                             <tr>
                                 <td class="px-1 py-1 ">
+                                    <input type="checkbox" id="alias" wire:model="kolomAlias" value="1"
+                                        class="checked:bg-purple-500" />
+                                </td>
+                                <td class="px-1 py-1 ">
+                                    <label for="alias">Alias</label>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="px-1 py-1 ">
                                     <input type="checkbox" id="pandita" wire:model="kolomPandita" value="1"
                                         class="checked:bg-purple-500" />
                                 </td>
@@ -392,17 +402,19 @@
         <thead class="text-white bg-purple-500 border-b-2 border-gray-200 ">
             <tr>
 
-                <th class="w-16 py-3 text-center   "><input type="checkbox" wire:model="selectAll"
-                        class=" checked:bg-white-500 w-5 h-5" />
+                <th class="w-16 py-3 text-center "><input type="checkbox" wire:model="selectAll"
+                        class="w-5 h-5 checked:bg-white-500" />
                 </th>
 
                 <th class="w-10 py-3 font-semibold text-center ">{{ __('#') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer "
                     wire:click=" sortColumnName('nama_umat')">
                     {{ __('NAMA') }}</th>
-                <th class="w-40 py-3 font-semibold text-left cursor-pointer "
-                    wire:click=" sortColumnName('nama_alias')">
-                    {{ __('ALIAS') }}</th>
+                @if ($kolomAlias == 1)
+                    <th class="w-40 py-3 font-semibold text-left cursor-pointer "
+                        wire:click=" sortColumnName('nama_alias')">
+                        {{ __('ALIAS') }}</th>
+                @endif
                 <th class="w-20 py-3 font-semibold text-left cursor-pointer " wire:click="sortColumnName('mandarin')">
                     {{ __('中文名') }}</th>
                 <th class="w-20 py-3 font-semibold text-left cursor-pointer "
@@ -423,7 +435,7 @@
                         wire:click="sortColumnName('nama_pandita')">
                         {{ __('PANDITA') }}</th>
                 @endif
-                <th class="w-20 py-3 font-semibold text-left cursor-pointer"
+                <th class="w-40 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_branch')">
                     {{ __('CETYA') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer"
@@ -497,7 +509,7 @@
                     {{-- @endif --}}
                     <td class="text-center">
                         <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
-                            class="checked:bg-purple-500 w-5 h-5" />
+                            class="w-5 h-5 checked:bg-purple-500" />
                     </td>
 
                     <td class="py-3 ">
@@ -509,10 +521,12 @@
                             class="py-3 font-semibold text-purple-500 ">
                             {{ $d->nama_umat }}
                         </td>
-                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
-                            class="py-3 font-semibold text-purple-500 ">
-                            {{ $d->nama_alias }}
-                        </td>
+                        @if ($kolomAlias == 1)
+                            <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                                class="py-3 font-semibold text-purple-500 ">
+                                {{ $d->nama_alias }}
+                            </td>
+                        @endif
                         <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
                             class="py-3 font-semibold text-purple-500 ">
                             {{ $d->mandarin }}
@@ -522,10 +536,12 @@
                             class="py-3 font-semibold text-teal-500 ">
                             {{ $d->nama_umat }}
                         </td>
-                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
-                            class="py-3 font-semibold text-teal-500 ">
-                            {{ $d->nama_alias }}
-                        </td>
+                        @if ($kolomAlias == 1)
+                            <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                                class="py-3 font-semibold text-teal-500 ">
+                                {{ $d->nama_alias }}
+                            </td>
+                        @endif
                         <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
                             class="py-3 font-semibold text-teal-500 ">
                             {{ $d->mandarin }}
@@ -534,9 +550,12 @@
                         <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                             {{ $d->nama_umat }}
                         </td>
-                        <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                            {{ $d->nama_alias }}
-                        </td>
+                        @if ($kolomAlias == 1)
+                            <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                                class="py-3 ">
+                                {{ $d->nama_alias }}
+                            </td>
+                        @endif
                         <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                             {{ $d->mandarin }}
                         </td>
@@ -637,7 +656,7 @@
                             </button> --}}
                                 {{-- <button wire:click="viewdata({{ $d->id }})" @click="openModal=true"
                                     type="button"
-                                    class="p-1 text-white bg-purple-500 rounded hover:bg-purple-700 text-xl">
+                                    class="p-1 text-xl text-white bg-purple-500 rounded hover:bg-purple-700">
                                     <i class="fa fa-eye "></i>
                                 </button> --}}
 
@@ -647,7 +666,7 @@
                             <div>
                                 <a href="/editdata/{{ $d->id }}">
                                     <x-button type="button"
-                                        class="p-1 text-white bg-orange-500 rounded hover:bg-orange-700 text-xl">
+                                        class="p-1 text-xl text-white bg-orange-500 rounded hover:bg-orange-700">
                                         <i class="fa fa-pen-to-square "></i>
                                     </x-button>
                                 </a>
@@ -656,7 +675,7 @@
                             @if (Auth::user()->role != '1')
                                 <div>
 
-                                    <x-button class="p-1 text-white bg-red-500 rounded hover:bg-red-700 text-xl"
+                                    <x-button class="p-1 text-xl text-white bg-red-500 rounded hover:bg-red-700"
                                         wire:click="deleteConfirmation({{ $d->id }})">
                                         <i class="fa fa-trash "></i>
                                     </x-button>

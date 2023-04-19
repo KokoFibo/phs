@@ -69,7 +69,8 @@
                         <tbody>
                             <tr>
                                 <td class="p-3 text-gray-800 border rounded dark:text-white">
-                                    {{ $branch->firstItem() + $index }}</td>
+                                    {{ $branch->firstItem() + $index }}
+                                </td>
                                 <td class="p-3 text-gray-800 border rounded dark:text-white">{{ $b->nama_branch }}</td>
                                 <td class="p-3 text-gray-800 border rounded dark:text-white">
                                     {{ $b->groupvihara->nama_group }}</td>

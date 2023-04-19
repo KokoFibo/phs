@@ -99,7 +99,7 @@ class Panditawire extends Component
     }
     public function render()
     {
-        $pandita = Pandita::orderBy('nama_pandita', 'asc')->paginate(5);
+        $pandita = Pandita::orderBy('id', 'desc')->paginate(5);
         return view('livewire.panditawire', compact('pandita'))
         ->extends('layouts.main')
         ->section('content');
