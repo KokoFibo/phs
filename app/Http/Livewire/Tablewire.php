@@ -27,7 +27,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class Tablewire extends Component
 {
     public $perpage = 5;
-    public $columnName = 'data_pelitas.id', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
+    public $columnName = 'data_pelitas.tgl_mohonTao', $direction = 'desc', $startUmur, $endUmur, $startDate, $endDate, $jen_kel;
     public $search = '';
     use WithPagination;
     public $branch_id;
