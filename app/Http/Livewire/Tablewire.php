@@ -218,13 +218,7 @@ public function updatedSelectAll () {
         $this->nama_kategori = "Nama";
 
     }
-    // public function hitungUmurSekarang($tgl, $umur) {
-    //     $now = Carbon::now();
-    //     $tahun = $now->year;
-    //     $year = date('Y', strtotime($tgl));
-    //     $selisih = $tahun - $year;
-    //     return $umur + $selisih;
-    // }
+
 
     public function deleteConfirmation ($id) {
         $canDelete = Absensi::where('datapelita_id', $id)->first();
@@ -306,10 +300,11 @@ public function updatedSelectAll () {
             $query->where('data_pelitas.branch_id', $this->branch_id );
         })
         ->when($this->startUmur, function($query){
-            $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
+            $query->whereYear('data_pelitas.tgl_lahir', '<=', hitungStartEndUmur($this->startUmur) );
         })
+
         ->when($this->endUmur, function($query){
-            $query->where('data_pelitas.umur_sekarang', '<=', $this->endUmur );
+            $query->whereYear('data_pelitas.tgl_lahir', '>=', hitungStartEndUmur($this->endUmur) );
         })
         ->when($this->startDate, function($query){
             $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate );

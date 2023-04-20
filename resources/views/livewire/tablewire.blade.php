@@ -559,10 +559,7 @@
                         class="py-3 text-center ">
                         {{ hitungUmurSekarang($d->tgl_lahir) }}
                     </td>
-                    {{-- <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
-                        class="py-3 text-center ">
-                        {{ $d->umur_sekarang }}
-                    </td> --}}
+
 
                     <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
