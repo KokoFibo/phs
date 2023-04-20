@@ -223,6 +223,12 @@ if(!function_exists('getYear')) {
 
       }
 
+      function hitungStartEndUmur($umur) {
+        $now = Carbon::now();
+        $tahun = $now->year;
+        return $tahun - $umur;
+      }
+
       function hitungUmurSekarang($tgl) {
         $now = Carbon::now();
         $tahun = $now->year;

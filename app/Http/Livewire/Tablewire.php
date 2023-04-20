@@ -38,7 +38,7 @@ class Tablewire extends Component
     public $namaPandita, $namaKota, $last_update;
     public $category="data_pelitas.nama_umat", $nama_kategori;
     public $kode_branch, $kode_branch_view, $kode_branch_khusus;
-    public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id;
+    public $nama_cetya, $nama_cetya_view, $pengajak_id, $penjamin_id, $tgl_lahir;
     public $default;
     public $selectedId = [];
     // default
@@ -192,7 +192,7 @@ public function updatedSelectAll () {
     public function resetFilter () {
         $this->perpage = 5;
         $this->search = '';
-        $this->columnName = 'data_pelitas.id';
+        $this->columnName = 'data_pelitas.tgl_mohonTao';
         $this->direction = 'desc';
         $this->startUmur = NULL;
         $this->endUmur = NULL;
@@ -217,16 +217,8 @@ public function updatedSelectAll () {
         $this->kolomSd3h=0; $this->kolomVTotal=0; $this->kolomStatus=0; $this->kolomKeterangan=0;
         $this->nama_kategori = "Nama";
 
-
-
     }
-    public function hitungUmurSekarang($tgl, $umur) {
-        $now = Carbon::now();
-        $tahun = $now->year;
-        $year = date('Y', strtotime($tgl));
-        $selisih = $tahun - $year;
-        return $umur + $selisih;
-    }
+
 
     public function deleteConfirmation ($id) {
         $canDelete = Absensi::where('datapelita_id', $id)->first();
@@ -242,8 +234,6 @@ public function updatedSelectAll () {
             ]);
         } else {
         $this->dispatchBrowserEvent('error', ['message' => 'Data ini Tidak Bisa Didelete']);
-
-
         }
     }
 
@@ -263,95 +253,7 @@ public function updatedSelectAll () {
         return $this->direction === 'asc' ? 'desc' : 'asc';
     }
 
-    // public function view ($id) {
 
-    //     $this->current_id = $id;
-    //     $data = DataPelita::find($id);
-
-    //     if ($data) {
-    //         $this->branch_id = $data->branch_id;
-    //         $this->kode_branch_view = $this->branch_id;
-    //         $this->nama_umat = $data->nama_umat;
-    //         $this->nama_alias = $data->nama_alias;
-    //         $this->mandarin = $data->mandarin;
-    //         $this->gender = $data->gender;
-    //         $this->umur = $data->umur;
-    //         $this->umur_sekarang = $data->umur_sekarang;
-    //         $this->alamat = $data->alamat;
-    //         $this->kota_id = $data->kota_id;
-    //         $this->telp = $data->telp;
-    //         $this->hp = $data->hp;
-    //         $this->email = $data->email;
-    //         $this->pengajak = $data->pengajak;
-    //         $this->pengajak_id = $data->pengajak_id;
-    //         $this->penjamin = $data->penjamin;
-    //         $this->penjamin_id = $data->penjamin_id;
-    //         $this->pandita_id = $data->pandita_id;
-    //         $np = Pandita::find($this->pandita_id);
-    //         $this->namaPandita = $np->nama_pandita;
-    //         $nk = Kota::find($this->kota_id);
-    //         $this->namaKota = $nk->nama_kota;
-
-    //         $this->tgl_mohonTao = $data->tgl_mohonTao;
-    //         $this->status = $data->status;
-    //         $this->tgl_sd3h = empty($data->tgl_sd3h) ? '-' : $data->tgl_sd3h;
-    //         $this->tgl_vtotal = empty($data->tgl_vtotal) ? '-' : $data->tgl_vtotal;
-
-    //     }
-    // }
-
-    // public function updatedJenKel () {
-    //     $this->default=false;
-    // }
-
-    // public function updatedStatus () {
-    //     $this->default=false;
-    // }
-
-    // public function updatedStartUmur () {
-    //     if($this->startUmur != '')
-    //     {
-
-    //         $this->default=false;
-    //     }
-    //     else {
-    //         $this->default=true;
-
-    //     }
-    // }
-    // public function updatedEndUmur () {
-    //     if($this->endUmur != '')
-    //     {
-
-    //         $this->default=false;
-    //     }
-    //     else {
-    //         $this->default=true;
-
-    //     }
-    // }
-    // public function updatedStartDate () {
-    //     if($this->startDate != '')
-    //     {
-
-    //         $this->default=false;
-    //     }
-    //     else {
-    //         $this->default=true;
-
-    //     }
-    // }
-    // public function updatedEndDate () {
-    //     if($this->endDate != '')
-    //     {
-
-    //         $this->default=false;
-    //     }
-    //     else {
-    //         $this->default=true;
-
-    //     }
-    // }
     public function updatedKodeBranch () {
         if($this->kode_branch != '')
         {
@@ -398,10 +300,11 @@ public function updatedSelectAll () {
             $query->where('data_pelitas.branch_id', $this->branch_id );
         })
         ->when($this->startUmur, function($query){
-            $query->where('data_pelitas.umur_sekarang', '>=', $this->startUmur );
+            $query->whereYear('data_pelitas.tgl_lahir', '<=', hitungStartEndUmur($this->startUmur) );
         })
+
         ->when($this->endUmur, function($query){
-            $query->where('data_pelitas.umur_sekarang', '<=', $this->endUmur );
+            $query->whereYear('data_pelitas.tgl_lahir', '>=', hitungStartEndUmur($this->endUmur) );
         })
         ->when($this->startDate, function($query){
             $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate );
