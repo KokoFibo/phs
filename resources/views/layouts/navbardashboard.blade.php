@@ -82,8 +82,8 @@
                     @if (Auth::user()->role == '3' || Auth::user()->role == '2')
                         <a class="dropdown-item" href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
                     @endif
-                    <a class="dropdown-item" href="#">{{ __('User Setting') }} <span
-                            class="text-danger">({{ __('Under Construction') }})</span></a>
+                    {{-- <a class="dropdown-item" href="#">{{ __('User Setting') }} <span
+                            class="text-danger">({{ __('Under Construction') }})</span></a> --}}
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
