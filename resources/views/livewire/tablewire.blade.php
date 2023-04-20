@@ -227,10 +227,6 @@
                             </div>
                         </div>
 
-
-                        {{--
-                        </div> --}}
-
                     </div>
                     {{-- end isi dropdown --}}
                 </div>
@@ -342,16 +338,12 @@
                         <button wire:click="resetFilter"
                             class="w-full px-2 py-1 text-sm text-white bg-pink-500 border border-pink-500 rounded lg:text-base hover:bg-pink-700 hover:text-white">
                             {{ __('Reset') }} <i class="fa fa-arrow-rotate-right"></i>
-
                         </button>
-
                     </div>
                 </div>
 
             </div>
         </div>
-
-
 
         {{-- nama cetya ax --}}
         <div class="mx-5 mt-3 lg:w-1/5 ">
@@ -418,8 +410,11 @@
                 <th class="w-20 py-3 font-semibold text-left cursor-pointer " wire:click="sortColumnName('mandarin')">
                     {{ __('中文名') }}</th>
                 <th class="w-20 py-3 font-semibold text-left cursor-pointer "
-                    wire:click="sortColumnName('umur_sekarang') ">
+                    wire:click="sortColumnName('tgl_lahir') ">
                     {{ __('UMUR') }}</th>
+                {{-- <th class="w-20 py-3 font-semibold text-left cursor-pointer "
+                    wire:click="sortColumnName('umur_sekarang') ">
+                    {{ __('UMUR') }}</th> --}}
                 <th class="font-semibold text-left cursor-pointer w-28 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao')">
                     {{ __('MOHON TAO') }}</th>
@@ -562,8 +557,12 @@
                     @endif
                     <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
                         class="py-3 text-center ">
-                        {{ $d->umur_sekarang }}
+                        {{ hitungUmurSekarang($d->tgl_lahir) }}
                     </td>
+                    {{-- <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
+                        class="py-3 text-center ">
+                        {{ $d->umur_sekarang }}
+                    </td> --}}
 
                     <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
@@ -696,50 +695,8 @@
 
     </div>
     <hr class="invisible mt-3 ">
-    {{--
-    </div> --}}
+
     {{-- End Table --}}
 
-    {{-- JS utk Sweetalert Delete --}}
-    @push('script')
-        <script>
-            //     window.addEventListener('delete_confirmation', function(e) {
-            //         Swal.fire({
-            //             title: e.detail.title,
-            //             text: e.detail.text,
-            //             icon: 'warning',
-            //             showCancelButton: true,
-            //             confirmButtonColor: '#3085d6',
-            //             cancelButtonColor: '#d33',
-            //             confirmButtonText: 'Yes, silakan hapus!'
-            //         }).then((result) => {
-            //             if (result.isConfirmed) {
-            //                 window.livewire.emit('delete', e.detail.id)
-            //                 // Swal.fire(
-            //                 //     'Deleted!',
-            //                 //     'Your file has been deleted.',
-            //                 //     'success'
-            //                 // )
-            //             }
-            //         })
-            //     });
-            //     window.addEventListener('deleted', function(e) {
-            //         Swal.fire(
-            //             'Deleted!', 'Data sudah di delete.', 'success'
-            //         );
-            //     });
-            //     window.addEventListener('resetfield', function(e) {
-            //         Swal.fire({
-            //             position: 'top-end',
-            //             icon: 'success',
-            //             title: 'Filter Sudah di Reset',
-            //             showConfirmButton: false,
-            //             timer: 1500
-            //         })
-            //     });
-            //
-        </script>
-        {{-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> --}}
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script> --}}
-    @endpush
+
 </div>
