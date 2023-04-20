@@ -397,8 +397,9 @@
                 <th class="w-16 py-3 text-center "><input type="checkbox" wire:model="selectAll"
                         class="w-5 h-5 checked:bg-white-500" />
                 </th>
-
-                <th class="w-10 py-3 font-semibold text-center ">{{ __('#') }}</th>
+                {{-- 123 --}}
+                <th class="w-10 py-3 font-semibold cursor-pointer" wire:click="sortColumnName('data_pelitas.id')">
+                    {{ __('#') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer "
                     wire:click=" sortColumnName('nama_umat')">
                     {{ __('NAMA') }}</th>
@@ -409,7 +410,7 @@
                 @endif
                 <th class="w-20 py-3 font-semibold text-left cursor-pointer " wire:click="sortColumnName('mandarin')">
                     {{ __('中文名') }}</th>
-                <th class="w-20 py-3 font-semibold text-left cursor-pointer "
+                <th class="w-20 py-3 font-semibold text-center cursor-pointer "
                     wire:click="sortColumnName('tgl_lahir') ">
                     {{ __('UMUR') }}</th>
                 {{-- <th class="w-20 py-3 font-semibold text-left cursor-pointer "
@@ -418,7 +419,7 @@
                 <th class="font-semibold text-left cursor-pointer w-28 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao')">
                     {{ __('MOHON TAO') }}</th>
-                <th class="w-20 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('gender')">
+                <th class="w-20 py-3 font-semibold text-center cursor-pointer" wire:click="sortColumnName('gender')">
                     {{ __('GENDER') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('pengajak')">
                     {{ __('PENGAJAK') }}</th>
@@ -506,8 +507,8 @@
                         <input type="checkbox" wire:model="selectedId" value="{{ $d->id }}"
                             class="w-5 h-5 checked:bg-purple-500" />
                     </td>
-
-                    <td class="py-3 ">
+                    {{-- 123 --}}
+                    <td class="py-3 text-center ">
                         {{ $datapelita1->firstItem() + $index }}
                     </td>
 
@@ -564,7 +565,7 @@
                     <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                         {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
                     <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
-                        class="py-3     {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
+                        class="py-3 text-center    {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                         {{ check_JK($d->gender, $d->umur_sekarang) }}
                     </td>
                     {{-- <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"   class="py-3 ">{{ $d->pengajak_id }} --}}
