@@ -13,9 +13,9 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link fw-semibold" style="border-bottom: 2px solid white;"
-                    href="{{ route('dashboard') }}">{{ __('Dashboard') }} <span class="sr-only">(current)</span></a>
+            <li class="nav-item ">
+                <a class="nav-link fw-semibold" href="{{ route('dashboard') }}">{{ __('Dashboard') }} <span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('main') }}">{{ __('Data Umat') }}</a>
