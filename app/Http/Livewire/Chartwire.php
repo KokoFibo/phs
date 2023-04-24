@@ -12,15 +12,8 @@ use Asantibanez\LivewireCharts\Facades\LivewireCharts;
 
 class Chartwire extends Component
 {
-
-
-
-
     public function render()
     {
-
-
-
         return view('livewire.chartwire')
             ->extends('layouts.main')
             ->section('content');

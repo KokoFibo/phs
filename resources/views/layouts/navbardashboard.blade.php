@@ -13,16 +13,16 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item ">
+            <li class="text-center nav-item ">
                 <a class="nav-link fw-semibold" href="{{ route('dashboard') }}">{{ __('Dashboard') }} <span
                         class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="text-center nav-item">
                 <a class="nav-link " href="{{ route('main') }}">{{ __('Data Umat') }}</a>
             </li>
             @if (Auth::user()->role == '3' || Auth::user()->role == '2')
 
-                <li class="nav-item dropdown">
+                <li class="text-center nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ __('Absensi') }}
@@ -39,19 +39,21 @@
             @endif
 
             @if (Auth::user()->role == '3')
-                <li class="nav-item dropdown">
+                <li class="text-center nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ __('Group Vihara') }}
                     </a>
                     <div style="color: rgb(236, 72, 153) !important; background-color: white" class="dropdown-menu"
                         aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('tambahgroup') }}">{{ __('Group Vihara') }}</a>
-                        <a class="dropdown-item" href="{{ route('branchwire') }}">{{ __('Data Vihara') }} </a>
+                        <a class="text-center dropdown-item"
+                            href="{{ route('tambahgroup') }}">{{ __('Group Vihara') }}</a>
+                        <a class="text-center dropdown-item" href="{{ route('branchwire') }}">{{ __('Data Vihara') }}
+                        </a>
                     </div>
                 </li>
             @endif
-            <li class="nav-item active">
+            <li class="text-center nav-item active">
 
                 @if (app()->getLocale() == 'id')
                     <a class="nav-link" href="{{ url('locale/cn') }}">中文 <span class="sr-only">(current)</span></a>
@@ -66,7 +68,7 @@
                 <a class="nav-link" href="#">{{ Auth::user()->name }} <span class="sr-only">(current)</span></a>
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="text-center nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="d-none d-lg-inline"
@@ -76,15 +78,17 @@
                         {{ _('Profile') }}
                     </div>
                 </a>
-                <div style="color: rgb(236, 72, 153); background-color: white"
-                    class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
+                <div style="color: rgb(236, 72, 153); background-color: white" class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="navbarDropdownMenuLink">
+                    <a class="text-center dropdown-item"
+                        href="{{ route('changeprofile') }}">{{ __('Change Profile') }}</a>
                     @if (Auth::user()->role == '3' || Auth::user()->role == '2')
-                        <a class="dropdown-item" href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
+                        <a class="text-center dropdown-item"
+                            href="{{ route('registration') }}">{{ __('Update New Admin') }}</a>
                     @endif
                     {{-- <a class="dropdown-item" href="#">{{ __('User Setting') }} <span
                             class="text-danger">({{ __('Under Construction') }})</span></a> --}}
-                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    <a class="text-center dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                         @csrf
@@ -94,7 +98,7 @@
 
 
             <li class="nav-item active d-inline d-lg-none">
-                <a class="nav-link" href="{{ route('logout') }}"
+                <a class="text-center nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                     @csrf
