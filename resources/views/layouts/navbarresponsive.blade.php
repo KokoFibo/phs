@@ -1,5 +1,8 @@
 @if (Auth::user()->role != '0')
     <div>
+        @push('style')
+            <script src="https://cdn.tailwindcss.com"></script>
+        @endpush
         <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 text-lg text-white bg-pink-500 lg:py-1">
             <div class="text-2xl text-white">
                 <a href="#">Vihara Pelita Hati </a>
