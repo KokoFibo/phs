@@ -20,7 +20,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- PWA  -->
     <meta name="theme-color" content="#6777ef" />
-    <link rel="apple-touch-icon" href="{{ asset('img/pelita.PNG') }}">
+    <link rel="apple-touch-icon" href="{{ asset('pelita.PNG') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
 
