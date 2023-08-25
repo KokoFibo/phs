@@ -12,6 +12,7 @@
         "asantibanez/livewire-charts": "^2.5",
         "barryvdh/laravel-dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "ladumor/laravel-pwa": "^0.0.3",
         "laravel/fortify": "^1.14",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
