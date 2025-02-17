@@ -17,11 +17,12 @@ class Addumatwire extends Component
 {
     public $nama, $query, $pengajak_id, $penjamin_id, $pengajak, $penjamin, $kode_branch;
     public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
-    public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status="Active", $branch_id;
+    public $email, $gender, $tgl_mohonTao, $tgl_mohonTao_lunar, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status = "Active", $branch_id;
     public $umur_sekarang;
     public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota, $selectPandita, $selectedPandita;
 
-    public function mount () {
+    public function mount()
+    {
         $this->selectedGroup = Auth::user()->groupvihara_id;
         $this->selectedBranch = Auth::user()->branch_id;
         $this->selectedKota = Auth::user()->kota_id;
@@ -34,10 +35,11 @@ class Addumatwire extends Component
         $this->selectPandita = Pandita::all();
         $query = "";
         $nama = [];
-        $this->tgl_mohonTao=Carbon::now()->format('Y-m-d');
-
+        $this->tgl_mohonTao = Carbon::now()->format('Y-m-d');
+        $this->tgl_mohonTao_lunar = convertToLunar($this->tgl_mohonTao);
     }
-    public function updatedSelectedGroup () {
+    public function updatedSelectedGroup()
+    {
 
         $this->selectBranch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
         $this->selectedBranch = $this->selectBranch[0]->id;
@@ -67,27 +69,30 @@ class Addumatwire extends Component
         'status' => 'nullable',
 
 
-];
+    ];
 
-public function setDefault () {
-    $data = User::find(Auth::user()->id);
-    $data->groupvihara_id = $this->selectedGroup;
-    $data->branch_id = $this->selectedBranch;
-    $data->kota_id = $this->selectedKota;
-    $data->pandita_id = $this->selectedPandita;
-    $data->save();
-    $this->dispatchBrowserEvent('success', ['message' => 'Set to default']);
-}
+    public function setDefault()
+    {
+        $data = User::find(Auth::user()->id);
+        $data->groupvihara_id = $this->selectedGroup;
+        $data->branch_id = $this->selectedBranch;
+        $data->kota_id = $this->selectedKota;
+        $data->pandita_id = $this->selectedPandita;
+        $data->save();
+        $this->dispatchBrowserEvent('success', ['message' => 'Set to default']);
+    }
 
-public function updated($fields) {
+    public function updated($fields)
+    {
         $this->validateOnly($fields);
-}
+    }
 
 
 
 
 
-    public function store () {
+    public function store()
+    {
         $validatedData = $this->validate();
         session()->flash('message', '');
 
@@ -116,6 +121,7 @@ public function updated($fields) {
         $data_umat->penjamin = Str::title($this->penjamin);
         // $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = empty($this->tgl_mohonTao) ?  Carbon::parse(Carbon::now()) : $this->tgl_mohonTao;
+        $data_umat->tgl_mohonTao_lunar = empty($this->tgl_mohonTao_lunar) ?  convertToLunar($data_umat->tgl_mohonTao) : $this->tgl_mohonTao_lunar;
         $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
         $data_umat->tgl_vtotal = empty($this->tgl_vtotal) ?  null : $this->tgl_vtotal;
 
@@ -145,33 +151,33 @@ public function updated($fields) {
         $this->dispatchBrowserEvent('success', ['message' => 'Data Added']);
 
         $this->clear_fields();
-
     }
-    public function  clear_fields() {
+    public function  clear_fields()
+    {
 
-        $this->branch_id= '';
-        $this->nama_umat='';
-        $this->nama_alias='';
-        $this->mandarin='';
-        $this->gender='';
-        $this->tgl_lahir='';
-        $this->umur_sekarang='';
-        $this->alamat='';
-        $this->kota_id='';
-        $this->telp='';
-        $this->hp='';
-        $this->email='';
+        $this->branch_id = '';
+        $this->nama_umat = '';
+        $this->nama_alias = '';
+        $this->mandarin = '';
+        $this->gender = '';
+        $this->tgl_lahir = '';
+        $this->umur_sekarang = '';
+        $this->alamat = '';
+        $this->kota_id = '';
+        $this->telp = '';
+        $this->hp = '';
+        $this->email = '';
         // $this->pengajak_id='';
-        $this->pengajak='';
+        $this->pengajak = '';
         // $this->penjamin_id='';
-        $this->penjamin='';
-        $this->pandita_id='';
+        $this->penjamin = '';
+        $this->pandita_id = '';
         // $this->pandita='';
-        $this->tgl_mohonTao='';
-        $this->tgl_sd3h='';
-        $this->tgl_vtotal='';
-        $this->tgl_mohonTao=Carbon::now()->format('Y-m-d');
-
+        $this->tgl_mohonTao = '';
+        $this->tgl_sd3h = '';
+        $this->tgl_vtotal = '';
+        $this->tgl_mohonTao = Carbon::now()->format('Y-m-d');
+        $this->tgl_mohonTao_lunar = convertToLunar($this->tgl_mohonTao);;
     }
 
 
@@ -182,7 +188,7 @@ public function updated($fields) {
 
 
         return view('livewire.addumatwire', compact(['datapandita', 'datakota']))
-        ->extends('layouts.main')
-        ->section('content');
+            ->extends('layouts.main')
+            ->section('content');
     }
 }

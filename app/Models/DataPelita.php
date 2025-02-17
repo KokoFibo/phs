@@ -26,6 +26,7 @@ class DataPelita extends Model
         'penjamin',
         'pandita_id',
         'tgl_mohonTao',
+        'tgl_mohonTao_lunar',
         'tgl_sd3h',
         'tgl_vtotal',
         'status',
@@ -37,7 +38,7 @@ class DataPelita extends Model
     public function getTgl_mohonTaoAttribute()
     {
         return \Carbon\Carbon::parse($this->attributes['tgl_mohonTao'])
-       ->format('d, M Y H:i');
+            ->format('d, M Y H:i');
     }
 
     public function branch()
@@ -53,10 +54,8 @@ class DataPelita extends Model
         return $this->belongsTo(Kota::class);
     }
 
-    public function absensi () {
+    public function absensi()
+    {
         return $this->hasMany(Absensi::class);
     }
-
-
-
 }

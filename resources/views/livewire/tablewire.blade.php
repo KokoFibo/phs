@@ -232,7 +232,7 @@
                 </div>
                 {{-- Tambah Kolom --}}
                 <div x-data="{ open: false }" class="relative w-full mt-3 lg:w-1/4">
-                    <button @click="open = !open" :class=" open ? 'bg-purple-500 text-white' : ''"
+                    <button @click="open = !open" :class="open ? 'bg-purple-500 text-white' : ''"
                         class="w-full px-2 py-1 text-sm text-white bg-blue-500 border border-blue-500 rounded lg:text-base hover:bg-blue-700 hover:text-white">
                         {{ __('Kolom') }} <i class="fa fa-angle-down"></i></button>
 
@@ -419,6 +419,9 @@
                 <th class="font-semibold text-left cursor-pointer w-28 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao')">
                     {{ __('MOHON TAO') }}</th>
+                <th class="font-semibold text-left cursor-pointer w-28 py-30 "
+                    wire:click="sortColumnName('tgl_mohonTao_lunar')">
+                    {{ __('MOHON TAO (Imlek)') }}</th>
                 <th class="w-20 py-3 font-semibold text-center cursor-pointer" wire:click="sortColumnName('gender')">
                     {{ __('GENDER') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('pengajak')">
@@ -563,6 +566,10 @@
 
                 <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                     {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
+                <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                    {{ $d->tgl_mohonTao_lunar }}</td>
+                {{-- <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                    {{ lunarInChinese($d->tgl_mohonTao_lunar) }}</td> --}}
                 <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
                     class="py-3 text-center    {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                     {{ check_JK($d->gender, $d->umur_sekarang) }}

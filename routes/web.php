@@ -31,6 +31,7 @@ use App\Http\Controllers\CetakController;
 use App\Http\Livewire\Datapelita\Adddata;
 use App\Http\Livewire\Datapelita\Editdata;
 use App\Http\Controllers\menuAddDataController;
+use App\Http\Livewire\Test;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,9 +54,9 @@ Route::get('/', function () {
 
 
 
-    // Route::get('/resetpswd', function() {
-    //     return view('menuResetPassword');
-    // })->name('resetpassword');
+// Route::get('/resetpswd', function() {
+//     return view('menuResetPassword');
+// })->name('resetpassword');
 
 
 
@@ -68,8 +69,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/daftarkelas', Daftarkelaswire::class)->name('daftarkelas');
         Route::get('/branch', Branchwire::class)->name('branchwire');
         Route::get('/absensi', Absensiwire::class)->name('absensi');
-
-
     });
 
     Route::get('/tambahkelas', Tambahkelaswire::class)->middleware(['manager'])->name('tambahkelas');
@@ -77,10 +76,11 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::middleware(['admin'])->group(function () {
-        Route::get('locale/{locale}', function($locale){
+        Route::get('locale/{locale}', function ($locale) {
             Session::put('locale', $locale);
             return redirect()->back();
         });
+        Route::get('/test1', Test::class);
         Route::get('/adddata1/{kode_branch}', Adddata::class)->name('adddata1');
         Route::get('/main1', Data::class)->name('main1');
         Route::get('/main', Tablewire::class)->name('main');
@@ -88,7 +88,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/adddata', Addumatwire::class)->name('adddata');
         Route::get('/editdata/{current_id}', Editumatwire::class)->name('editdata');
         Route::get('/viewdata/{current_id}', Viewumatwire::class)->name('viewdata');
-        Route::get('/umatview', )->name('umatview');
+        Route::get('/umatview',)->name('umatview');
         Route::get('/panditawire', Panditawire::class)->name('panditawire');
         Route::get('/datakotawire', DataKotaWire::class)->name('datakotawire');
         Route::get('/changeprofile', Changeprofilewire::class)->name('changeprofile');
@@ -101,7 +101,5 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/resetumur', [CetakController::class, 'resetumur']);
         Route::get('/updatedAt', [CetakController::class, 'updatedAt']);
         Route::get('/chart', Chartwire::class)->name('chart');
-
-
     });
 });

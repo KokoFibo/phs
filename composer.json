@@ -11,6 +11,7 @@
         "php": "^8.0.2",
         "asantibanez/livewire-charts": "^2.5",
         "barryvdh/laravel-dompdf": "^2.0",
+        "edcpl/laravel-calendar": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "ladumor/laravel-pwa": "^0.0.3",
         "laravel/fortify": "^1.14",
@@ -19,7 +20,8 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.12.3",
         "maatwebsite/excel": "^3.1",
-        "mpdf/mpdf": "^8.1"
+        "mpdf/mpdf": "^8.1",
+        "overtrue/chinese-calendar": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",

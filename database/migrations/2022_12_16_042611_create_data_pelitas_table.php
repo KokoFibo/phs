@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('penjamin');
             $table->foreignId('pandita_id');
             $table->date('tgl_mohonTao')->nullable();
+            $table->date('tgl_mohonTao_lunar')->nullable();
             $table->date('tgl_sd3h')->nullable();
             $table->date('tgl_vtotal')->nullable();
             $table->string('status');
