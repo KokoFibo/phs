@@ -10,11 +10,12 @@
                 {{-- <img class="rounded-2xl" src="{{ asset('img/love-corn.avif') }}"> --}}
             </div>
             <!-- form -->
-            <div class="px-8 md:w-1/2 md:px-16">
+            <div x-data="{ submitButtonDisabled: false }" class="px-8 md:w-1/2 md:px-16">
                 <h2 class="font-bold text-2xl text-[#002D74]">Login</h2>
                 <p class="text-xs mt-4 text-[#002D74]">If you are already a member, easily log in</p>
 
-                <form action="{{ route('login') }}" method="post" class="flex flex-col gap-4 ">
+                <form action="{{ route('login') }}" method="post" class="flex flex-col gap-4 "
+                    x-on:submit="submitButtonDisabled = true">
                     @csrf
                     <input class="p-2 mt-8 border rounded-xl" type="email" name="email" placeholder="Email"
                         value="{{ old('email') }}" autocomplete="off">
@@ -37,7 +38,7 @@
                     @error('password')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
-                    <button type="submit"
+                    <button type="submit" x-bind:disabled="submitButtonDisabled"
                         class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 mt-5">Login</button>
                 </form>
 
