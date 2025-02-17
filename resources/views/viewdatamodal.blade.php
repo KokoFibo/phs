@@ -105,7 +105,8 @@
                             class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
 
                     </div>
-                    <div class="flex gap-3">
+                    <div class="flex gap-3 flex-col md:flex-row">
+
                         <div class="mt-3">
                             <label class="px-2 dark:text-white " for="tgl">{{ __('Tanggal Mohon Tao') }}</label>
                             <input id="tgl" type="text" wire:model="tgl_mohonTao"
