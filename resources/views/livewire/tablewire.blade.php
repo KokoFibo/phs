@@ -408,7 +408,7 @@
                         wire:click=" sortColumnName('nama_alias')">
                         {{ __('ALIAS') }}</th>
                 @endif
-                <th class="w-20 py-3 font-semibold text-left cursor-pointer " wire:click="sortColumnName('mandarin')">
+                <th class="w-24 py-3 font-semibold text-left cursor-pointer " wire:click="sortColumnName('mandarin')">
                     {{ __('中文名') }}</th>
                 <th class="w-20 py-3 font-semibold text-center cursor-pointer "
                     wire:click="sortColumnName('tgl_lahir') ">
@@ -696,7 +696,7 @@
     </div>
     <div class="px-3 mt-3 text-sm dark:text-white">
         {{ $datapelita1->onEachSide(1)->links() }}
-        <h5>* Silakan double-click di baris untuk melihat detail data</h5>
+        <h5>* Silakan double click baris untuk melihat detail data</h5>
     </div>
     <hr class="invisible mt-3 ">
 
