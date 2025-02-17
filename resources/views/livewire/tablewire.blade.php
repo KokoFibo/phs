@@ -696,7 +696,7 @@
     </div>
     <div class="px-3 mt-3 text-sm dark:text-white">
         {{ $datapelita1->onEachSide(1)->links() }}
-
+        <h5>* Silakan double click di baris untuk melihat detail data</h5>
     </div>
     <hr class="invisible mt-3 ">
 
