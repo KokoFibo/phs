@@ -105,10 +105,18 @@
                             class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" disabled>
 
                     </div>
-                    <div class="mt-3">
-                        <label class="px-2 dark:text-white " for="tgl">{{ __('Tanggal Mohon Tao') }}</label>
-                        <input id="tgl" type="text" wire:model="tgl_mohonTao"
-                            class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                    <div class="flex gap-3">
+                        <div class="mt-3">
+                            <label class="px-2 dark:text-white " for="tgl">{{ __('Tanggal Mohon Tao') }}</label>
+                            <input id="tgl" type="text" wire:model="tgl_mohonTao"
+                                class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        </div>
+                        <div class="mt-3">
+                            <label class="px-2 dark:text-white "
+                                for="tgl">{{ __('Tanggal Mohon Tao (Imlek)') }}</label>
+                            <input id="tgl" type="text" wire:model="tgl_chinese_view"
+                                class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                        </div>
                     </div>
                     <div class="mt-3">
                         <label class="px-2 dark:text-white " for="pengajak">{{ __('Pengajak') }}</label>

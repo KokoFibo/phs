@@ -39,7 +39,7 @@ function lunarInChinese($date)
     //   'ganzhi_year' => $lunar['ganzhi_year'] ?? 'Tidak tersedia',
     // ];
 
-    return $lunar['lunar_year_chinese'] . ' ' . $lunar['lunar_month_chinese'] . ' ' . $lunar['lunar_day_chinese'];
+    return '西元' .  $lunar['lunar_year_chinese'] . '年歲次' . $lunar['ganzhi_year'] . $lunar['lunar_month_chinese'] .  $lunar['lunar_day_chinese'] . '日';
   } catch (\Exception $e) {
 
     return '';

@@ -47,7 +47,7 @@ class Tablewire extends Component
     protected $listeners = ['delete'];
     // protected $listeners = ['resetfilter'];
     public $group_id;
-    public $dataview_nama_umat, $nomorid;
+    public $dataview_nama_umat, $nomorid, $tgl_chinese_view;
 
     public $isTambahKolom = 0, $kolomAlamat, $kolomKota, $kolomPandita, $kolomAlias, $kolomTelepon, $kolomHandphone, $kolomEmail = 0;
     public $kolomSd3h = 0, $kolomVTotal = 0, $kolomStatus = 0, $kolomKeterangan = 0;
@@ -75,6 +75,7 @@ class Tablewire extends Component
             $this->pandita_id = $dataview->pandita_id;
             $this->tgl_mohonTao = date('d M Y', strtotime($dataview->tgl_mohonTao));
             $this->tgl_mohonTao_lunar = $dataview->tgl_mohonTao_lunar;
+            $this->tgl_chinese_view = lunarInChinese($this->tgl_mohonTao_lunar);
             if ($dataview->tgl_sd3h != null) {
                 $this->tgl_sd3h1 = date('d M Y', strtotime($dataview->tgl_sd3h));
             } else {
@@ -127,12 +128,12 @@ class Tablewire extends Component
 
 
         switch ($nama_kategori) {
-            case '中文名':
-                $this->category = "data_pelitas.mandarin";
-                break;
-            case 'Alias':
-                $this->category = "data_pelitas.nama_alias";
-                break;
+                // case '中文名':
+                //     $this->category = "data_pelitas.mandarin";
+                //     break;
+                // case 'Alias':
+                //     $this->category = "data_pelitas.nama_alias";
+                //     break;
             case 'Nama':
                 $this->category = "data_pelitas.nama_umat";
                 break;
@@ -303,42 +304,48 @@ class Tablewire extends Component
             ->join('data_pelitas', 'branches.id', '=', 'data_pelitas.branch_id')
             ->join('kotas', 'data_pelitas.kota_id', '=', 'kotas.id')
             ->join('panditas', 'data_pelitas.pandita_id', '=', 'panditas.id')
-            ->select('groupviharas.*', 'branches.*', 'data_pelitas.*', 'panditas.nama_pandita', 'kotas.nama_kota')
-            ->orderBy($this->columnName, $this->direction)
+            ->select(
+                'groupviharas.*',
+                'branches.*',
+                'data_pelitas.*',
+                'panditas.nama_pandita',
+                'kotas.nama_kota'
+            )
+            ->orderBy($this->columnName, $this->direction);
 
-            ->where($this->category, 'like', '%' . trim($this->search) . '%')
-
-            ->when($this->group_id, function ($query) {
-                $query->where('groupviharas.id', $this->group_id);
-            })
-            ->when($this->branch_id, function ($query) {
-                $query->where('data_pelitas.branch_id', $this->branch_id);
-            })
-            ->when($this->startUmur, function ($query) {
-                $query->whereYear('data_pelitas.tgl_lahir', '<=', hitungStartEndUmur($this->startUmur));
-            })
-
-            ->when($this->endUmur, function ($query) {
-                $query->whereYear('data_pelitas.tgl_lahir', '>=', hitungStartEndUmur($this->endUmur));
-            })
-            ->when($this->startDate, function ($query) {
-                $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate);
-            })
-            ->when($this->endDate, function ($query) {
-                $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate);
-            })
-            ->when($this->jen_kel, function ($query) {
-                $query->where('data_pelitas.gender',  $this->jen_kel);
-            })
-            ->when($this->status, function ($query) {
-                $query->where('data_pelitas.status',  $this->status);
-            })
-            ->when($this->tgl_sd3h, function ($query) {
-                $query->where('data_pelitas.tgl_sd3h', '!=', null);
-            })
-            ->when($this->tgl_vtotal, function ($query) {
-                $query->where('data_pelitas.tgl_vtotal',  '!=', null);
+        // Pengecekan kategori sebelum query
+        if ($this->category == "data_pelitas.nama_umat") {
+            $datapelita->where(function ($query) {
+                $query->where('data_pelitas.nama_umat', 'like', '%' . trim($this->search) . '%')
+                    ->orWhere('data_pelitas.nama_alias', 'like', '%' . trim($this->search) . '%')
+                    ->orWhere('data_pelitas.mandarin', 'like', '%' . trim($this->search) . '%');
             });
+        } else {
+            $datapelita->where($this->category, 'like', '%' . trim($this->search) . '%');
+        }
+
+        // Filter tambahan berdasarkan kondisi
+        $datapelita->when($this->group_id, function ($query) {
+            $query->where('groupviharas.id', $this->group_id);
+        })->when($this->branch_id, function ($query) {
+            $query->where('data_pelitas.branch_id', $this->branch_id);
+        })->when($this->startUmur, function ($query) {
+            $query->whereYear('data_pelitas.tgl_lahir', '<=', hitungStartEndUmur($this->startUmur));
+        })->when($this->endUmur, function ($query) {
+            $query->whereYear('data_pelitas.tgl_lahir', '>=', hitungStartEndUmur($this->endUmur));
+        })->when($this->startDate, function ($query) {
+            $query->where('data_pelitas.tgl_mohonTao', '>=', $this->startDate);
+        })->when($this->endDate, function ($query) {
+            $query->where('data_pelitas.tgl_mohonTao', '<=', $this->endDate);
+        })->when($this->jen_kel, function ($query) {
+            $query->where('data_pelitas.gender', $this->jen_kel);
+        })->when($this->status, function ($query) {
+            $query->where('data_pelitas.status', $this->status);
+        })->when($this->tgl_sd3h, function ($query) {
+            $query->whereNotNull('data_pelitas.tgl_sd3h');
+        })->when($this->tgl_vtotal, function ($query) {
+            $query->whereNotNull('data_pelitas.tgl_vtotal');
+        });
 
 
         $data_branch = Branch::find(Auth::user()->branch_id);

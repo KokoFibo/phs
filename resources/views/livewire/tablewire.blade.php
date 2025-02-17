@@ -35,14 +35,14 @@
                             <button type="button" wire:click="getCategory('Nama')"
                                 class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Nama') }}</button>
                         </li>
-                        <li>
+                        {{-- <li>
                             <button type="button" wire:click="getCategory('Alias')"
                                 class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Alias') }}</button>
                         </li>
                         <li>
                             <button type="button" wire:click="getCategory('中文名')"
                                 class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('中文名') }}</button>
-                        </li>
+                        </li> --}}
                         <li>
                             <button type="button" wire:click="getCategory('Pengajak')"
                                 class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Pengajak') }}</button>
@@ -419,7 +419,7 @@
                 <th class="font-semibold text-left cursor-pointer w-28 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao')">
                     {{ __('MOHON TAO') }}</th>
-                <th class="font-semibold text-left cursor-pointer w-28 py-30 "
+                <th class="font-semibold text-left cursor-pointer w-56 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao_lunar')">
                     {{ __('MOHON TAO (Imlek)') }}</th>
                 <th class="w-20 py-3 font-semibold text-center cursor-pointer" wire:click="sortColumnName('gender')">
@@ -434,10 +434,10 @@
                         wire:click="sortColumnName('nama_pandita')">
                         {{ __('PANDITA') }}</th>
                 @endif
-                <th class="w-40 py-3 font-semibold text-left cursor-pointer"
+                <th class="w-64 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_branch')">
                     {{ __('CETYA') }}</th>
-                <th class="w-40 py-3 font-semibold text-left cursor-pointer"
+                <th class="w-56 py-3 font-semibold text-left cursor-pointer"
                     wire:click="sortColumnName('nama_group')">
                     {{ __('GROUP') }}</th>
 
@@ -702,5 +702,10 @@
 
     {{-- End Table --}}
 
-
+    <style>
+        td,
+        th {
+            white-space: nowrap;
+        }
+    </style>
 </div>
