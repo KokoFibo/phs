@@ -421,7 +421,7 @@
                     {{ __('MOHON TAO') }}</th>
                 <th class="font-semibold text-left cursor-pointer w-28 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao_lunar')">
-                    {{ __('MOHON TAO (Lunar)') }}</th>
+                    {{ __('MOHON TAO (Imlek)') }}</th>
                 <th class="w-20 py-3 font-semibold text-center cursor-pointer" wire:click="sortColumnName('gender')">
                     {{ __('GENDER') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('pengajak')">
