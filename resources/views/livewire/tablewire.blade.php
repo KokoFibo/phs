@@ -566,10 +566,10 @@
 
                 <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                     {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
-                <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ $d->tgl_mohonTao_lunar }}</td>
                 {{-- <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ lunarInChinese($d->tgl_mohonTao_lunar) }}</td> --}}
+                    {{ $d->tgl_mohonTao_lunar }}</td> --}}
+                <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                    {{ lunarInChinese($d->tgl_mohonTao_lunar) }}</td>
                 <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
                     class="py-3 text-center    {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                     {{ check_JK($d->gender, $d->umur_sekarang) }}

@@ -15,8 +15,8 @@ class Editumatwire extends Component
 
     public $nama, $query,  $nama_pengajak, $nama_penjamin, $kode_branch, $current_id;
     public $nama_umat, $nama_alias, $mandarin,  $tgl_lahir, $alamat, $kota_id, $telp, $hp;
-    public $email, $gender, $tgl_mohonTao, $tgl_sd3h, $tgl_vtotal, $pandita_id,  $pengajak, $penjamin, $status, $branch_id;
-    public $umur_sekarang, $keterangan;
+    public $email, $gender, $tgl_mohonTao, $tgl_mohonTao_lunar, $tgl_sd3h, $tgl_vtotal, $pandita_id,  $pengajak, $penjamin, $status, $branch_id;
+    public $umur_sekarang, $keterangan, $tanggal_imlek;
     protected $rules = [
         'nama_umat' => 'required',
         'nama_alias' => 'nullable',
@@ -38,39 +38,53 @@ class Editumatwire extends Component
         'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_sd3h|before:tomorrow|prohibited_if:tgl_sd3h,=,null',
         'status' => 'nullable',
         'keterangan' => 'nullable',
-];
+    ];
 
-public function updated($fields) {
+    public function updated($fields)
+    {
         $this->validateOnly($fields);
-}
+    }
 
-    public function mount ($current_id) {
+    public function updatedTglMohonTao()
+    {
+        try {
+            $this->tgl_mohonTao_lunar = convertToLunar($this->tgl_mohonTao);
+            $this->tanggal_imlek = lunarInChinese(date('Y-m-d', strtotime($this->tgl_mohonTao_lunar)));
+        } catch (\Exception $e) {
+            $this->tgl_mohonTao_lunar = '';
+        }
+        // $this->tgl_mohonTao = Carbon::now()->format('Y-m-d');
+    }
+
+    public function mount($current_id)
+    {
         $this->current_id = $current_id;
         $data = DataPelita::find($this->current_id);
-         $this->branch_id = $data->branch_id;
-          $this->nama_umat = $data->nama_umat;
-          $this->nama_alias = $data->nama_alias;
-          $this->mandarin = $data->mandarin;
-          $this->gender = $data->gender;
-          $this->tgl_lahir = $data->tgl_lahir;
-          $this->umur_sekarang = $data->umur_sekarang;
-          $this->alamat = $data->alamat;
-          $this->kota_id = $data->kota_id;
-          $this->telp = $data->telp;
-          $this->hp = $data->hp;
-          $this->email = $data->email;
-          $this->pengajak = $data->pengajak;
-          $this->penjamin = $data->penjamin;
-          $this->pandita_id = $data->pandita_id;
-          $this->tgl_mohonTao = $data->tgl_mohonTao;
-          $this->tgl_sd3h = $data->tgl_sd3h;
-          $this->tgl_vtotal = $data->tgl_vtotal;
+        $this->branch_id = $data->branch_id;
+        $this->nama_umat = $data->nama_umat;
+        $this->nama_alias = $data->nama_alias;
+        $this->mandarin = $data->mandarin;
+        $this->gender = $data->gender;
+        $this->tgl_lahir = $data->tgl_lahir;
+        $this->umur_sekarang = $data->umur_sekarang;
+        $this->alamat = $data->alamat;
+        $this->kota_id = $data->kota_id;
+        $this->telp = $data->telp;
+        $this->hp = $data->hp;
+        $this->email = $data->email;
+        $this->pengajak = $data->pengajak;
+        $this->penjamin = $data->penjamin;
+        $this->pandita_id = $data->pandita_id;
+        $this->tgl_mohonTao = $data->tgl_mohonTao;
+        $this->tgl_mohonTao_lunar = $data->tgl_mohonTao_lunar;
+        $this->tgl_sd3h = $data->tgl_sd3h;
+        $this->tgl_vtotal = $data->tgl_vtotal;
         $this->status = $data->status;
         $this->keterangan = $data->keterangan;
+        $this->tanggal_imlek = lunarInChinese($this->tgl_mohonTao_lunar);
 
         $query = "";
         $nama = [];
-
     }
 
 
@@ -78,7 +92,8 @@ public function updated($fields) {
     // public function getData
 
 
-    public function update () {
+    public function update()
+    {
         $validatedData = $this->validate();
         session()->flash('message', '');
 
@@ -103,6 +118,7 @@ public function updated($fields) {
         $data_umat->penjamin = Str::title($this->penjamin);
         $data_umat->pandita_id = $this->pandita_id;
         $data_umat->tgl_mohonTao = $this->tgl_mohonTao;
+        $data_umat->tgl_mohonTao_lunar = convertToLunar($this->tgl_mohonTao);
 
         $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
         $data_umat->tgl_vtotal = empty($this->tgl_vtotal) ?  null : $this->tgl_vtotal;
@@ -117,23 +133,23 @@ public function updated($fields) {
 
         $data_umat->save();
 
-         // update data kota_is_Used
-         $data_kota = Kota::find($this->kota_id);
-         $data_kota->kota_is_used = true;
-         $data_kota->save();
+        // update data kota_is_Used
+        $data_kota = Kota::find($this->kota_id);
+        $data_kota->kota_is_used = true;
+        $data_kota->save();
 
 
-         // update data Pandita_is_Used
-         $data_pandita = Pandita::find($this->pandita_id);
-         $data_pandita->pandita_is_used = true;
-         $data_pandita->save();
+        // update data Pandita_is_Used
+        $data_pandita = Pandita::find($this->pandita_id);
+        $data_pandita->pandita_is_used = true;
+        $data_pandita->save();
 
-         // update data branch_is_Used
-         $data_branch = Branch::find($this->branch_id);
-         $data_branch->branch_is_used = true;
-         $data_branch->save();
+        // update data branch_is_Used
+        $data_branch = Branch::find($this->branch_id);
+        $data_branch->branch_is_used = true;
+        $data_branch->save();
 
-         $this->dispatchBrowserEvent('success', ['message' => 'Data Umat Sudah di Update']);
+        $this->dispatchBrowserEvent('success', ['message' => 'Data Umat Sudah di Update']);
 
         // session()->flash('message', 'Data Umat Sudah di update');
 
@@ -141,26 +157,27 @@ public function updated($fields) {
         $this->redirect(route("main"));
     }
 
-    public function  clear_fields() {
+    public function  clear_fields()
+    {
 
         // $this->branch_id= $this->defaultBranch_id;
-        $this->nama_umat='';
-        $this->nama_alias='';
-        $this->mandarin='';
-        $this->gender='';
-        $this->tgl_lahir='';
-        $this->umur_sekarang='';
-        $this->alamat='';
-        $this->kota_id='';
-        $this->telp='';
-        $this->hp='';
-        $this->email='';
-        $this->pengajak='';
-        $this->penjamin='';
-        $this->pandita_id='';
-        $this->tgl_mohonTao='';
-        $this->tgl_sd3h='';
-        $this->tgl_vtotal='';
+        $this->nama_umat = '';
+        $this->nama_alias = '';
+        $this->mandarin = '';
+        $this->gender = '';
+        $this->tgl_lahir = '';
+        $this->umur_sekarang = '';
+        $this->alamat = '';
+        $this->kota_id = '';
+        $this->telp = '';
+        $this->hp = '';
+        $this->email = '';
+        $this->pengajak = '';
+        $this->penjamin = '';
+        $this->pandita_id = '';
+        $this->tgl_mohonTao = '';
+        $this->tgl_sd3h = '';
+        $this->tgl_vtotal = '';
     }
 
     public function render()
@@ -169,8 +186,8 @@ public function updated($fields) {
         $datakota = Kota::orderBy('nama_kota', 'asc')->get();
         $databranch = Branch::orderBy('nama_branch', 'asc')->get();
         return view('livewire.editumatwire', compact(['datapandita', 'datakota', 'databranch']))
-        // ->extends('layouts.secondMain')
-        ->extends('layouts.main')
-        ->section('content');
+            // ->extends('layouts.secondMain')
+            ->extends('layouts.main')
+            ->section('content');
     }
 }

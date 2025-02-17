@@ -20,7 +20,7 @@ class Addumatwire extends Component
     public $email, $gender, $tgl_mohonTao, $tgl_mohonTao_lunar, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status = "Active", $branch_id;
     public $umur_sekarang;
     public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota, $selectPandita, $selectedPandita;
-
+    public $tanggal_imlek;
     public function mount()
     {
         $this->selectedGroup = Auth::user()->groupvihara_id;
@@ -37,12 +37,24 @@ class Addumatwire extends Component
         $nama = [];
         $this->tgl_mohonTao = Carbon::now()->format('Y-m-d');
         $this->tgl_mohonTao_lunar = convertToLunar($this->tgl_mohonTao);
+        $this->tanggal_imlek = lunarInChinese(date('Y-m-d', strtotime($this->tgl_mohonTao_lunar)));
     }
     public function updatedSelectedGroup()
     {
 
         $this->selectBranch = Branch::where('groupvihara_id', $this->selectedGroup)->get();
         $this->selectedBranch = $this->selectBranch[0]->id;
+    }
+
+    public function updatedTglMohonTao()
+    {
+        try {
+            $this->tgl_mohonTao_lunar = convertToLunar($this->tgl_mohonTao);
+            $this->tanggal_imlek = lunarInChinese(date('Y-m-d', strtotime($this->tgl_mohonTao_lunar)));
+        } catch (\Exception $e) {
+            $this->tgl_mohonTao_lunar = '';
+        }
+        // $this->tgl_mohonTao = Carbon::now()->format('Y-m-d');
     }
 
     protected $rules = [

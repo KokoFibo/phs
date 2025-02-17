@@ -139,13 +139,24 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="mt-7">
-                <label class="px-2 dark:text-white " for="tgl">{{ __('Tanggal Mohon Tao') }}</label>
-                <input id="tgl" type="date" wire:model="tgl_mohonTao"
-                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                @error('tgl_mohonTao')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
+            <div class="mt-7 flex gap-2">
+                <div>
+
+                    <label class="px-2 dark:text-white " for="tgl">{{ __('Tanggal Mohon Tao') }}</label>
+                    <input id="tgl" type="date" wire:model.live="tgl_mohonTao"
+                        class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                    @error('tgl_mohonTao')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div>
+
+                    <label class="px-2 dark:text-white " for="tgl">{{ __('Tanggal Mohon Tao (Imlek)') }}</label>
+                    <input id="tgl" type="text" wire:model.live="tanggal_imlek"disabled
+                        class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-900 disabled:shadow-none">
+
+                </div>
+
             </div>
             {{-- <div class="relative mt-3" x-data="{ pengajak: false }">
                         <label class="px-2 dark:text-white " for="pengajak">{{ __('Pengajak') }}</label>
