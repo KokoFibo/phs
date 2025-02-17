@@ -9,7 +9,7 @@ class Test extends Component
 {
     public function render()
     {
-        $date = "2025/02/17";
+        $date = "2018/01/29";
         // dd(convertToLunar($date));
         // $data = DataPelita::select(['id', 'tgl_mohonTao', 'tgl_mohonTao_lunar'])->get();
         // foreach ($data as $d) {
