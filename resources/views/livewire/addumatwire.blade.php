@@ -27,7 +27,6 @@
         </div>
 
     </div>
-
     <div
         class="flex flex-col items-center w-full py-3 my-2 mb-3 shadow lg:flex-row justify-evenly lg:mx-auto lg:w-3/4 shadow-purple-300 bg-purple-50 rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:text-white">
 
@@ -194,12 +193,12 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="mt-3 flex">
+            <div class="mt-3 flex gap-2">
                 <div>
 
                     <label class="px-2 dark:text-white" for="tgl">{{ __('Tanggal Mohon Tao') }}</label><span
                         class="text-red-500">*</span>
-                    <input type="date" wire:model="tgl_mohonTao"
+                    <input type="date" wire:model.live="tgl_mohonTao"
                         class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
                     @error('tgl_mohonTao')
                         <span class="text-red-500">{{ $message }}</span>
@@ -209,11 +208,10 @@
                     <label class="px-2 dark:text-white"
                         for="tgl">{{ __('Tanggal Mohon Tao (Imlek)') }}</label><span
                         class="text-red-500">*</span>
-                    <input type="date" wire:model="tgl_mohonTao_lunar" disabled
-                        class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500">
-                    @error('tgl_mohonTao_lunar')
-                        <span class="text-red-500">{{ $message }}</span>
-                    @enderror
+                    <input type="text" wire:model.live="tanggal_imlek" disabled
+                        class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-900 disabled:shadow-none">
+
+
                 </div>
             </div>
             {{-- <div class="relative mt-3" x-data="{ pengajak: false }">

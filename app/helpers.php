@@ -11,32 +11,39 @@ use App\Models\Daftarkelas;
 use App\Models\Groupvihara;
 use Overtrue\ChineseCalendar\Calendar;
 
+
+
 function lunarInChinese($date)
 {
-  $calendar = new Calendar();
+  try {
 
-  // Ubah format tanggal ke integer (tahun, bulan, hari)
-  $timestamp = strtotime($date);
-  $year = (int)date('Y', $timestamp);
-  $month = (int)date('m', $timestamp);
-  $day = (int)date('d', $timestamp);
+    // Ubah format tanggal ke integer (tahun, bulan, hari)
+    $timestamp = strtotime($date);
+    $year = (int)date('Y', $timestamp);
+    $month = (int)date('m', $timestamp);
+    $day = (int)date('d', $timestamp);
+    $calendar = new Calendar();
 
-  // Konversi ke lunar
-  $lunar = $calendar->lunar($year, $month, $day);
+    // Konversi ke lunar
+    $lunar = $calendar->lunar($year, $month, $day);
 
-  // Cek isi array hasil konversi
-  // print_r($lunar); // Tambahkan ini untuk debugging
+    // Cek isi array hasil konversi
+    // print_r($lunar); // Tambahkan ini untuk debugging
 
-  // return [
-  //   'year' => $lunar['lunar_year'] ?? null,
-  //   'month' => $lunar['lunar_month'] ?? null,
-  //   'day' => $lunar['lunar_day'] ?? null,
-  //   'is_leap' => $lunar['is_leap'] ?? null,
-  //   'zodiac' => $lunar['animal'] ?? 'Tidak tersedia', // Hindari error dengan default value
-  //   'ganzhi_year' => $lunar['ganzhi_year'] ?? 'Tidak tersedia',
-  // ];
+    // return [
+    //   'year' => $lunar['lunar_year'] ?? null,
+    //   'month' => $lunar['lunar_month'] ?? null,
+    //   'day' => $lunar['lunar_day'] ?? null,
+    //   'is_leap' => $lunar['is_leap'] ?? null,
+    //   'zodiac' => $lunar['animal'] ?? 'Tidak tersedia', // Hindari error dengan default value
+    //   'ganzhi_year' => $lunar['ganzhi_year'] ?? 'Tidak tersedia',
+    // ];
 
-  return $lunar['lunar_year_chinese'] . ' ' . $lunar['lunar_month_chinese'] . ' ' . $lunar['lunar_day_chinese'];
+    return $lunar['lunar_year_chinese'] . ' ' . $lunar['lunar_month_chinese'] . ' ' . $lunar['lunar_day_chinese'];
+  } catch (\Exception $e) {
+
+    return '';
+  }
 }
 
 
@@ -66,6 +73,10 @@ function convertToLunar($date)
   // ];
 
   return $lunar['lunar_year'] . '-' . $lunar['lunar_month'] . '-' . $lunar['lunar_day'];
+  try {
+  } catch (\Exception $e) {
+    return '';
+  }
 }
 
 

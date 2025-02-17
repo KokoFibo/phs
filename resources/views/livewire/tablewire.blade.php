@@ -421,7 +421,7 @@
                     {{ __('MOHON TAO') }}</th>
                 <th class="font-semibold text-left cursor-pointer w-28 py-30 "
                     wire:click="sortColumnName('tgl_mohonTao_lunar')">
-                    {{ __('MOHON TAO (Lunar)') }}</th>
+                    {{ __('MOHON TAO (Imlek)') }}</th>
                 <th class="w-20 py-3 font-semibold text-center cursor-pointer" wire:click="sortColumnName('gender')">
                     {{ __('GENDER') }}</th>
                 <th class="w-40 py-3 font-semibold text-left cursor-pointer" wire:click="sortColumnName('pengajak')">
@@ -566,10 +566,10 @@
 
                 <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
                     {{ \Carbon\Carbon::parse($d->tgl_mohonTao)->format('d M Y') }}</td>
-                <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ $d->tgl_mohonTao_lunar }}</td>
                 {{-- <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
-                    {{ lunarInChinese($d->tgl_mohonTao_lunar) }}</td> --}}
+                    {{ $d->tgl_mohonTao_lunar }}</td> --}}
+                <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})" class="py-3 ">
+                    {{ lunarInChinese($d->tgl_mohonTao_lunar) }}</td>
                 <td @dblclick="openModal=true" wire:click="viewdata({{ $d->id }})"
                     class="py-3 text-center    {{ $d->gender == '1' ? 'text-blue-500 text-lg' : 'text-pink-500 text-lg' }} text-center">
                     {{ check_JK($d->gender, $d->umur_sekarang) }}
