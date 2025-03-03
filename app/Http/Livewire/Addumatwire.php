@@ -20,7 +20,7 @@ class Addumatwire extends Component
     public $email, $gender, $tgl_mohonTao, $tgl_mohonTao_lunar, $tgl_sd3h, $tgl_vtotal, $pandita_id, $status = "Active", $branch_id;
     public $umur_sekarang;
     public $selectedGroup, $selectGroup, $selectBranch, $selectKota,  $selectedBranch, $selectedKota, $selectPandita, $selectedPandita;
-    public $tanggal_imlek;
+    public $tanggal_imlek, $keterangan;
     public function mount()
     {
         $this->selectedGroup = Auth::user()->groupvihara_id;
@@ -79,6 +79,7 @@ class Addumatwire extends Component
         'tgl_vtotal' => 'nullable|date|after_or_equal:tgl_sd3h|before:tomorrow|prohibited_if:tgl_sd3h,=,null',
 
         'status' => 'nullable',
+        'keterangan' => 'nullable',
 
 
     ];
@@ -136,6 +137,8 @@ class Addumatwire extends Component
         $data_umat->tgl_mohonTao_lunar = empty($this->tgl_mohonTao_lunar) ?  convertToLunar($data_umat->tgl_mohonTao) : $this->tgl_mohonTao_lunar;
         $data_umat->tgl_sd3h = empty($this->tgl_sd3h) ?  null : $this->tgl_sd3h;
         $data_umat->tgl_vtotal = empty($this->tgl_vtotal) ?  null : $this->tgl_vtotal;
+        $data_umat->keterangan = $this->keterangan;
+
 
 
         $data_umat->status = 'Active';
@@ -189,7 +192,8 @@ class Addumatwire extends Component
         $this->tgl_sd3h = '';
         $this->tgl_vtotal = '';
         $this->tgl_mohonTao = Carbon::now()->format('Y-m-d');
-        $this->tgl_mohonTao_lunar = convertToLunar($this->tgl_mohonTao);;
+        $this->tgl_mohonTao_lunar = convertToLunar($this->tgl_mohonTao);
+        $this->keterangan = '';
     }
 
 

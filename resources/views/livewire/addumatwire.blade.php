@@ -151,6 +151,16 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="mt-3">
+                <label class="px-2 dark:text-white " for="keterangan">{{ __('Keterangan') }}</label>
+                <textarea class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500" rows="2"
+                    wire:model="keterangan"></textarea>
+                {{-- <input id="keterangan" type="text" placeholder="082112345678" wire:model="hp"
+                    class="w-full rounded-lg shadow-sm focus:border-purple-500 focus:ring-purple-500"> --}}
+                @error('keterangan')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
+            </div>
 
 
 
@@ -318,7 +328,7 @@
                 @enderror
             </div>
 
-            <div class="flex items-center justify-between w-full mt-10">
+            <div class="flex items-center justify-between w-full mt-14">
                 <div>
                     <button class="button button-teal" wire:click="store">{{ __('Save') }}</button>
                 </div>
